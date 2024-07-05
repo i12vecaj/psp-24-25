@@ -1,6 +1,6 @@
 ![lope_logo](https://www.ceslopedevega.com/wp-content/uploads/2020/03/pruebalogo.svg_.png)
 
-# Programación de Servicios y Procesos - 2022/2023
+# Programación de Servicios y Procesos - 2024/2025
 
 Repositorio para el seguimiento y evaluación de la asignatura Programación de Servicios y Procesos.
 [CFGS Desarrollo de Aplicaciones Multiplaforma.](https://www.ceslopedevega.com/grado-superior-desarrollo-de-aplicaciones-multiplataforma/)
