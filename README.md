@@ -45,13 +45,12 @@ El desarrollo del módulo profesional se basará en el uso de tecnologías actua
 
 ## Autor
 
-Creado por [Daniel Pérez Rodríguez](https://twitter.com/daniteleco) e inspirado en el trabajo de [José Luis González Sánchez](https://github.com/joseluisgs/ProgServiciosProcesos-00-2021-2022)
+Creado por José David Vela Castro e inspirado en el trabajo de [Daniel Pérez Rodríguez](https://twitter.com/daniteleco) y [José Luis González Sánchez](https://github.com/joseluisgs/ProgServiciosProcesos-00-2021-2022)
 
 ## Contacto
-- Email: [dperez@ceslopedevega.com](mailto:dperez@ceslopedevega.com)
-- LinkedIn: https://www.linkedin.com/in/danielperezrodriguez/
-- GitHub: https://github.com/Lope-de-Vega-Test/
-
+- Email: [jdvela@ceslopedevega.com](mailto:jdvela@ceslopedevega.com)
+- LinkedIn: [https://www.linkedin.com/in/danielperezrodriguez/](https://www.linkedin.com/in/josedavidvela/)
+- GitHub: https://github.com/i12vecaj
 ## Referencias
 
 - https://www.freepik.es/vector-gratis/ilustracion-concepto-redes-sociales_2807771.htm
