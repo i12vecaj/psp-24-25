@@ -35,7 +35,7 @@ El desarrollo del módulo profesional se basará en el uso de tecnologías actua
 
 - [Canal SLACK]
 - [Repositorio Asignatura](https://github.com/i12vecaj/psp-24-25/)
-- [Presentación Asignatura](https://docs.google.com/presentation/d/e/2PACX-1vThgrhL3Xa-ikJbOLEhtFyXF719GTm6M4rSH0FiDisNHK13id7bxeD7FpccvOkjnZFIjf_GfmKF3CFd/pub?start=true&loop=false&delayms=10000&slide=id.gedc4121aa8_0_925)
+- [Presentación Asignatura](https://docs.google.com/presentation/d/16s6Jgh-rD-lL6UgUkmvZofCnC9W-I1fRze-kLdJzP-c/edit?usp=drive_link)
 - Programación Didáctica //TODO
 - [Real Decreto 450-2010 de 16 de abril](https://www.boe.es/buscar/doc.php?id=BOE-A-2010-8067)
 - [BOJA. Orden 16 junio de 2011](https://www.juntadeandalucia.es/boja/2011/142/20)
