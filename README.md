@@ -33,7 +33,7 @@ El desarrollo del módulo profesional se basará en el uso de tecnologías actua
 
 ## Recursos
 
-- [Canal SLACK]
+- [Canal SLACK](https://psp2024-2025.slack.com)
 - [Repositorio Asignatura](https://github.com/i12vecaj/psp-24-25/)
 - [Presentación Asignatura](https://docs.google.com/presentation/d/16s6Jgh-rD-lL6UgUkmvZofCnC9W-I1fRze-kLdJzP-c/edit?usp=drive_link)
 - Programación Didáctica //TODO
