@@ -49,7 +49,7 @@ Creado por José David Vela Castro e inspirado en el trabajo de [Daniel Pérez R
 
 ## Contacto
 - Email: [jdvela@ceslopedevega.com](mailto:jdvela@ceslopedevega.com)
-- LinkedIn: [https://www.linkedin.com/in/danielperezrodriguez/](https://www.linkedin.com/in/josedavidvela/)
+- LinkedIn: [https://www.linkedin.com/in/josedavidvela/](https://www.linkedin.com/in/josedavidvela/)
 - GitHub: https://github.com/i12vecaj
 ## Referencias
 
