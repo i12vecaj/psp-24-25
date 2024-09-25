@@ -2,6 +2,8 @@
 #include <unistd.h>
 #include <stdio.h>
 
+//Sergio Raya
+
 int main() {
     pid_t pid, Hijo_pid;
     int num;
