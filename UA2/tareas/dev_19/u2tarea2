@@ -1,0 +1,99 @@
+package javacuentacorrientealvaro;
+
+import java.util.logging.Level;
+import java.util.ArrayList;
+import java.util.logging.Logger;
+
+//Clase cuentacorriente
+class CuentaCorriente {
+
+    int saldo;
+
+    public CuentaCorriente(int saldo) {
+        this.saldo = saldo;
+    }
+
+    public synchronized int getSaldo() {
+
+        try {
+            Thread.sleep((int) (Math.random() * (1740) + 260));
+        } catch (InterruptedException ex) {
+            Logger.getLogger(CuentaCorriente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return saldo;
+    }
+
+    public synchronized void setSaldo(int saldo) {
+
+        try {
+            Thread.sleep((int) (Math.random() * (1751) + 250));
+        } catch (InterruptedException ex) {
+            Logger.getLogger(CuentaCorriente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        this.saldo = saldo;
+    }
+
+    //Creamos variable para sumar nuevo valor de saldo
+    public synchronized void añadirSaldo(int añadir, String nombre) {
+        System.out.println("Saldo original " + this.saldo);
+
+        this.saldo += añadir;
+
+        System.out.println("NUEVO SALDO: " + this.saldo);
+        System.out.println("Realizado: " + nombre);
+    }
+}
+//clase para los hilos 
+
+class Usuario extends Thread {
+
+    String nombre;
+    int dinero;
+    CuentaCorriente cuenta;
+
+    public Usuario(String nombre, int dinero, CuentaCorriente cuenta) {
+        this.nombre = nombre;
+        this.dinero = dinero;
+        this.cuenta = cuenta;
+    }
+
+    public void run() {
+        cuenta.añadirSaldo(dinero, nombre);
+    }
+}
+
+public class JavaCuentaCorrienteAlvaro {
+
+    public static void main(String[] args) {
+        //Creamos e inicializamos la cuenta a 200
+        CuentaCorriente cuenta = new CuentaCorriente(200);
+
+        //Creamos la lista de hilos que funcionarán en el programa
+        ArrayList<Thread> Hilos = new ArrayList<Thread>();
+
+        for (int i = 0; i < 5; i++) {
+            
+            int dinero = (int) (Math.random() * (121) + 20);
+           
+            Usuario user = new Usuario("Hilo " + i, dinero * i, cuenta);
+            Hilos.add(new Thread(user));
+        }
+        //Inicializamos hilos
+        for (int i = 0; i < Hilos.size(); i++) {
+            Hilos.get(i).start();
+        }
+        //Esperamos a que finalize cada hilo
+        for (int i = 0; i < Hilos.size(); i++) {
+            try {
+                Hilos.get(i).join();
+            } catch (InterruptedException e) {
+            }
+        }
+        
+        System.out.println("Total de saldo de la cuenta " + cuenta.getSaldo());
+  
+    }
+
+}
