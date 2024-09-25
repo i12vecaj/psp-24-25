@@ -1,0 +1,31 @@
+NOMBRE: Javier García Ruiz
+FECHA: 26/10/2022
+
+PARTE TEÓRICA
+
+a) Definición de proceso. 1 punto.  
+Un proceso es un programa que esta en ejecución.
+
+b) Utilizando tus propias palabras, indica la relación entre hilos y procesos. 3 puntos.
+La relación es que los hilos son diferentes procesos que se ejecutan simultáneamente y están conectados entre sí.
+
+c) Utilizando tus propias palabras, indica las características de la programación concurrente y sus ámbitos de aplicación. 3 puntos.
+La programación concurrente permite tener varios procesos en ejecución de manera independiente y soporta dos o más acciones en progreso.
+
+d) Utilizando tus propias palabras, indica las diferencias entre programación paralela y programación distribuida, sus ventajas e inconvenientes. 3 puntos.
+Las diferencias de la programación paralela y la distribuida son:
+    En la programación paralela pueden ejecutarse varios procesos a la vez mientras que en la programación distribuida ambos procesos son ejecutados pero desde diferentes ubicaciones.
+    En la programación paralela varios procesadores pueden estar ejecutandose para diferentes procesos dentro de un mismo ordenador, mientras que en la distribuida se necesitan diferentes ordenadores. 
+
+Ventajas de la programación paralela: 
+    Los procesos pueden ejecutarse a la vez.
+    Más cómodo.
+    
+Ventajas de la programación distribuida:
+    Menos riesgo a que haya una sobrecarga.
+    
+
+    
+
+Notas:
+
