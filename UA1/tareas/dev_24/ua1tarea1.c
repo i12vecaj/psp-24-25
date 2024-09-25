@@ -23,7 +23,7 @@ int main() {
     } else { //Proceso Padre
         num -= 5;
         printf("El resultado del proceso padre es: %d\n", num);
-        Hijo_pid = wait(NULL); //Nos lleva al inicio del fork en la linea 10
+        Hijo_pid = wait(NULL); //Nos lleva al inicio del fork en la linea 12
     }
     
     return 0;
