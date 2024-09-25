@@ -1,1 +1,0 @@
-En el segundo ejercicio, el programa tarda menos en contar los caracteres porque cada hilo lee un fichero mientras que en el primer ejercicio el programa se encarga de leer todos los ficheros.
