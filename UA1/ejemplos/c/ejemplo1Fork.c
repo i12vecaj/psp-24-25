@@ -1,6 +1,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <sys/types.h>
+
 void main() {
   pid_t pid, Hijo_pid;
   pid = fork();
