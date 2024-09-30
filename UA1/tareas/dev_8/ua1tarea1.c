@@ -6,25 +6,32 @@
 
 int main(){
     
-    pid_t pid = fork();
+    pid_t pid;
     int num;
-    printf("Introduce un numero: ");
+
+    printf("introduce un numero: ");
     scanf("%d", &num);
-    printf("El numero introducido es: %d\n", num);
-        
+    printf("el numero introducido es: %d\n", num);
+
+    // jose david el error lo tenia en que pedia el numero despues de hacer el fork cuando lo he situado despues ya funciona correctamente
+    pid = fork();
+
     if(pid == -1){
-        printf("Error a crear el padre");
+        printf("error al crear el proceso hijo\n");
+        return 1;
     }
+
     if(pid == 0){
-        printf("Estamos en el hijo\n");
+        printf("estamos en el hijo\n");
         num = num - 5;
-        printf("El resultado de la resta es%d\n", num);
-    }else{
-        
-        printf("Estamos en el padre\n");
+        printf("el resultado de la resta es: %d\n", num);
+    } else {
+        wait(NULL);
+        printf("estamos en el padre\n");
         num = num + 4;
-        printf("El numero de la suma es: %d\n", num);
-        
+        printf("el resultado de la suma es: %d\n", num);
     }
-    return 1;
+    
+    return EXIT_SUCCESS;
+
 }
