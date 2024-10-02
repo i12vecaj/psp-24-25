@@ -1,0 +1,33 @@
+Lo primero que contiene el codigo es la inclusion de las bibliotecas
+<stdio.h>: Proporciona funciones para la entrada y salida estándar, como printf y scanf.
+<unistd.h>: Contiene la declaración de la función fork(), que es lo principal de este codigo
+<sys/types.h>: Define tipos de datos usados en la programación de sistemas.
+
+La función main() es el inicio del programa.
+
+Declaración de Variables
+
+pid_t pid: Variable para almacenar el identificador del proceso del fork.
+int variable: Variable que almacenará el número ingresado por el usuario.
+
+Almacenamiendo de la variable del usuario
+
+printf: Muestra un mensaje en la consola solicitando al usuario que ingrese un número entero.
+scanf: Lee el número añadido por el usuario y lo almacena en la variable variable.
+
+Creación del Proceso fork
+
+fork(): Crea un nuevo proceso (hijo) y devuelve:
+Un valor menor que 0 si hay un error en la creación del proceso.
+0 si se encuentra en el proceso hijo.
+Un valor mayor que 0 que es el proceso padre.
+
+Se verifica si pid es menor que 0, si es menor que 0 se indica un error en la creación del proceso. 
+Si pid es 0, significa que estamos en el proceso hijo.
+Se incrementa variable en 4 y se imprime el resultado.
+si pid es mayor que 0 significa que estamos en el proceso padre
+se reduce la variable en 5 y se imprime el resultado
+
+Finalizacion del programa
+
+el programa finaliza devolviendo 0
