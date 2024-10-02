@@ -21,7 +21,7 @@ int main() {
     }
 
     if (pid == 0) {
-        variable += 4;
+        numero += 4;
         printf("Proceso hijo: Valor después de sumar 4: %d\n", numero);
         exit(numero);
     } else {
