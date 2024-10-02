@@ -30,7 +30,7 @@ int main() {
     if (pid < 0) 
     
     {
-        // Control de error: Si fork() falla
+        // Control de error
         perror("Error al crear el proceso hijo");
         return EXIT_FAILURE;
     } 
@@ -39,7 +39,7 @@ int main() {
     {
         // Este es el proceso hijo
         var += 4; // Sumar 4 a la variable
-        printf("Proceso hijo %d\n", getpid(), var);
+        printf("Proceso hijo(Pid-%d): %d\n", getpid(), var);
         exit(EXIT_SUCCESS);
     } 
     
@@ -47,7 +47,7 @@ int main() {
         // Este es el proceso padre
         wait(NULL); 
         var -= 5; //Restar 5 a la variable
-        printf("Proceso padre %d\n", getpid(), var);
+        printf("Proceso padre(Pid-%d): %d\n", getpid(), var);
     }
 
     return EXIT_SUCCESS;
