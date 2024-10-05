@@ -10,12 +10,12 @@ int main(int argc, char *argv[])
 
 	if ( (pid=fork()) == 0 )
 	{ /* hijo */
-   	  printf("Soy el hijo (%d, hijo de %d)\n", getpid(),getppid());
+		printf("Soy el hijo (%d, hijo de %d)\n", getpid(),getppid());
 	}
 	else
 	{ /* padre */
           wait(&status);
-	  printf("Soy el padre (%d, hijo de %d)\n", getpid(),getppid());
+	printf("Soy el padre (%d, hijo de %d)\n", getpid(),getppid());
 	}
 
 	return 0;
