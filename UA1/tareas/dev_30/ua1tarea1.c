@@ -7,7 +7,7 @@
 int main(){
     int valor_usuario, valor_hijo, valor_padre;
     // Le pedimos un valor al usuario
-
+    
     printf("Digame un numero: ");
     scanf("%d",&valor_usuario);
     //Creamos al proceso hijo haciendo uso de la funcion fork;
