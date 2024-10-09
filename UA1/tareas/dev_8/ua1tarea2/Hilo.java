@@ -1,7 +1,14 @@
 import java.util.Scanner;
 
-public class Main {
-    public static void main(String[] args) {
+public class Hilo extends Thread {
+    public void run(){
+        System.out.println("comienza hilo");
+        String resultado;
+        resultado=fcadena();
+        System.out.println("finaliza hilo");
+    }
+
+    public String fcadena(){
         Scanner sc = new Scanner(System.in);
         String cadena="";  // tengo que iniciar la varible porque sino me da error
         System.out.println("Ingrese un texto (para terminar introduce *):");
@@ -20,5 +27,6 @@ public class Main {
         System.out.println(cadena);
 
         sc.close();
+        return cadena;
     }
 }
