@@ -125,7 +125,7 @@ Crea un programa Java que implemente las siguientes Funcionalidades Requeridas (
 ### **EX1 - Examen UA1 - Programación Multiproceso**
 ##### **Criterios a), b), c), d), e) f), g) y h)**
 ```
-Fecha de Examen: xx/10/2024 - 17:45:00
+Fecha de Examen: 16/10/2024 - 16:45:00
 ```
 El examen constará de dos partes:
 * Una primera parte de teoría, centrada sobre todo en los criterios de evaluación b), c) y d).  Serán unas preguntas cortas, donde deberéis responder utilizando vuestras propias palabras.  Para esta parte de teoría daremos un tiempo fijo y no permitiré el acceso a internet salvo para subir el resultado al repositorio.
