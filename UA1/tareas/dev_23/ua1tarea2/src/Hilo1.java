@@ -1,7 +1,12 @@
 import java.util.Scanner;
 
-public class Hilo1{
-    public StringBuilder run(){
+public class Hilo1 extends Thread{
+    @Override
+    public void run(){
+        StringBuilder input = empezar();
+        escribir_input(input);
+    }
+    public StringBuilder empezar(){
         Scanner scanner = new Scanner(System.in);
         StringBuilder input = new StringBuilder();
         char terminationChar = '*'; // Carácter de terminación
@@ -24,5 +29,9 @@ public class Hilo1{
         }
         scanner.close(); // Cerrar el escáner
         return input;
+    }
+    public void escribir_input(StringBuilder input){
+        System.out.println("Cadena ingresada:");
+        System.out.println(input.toString());
     }
 }

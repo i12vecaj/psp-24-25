@@ -1,11 +1,10 @@
 public class Main {
     public static void main(String[] args) {
-        // Crear hilos que leen e imprimen
+        // Crear hilo que lee e imprime
         Hilo1 h1 = new Hilo1();
-        Hilo2 h2 = new Hilo2();
 
-        // Iniciar los hilos, pasamos el primer hilo como argumento del segundo
+        // Iniciar el hilo
+        h1.start();
 
-        h2.run(h1.run());
     }
 }
