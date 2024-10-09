@@ -36,6 +36,4 @@ mj@mj-ubuntu12:~/Escritorio/ProgramasC$ ps
  3586 pts/2    00:00:01 bash
  4044 pts/2    00:00:00 ps
 mj@mj-ubuntu12:~/Escritorio/ProgramasC$ 
-
-
 */

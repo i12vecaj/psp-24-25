@@ -24,7 +24,7 @@ int main(int argc, char const *argv[])
   }
   //Identificamos el valor 1 con un else para mostrarle al usuario que estmaos en el proceso padre
   else{
-    printf("\nEstamos en el proceso pade.\n\t %d - 5 = %d", numero, numero +5);
+    printf("\nEstamos en el proceso pade.\n\t %d - 5 = %d", numero, numero - 5);
   }
   
 
