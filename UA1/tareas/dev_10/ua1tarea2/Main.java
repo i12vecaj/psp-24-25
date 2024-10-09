@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 
 public class Main {
     public static void main(String[] args) {
-    Thread hilo = new Thread(new Progrma1()); 
+    Thread hilo = new Thread(new Programa1()); 
 
     //Iniciamos el ottro programa.
     hilo.start();

@@ -2,7 +2,7 @@ import java.sql.SQLOutput;
 import java.util.Scanner;
 
 //Runnable sirve para poder crear un hilo.
-public class Progrma1 implements Runnable {
+public class Programa1 implements Runnable {
     @Override
     public void run() {
         Scanner scanner = new Scanner(System.in);
