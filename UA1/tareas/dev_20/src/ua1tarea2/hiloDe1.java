@@ -2,7 +2,7 @@ package ua1tarea2;
 
 import java.util.Scanner;
 
-public class hiloDe1 extends Thread{
+public class hiloDe1 implements Runnable{
 
     @Override // utilizo el override puesto que nuestra clase extiende de Thread
     public void run(){ // Llamo al constructor del hilo
