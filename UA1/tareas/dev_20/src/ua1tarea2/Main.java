@@ -6,7 +6,7 @@ public class Main{
         // Primero instancio un objeto de la clase Thread el cual tiene como argumento en su constructor
         // una instancia del hilo
 
-        Thread hiloDeLosUno = new Thread(new hiloDe1());
+        Thread hiloDeLosUno = new Thread(new Hilo());
 
         // Arranco el hilo
 
