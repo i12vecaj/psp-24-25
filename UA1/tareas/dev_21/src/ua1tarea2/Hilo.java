@@ -1,7 +1,7 @@
 package ua1tarea2;
 
 import java.util.Scanner;
-class Hilo extends Thread{
+public class Hilo extends Thread{
     @Override
     public void run(){
         Scanner scanner =new Scanner(System.in);
