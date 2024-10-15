@@ -1,4 +1,4 @@
-package Ejemplos_clase;
+package Ejercicios_Java.Tarea2;
 
 import java.util.Scanner;
 
