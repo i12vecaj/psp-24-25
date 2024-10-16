@@ -1,0 +1,37 @@
+////**** --------------------------------------------------------------- PREGUNTAS --------------------------------------------------------------- ****\\\\
+a) Definición de proceso. Ilustra tu solución con un ejemplo. 1 punto.
+
+b) Utilizando tus propias palabras, indica la relación entre hilos y procesos. Ilustra tu solución con un ejemplo. 3 puntos.
+
+c) Utilizando tus propias palabras, indica las características de la programación concurrente y sus ámbitos de aplicación. 3 puntos.
+
+d) Utilizando tus propias palabras, indica las diferencias entre programación paralela y programación distribuida, sus ventajas e inconvenientes. 3 puntos.
+
+////**** --------------------------------------------------------------- RESPUESTAS --------------------------------------------------------------- ****\\\\
+
+a) Un proceso es una instancia de un programa en ejecución. Ejemplo; hago un un programa en java que consite en hacer una conexión a una base de datos todos los días a
+    las 00:00, cuando instalo ese programa en un servidor en el momento de que lo ponga en ejecución pasa a ser un proceso.
+
+b) Un proceso como hemos descrito anteriormente es un programa en ejecución mientras que un hilo forma parte de un proceso y divide el proceso en tareas más simples
+    y permitir la programación recurrente.
+
+c) La programación recurrente es un paradigma de programación que permite el paralelismo(realmente es una especie de simulación de paralelismo por parte del SO) y
+    permite ejecutar tareas de forma simultánea.
+
+    Ámbitos:
+
+        -Sincronización, herramientas para controlar los hilos y evitar que ellos mismos entren en conflicto como por ejemplo lanzar dos hilos a la vez que pueden ser
+            dos peticiones http simultáneas y un tercer hilo que sea unos cálculos con los datos extraídos, en este caso el tercer hilo tendríia que esperarse a que
+            los otros dos hilos se resuelvan.
+        -Multiplexación, son las herramientas que parten los procesos en cachitos y los va ejecutando de forma que parezca que se ejecutan en paralelo.
+
+d)  -Programación paralela; es un paradigma que permite la ejecución de tareas dentro de un mismo proceso en paralelo ejecutado en una sola máquina.
+
+                            -Ventajas: Optimiza tiempos y recursos.
+                            -Desventajas: Solo se puede escalar verticalmente.
+
+    -Programación distribuida; consiste en un mecanismo que permite ejecutar un mismo programa en diferentes máquinas, cada una con un propósito específico y comunicados
+    entre sí mediante una red. Por ejemplo un ecommerce de gran escala donde puede tener distribuidos la parte de compras, la parte de notificaciones, las base de datos etc.
+
+                            -Ventajas: Permite el escalado horizontal y si algún proceso se cae los otros puede seguir funcionando.
+                            -Inconvenientes: Puede ser muy costoso y muy complejo lo que dificulta su mantenimiento.
