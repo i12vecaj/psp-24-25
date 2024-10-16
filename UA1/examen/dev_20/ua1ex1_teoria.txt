@@ -1,0 +1,42 @@
+PARTE TEÓRICA
+
+a) Definición de proceso. Ilustra tu solución con un ejemplo. 1 punto.
+
+    Un proceso es un programa en ejecución, por ejemplo tu puedes estar abriendo dos programas en tu dispositivo, esto es gracias a los
+    procesos ya que uno de ellos se encarga de abrir un buscador y el otro te puede estar abriendo X (antiguo twitter).
+
+b) Utilizando tus propias palabras, indica la relación entre hilos y procesos. Ilustra tu solución con un ejemplo. 3 puntos.
+
+    Los hilos también conocidos como microprocesos son subdivisiones de los pocesos de manera que un proceso puede tener varios hilos,
+    por ejemplo nosotros podemos estar desarrollando un proceso de una aplicación que te calcula integrales, de manera que tu puedes tener
+    un hilo dentro de ese proceso que se encarga de ir calculando la integral de un método mientras que tienes otro hilo que te lo calcula
+    de otro diferente y que al final el proceso eliga cual de los dos es más optimo por ejemplo.
+
+c) Utilizando tus propias palabras, indica las características de la programación concurrente y sus ámbitos de aplicación. 3 puntos.
+
+    La programación concurrente es la ejecución de varias tareas o procesos en un mismo programa, de manera que el programa puede
+    dividirse en varios procesos haciendo más eficiente el código y la ejecución del mismo, por ejemplo un programa que su función sea
+    mandar correos electrónicos y marcar como enviado en un excel, gracias a la programación concurrente podemos tener un proceso que
+    se encarge de mandar los correos mientras otro va marcando en el excel, esto por ejemplo lo podemos observar también en sistemas
+    operativos.
+
+d) Utilizando tus propias palabras, indica las diferencias entre programación paralela y programación distribuida, sus ventajas e inconvenientes. 3 puntos.
+
+    La programación paralela es la ejecución de varios procesos de manera "paralela" ya que realmente no es de manera paralela aunque
+    da la sensación, lo que realmente pasa es que se segmenta el problema principal para que cada procesador se ocupe de una parte
+    más simple siguiendo el dicho divide y vencerás, podemos encontrar algunas desventajas claras como que necesitamos un consumo
+    del hardware mayor, al utilizar los procesadores de nuestra másquina, o también puede llegar a ser más dificil de escalar
+    en el sentido de no afectar tanto al rendimiento (por ejemplo quieres agregar una nueva funcionalidad que hace uso de más hardware
+    , es dificil de actualizar para no afectar tanto al rendimiento).
+
+    La programación distribuida es diferente ya que en este caso los procesadores atacan al problema sin segmentarlo, por lo que todos
+    tienen una finalidad común, de esta manera el rendimiento es mayor, hay una mayor tolerancia de fallos y más flexibilidad,
+    los problemas que presenta es una mayor complejidad, mayor riesgo de seguridad ya que hay varios nodos por los que pueden atacar al
+    programa y se puden generar errores de consistencia puesto que varios nodos pueden intentar modificar un archivo a la vez.
+
+
+
+
+
+    ACLARACIÓN(Es importante saber que un procesador no puede ejecutar dos procesos a la vez por lo que si tiene que calcular dos o más
+    va saltando de uno a otro, esto está regido por nuestra marca de procesador y sistema operativo)
