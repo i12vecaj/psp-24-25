@@ -1,0 +1,24 @@
+a) Un proceso es una instanciacion de un programa, el cual ocupa cierto espacio en la memoria de tu máquina para realizar una tarea determinada  utilizando los recursos que ofrece tu sistema operativo como por ejemplo un proceso que te indique la hora, o la fecha en la que estamos, o mida la temperatura que hace, etc
+
+b)La relacion entre los hilos y los procesos conta de que los hilos son una especie de subprocesos dentro del proceso principal los cuales realizan de manera simultanea una tarea especifica como por ejemplo un proceso principal que te indique la temperatura y la humedad actual puede contener dentro de el dos hilos, uno que indique la temperatura y otro que indique la humedad para que asi el proceso principal se realize de una manera más eficiente
+
+c)Se trata de un tipo de programacion en el que se usan dos o mas hilos, los cuales se van ejecutando de manera intercalada pero sin seguir un orden definido, es decir,. no tiene porque terminar el primer hilo para que se ejecute el segundo, sino que tu procesador los va ejecutando segun van llegando(First in First Out) , alomejor ejecuta el hilo uno durante x tiempo pero sin haberlo finalizado continua ejecutando el hilo 2.
+
+Por ejemplo, si hiceramos un programa que tuviese dos hilos en los cuales, el primero imprime los numeros del 1 al 1000 uno a uno y el segundo imprime el abecedario, la ejecucion de esos hilos no seria primero imprimo los numeros del 1 al 1000 y luego el abecedario sino que puede que se impriman los numeros del 1 al 200, luego cambie e imprima algunas letras del abecedario, asi hasta que los dos hilos lleguen a su fin.
+
+d)La programacion paralela consta de llevar a cabo un proceso de manera simultanea pero en este caso, tu maquina fisica cuenta con mas de un procesador con sus repectivos nucleos. Este tipo de programacion se lleva a cabo en diferentes industrias, como por ejemplo, la inteligencia artificial.
+
+-Ventaja de la programacion paralela:
+  -Realiza procesos de manera mas eficiente y rápida
+
+-Inconvenientes:
+  -El costo de contar con dos procesadores en tu maquina física es bastante elevado.
+  -Hambos procesadores deben de estar sincronizados
+
+En cuanto a la programacion distribuida, los diferentes hilos de un proceso estan distribuidos en maquinas diferentes, por lo que cada maquina se encarga de ejecutar una tarea diferente. Este tipo de programacion es muy común en las entidades bancarias.
+
+-Ventaja de la programacion distribuida
+  -Mayor tolerancia a los fallos ya que los recursos estan distribuidos, y si uno de los equipos falla, los demas pueden seguir operativos sin ningun problema.
+
+-Inconvenientes
+  -La manera en la que tienes que acceder y gestionar los datos es mucho mas compleja.
