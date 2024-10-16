@@ -1,0 +1,52 @@
+PARTE TEÓRICA
+
+a) Definición de proceso. Ilustra tu solución con un ejemplo. 1 punto.  
+
+ Un proceso es un programa en ejecución,que se ejecuta sin la uatorizacion explicita del usuario, un ejemplo de proceso seria la propia conexion a Wifi de un equipo ya que esa funcionalidad es un proceso que esta activo practicamente en todo momento
+
+
+b) Utilizando tus propias palabras, indica la relación entre hilos y procesos. Ilustra tu solución con un ejemplo. 3 puntos.
+
+Pudiendo definir los hilos como diferentes "caminos en paralelo" que ejecutan procesos, podemos concluir que la relación entre ambos es que los hilos de ejecución van ejecutando procesos
+un ejemplo de esto seria una aplicacion en la que hicimos en clase con los 0 y 1, en esta aplicacion los procesos de imprimir por pantalla ambos numeros iban el alternancia segun iban terminando 
+ambos, siendo asi dos hilos con diferentes procesos
+
+
+c) Utilizando tus propias palabras, indica las características de la programación concurrente y sus ámbitos de aplicación. 3 puntos.
+
+Es la programación no secuencial, es decir, no sigue un orden secuencial a la hora de ejecutarse, ejemplo de esto son los hilos que usamos en java.
+Se pueden usar como antes he mencionado en que un programa sea capaz de realizar varios procesos a la vez(siempre y cuando el procesador lo permita).
+Un posible ejemplo de esto seria un datafono por ejemplo, ya que muestra por pantalla y al mismo tiempo realiza una conexion
+
+
+d) Utilizando tus propias palabras, indica las diferencias entre programación paralela y programación distribuida, sus ventajas e inconvenientes. 3 puntos.
+
+la diferencia es que la programacion paralela ejecuta sus diversas funciones al mismo tiempo, en cambio ,la programacion distribuida debe su nombre a la distribucion del codigo
+lo que no tiene por que tener varios procesos en ejecucion
+
+
+Distribuida ventajas
+-tiene una gran escalabilidad
+-tiene un alto rendimiento
+
+Distribuida desventajas
+-la complejidad a la hora de dividir los componentes es muy elevada
+-al ser tan complejo la seguridad tambien se vuelve mas dificil
+
+
+Paralela ventajas
+-mejora el rendimiento
+-mejora la capacidad de respuesta de la interfaz grafica
+-permite tener procesos simultaneos
+
+Paralela desventajas
+-mayor consumo de recursos
+-facilidad para la desincronización entre los procesos
+-retrasos o delays por la comunicacion entre procesos
+
+
+Notas:
+
+El nombre del fichero .txt a entregar debe ser:	examen\dev_X\ua1ex1_teoria.txt , es decir, el fichero ua1ex1_teoria.txt debe estar ubicado en tu carpeta examen\dev_X\
+
+No entregues tu solución, hasta que no se indique por parte del profesorado.
