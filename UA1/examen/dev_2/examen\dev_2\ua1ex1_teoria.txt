@@ -1,0 +1,34 @@
+a) Definición de proceso. Ilustra tu solución con un ejemplo. 1 punto.  
+
+	Un proceso es un programa que se está ejecutando en el sistema operativo, como puede ser una operación aritmetica que tenga que realizar una aplicación.
+
+b) Utilizando tus propias palabras, indica la relación entre hilos y procesos. Ilustra tu solución con un ejemplo. 3 puntos.
+
+	Un hilo es un subproceso, o dicho de otra forma, es un proceso nacido de otro con la función de ejecutarse simultaneamente junto a otros procesos con la intención de agilizar la ejecuciónn de un programa. Un ejemplo de esto puede ser la practica que se realizó en clase de mostrar cien ceros y unos por pantalla, estos al estar cada uno de los procesos en un hilo diferente se ejecutaban de forma simultanea intercalandose ceros y unos de forma arbitraria en lugar de forma secuencial (primero todos los ceros y luego todos los unos)
+
+c) Utilizando tus propias palabras, indica las características de la programación concurrente y sus ámbitos de aplicación. 3 puntos.
+
+	Las caracteristicas de este tipo de programación residen en la capacidad que tiene una máquina para ejecutar más de un proceso de forma intercalada, esto significa que la programación concurrente es aquella en la que más de un proceso se ejecuta al mismo tiempo, agilizando así el programa.
+
+d) Utilizando tus propias palabras, indica las diferencias entre programación paralela y programación distribuida, sus ventajas e inconvenientes. 3 puntos.
+
+	La principal diferencia es el como se desarrollan ambos tipos de programación, la paralela es cuando una sola máquina posee más de un procesador y cada uno de esos procesadores se encarga de una tarea diferente y trabajan al unísono, es decir trabajan uno junto al otro paralelamente, mientras que en la distribuida el programa se lleva a cabo en varias máquinas cada una con una función, en esta el programa está repartido o distribuido entre varios dispositivos. 
+	
+	Las ventajas de la programación paralela son:
+		Permite que se ejecute te forma simultanea, es decir, que una sola máquina trabaje con varios procesos a la misma vez.
+		Al ejecutar más de un proceso de forma simultanea esto agiliza enormemente el programa reduciendo así el tiempo de ejecución.
+		Además al poder realizar multiples procesos simultaneamente se puede incrementar la dificultad de los problemas.
+
+	Los inconvenientes de las programación paralela son:
+		Al ser mayor la complejidad de los programas que pueden ejecutarse gracias a este tipo de programación tambien incrementa a complejidad de sus compiladores, de que tan dificiles de escribir son y del acceso a sus datos.
+		Tambien al ejecutarse en más de un procesador a la vez el consumo y gasto enerjetico es mayor.
+		Además la comunicación y sincronización de los procesos es más compleja.
+
+	Las venajas de la programación distribuida son:
+		Al realizarse en más de una máquina los recursos que estas poseen se pueden compartir.
+		La disponibilidad en esto casos es mayor ya que se puede acceder desde diferentes puntos.
+		
+	Las desvantajas de la programación distribuida son:
+		Al realizarse en varios dispositivos tambien sufre de una mayor complejidad.
+		La necesidad de transmitir los datos entre los diferentes dispositivos creaa una nueva desventaja, la perdida de datos y paquetes ya que en estas transmisiones de datos existe la posibilidad de que la información se pierda y no llegue correctamente enre las diferentes máquinas.
+		Problemas de seguirdad como los ataques DDoS en los que impide el acceso a un dato a su usuario.
