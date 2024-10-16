@@ -1,3 +1,6 @@
+A determinar
+// **
+
 ## EXAMEN - 2º DAM - PSP - UA2 - Programación Multihilo
 ### 23/11/2022
 
@@ -52,3 +55,4 @@ Lee detenidamente todo el examen antes de comenzar con la implementación.
 ```
 PASADOS 15 MINUTOS DEL COMIENZO DEL EXAMEN NO SE ADMITEN PREGUNTAS
 ```
+// **
