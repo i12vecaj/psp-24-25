@@ -1,5 +1,3 @@
-A determinar
-// **
 
 ## EXAMEN - 2º DAM - PSP - UA2 - Programación Multihilo
 ### 23/11/2022
