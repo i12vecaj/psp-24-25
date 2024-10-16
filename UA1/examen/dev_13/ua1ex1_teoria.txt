@@ -1,16 +1,83 @@
-NOMBRE:
-FECHA:
+EXAMEN PSP
+Día 16/10/2024
 
 PARTE TEÓRICA
 
-a) Definición de proceso. 1 punto.  
+a) Definición de proceso. Ilustra tu solución con un ejemplo. 1 punto.
+ 
+Un proceso es un programa que está en ejecución. Cuando tu ejecutas un programa el sistema operativo lo convierte en un proceso al asignarle recursos como memoria y un identificador único llamado PID. Este proceso tiene su propio estado y puede funcionar de manera independiente de otros procesos.
 
-b) Utilizando tus propias palabras, indica la relación entre hilos y procesos. 3 puntos.
+Ejemplo:
+
+Cuando abres Chrome, se crea un proceso que ejecuta el navegador. Si abres otra ventana de Chrome, puede crearse un segundo proceso, y ambos pueden ejecutarse al mismo tiempo, compartiendo recursos pero funcionando de manera independiente.
+
+
+b) Utilizando tus propias palabras, indica la relación entre hilos y procesos. Ilustra tu solución con un ejemplo. 3 puntos.
+
+La relación entre los hilos y los procesos está en que los hilos son partes más pequeñas que se ejecutan dentro de un proceso. Un proceso es un programa en ejecución con su propio espacio de memoria, mientras que los hilos dentro de ese proceso comparten los mismos recursos y pueden realizar varias tareas al mismo tiempo.
+
+Ejemplo:
+
+En una aplicación como Word, el proceso principal maneja el programa, y dentro de ese proceso, varios hilos trabajan a la vez en paralelo: uno para escribir, otro para guardar automáticamente, y otro para revisar la ortografía. Todos los hilos comparten el mismo documento lo que hace que todo funcione de una manera más fluida.
+
+
+
+
 
 c) Utilizando tus propias palabras, indica las características de la programación concurrente y sus ámbitos de aplicación. 3 puntos.
+La programación concurrente es aquella que realiza la ejecución simultánea de múltiples procesos o hilos, permitiendo así que varias tareas se puedan realizar al mismo tiempo, bien sea intercalando su ejecución o colaborando entre sí.
+
+Las características de la programación concurrente son las siguientes:
+
+Ejecución simultánea: Permite que varios hilos o procesos se ejecuten a la vez, mejorando así el uso de los recursos del sistema.
+
+Interacción: Los hilos o procesos pueden comunicarse entre sí, colaborando para lograr un objetivo común o compitiendo por recursos del sistema.
+
+
+Los ámbitos de aplicación son los siguientes:
+
+Sistemas de control: Utilizados en la automatización industrial.
+
+Desarrollo de aplicaciones web: Los servidores web suelen usar la programación concurrente para manejar datos simultáneos de clientes.
+
+Interfaces gráficas de usuario (GUI):En aplicaciones de escritorio hace que la interfaz permanezca activa mientras se realizan tareas en segundo plano, como cargas de archivos o procesamiento de datos.
+
+
+
 
 d) Utilizando tus propias palabras, indica las diferencias entre programación paralela y programación distribuida, sus ventajas e inconvenientes. 3 puntos.
+Programación paralela: Es la ejecución simultánea de tareas en un único sistema con múltiples procesos o núcleos. El objetivo es dividir un problema en partes que puedan ser resueltas al mismo tiempo
+
+Programación distribuida: Es la ejecución de tareas en múltiples sistemas independientes que están interconectados a través de una red. Los componentes del sistema pueden estar físicamente separados y colaboran para completar una tarea.
+
+Ventajas:
+
+Programación paralela:
+
+Mejora el rendimiento al reducir el tiempo de ejecución al dividir tareas complejas.
+Aprovecha al máximo los recursos del sistema al utilizar múltiples núcleos o procesadores.
+
+Programación distribuida:
+
+Permite escalar aplicaciones fácilmente agregando más sistemas a la red sin necesidad de cambiar la arquitectura del software.
+Si un nodo falla, otros nodos pueden continuar operando.
+
+Inconvenientes:
+
+Programación paralela:
+
+La programación y gestión de procesos paralelos pueden ser difíciles, requiriendo un buen manejo de la sincronización y la comunicación entre hilos.
+Requiere hardware compatible y puede no ser efectivo si el problema no se puede dividir adecuadamente.
+
+Programación distribuida:
+
+La comunicación entre nodos puede ser lenta y propensa a fallos, lo que puede afectar el rendimiento en general.
+Es más complicado gestionar errores y excepciones, ya que los sistemas pueden ser heterogéneos y operar en diferentes entornos.
+
+
 
 Notas:
 
 El nombre del fichero .txt a entregar debe ser:	examen\dev_X\ua1ex1_teoria.txt , es decir, el fichero ua1ex1_teoria.txt debe estar ubicado en tu carpeta examen\dev_X\
+
+No entregues tu solución, hasta que no se indique por parte del profesorado.
