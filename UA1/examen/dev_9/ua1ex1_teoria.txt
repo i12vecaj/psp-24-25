@@ -1,16 +1,32 @@
-NOMBRE:
-FECHA:
+NOMBRE: Juan Deogracias Moya
+FECHA: 16/10/2024
 
 PARTE TEÓRICA
 
 a) Definición de proceso. 1 punto.  
 
+Un proceso es un programa que tiene su propio espacio en memoria. Por tanto los procesos son independientes y no comparten memoria directamente ni recursos del sistema.
+
+Para ejecutar programas externos en Java se pueden usar las clases `Process` y ProcessBuilder.
+
+Un ejemplo de un proceso es una cadena de restaurantes en los cuales tenemos que tener diferentes procesos para poder obtener la información de los distintos programas. Es decir cada proceso va a tener una función específica para obtener las comandas que se han realizado en x restaurante y otro programa el cual es independiente como comenté anteriormente para analizar la rentabilidad de cada restaurante.
+ 
 b) Utilizando tus propias palabras, indica la relación entre hilos y procesos. 3 puntos.
+
+En primer lugar vamos a definir un hilo el cual es un subproceso independiente dentro de un programa. Estos hilos trabajan con programación concurrente (no secuencial) es decir que de forma simultánea cada uno de estos subprocesos (hilos) realizan una tarea específica dentro de un programa mejorando la eficiencia. Es necesario comentar que los hilos comparten espacio de memoria dentro de un programa.
+
+En resumen, cual es la relación entre hilo y proceso, que un hilo es un subproceso que comparte memoria con el resto de hilos de dentro de un programa y el proceso a diferencia  de el hilo alberga su propio espacio y no necesita compartir nada.
+
+Un ejemplo de hilo sería un banco donde varias personas necesitan acceder a los recursos de el banco, una persona sacará dinero de ese banco, esa misma persona puede añadir dinero a su cuenta bancaria, etc. En este caso el hilo persona tendría que acceder al recurso de el banco y a la misma vez otra persona realiza saca dinero de ese mismo banco esto sería concurrencia.
 
 c) Utilizando tus propias palabras, indica las características de la programación concurrente y sus ámbitos de aplicación. 3 puntos.
 
+El concepto de programación concurrente quiere decir la realización de varias tareas de forma simultanea así como por ejemplo los hilos que utilizan dicho concepto. Cuando hablamos de programación concurrente tenemos que comentar que no todo es bueno ya que si accedemos a el mismo recurso a la misma vez desde distintos hilos surge el concepto de condición de carrera. Pero todo esto puede ser controlado de diferentes formas usando conceptos como el sync, el orden de prioridad de cada hilo... No obstante en java se pueden crear hilos de dos formas distintas extendiendo de la clase Thread o implementando la clase Runnable (es la más utilizada), runnable permite extender de otra clase obtener sus métodos y aparte implementar los métodos de la clase Thread en cambio con Thread no puedes extender de otra clase que no sea Thread.
+
+Por otra parte este concepto es utilizado por la programación paralela y distribuida ambas aplican este concepto. ¿La pregunta es donde se utiliza la programación concurrente? La banca es uno de los mejores ejemplos en dicho ámbito hay frameworks que se especializan y utilizan este concepto como COBOL.
+
 d) Utilizando tus propias palabras, indica las diferencias entre programación paralela y programación distribuida, sus ventajas e inconvenientes. 3 puntos.
 
-Notas:
+La programación paralela es un tipo de programación concurrente donde se ejecutan simultáneamente diferentes tareas en diferentes núcleos de un procesador o en diferentes equipos (se suele utilizar el mismo equipo). En conclusión dividimos una tarea en diferentes subtareas y las podemos resolver de forma simultánea para mejorar el rendimiento a diferencia de la programación distribuida el coste de este tipo de programación es menor ya que se utilizan únicamente los recursos de un equipo. El inconveniente es que necesitas de el mismo equipo donde se encuentra el proceso para poder ejecutarlo. En Big Data o en inteligencia artificial se utiliza este concepto.
 
-El nombre del fichero .txt a entregar debe ser:	examen\dev_X\ua1ex1_teoria.txt , es decir, el fichero ua1ex1_teoria.txt debe estar ubicado en tu carpeta examen\dev_X\
+La programación distribuida ejecuta diferentes tareas utilizando en concepto de concurrencia pero en distintas máquinas que están conectadas en la misma red. Es decir podemos ejecutar diferentes procesos en diferentes ubicaciones lo cual es una clara ventaja. A pesar de ello el coste de este tipo de programación es claramente más alto debido a la necesidad de diferentes equipos.
