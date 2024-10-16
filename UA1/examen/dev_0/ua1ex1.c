@@ -1,7 +1,7 @@
 /*
 
-NOMBRE:
-FECHA:
+NOMBRE: Alejandro Luz Morales 
+FECHA: 16/10/2024
 
 PARTE PRÁCTICA
 
@@ -22,3 +22,38 @@ Los warnings del presente ... son los errores del futuro.
 El nombre del fichero .c a entregar debe ser: examen\dev_X\ua1ex1.c , es decir, el fichero ua1ex1.cdebe estar ubicado en tu carpeta dev_X\
 
 */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+
+void ver_informacion_hijo(int numeroid_hijo){
+    pid_t pid = getpid();
+    pid_t pid_padre = getppid();
+    printf("NUMERO DE HIJO %d ES EL PID: %d, QUE SU PADRE ES EL PID: %d\n", numeroid_hijo, pid, pid_padre);
+}
+
+int main(){
+    pid_t pid;
+    int i;
+    //CREAMOS LOS 3 HIJOS
+    for (i = 1; i <= 3; i++){
+        pid = fork();
+        if (pid == -1) {
+            printf("No se ha podido crear el proceso hijo.\n");
+            exit(-1);
+        } else if (pid == 0) {
+            ver_informacion_hijo(i);
+            exit(0);
+        }//EL PROCESO HIJO TERMINA
+    }
+    //ESPERAMOS A QUE TERMINEN TODOS 
+    for (i = 1; i <= 3; i++) {
+        wait(NULL);
+    }
+    //EL PADRE MUESTRA SU PID AL FINALIZAR EL PROGRAMA
+    printf("EL PROGRAMA SE HA REALIZADO CORRECTAMENTE. ESTE ES EL PID DEL PADRE: %d\n", getpid());
+    return 0;
+}
