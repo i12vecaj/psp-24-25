@@ -3,7 +3,7 @@ FECHA: 16/10/2024
 
 PARTE TEÓRICA
 
-a) Definición de proceso. 1 punto.  
+a) Definición de proceso. Ilustra tu solución con un ejemplo. 1 punto.  
 
 Un proceso, es un programa que se encuentra en ejecución, que además tiene su propio espacio de memoria, recursos y posición de memoria, la cual asigna el propio procesador de la máquina o CPU. Los procesos, a su vez de dividen en subprocesos, a los cuales conocemos comúnmente como hilos. 
 En C, un ejemplo de creación de procesos sería haciendo uso de fork(). Fork(), funciona de la siguiente manera:
@@ -15,7 +15,7 @@ En C, un ejemplo de creación de procesos sería haciendo uso de fork(). Fork(),
 En Java, lo que hemos aprendido es que principalmente podemos ejecutar otros programas ( o procesos ) desde un proceso concreto haciendo uso de las clases "Process" y "ProcessBuilder".
 
 
-b) Utilizando tus propias palabras, indica la relación entre hilos y procesos. 3 puntos.
+b) Utilizando tus propias palabras, indica la relación entre hilos y procesos. Ilustra tu solución con un ejemplo. 3 puntos.
 
 
 La relación entre procesos e hilos es muy sencilla, pues principalmente, es que un proceso, es el programa en ejecución y a su vez, los hilos son los procesos que se ejecutan de manera concurrente, durante la ejecución de dicho proceso. Es decir, el hilo por sí mismo no tiene un espacio de memoria reservado, por lo que lo comparte con el proceso del que deriva, el cual si tiene su propio espacio de memoria reservado.
