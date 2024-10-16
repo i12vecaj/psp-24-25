@@ -1,16 +1,95 @@
-NOMBRE:
-FECHA:
-
 PARTE TEÓRICA
 
-a) Definición de proceso. 1 punto.  
+a) Definición de proceso. Ilustra tu solución con un ejemplo. 1 punto. 
 
-b) Utilizando tus propias palabras, indica la relación entre hilos y procesos. 3 puntos.
+Un proceso es un programa en ejecucción que tiene su propio espacio de memoria.
+Los procesos son independientes y no comparten de manera directa memoria con otros procesos.
+
+Un ejemplo de proceso podria ser el proceso de montar un lego:
+
+Montamos un lego{
+Leemos las instrucciones.
+Abrimos las bolsas de las piezas.
+Vemos que piezas van con cada una.
+Montamos las piezas.
+Teminamos la pieza de lego.
+}
+ 
+
+b) Utilizando tus propias palabras, indica la relación entre hilos y procesos. Ilustra tu solución con un ejemplo. 3 puntos.
+
+La relacion que tiene los hilos con los procesos, es que los hilos son sbuprocesos de ejcucion los cuales derivan de un proceso, los diferentes hilos comparten 
+espacio en memoria, mietras que un proceso tiene su espacio propio
+
+
+Un ejemplo podria ser vestirse:
+
+Vestirse{
+Comenzariamo poniendonos los pantalones.
+Nos ponemos la camiseta.
+Despues los calcetines.
+Y zapatillas.
+}
+
+La accion de vestirse seria el proceso principal, y las demas acciones dentro de vestise serian los hilos.
+Hay que tener en cuenta que los hilos nos permiten programar de forma concurrente los cual significa que los hilos se pueden ejecutar de manera simultanea.
+
 
 c) Utilizando tus propias palabras, indica las características de la programación concurrente y sus ámbitos de aplicación. 3 puntos.
 
+La programacion concurrente es cuando en un programa se realizan varios procesos de manera simultanea los cuales serian los llamados hilos, gracias a esto estos 
+procesos pueden competir por los recursos del sistema o colaborar para realizar un fin comun. 
+
+Algunas de sus caracteristicas pueden ser:
+- Aprovechan mejor la CPU.
+- Incrementa la velocidad de ejecucción.
+- Uso de hilos.
+- Los programas concurrentes tienen un flujo parcial.
+- Leer y escribir objetos compartidos en memoria.
+- Los modulos interactuan enviandose mensajes entre si 
+
+
+
 d) Utilizando tus propias palabras, indica las diferencias entre programación paralela y programación distribuida, sus ventajas e inconvenientes. 3 puntos.
+
+
+La programacion pararela esta hecha para que se ejecute en un sistema que sea multiprocesador, esto significa que varias CPU pueden trabajar a la vez 
+para resolver un problema, gracias a esto este problema se puede dividir en varias pares.
+
+La diferencia con la distribuida es que, la programacion distribuida se trata de que las partes del nustro dispositivo ya sea software o hardware estan distribuidos,
+un ejemplo podria ser que estes trabajando con un compañero en un proyecto mediante internet los dos conjuntos y asi los componentes se conctarian gracias a la red.
+
+Las ventajas e inconvenientes de la programación paralela son:
+
+Ventajas:
+- La ejecucción simultanea.
+- Gracias a esta se disminuye el tiempo de ejecucción.
+- Y poder abordar y solucionar problemas complejos.
+
+Desventajas:
+- Los compiladores y entornos son más complejos.
+- Los programas son más dificiles de escribir.
+- Es tipo de programacion consume más energia.
+- Es más dificil el poder acceder a datos.
+- Y la sincronización y comunicaión tambien es más dificil.
+
+Las ventajas e inconvenientes de la programación distribuida son:
+
+Ventajas:
+- Nos permite compartir recursos y datos.
+- Tendriamos capacidad de crecimiento incremental.
+- Una mayor flexibilidad.
+- Alta disponiblidad.
+- Es de caracter abierto y heterogeneo.
+
+Desventajas:
+- La complejidad aumenta.
+- Varios problemas con las redes de comunicación.
+- Y posibles problemas de seguridad.
+ 
 
 Notas:
 
 El nombre del fichero .txt a entregar debe ser:	examen\dev_X\ua1ex1_teoria.txt , es decir, el fichero ua1ex1_teoria.txt debe estar ubicado en tu carpeta examen\dev_X\
+
+No entregues tu solución, hasta que no se indique por parte del profesorado.
