@@ -11,6 +11,7 @@ int contador = 10;// es el numero de vueltas
             hum.run();
             plant.run();
         }
-
+        // lo que he realizado en cada hilo es crear un numero ramdom para que la funcion sleep pueda tomar valores aleatorios
+        //luego los he ejecutado dentro de un bucle para que simula continuidad de la toma de medidas
     }
 }
