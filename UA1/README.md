@@ -48,7 +48,7 @@ h) Se han depurado y documentado las aplicaciones desarrolladas.
 
 ## Evaluación
 
-La evaluación de esta unidad didáctica estará basada en la entrega de las tareas, corregidas automáticamente por los tests necesarios a superar y examen teórico y práctico de la materia, acorde a la siguiente tabla
+La evaluación de esta unidad didáctica estará basada en la entrega de las tareas, corregidas automáticamente por los tests necesarios a superar y ua1ex1p2 teórico y práctico de la materia, acorde a la siguiente tabla
 
 | CRITERIO de EVALUACIÓN | PONDERACIÓN | INSTRUMENTOS de EVALUACIÓN|
 |------------------------|-------------|-------------|
@@ -127,7 +127,7 @@ Crea un programa Java que implemente las siguientes Funcionalidades Requeridas (
 ```
 Fecha de Examen: xx/10/2024 - 17:45:00
 ```
-El examen constará de dos partes:
+El ua1ex1p2 constará de dos partes:
 * Una primera parte de teoría, centrada sobre todo en los criterios de evaluación b), c) y d).  Serán unas preguntas cortas, donde deberéis responder utilizando vuestras propias palabras.  Para esta parte de teoría daremos un tiempo fijo y no permitiré el acceso a internet salvo para subir el resultado al repositorio.
 * La segunda parte será resolver un problema de sincronización de procesos en lenguaje de programación en C.
 Os recuerdo que los "problemas técnicos" para compilar y comprobar el funcionamiento del programa es vuestra responsabilidad.  Podéis usar compiladores online, máquinas virtuales, máquinas físicas con linux, ...

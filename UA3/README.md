@@ -47,7 +47,7 @@ h) Se han utilizado hilos para implementar los procedimientos de las aplicacione
 
 ## Evaluación
 
-La evaluación de esta unidad didáctica estará basada en la entrega de las tareas, corregidas automáticamente por los tests necesarios a superar y examen teórico y práctico de la materia, acorde a la siguiente tabla
+La evaluación de esta unidad didáctica estará basada en la entrega de las tareas, corregidas automáticamente por los tests necesarios a superar y ua1ex1p2 teórico y práctico de la materia, acorde a la siguiente tabla
 
 | CRITERIO de EVALUACIÓN | PONDERACIÓN | INSTRUMENTOS de EVALUACIÓN|
 |------------------------|-------------|-------------|

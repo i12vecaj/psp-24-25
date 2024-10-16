@@ -9,7 +9,7 @@ En este ejercicio tendrás que programar una versión simplificada de un problem
 ```
 PASADOS 15 MINUTOS DEL COMIENZO DEL EXAMEN NO SE ADMITEN PREGUNTAS
 ```
-Lee detenidamente todo el examen antes de comenzar con la implementación.
+Lee detenidamente todo el ua1ex1p2 antes de comenzar con la implementación.
 
 **FR1 [2 puntos]. Clase VasoCerveza:** representa el elemento que será consumido por los Clientes y preparado por los Camareros.
 - **1.1. Atributos:**
@@ -42,7 +42,7 @@ Lee detenidamente todo el examen antes de comenzar con la implementación.
 **FR4 [2 puntos].** Crea una **Aplicación (main)** que genere un **Camarero**, de nombre *Mou* y creará los siguientes **Clientes**: *Homer, Barney, Carl, Lenny y Lurleen*. Cada *Cliente* recibirá el objeto compartido *Camarero*. Adicionalmente, se deberá sincronizar el uso del objeto compartido y se deberán realizar varias pruebas de ejecución para garantizar que el sistema implementado funciona correctamente.
 
 **FR5 [2 puntos].** Se debe cumplir con las siguientes características adicionales de implementación:
-- Crear todo el código en un único fichero Java: *UA2\examen\dev_X\ua2ex1.java* ...  en tu propia rama de desarrollo dev_X
+- Crear todo el código en un único fichero Java: *UA2\ua1ex1p2\dev_X\ua2ex1.java* ...  en tu propia rama de desarrollo dev_X
 - Todos los métodos (de todas las clases) deben imprimir por pantalla información respecto a su estado de ejecución.
 - Implementa el control de errores
 - Documenta el código: utiliza el estilo/herramienta *doxygen* ... ¿la conocías?
