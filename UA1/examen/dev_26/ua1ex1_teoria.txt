@@ -1,0 +1,90 @@
+PARTE TEÓRICA
+
+a) Definición de proceso. Ilustra tu solución con un ejemplo. 1 punto.  
+
+	En el campo de la informática un proceso es basicamente una aplicacion que tu inicias y pones en funcionamiento. 
+	De una manera mas basica los procesos son una sucesión de instrucciones que intentar realizar una tarea concreta.
+
+	EJ:Un ejemplo de un proceso seria perfectamente abrir tu navegador en tu ordenador, asi de simple 
+
+
+
+b) Utilizando tus propias palabras, indica la relación entre hilos y procesos. Ilustra tu solución con un ejemplo. 3 puntos.
+
+
+	Un hilo es un Subproceso dentro de un Proceso osea, Un hilo es un segmento del total que se necesitan para formar un proceso entero.
+
+
+	EJ:Un ejemplo de un hilo podria ser en un videojuego un personaje secundario se mueve alrededor del mapa aparte del propio jugador.
+
+c) Utilizando tus propias palabras, indica las características de la programación concurrente y sus ámbitos de aplicación. 3 puntos.
+
+
+	Las principales caracteristicas de la programacion concurrente son las siguientes:
+		
+		Priemro decir que hay dos modelos de programacion
+
+		-Memoria compartida
+		.Los módulos de memoria compartida interactuan leyendo y escribiendo objetos compartidos en la memoria
+
+		-Dos procesadores en el mismo ordenador que comparten la misma memoria 
+
+		-Dos programas que se ejecutan en el mismo ordenador compartiendo sistema de ficheros y que están leyendo y escribiendo en distintos archivos
+
+		-Dos hilos (threads) de un programa codificado en Java que comparten los mismos objetos
+
+
+
+		-Paso de mensajes 
+		.Los módulos concurrentes interactuan enviandose mensajes entre si a traves de un canal de comunicacion
+
+		-Dos equipos que se están comunicando mediante una conexión de red
+
+		-Un navegador y un servidor web que se están comunicando para mostrar una página web
+
+		-Un cliente y un servidor de mensajeria instantánea
+
+
+
+d) Utilizando tus propias palabras, indica las diferencias entre programación paralela y programación distribuida, sus ventajas e inconvenientes. 3 puntos.
+
+
+	Sus principales diferencias son tanto en la dificultad siendo la Programacion paralela las mas compleja pero la mas segura y en flexibilidad siendo la Programacion distribuida la 
+	las mas "User frienly" aunques es la menos segura 
+
+
+     Programacion paralela 
+
+	Ventajas
+	-Ejecución al mismo tiempo
+	-Disminucion del tiempo de ejecución
+	-Abordaje y resolución de problemas complejos
+
+	Desventajas
+	-Compiladores y entornos más complejos
+	-Los programas son más difíciles de escribir
+	-Mayor consumo de energía
+	-Mayor complejidad en el acceso a los datos
+
+
+     Programación distribuida
+
+	Ventajas
+	-Se pueden compartir recursos y datos
+	-Capacidad de crecimiento incremental
+	-Mayor flexibilidad
+	-Alta disponibilidad
+	-Carácter abierto y heterogéneo
+	
+	Desventajas
+	Aumento de complejidad
+	Problemas con las redes de comunicación 
+	Problemas de seguridad, pueden ser atacados facilmente
+
+
+
+Notas:
+
+El nombre del fichero .txt a entregar debe ser:	examen\dev_X\ua1ex1_teoria.txt , es decir, el fichero ua1ex1_teoria.txt debe estar ubicado en tu carpeta examen\dev_X\
+
+No entregues tu solución, hasta que no se indique por parte del profesorado.
