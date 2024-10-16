@@ -1,0 +1,38 @@
+import java.util.ArrayList; // Importamos la clase ArrayList para manejar listas dinámicas
+import java.util.List; // Importamos la interfaz List
+import java.util.Scanner; // Importamos la clase Scanner para la entrada de datos
+
+public class Main {
+    public static void main(String[] args) {
+        // Creamos un objeto Scanner para leer la entrada del usuario
+        Scanner scanner = new Scanner(System.in);
+        // Inicializamos una lista para almacenar los argumentos introducidos por el usuario
+        List<String> listaArgumentos = new ArrayList<>();
+
+        // Mensaje que indica al usuario cómo ingresar los argumentos
+        System.out.println("Ingrese argumentos (presione '*' para terminar):");
+
+        // Variable para almacenar la entrada del usuario
+        String input;
+        // Bucle para recolectar argumentos hasta que el usuario ingrese '*'
+        while (!(input = scanner.nextLine()).equals("*")) {
+            listaArgumentos.add(input); // Agregamos la entrada a la lista de argumentos
+        }
+
+        // Creamos un nuevo hilo que ejecutará la lógica de la clase hilos
+        hilos hilo = new hilos(listaArgumentos);
+        Thread thread = new Thread(hilo); // Asignamos la clase hilos al hilo
+        thread.start(); // Iniciamos la ejecución del hilo
+
+        // Esperamos a que el hilo termine su ejecución
+        try {
+            thread.join(); // Bloquea el hilo principal hasta que el hilo secundario termine
+        } catch (InterruptedException e) {
+            e.printStackTrace(); // Imprimimos la traza del error en caso de interrupción
+        }
+
+        // Mostramos el código de salida devuelto por la clase hilos
+        System.out.println("Código de salida: " + hilo.getCodigoSalida());
+        scanner.close(); // Cerramos el objeto Scanner para liberar recursos
+    }
+}
