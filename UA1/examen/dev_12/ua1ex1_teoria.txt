@@ -1,16 +1,46 @@
-NOMBRE:
-FECHA:
+PARTE TEÓRICA 
 
-PARTE TEÓRICA
+ANTONIO GÓMEZ CUEVAS
 
-a) Definición de proceso. 1 punto.  
+a) Definición de proceso. Ilustra tu solución con un ejemplo. 1 punto.  
 
-b) Utilizando tus propias palabras, indica la relación entre hilos y procesos. 3 puntos.
+	Un proceso es la instanciación de un programa en ejecución, la cual tiene su propio espacio de memoria, recursos,
+	incluso puede tener múltiples hilos, cada proceso en ejecución es completamente independiente de los demás.
+
+	Un ejemplo puede ser mismamente el bloc de notas que tengo en ejecución ahora mismo.
+
+b) Utilizando tus propias palabras, indica la relación entre hilos y procesos. Ilustra tu solución con un ejemplo. 3 puntos.
+
+	Los hilos son "subunidades" dentro de un proceso, un proceso puede tener varios hilos ejecutándose al mismo tiempo,
+	estos comparten el mismo espacio de memoria y pueden comunicarse entre ellos.
+
+	Un ejemplo: Un proceso puede ser un programa que mida la temperatura y la humedad de un habitad, la temperatura se 
+	puede medir con un hilo y la humedad con otro, para conseguir que lo hagan al mismo tiempo.
 
 c) Utilizando tus propias palabras, indica las características de la programación concurrente y sus ámbitos de aplicación. 3 puntos.
 
+	La programación concurrente es la que te permite ejecutar varias tareas al mismo tiempo en un mismo procesador.
+
+	Características: Puede ejecutar varias tareas al mismo tiempo, facilita la comunicación entre sus tareas y optimiza 
+	el rendimiento puesto que gestiona varias operaciones de forma simultanea.
+
+	Ámbitos: Un sitio web manejando varios usuarios al mismo tiempo, varios equipos conectándose a una misma red, ejecución de 
+	varias aplicaciones al mismo tiempo entre muchísimos otros, la programación concurrente esta muy presente en la actualidad.
+
 d) Utilizando tus propias palabras, indica las diferencias entre programación paralela y programación distribuida, sus ventajas e inconvenientes. 3 puntos.
+
+	Programación paralela: Esta ejecuta simultáneamente las tareas en varios núcleos o procesadores en un mismo ordenador.
+	Ventajas: Mejoras en el rendimiento al distribuir mejor los recursos del sistema.
+	Inconvenientes: Es necesario la sincronización entre hilos lo que puede hacerlo mas tedioso y complicado.
+
+	Programación distribuida: Esta permite la ejecución de tareas en diferentes maquinas conectadas entre si.
+	Ventajas: Es muy tolerante a fallos a la vez que escalable, y que los recursos están distribuidos entre las 
+	diferentes maquinas.
+	Inconvenientes: Complejidad en la comunicación de las maquinas y la gestión de los datos entre los diferentes
+	nodos, además de posibles problemas de latencia.
 
 Notas:
 
 El nombre del fichero .txt a entregar debe ser:	examen\dev_X\ua1ex1_teoria.txt , es decir, el fichero ua1ex1_teoria.txt debe estar ubicado en tu carpeta examen\dev_X\
+
+No entregues tu solución, hasta que no se indique por parte del profesorado.
