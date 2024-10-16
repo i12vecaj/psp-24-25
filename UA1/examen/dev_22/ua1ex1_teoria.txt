@@ -1,0 +1,50 @@
+PARTE TEÓRICA
+
+a) Definición de proceso. Ilustra tu solución con un ejemplo. 1 punto.  
+
+    Un proceso es una unidad de ejecución que se ejecuta en un sistema operativo. Y este se ejecuta de una manera determinada, ejemplo de ello sería: 
+    - Abrir un navegador y buscar algo en internet.
+
+
+b) Utilizando tus propias palabras, indica la relación entre hilos y procesos. Ilustra tu solución con un ejemplo. 3 puntos.
+
+    Los procesos son como un paquete de mayor tamaño que en su interior se incluyen los hilos. Por ejemplo: Imaginemos una caja de una mudanza, pues el contenido de su interior 
+    serían los  hilos y la caja propiamente dicha, serían los procesos.
+
+
+c) Utilizando tus propias palabras, indica las características de la programación concurrente y sus ámbitos de aplicación. 3 puntos.
+
+    Características:
+        - Interacción: Los procesos se comunican entre si, e intercambian datos y señales.
+        - Sincronización: Todos los procesos tienen que actuar de forma coordinada, sin solaparse entre ellos.
+        - Multitarea: Esto nos permite ejecutar varias tareas al mismo tiempo, sin frenar la ejecución de ninguna de ellas. 
+
+    Ámbitos de aplicación:
+        - Desarrollo de SO: Permite gestionar varios procesos y recursos eficientemente.
+        - Aplicaciones Web y servidores: Si tenemos una web como por ejemplo un E-Commerce, requerimos de que nuestros clientes se registren, pues para poder llevar a cabo esta tarea 
+          sin complicaciones, de que al recibir distintas peticiones al mismo tiempo, nuestro sistema colapse... pues para esto sirve la programación concurrente.
+        - Juegos y simulaciones: Al igual que el anterior, permite la la ejecución de múltiples elementos en paralelo.
+
+
+
+
+d) Utilizando tus propias palabras, indica las diferencias entre programación paralela y programación distribuida, sus ventajas e inconvenientes. 3 puntos.
+
+    La programación paralela está  enfocada en la ejecución de tareas en el mismo equipo, mientras que la programación  distribuida se enfoca en la ejecución de tareas en diferentes equipos. 
+
+    Ventajas:
+        - Ejecución simultanea y menos tiempo de espera en la ejecución (programación paralela).
+        - Posibilidad de compartir datos y recursos, además de una mayor flexibilidad y disponibilidad (programación distribuida).
+
+    Desventajas:
+        - Compiladores y sistemas complejos, mayor consumo de energía y complejidad en los accesos a datos (programación paralela).
+        - Problemas de comunicación entre equipos, y problemas de seguridad (programación distribuida).
+
+
+
+
+Notas:
+
+El nombre del fichero .txt a entregar debe ser:	examen\dev_X\ua1ex1_teoria.txt , es decir, el fichero ua1ex1_teoria.txt debe estar ubicado en tu carpeta examen\dev_X\
+
+No entregues tu solución, hasta que no se indique por parte del profesorado.
