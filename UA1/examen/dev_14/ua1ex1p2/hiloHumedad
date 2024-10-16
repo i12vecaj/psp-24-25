@@ -1,0 +1,19 @@
+import java.util.Random;
+
+class hiloHumedad extends Thread {
+    @Override
+    public void run() {
+        Random random = new Random();
+        try {
+
+            int delay = random.nextInt(3000 - 1000) + 1000;
+            Thread.sleep(delay);
+            int randomNumber = random.nextInt(100);
+            System.out.println("Humedad: " + randomNumber );
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+}
