@@ -1,16 +1,37 @@
-NOMBRE:
-FECHA:
 
 PARTE TEÓRICA
 
-a) Definición de proceso. 1 punto.  
+a) Definición de proceso. Ilustra tu solución con un ejemplo. 1 punto.
 
-b) Utilizando tus propias palabras, indica la relación entre hilos y procesos. 3 puntos.
+     Un proceso son diferentes instrucciones que se tienen que seguir para poder ejecutar realizar una acccion, un ejemplo  de proceso puede ser el envio de un correo electronico:
+     1º-Pensamos el mansaje que contendrá el correo que vamos a enviar.
+     2º-Despues escribimos el correo que habiamos pensado antes.
+     3º-Revisamos que este bien escrito.
+     4º-Enviamos el correo electronico.
+
+b) Utilizando tus propias palabras, indica la relación entre hilos y procesos. Ilustra tu solución con un ejemplo. 3 puntos.
+
+    La relacion es que tiene los hilos y lo procesos es que el hilo es una parte del proceso, un ejemplo puede ser cuando vamos a enviar el correo electronico, un ejemplo de hilo
+    puede ser el ordenador ya que este es parte del proceso de enviar un correo electronico ya que sin el no seria posible el envio del correo electronico.
 
 c) Utilizando tus propias palabras, indica las características de la programación concurrente y sus ámbitos de aplicación. 3 puntos.
 
+    La programación concurrente es la programación que permite que varias tareas se ejecuten  casi al mismo tiempo, teniedo que coordinarse los procesos entre si para que se puedan
+    ecceder a los recursos que se solicitan o se requieren, es muy efectiva para las aplicaciones que necesiten que se tengan varios procesos en ejecucion al mismo tiempo.
+
+
 d) Utilizando tus propias palabras, indica las diferencias entre programación paralela y programación distribuida, sus ventajas e inconvenientes. 3 puntos.
+
+    La programación paralela es el tipo de ejecucion en el que se ejecutan varios procesos al mismo tiempo pero estos procesos reparten por los diferentes nucleos que tiene el procesador
+    esto es muy bueno ya que permite que todo se ejecute de una manera las fluida y no todo al mismo tiempo, lo malo es que se puede requerir un equipo que permita esta ejecución.
+
+    A diferencia de la programación paralela, la programación distribuida es un tipo de programación en el que los procesos se reparten por varias maquinas que tengamos,
+    permitiendo que los procesos se ejecuten de manera individual en las diferentes maquinas, teniendo el inconveniente de que a la hora de que falle un proceso, tendremos que buscar
+    en que maquina ha fallado y el error que lo ha provocado.
+
 
 Notas:
 
 El nombre del fichero .txt a entregar debe ser:	examen\dev_X\ua1ex1_teoria.txt , es decir, el fichero ua1ex1_teoria.txt debe estar ubicado en tu carpeta examen\dev_X\
+
+No entregues tu solución, hasta que no se indique por parte del profesorado.
