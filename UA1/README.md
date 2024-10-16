@@ -12,7 +12,7 @@ En esta unidad de aprendizaje se desarrollan los siguientes resultados de aprend
 
 - **RA1:** *Desarrolla aplicaciones compuestas por varios procesos reconociendo y aplicando principios de programación paralela.*
 
-### Criterios de Evaluación
+### Criterios de Evaluación 
 
 a) Se han analizado las características de los procesos y de su ejecución por el sistema operativo.
 

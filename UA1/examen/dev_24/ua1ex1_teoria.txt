@@ -1,0 +1,58 @@
+PARTE TEÓRICA
+
+a) Definición de proceso. Ilustra tu solución con un ejemplo. 1 punto.  
+    Un proceso son varias operaciones que se ejecutan secuencialmente. Por ejemplo un proceso es cualquier programa simple que realizemos en como 
+    cuando creamos una clase con su main y pedimos que imprima Hola Mundo, y que despues declare una variable llamade numero y le sume cuatro.
+
+b) Utilizando tus propias palabras, indica la relación entre hilos y procesos. Ilustra tu solución con un ejemplo. 3 puntos.
+    Los hilos estan formados por varios procesos, Los hilos son una tecnologia de Java que nos permite la ejecución de varios procesos al mismo tiempo.
+    Por ejemplo, seria cuando necesitaramos de dos procesos que se ejecuten al mismo tiempo para que una aplicacion funcione correctamente, crearemos varios hilos
+    los cuales seran ejecutados al mismo tiempo.
+
+c) Utilizando tus propias palabras, indica las características de la programación concurrente y sus ámbitos de aplicación. 3 puntos.
+    La programación concurrente es la que nos permite ejecutar varios procesos al mismo tiempo.
+
+        Características:
+            - Mayor eficiencia
+            - Se aprobecha mejor la CPU
+    
+    En el caso de que el sistema sea monoproceso, lo que significa que la CPU contara con un único nucle, la concurrencia consistira
+    en intercalar un trozo de un proceso y otro de otro proceso, dando asi la impresion de que se estan ejecutando simultaneamente,
+    cuando el sistema es mulproceso, que la CPU cuente con más de un nucle core, podra ejecutarse realmente al mismo tiempo 2 o más procesos.
+
+    La programación concurrente es usada cuando un programa requiere de que dos de sus procesos se ejecuten al mismo tiempo para funcionar correctamente.
+    Por ejemplo en WhasApp se necesitara que el proceso que se encarga de enviar los mensajes funcione al mismo tiempo que el proceso que se encarga de recibir
+    los mensajes.
+
+d) Utilizando tus propias palabras, indica las diferencias entre programación paralela y programación distribuida, sus ventajas e inconvenientes. 3 puntos.
+    La programación paralela es la que permite que dos procesos se ejecuten al mismo tiempo posibilitandolo que la CPU del ordenador tenga varios 
+    nucleos de procesamiento. Mientras que en la distribuida la ejecucion de más de un proceso al mismo tiempo es permitido gracias a que varios ordenadores
+    estan conectados mediante una red para ejecutar entre todos los procesos en cuestion.
+
+        Paralela 
+        - Ventajas
+            - Gasto menor en equipos.
+            - Centralizado.
+            - Simplicidad (No hay que organizar una red).
+
+        - Desventajas 
+            - Limitación de procesos al mismo tiempo.
+            
+        Distribuida 
+        - Ventajas
+            - Mayor cantidad de procesos al mismo tiempo.
+            - Expandible.
+            - Descentralizado.
+            - Más seguro ya que la ejecucion de los procesos no dependen de un unico equipo.
+        
+        - Desventajas
+            - Gasto mayor.
+            - Más complejo.
+        
+          
+
+Notas:
+
+El nombre del fichero .txt a entregar debe ser:	examen\dev_X\ua1ex1_teoria.txt , es decir, el fichero ua1ex1_teoria.txt debe estar ubicado en tu carpeta examen\dev_X\
+
+No entregues tu solución, hasta que no se indique por parte del profesorado.
