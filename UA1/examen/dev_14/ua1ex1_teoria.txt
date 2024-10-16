@@ -1,0 +1,26 @@
+Examen teorico
+PARTE TEÓRICA
+
+a) Definición de proceso. Ilustra tu solución con un ejemplo. 1 punto.  
+
+Un proceso es un programa que anda en funcionamiento , es decir cualquier código que escriba un programador y ponga a andar, este programa andando (ósea un proceso) tiene una memoria asignada para que pueda funcionar. Un ejemplo para esto es cualquier programa como un  “cuentahasta100.java” y que al compilar el programa funcione y vaya poniendo los números del 1 al 100, o un ejemplo en fisico podria ser el preoceso de hacer zumo de naranja en una fabrica de zumo de naranja, donde como el nombre indica el proceso es todo el trabajo que se realiza para producir zumo de naranja.
+
+
+b) Utilizando tus propias palabras, indica la relación entre hilos y procesos. Ilustra tu solución con un ejemplo. 3 puntos.
+
+Como ya hemos indicado antes un proceso es cuando un programa se ejecuta y cumple una tarea y tiene asignado memoria para su ejecución, los hilos son lo mismo pero vienen de un proceso y usan la memoria que usa el proceso de donde provienen , es decir es un “mini-proceso” por ejemplo si queremos contar del 1 al 100 y al mismo tiempo del 100 al 1 , podemos crear 2 hilos para que hagan esos mini-procesos al mismo tiempo . Un ejemplo mas fisico es una autovía con sus vidas , donde el proceso es la autovía en si donde es un tramo  donde los coches pasan y las vías son mini tramos donde los coches pasan pero circulan de distinta forma, todo ello transcurre dentro de la autovía y tienen asignado su espacio y ninguna vía tiene espacio extra o parte de lo que es la autovía, pues eso mismo es un proceso con sus hilos
+
+c) Utilizando tus propias palabras, indica las características de la programación concurrente y sus ámbitos de aplicación. 3 puntos.
+
+La programación concurrente no es mas que programar usando varios procesos, estos procesos pueden usarse para llegar a un punto en común para un trabajo y aumentar la efectividad y la optimización, por ejemplo que un proceso de encargue de dividir y otra de sumar datos para hacer una media, o , pueden efectuar tareas para metas distintas como es ejecutar una pantalla de registro y otra cargar y preparar un contador.
+Esto se suele utilizar en proyectos donde si o si se deben realizar varias tareas al mismo tiempo como un servidor web o una aplicación donde se ejecutan datos en tiempo real.
+ 
+
+d) Utilizando tus propias palabras, indica las diferencias entre programación paralela y programación distribuida, sus ventajas e inconvenientes. 3 puntos.
+
+La programación paralela no es mas de ejecutar varios procesos en un mismo sistema, las ventajas de este método es la optimización al usar varios núcleos del procesador pero las desventajas de estas son de que se puede producir una sobrecarga a la hora de comunicar los hilos
+
+En cambio
+
+La programación distribuida como el nombre indica , es hecha en varios sistemas donde se distribuye las tareas que se coordinan por una red, las ventajas de este metodo es que hay una mayor tolerancia a fallos ya que hay varios sistemas trabajando al fallar uno no afecta a los demás, pero la desventaja de usar este método es la lentitud de la comunicación entre los sistemas y la complejidad añadida de diseñar la red.
+
