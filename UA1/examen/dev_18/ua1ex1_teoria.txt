@@ -1,16 +1,145 @@
-NOMBRE:
-FECHA:
-
 PARTE TEÓRICA
 
-a) Definición de proceso. 1 punto.  
+a) Definición de proceso. Ilustra tu solución con un ejemplo. 1 punto.  
 
-b) Utilizando tus propias palabras, indica la relación entre hilos y procesos. 3 puntos.
+b) Utilizando tus propias palabras, indica la relación entre hilos y procesos. Ilustra tu solución con un ejemplo. 3 puntos.
 
 c) Utilizando tus propias palabras, indica las características de la programación concurrente y sus ámbitos de aplicación. 3 puntos.
 
 d) Utilizando tus propias palabras, indica las diferencias entre programación paralela y programación distribuida, sus ventajas e inconvenientes. 3 puntos.
+----------------------------------------------------------------------------------------------
 
-Notas:
 
-El nombre del fichero .txt a entregar debe ser:	examen\dev_X\ua1ex1_teoria.txt , es decir, el fichero ua1ex1_teoria.txt debe estar ubicado en tu carpeta examen\dev_X\
+A)Un proceso es una unidad de ejecución de un programa. Los procesos en si sirven en conjunto para realizar distintas actividades para dar un resultado, pueden trabajar tanto en paralelo como por separado para realizar tareas.
+
+
+Ejemplo:
+package com.mouredev.weeklychallenge2022
+
+fun main() {
+    println(rockScissorsPaper(arrayListOf(Pair(Move.ROCK, Move.ROCK))))
+    println(rockScissorsPaper(arrayListOf(Pair(Move.ROCK, Move.SCISSORS))))
+    println(rockScissorsPaper(arrayListOf(Pair(Move.PAPER, Move.SCISSORS))))
+    println(rockScissorsPaper(arrayListOf(
+        Pair(Move.ROCK, Move.ROCK),
+        Pair(Move.SCISSORS, Move.SCISSORS),
+        Pair(Move.PAPER, Move.PAPER))))
+    println(rockScissorsPaper(arrayListOf(
+        Pair(Move.ROCK, Move.SCISSORS),
+        Pair(Move.SCISSORS, Move.PAPER),
+        Pair(Move.SCISSORS, Move.ROCK))))
+    println(rockScissorsPaper(arrayListOf(
+        Pair(Move.ROCK, Move.PAPER),
+        Pair(Move.SCISSORS, Move.ROCK),
+        Pair(Move.PAPER, Move.SCISSORS))))
+}
+
+enum class Move {
+    ROCK, SCISSORS, PAPER
+}
+
+private fun rockScissorsPaper(games: List<Pair<Move, Move>>): String {
+
+    var playerOneGames = 0
+    var playerTwoGames = 0
+
+    games.forEach { game ->
+
+        val playerOneMove = game.first
+        val playerTwoMove = game.second
+
+        if (playerOneMove != playerTwoMove) {
+
+            if (playerOneMove == Move.ROCK && playerTwoMove == Move.SCISSORS
+                || playerOneMove == Move.SCISSORS && playerTwoMove == Move.PAPER
+                || playerOneMove == Move.PAPER && playerTwoMove == Move.ROCK) {
+
+                playerOneGames += 1
+            } else {
+                playerTwoGames += 1
+            }
+        }
+    }
+
+    return if (playerOneGames == playerTwoGames) {
+        "Tie"
+    } else if (playerOneGames > playerTwoGames) {
+        "Player 1"
+    } else {
+        "Player 2"
+    }
+}
+Les pide a los 2 jugadore que piensen que sacar
+Luego los dos jugadores sacan sus respectivos objectos que vayan a jugar es decir sacan piedra o papel o tijeras
+Luego se analiza cual de los dos sabiendo que hay 9 posiblidades gana el juego o empata o pierde.
+
+(Este ejemplo esta sacado de una pagina que utilzo para estudiar que te da un monton de retos de programacion y este fue uno de mis ultimos ejercicios hechos que es un piedra papel o tijera pasando paso por paso para explicar sus procesos.) 
+PD:La pagina en cuestion es esta: https://retosdeprogramacion.com/ejercicios
+
+Otro ejemplo mas traido la vida cotidiana seria el montar una silla y montarla:
+
+Miras primero que silla vas a comprar
+Luego vas a la tienda a preguntar por ella y probarla
+Luego la pagas y la llevas a tu casa 
+Luego desempacas la caja y empiezas a mirar las instrucciones 
+Luego la terminas de montar y la disfrutas
+
+B) Un hilo es una unidad de ejecución de un proceso. En si los hilos lo que hacen es cooperar con los proceso para resolver los problemas.
+import java.util.Scanner;
+public class LectorDeCadena extends Thread {
+
+    public LectorDeCadena () {
+        
+    }
+
+    
+        @Override
+        public void run() {
+            Scanner scanner = new Scanner(System.in);
+            String cadenaLeida = ""; // Aquí guardamos los caracteres
+            char caracter; // Variable para guardar el carácter
+    
+            System.out.println("Introduce caracteres (termina con *):");
+    
+            //Leer caracteres hasta encontrar(*)
+            while (true) {
+                caracter = scanner.next().charAt(0);
+                
+                // Si el carácter es un asterisco, salir del bucle
+                if (caracter == '*') {
+                    break;
+                }
+                
+                // Añadir el carácter a la cadena
+                cadenaLeida += caracter;
+            }
+    
+            // Mostrar la cadena cuando el asterisco
+            System.out.println("Cadena leída: " + cadenaLeida);
+            
+        
+            scanner.close();
+        }
+
+
+}
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class EjecutarLectorDeCadena {
+
+    public static void main(String[] args) {
+    
+        LectorDeCadena h1 = new LectorDeCadena();
+        h1.start();
+    }
+}
+Este ejemplo esta sacado del repositorio de git dev_18 ejercio1 java:
+Aqui tenemos el ejercicio que hicimos la semana pasada 
+Aqui los hilos lo que hacen como hemos dicho es a cooperar a los proceso del primer codigo a que se ejecuten.
+En si los hilos son como los trabajadores de una oficina y los procesos el trabajo que tienen que hacer si a cada hilo se le da x procesos hacen el trabajo mucho mas rapido.
+
+C)La programación concurrente es la ejecución de varias tareas simultáneamente.
+
+D)La programación paralela es parecido a la concurrente
