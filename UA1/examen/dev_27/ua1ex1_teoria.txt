@@ -1,16 +1,37 @@
-NOMBRE:
-FECHA:
+a) Definición de proceso. Ilustra tu solución con un ejemplo. 1 punto. 
 
-PARTE TEÓRICA
+Un proceso es un programa que realiza una tarea y ocupa memoria, por ejemplo, un codigo que te diga que 
+numeros del 1 al 10 son pares y cuales son impares.
 
-a) Definición de proceso. 1 punto.  
+b) Utilizando tus propias palabras, indica la relación entre hilos y procesos. Ilustra tu solución con un ejemplo. 3 puntos.
 
-b) Utilizando tus propias palabras, indica la relación entre hilos y procesos. 3 puntos.
+La relacion entre hilos y procesos es la siguiente, un hilo es un conjunto de procesos, esto significa que
+un hilo contiene 2 o mas procesos que pueden realizarse a la vez o no, segun como tu lo programes.
+
+Un ejemplo seria tener un hilo que una vez que se inicie tenga dos procesos, uno para mostrar los numeros 
+del 1 al 10 de menor a mayor, y el otro proceso hara lo mismo pero de mayor a menor, es decir, 
+del 10 al 1, dependiendo de la maquina y del compilador puede ser que se inicie antes un proceso que otro.
 
 c) Utilizando tus propias palabras, indica las características de la programación concurrente y sus ámbitos de aplicación. 3 puntos.
 
+La programacion concurrente es la que se encarga de iniciar varias tareas y que se realizen 
+"al mismo tiempo", ya que se realizan todas en un mismo nucleo de la CPU y solo se puede realizar una al
+mismo tiempo, pero lo hace de manera muy rapida y parece que este haciendo las dos o mas tareas al mismo
+tiempo.
+
+Esto se puede aplicar en sistemas operativos por ejemplo.
+
 d) Utilizando tus propias palabras, indica las diferencias entre programación paralela y programación distribuida, sus ventajas e inconvenientes. 3 puntos.
 
-Notas:
+La programacion paralela se encarga de iniciar varios procesos al mismo tiempo ya que cada proceso lo 
+inicia en un nucleo distinto de la CPU , la ventaja de este tipo de programacion es que es mas barata de
+realizar ya que se requiere unicamente de un equipo, pero la desventaja es que toda la informacion esta 
+guardada en la misma maquina.
 
-El nombre del fichero .txt a entregar debe ser:	examen\dev_X\ua1ex1_teoria.txt , es decir, el fichero ua1ex1_teoria.txt debe estar ubicado en tu carpeta examen\dev_X\
+La programacion distribuida se encarga de inicia varios procesos al mismo tiempo pero los inicia en 
+distintas maquinas, es decir, todos los procesos no se ejecutan desde la misma maquina si no que cada 
+maquina tendra un numero x de procesos y se ejecutaran todas las maquinas al mismo tiempo, la ventaja de 
+esto es que toda la informacion no esta en la misma maquina pero la desventaja que tiene es que al no 
+estar todas las maquinas conectadas ni estar a la misma distancia y etc, esto provoca que un proceso se 
+haga mas rapido que otro por la diferencia de conexion, y aparte es un tipo de programacion con un coste 
+mas elevado.
