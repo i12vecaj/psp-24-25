@@ -1,16 +1,52 @@
-NOMBRE:
-FECHA:
+a) Definición de proceso. Ilustra tu solución con un ejemplo. 1 punto.  
+Podemos definir a un proceso como programa que se encuentra en ejecución y que además cuenta con un espacio de memoria reservado, por lo que no comparte recursos ni espacio de memoria con otros procesos. Los procesos contiene el código ejecutable del programa y los datos, las variables... Cada proceso tiene varios estados de ejecución que son los siguientes:
+Idle --> Cuando el proceso se crea
+Ready --> Cuando el proceso esta listo para ejecutar
+Running --> Cuando se esta ejecutando
+Wait --> Cuando esta en espera
+Zombie --> Cuando se ha acabado el proceso
 
-PARTE TEÓRICA
 
-a) Definición de proceso. 1 punto.  
 
-b) Utilizando tus propias palabras, indica la relación entre hilos y procesos. 3 puntos.
+
+Ejemplo:
+Un ejemplo de un proceso puede ser un programa que nos muestre la tabla de multiplicar del 2.
+El proceso se inicia, nos muestra la tabla del 2 y muere.
+
+
+b) Utilizando tus propias palabras, indica la relación entre hilos y procesos. Ilustra tu solución con un ejemplo. 3 puntos.
+Un hilo lo podemos definir como un subproceso de ejecución dentro del programa. Un proceso  puede tener uno o varios hilos, esto hace que los hilos no tenga un espacio reservado, sino que comparte el espacio de memoria del proceso al que pertenecen. El flujo de ejecución de cada hilo depende del procesador, ya que podemos tener dos hilos corriendo al mismo tiempo, esto hace que si por ejemplo el hilo 1 solo se dedica a imprimirnos números y el hilo 2 solo a imprimirnos letras , el resultado no va a ser primero los número y luego las letras sino que se irán intercalando, para evitar esto existen mecanismo que nos  permiten poner un hilo a la espera.
+
+Ejemplo:
+Un programa que nos calcule a la misma vez la temperatura y la humedad, el programa principal es el proceso, y luego tenemos dos subprocesos(Hilos) que son los que nos calculan la temperatura y la humedad.
+
+
+
 
 c) Utilizando tus propias palabras, indica las características de la programación concurrente y sus ámbitos de aplicación. 3 puntos.
 
+La programación concurrente nos hacer que múltiples procesos o tareas se ejecuten de forma aparentemente simultánea, ya que sabemos que realmente se ejecutan de forma intercala como los hilos.
+Este tipo de programación es muy útil ya que nos realizar que cuando una tarea esté en espera, otra se este realizando, optimizando así el tiempo de ejecución, esta es la principal clave de la programación concurrente, otra característica fundamental es la optimización de los recursos.
+Ámbitos de aplicación:
+En interfaces gráfica que necesitan realizar operaciones a la misma vez muestran la interfaz.
+Sistemas que necesitan gestionar varias tareas de usuarios al mismo tiempo.
+
+
+
 d) Utilizando tus propias palabras, indica las diferencias entre programación paralela y programación distribuida, sus ventajas e inconvenientes. 3 puntos.
+La programación paralela es un tiempo de programación concurrente donde se ejecutan múltiples tareas simultáneamente en diferentes núcleos del procesador de la máquina, se centra en dividir un problema en subproblemas que se resuelven a la vez mejorando así el rendimiento. La programación distribuida, hace todo lo contrario, mientras que la paralela se ejecuta todo en un mismo equipo, la distribuida ejecuta los diferentes componentes del programa en distintos equipos, conectado a través de la red, esto facilita la escalabilidad y la disponibilidad de los servicios.
+Paralela:
+	Ventajas: Es más rápida para tareas que se pueden dividir en subtareas y ejecutar en paralelo
+	Desventajas: Está limitada a la capacidad de la máquina, en esto caso al número de procesadores
+Distribuida:
+	Ventajas: Mucha mayor escalabilidad al poder utilizar varias máquinas.
+	Desventajas: Mayor complejidad en la comunicación , en este caso dependemos de que la red sea estable.
+
+
+
 
 Notas:
 
 El nombre del fichero .txt a entregar debe ser:	examen\dev_X\ua1ex1_teoria.txt , es decir, el fichero ua1ex1_teoria.txt debe estar ubicado en tu carpeta examen\dev_X\
+
+No entregues tu solución, hasta que no se indique por parte del profesorado.
