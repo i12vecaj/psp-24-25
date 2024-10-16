@@ -32,7 +32,7 @@ public class Main { // Main - Álvaro Fernández Amaro
             }
 
             System.out.println("\n");
-            System.exit(1); //Declaro un system.exit como forma de decir que si da 1, el programa finalizó correctamente.
+
         }
 
 
