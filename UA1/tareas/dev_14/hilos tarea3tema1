@@ -1,0 +1,38 @@
+import java.util.List; // Importamos la interfaz List para manejar listas dinámicas
+
+public class hilos implements Runnable { // La clase hilos implementa la interfaz Runnable para ejecutar en un hilo
+    private List<String> listaArgumentos; // Lista que almacenará los argumentos proporcionados por el usuario
+    private int codigoSalida; // Código de salida que indica el resultado del procesamiento
+
+    // Constructor que inicializa la lista de argumentos
+    public hilos(List<String> listaArgumentos) {
+        this.listaArgumentos = listaArgumentos; // Asignamos la lista de argumentos a la variable de instancia
+    }
+
+    // Método que contiene la lógica que se ejecutará en el hilo
+    @Override
+    public void run() {
+        // Verificamos si la lista de argumentos está vacía
+        if (listaArgumentos.isEmpty()) {
+            codigoSalida = 1;  // Asignamos el código de salida 1 si no hay argumentos
+            return; // Salimos del método
+        }
+
+        // Obtenemos el primer argumento de la lista
+        String argumento = listaArgumentos.get(0);
+        try {
+            // Intentamos convertir el argumento en un número entero
+            int numero = Integer.parseInt(argumento);
+            // Asignamos el código de salida basado en si el número es negativo o no
+            codigoSalida = (numero < 0) ? 3 : 0;  // Si el número es negativo, asignamos 3; de lo contrario, asignamos 0
+        } catch (NumberFormatException e) {
+            // Si ocurre una excepción, significa que el argumento no es un número válido
+            codigoSalida = 2;  // Asignamos el código de salida 2 si el argumento es una cadena
+        }
+    }
+
+    // Método para obtener el código de salida
+    public int getCodigoSalida() {
+        return codigoSalida; // Devolvemos el código de salida
+    }
+}
