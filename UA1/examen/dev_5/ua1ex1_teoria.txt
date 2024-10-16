@@ -1,15 +1,32 @@
-NOMBRE:
+NOMBRE: Paco Barbero
 FECHA:
 
 PARTE TEÓRICA
 
-a) Definición de proceso. 1 punto.  
+a) Definición de proceso. Ilustra tu solución con un ejemplo. 1 punto.  
 
-b) Utilizando tus propias palabras, indica la relación entre hilos y procesos. 3 puntos.
+Un proceso es un programa en ejecución el cual ocupa una cantidad de memoria ram y recursos del sistema ,un ejemplo de proceso puede ser cuando ejecutamos google , este nos chupa recursos de ram y cpu por ejemplo.
+
+b) Utilizando tus propias palabras, indica la relación entre hilos y procesos. Ilustra tu solución con un ejemplo. 3 puntos.
+
+ambos se relacionan en que la característica de un procesos y un subprocesos se transforman en una sola cosa llamado proceso 
 
 c) Utilizando tus propias palabras, indica las características de la programación concurrente y sus ámbitos de aplicación. 3 puntos.
 
+La programación se da cuando un programa está ejecutando varios procesos de forma concurrente, estos pueden colaborar o competir , las características son las siguientes:
+mejor aprovechamiento de la cpu , incremento de velocidad y solución de problemas
+
+
 d) Utilizando tus propias palabras, indica las diferencias entre programación paralela y programación distribuida, sus ventajas e inconvenientes. 3 puntos.
+
+diferencias: la programación paralela se encarga de ejecutar múltiples tareas aprovechando los recursos del sistema y la distribuida se encarga de ejecutar procesos independientes utilizando recursos de la red
+Programación paralela:
+Ventajas: Velocidad,Eficiencia ,Menos latencia 
+Inconvenientes:Sincronización compleja,Escalabilidad limitada:
+Programación distribuida:
+Ventajas:Escalabilidad.Distribución geográfica: 
+Inconvenientes:Latencia,problemas de seguridad 
+
 
 Notas:
 
