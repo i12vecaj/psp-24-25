@@ -35,8 +35,5 @@ d) Utilizando tus propias palabras, indica las diferencias entre programación p
     programa y se puden generar errores de consistencia puesto que varios nodos pueden intentar modificar un archivo a la vez.
 
 
-
-
-
     ACLARACIÓN(Es importante saber que un procesador no puede ejecutar dos procesos a la vez por lo que si tiene que calcular dos o más
     va saltando de uno a otro, esto está regido por nuestra marca de procesador y sistema operativo)
