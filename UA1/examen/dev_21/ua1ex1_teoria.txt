@@ -1,0 +1,39 @@
+NOMBRE: Óscar Muñoz Molinero 
+FECHA: 16/10/2024
+
+PARTE TEÓRICA
+
+a) Definición de proceso. Ilustra tu solución con un ejemplo. 1 punto.  
+
+Un proceso es la ejecución de un programa, es decir, la ejecución secuencial de un conjunto de instrucciones que realiza un servicio.
+Por ejemplo un proceso seria, el bluetooth del mismo ordenador, es un proceso que esta activado siempre a la espera de conectarse con otro dispositivo.
+
+b) Utilizando tus propias palabras, indica la relación entre hilos y procesos. Ilustra tu solución con un ejemplo. 3 puntos.
+
+La relación que tienen los procesos y los hilos es que los procesos están formados por hilos, los hilos son subprocesos en los que se divide los procesos para que el
+procesador de nuestra máquina pueda realizar estas tareas más rápidamente y escoja hilos de procesos distintos dándonos la sensación de que esta haciendo varios procesos
+a la vez. 
+Un ejemplo seria un sensor climatológico que esta tomando varios datos a la vez como la velocidad del viento, la humedad del ambiente... 
+
+c) Utilizando tus propias palabras, indica las características de la programación concurrente y sus ámbitos de aplicación. 3 puntos.
+
+La programación concurrente es en esencia realizar varias acciones al mismo tiempo, o dar esa sensación ya que un procesador solo puede procesar tareas de una en una.
+Un ejemplo seria cuando abrimos varios programas en nuestro ordenador. 
+
+d) Utilizando tus propias palabras, indica las diferencias entre programación paralela y programación distribuida, sus ventajas e inconvenientes. 3 puntos.
+
+La diferencia principal es que programación paralela esta pensada para explotar los recursos de nuestro ordenador, es decir, cada tarea es enviada a un núcleo del procesador
+para poder ser lo más rápidos posibles, mientras que la filosofía de la programación distribuida busca separar las tareas grandes y pesadas en tareas mas simples para
+que así al procesador le cueste menos hacer su computo.
+
+La principal ventaja de la programación paralela es que explotar al máximo los recursos hardware de nuestro procesador y nos permite una mayor velocidad pero su 
+inconveniente es que el necesitamos maquinas mas potentes que para ejecutar programas de este estilo.
+En cuanto a las ventajas de la programación distribuida la más destacable seria que al segmentar una tarea se vuelve mas fácil de computar lo que hace que
+maquinas mas modestas también pueda ejecutar programas de este estilo. 
+
+
+Notas:
+
+El nombre del fichero .txt a entregar debe ser:	examen\dev_X\ua1ex1_teoria.txt , es decir, el fichero ua1ex1_teoria.txt debe estar ubicado en tu carpeta examen\dev_X\
+
+No entregues tu solución, hasta que no se indique por parte del profesorado.
