@@ -1,5 +1,4 @@
 //daniel acosta castilla
-//me he agobiado con la idea de meter varios archivos habiendo leido la descripcion de la entrega y por eso lo he hecho todo en cascada ;(
 
 
 import java.util.Random;
