@@ -1,24 +1,40 @@
-/*
+#include <stdlib.h>
+#include <unistd.h>
+#include <stdio.h>
 
-NOMBRE:
-FECHA:
+void main(){
 
-PARTE PRÁCTICA
+    pid_t pid; //Declaramos la variable pid con tipo pid_t
+    int i;
 
-FR1: Haz un programa en C que genere una estructura de procesos con un PADRE y 3 HIJOS, del mismo padre se entiende - 2 puntos
-FR2: Visualiza por cada hijo su identificador (si es el hijo 1, 2 ó 3), su PID y el del padre, utilizando para ello una función definida por ti a la que llamen los procesos hijos - 2 puntos
-FR3: Justo antes de finalizar el programa PADRE, se debe imprimir por pantalla el PID del padre de todos una única vez. Debe hacerlo el programa PADRE - 2 puntos
-FR4: Implementa el control de errores - 2 puntos
-FR5: Documenta y estructura el código - 2 puntos
+    printf("Aqui tiene la informacion de los procesos hijos:\n\n"); //Creamos fuera este print para que no se repita todo el rato
 
-Para evitar complicaciones con máquinas virtuales, si lo prefieres puedes utilizar el compilador online: https://www.onlinegdb.com/online_c_compiler
+    for (i = 1; i<=3; i++){ //Dentro del bucle for creamos los procesos hijos
+        pid = fork();
 
-Notas:
+    if(pid < 0){ //Aqui hacemos un control de errores, por si los procesos hijo no se crean bien
+        printf("Lo sentimos ha habido un error al crear el proceso\n");
+        exit(-1);
+    }
+    
+    if(pid == 0){ //Ahora dentro de este if llamamos a la funcion donde mostramos la informacion de cada proceso
+        
+        informacion(i);
+        exit(0);
+    }
+    }
 
-Los comentarios (descriptivos y concisos) en el código ... siempre son bien.
-Los nombres de las variables autodescriptivos ... siempre son bien.
-Las impresión por pantalla, correctamente indentada y verticalmente espaciada ... siempre es bien.
-Los warnings del presente ... son los errores del futuro.
-El nombre del fichero .c a entregar debe ser: examen\dev_X\ua1ex1.c , es decir, el fichero ua1ex1.cdebe estar ubicado en tu carpeta dev_X\
+    for(i = 1; i<=3; i++){ //Ahora metemos dentro de un bucle el wait null para esperar que finalicen los procesos hijos
+        wait(NULL);//Aqui esperamos que finalicen los procesos hijos
+    }
 
-*/
+    printf("\n");
+    printf("Y aqui tiene la informacion del proceso padre:\n\n");
+    printf("El PID del padre es: %d.",getpid()); //Por ultimo mostramos el PID del padre
+    
+    return 0;
+}
+
+void informacion(int hijos){ //En la funcion le pasamos el parametro hijos
+    printf("El hijo numero %d, tiene un PID: %d. Y el PID de su padre es: %d. \n",hijos, getpid(),getppid());//Y aqui mostramos su PID y el PID del padre.
+}
