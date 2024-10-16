@@ -1,44 +1,57 @@
-#include <stdio.h>   // Para printf, scanf
-#include <stdlib.h>  // Para exit
-#include <unistd.h>  // Para fork, getpid, getppid
-#include <sys/wait.h> // Para wait
+#include <stdlib.h>
+#include <unistd.h>
+#include <stdio.h>
 
-int main() {
-    pid_t pid, hijo_pid;
-    int variable;
+void main() {
+  //Definimos las variables que vamos a utilizar
+  pid_t pid;
+  int variable;
+  int suma;
+  int resultado_final;
+  
+  printf("\t\t**BIENVENIDO**\n");
+  printf("-Hola!! me puedes introducir el valor de tu variable: ");
+  scanf("%d", &variable);
+  
+  //Creamos un clon de el proceso padre(main)
+  pid = fork();
 
-    // FR2: Solicitar variable al usuario
-    printf("Introduce una variable entera: ");
-    if (scanf("%d", &variable) != 1) {
-        printf("Error al leer la variable\n");
-        exit(-1);  // Control de error en la entrada
-    }
-
-    // FR1: Crear un proceso (padre e hijo)
-    pid = fork();
-    
-    // Control de errores en fork
-    if (pid == -1) { 
-        // Ha ocurrido un error al crear el proceso
-        printf("No se ha podido crear el proceso hijo.\n");
-        exit(-1);
-    }
-    
-    if (pid == 0) {
-        // Proceso hijo
-        // FR4: El proceso hijo suma 4 a la variable
-        variable += 4;
-        printf("Proceso hijo: Valor de la variable después de sumar 4: %d\n", variable);
-        exit(0); // El hijo termina
-    } else {
-        // Proceso padre
-        // FR3: El proceso padre resta 5 a la variable
-        variable -= 5;
-        printf("Proceso padre: Valor de la variable después de restar 5: %d\n", variable);
-        
-        // Esperar la finalización del proceso hijo (FR5)
-        hijo_pid = wait(NULL);
-    }
-    
-    return 0;
+  //Aplicamos un control de errores
+  if (pid == -1 ) 
+  {
+    printf("No se ha podido crear el proceso hijo...");
+    exit(-1);       
+  }
+  
+  //Comprobamos si estamos en el proceso hijo de ser asi le sumamos a variable 4
+  if(pid == 0) {
+      variable += 4;
+      
+      printf("Variable en el proceso hijo con valor de %d\n", variable);
+      
+      exit(0);
+      
+      
+  } else{
+      //Comprobamos si estamos en el proceso padre de ser asi le restamos a variable 5
+      
+      /* Mediante wait(NULL) lo que hacemos es esperar a que el proceso hijo termine y luego
+      *  ejecutar el proceso padre
+      */
+      pid = wait(NULL);
+      variable -= 5;
+      
+      printf("Variable en el proceso padre con valor de %d", variable);
+      printf("\n\t**FINALIZADO**");
+      exit(1);
+  }
+  
+  /* EJECUCIÓN DE EJEMPLO
+  *     **BIENVENIDO**
+  * -Hola!! me puedes introducir el valor de tu variable: (5)
+  * Variable en el proceso hijo con valor de 9
+  * Variable en el proceso padre con valor de 0
+  *     **FINALIZADO**
+  */
+  
 }
