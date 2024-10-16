@@ -1,0 +1,39 @@
+PARTE TEÓRICA
+
+a) Definición de proceso. Ilustra tu solución con un ejemplo. 1 punto.  
+
+Un proceso es un programa en ejecución. Cuando por ejemplo hacemos uso de una aplicación de escritorio esta genera un proceso normalmente con el mismo nombre de la app y se pueden observar en el administrador de tareas en el apartado de procesos
+
+
+b) Utilizando tus propias palabras, indica la relación entre hilos y procesos. Ilustra tu solución con un ejemplo. 3 puntos.
+
+Como hemos dicho que el proceso es un programa en ejecución, este a su vez puede tener mas de un subproceso relacionado, al conjunto de subprocesos se le conoce como hilos.
+Ejem:
+	Cuando tenemos una cadena de producción de coches por ejemplo. El proceso seria la fabrica en si, y el hilo cada proceso que lleva a obtener el producto en este caso el 	coche
+
+
+c) Utilizando tus propias palabras, indica las características de la programación concurrente y sus ámbitos de aplicación. 3 puntos.
+
+En programas que gestionen base de datos, en sistemas operativos, juegos, etc, hoy en dia casi todo por no decir todo esta programado de forma concurrente 
+
+
+d) Utilizando tus propias palabras, indica las diferencias entre programación paralela y programación distribuida, sus ventajas e inconvenientes. 3 puntos.
+
+La programación paralela es aquella que se hace pensando en sistemas con mas de un procesador mientras que la distribuida es aquella que se hace pensando que el programa se ejecute en mas de un equipo al mismo tiempo
+
+Programación Paralela:
+	Ventajas: mejora la velocidad de procesamiento; aprovecha mejor los recursos de hardware
+	Inconvenientes: problemas de sincronización; problemas de comunicación
+
+Programación distribuida:
+	Ventajas: fácil de escalar; los equipos pueden estar en diferentes regiones
+	Inconvenientes: latencia alta en la comunicación; los problemas son mas complicados de solucionar
+
+
+
+
+Notas:
+
+El nombre del fichero .txt a entregar debe ser:	examen\dev_X\ua1ex1_teoria.txt , es decir, el fichero ua1ex1_teoria.txt debe estar ubicado en tu carpeta examen\dev_X\
+
+No entregues tu solución, hasta que no se indique por parte del profesorado.
