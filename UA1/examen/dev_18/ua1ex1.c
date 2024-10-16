@@ -22,3 +22,47 @@ Los warnings del presente ... son los errores del futuro.
 El nombre del fichero .c a entregar debe ser: examen\dev_X\ua1ex1.c , es decir, el fichero ua1ex1.cdebe estar ubicado en tu carpeta dev_X\
 
 */
+
+
+
+#include <stdio.h>   
+#include <stdlib.h>  
+#include <unistd.h> 
+#include <sys/types.h> 
+#include <sys/wait.h>  
+// Etiquetas cogidas del ejercicio de clase
+
+
+void mostrar_informacion_hijo(int num_hijo, pid_t pid_padre) {
+    printf("Soy el hijo %d. Mi PID es %d y el PID de mi padre es %d\n", num_hijo, getpid(), pid_padre);
+}
+
+int main() {// Guardamos el PID del proceso padre
+    pid_t pid_padre = getpid(); 
+    pid_t pid_hijo;
+    int num_hijos = 3;  
+
+    // Creamos un nuevo proceso hijo
+    for (int i = 1; i <= num_hijos; i++) {
+        pid_hijo = fork();  
+      
+ // Control de errores
+        if (pid_hijo < 0) { 
+            perror("Error al crear proceso hijo");
+            exit(EXIT_FAILURE);
+        } else if (pid_hijo == 0) {  
+            mostrar_informacion_hijo(i, pid_padre);  
+            exit(0);  //
+        }
+    }
+
+    // Metemos funcion wait para que no salga el PID padre antes que los hijos
+    for (int i = 1; i <= num_hijos; i++) {
+        wait(NULL);  
+    }
+
+    // El padre imprime PID antes terminar el programa
+    printf("Soy el proceso PADRE. Mi PID es %d\n", pid_padre);
+
+    return 0; 
+}
