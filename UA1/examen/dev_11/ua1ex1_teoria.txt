@@ -1,15 +1,49 @@
-NOMBRE:
-FECHA:
+NOMBRE: Álvaro Fernández Amaro
+FECHA: 16/10/2024
 
 PARTE TEÓRICA
 
 a) Definición de proceso. 1 punto.  
 
+Un proceso, es un programa que se encuentra en ejecución, que además tiene su propio espacio de memoria, recursos y posición de memoria, la cual asigna el propio procesador de la máquina o CPU. Los procesos, a su vez de dividen en subprocesos, a los cuales conocemos comúnmente como hilos. 
+En C, un ejemplo de creación de procesos sería haciendo uso de fork(). Fork(), funciona de la siguiente manera:
+
+- En primer lugar, se instancia el método fork, que lo que hace básicamente es hacer una copia exacta del proceso padre ( en este caso el main ).
+- Posteriormente crearíamos los procesos hijos pid, los cuales podemos saber su espacio de memoria concreto con getpid(), o el del proceso padre con getppid().
+- EXTRA: También hay métodos reservados para controlar dichos procesos, como el wait(), que lo que hace es esperar a que un proceso acabe para poder ejecutar el siguiente.
+
+En Java, lo que hemos aprendido es que principalmente podemos ejecutar otros programas ( o procesos ) desde un proceso concreto haciendo uso de las clases "Process" y "ProcessBuilder".
+
+
 b) Utilizando tus propias palabras, indica la relación entre hilos y procesos. 3 puntos.
+
+
+La relación entre procesos e hilos es muy sencilla, pues principalmente, es que un proceso, es el programa en ejecución y a su vez, los hilos son los procesos que se ejecutan de manera concurrente, durante la ejecución de dicho proceso. Es decir, el hilo por sí mismo no tiene un espacio de memoria reservado, por lo que lo comparte con el proceso del que deriva, el cual si tiene su propio espacio de memoria reservado.
+
+EXTRA: Hay dos formas de crear Hilos en java, extendiendo o heredando de la clase Thread, o implementando la clase Runnable, ambas tienen sus ventajas e inconvenientes, pero principalmente y por comentarlo rápidamente sería que si heredas de la clase Thread, heredas todos los métodos de dicha clase, creando la desventaja de que no puedes iterar tus propios métodos o heredar de otras clases. Mientras que si implementas la clase Runnable, puedes heredar otras clases, y otros métodos, pero como principal "desventaja" es que para poder iniciar dicho hilo debes instanciar dos objetos en lugar de uno solo: Un objeto de tu clase hilo que hayas creado, y pasarlo por parámetro al nuevo objeto de la clase Thread.
+
 
 c) Utilizando tus propias palabras, indica las características de la programación concurrente y sus ámbitos de aplicación. 3 puntos.
 
+
+La programación concurrente, es un paradigma de programación enfocado a la "multitarea", como anteriormente he mencionado. Esto permite que se puedan realizar distintas tareas de manera simultánea, lo que genera la gran ventaja de prescindir de hacer tanto uso de recursos, y agilizar las tareas a realizar de una forma más sencilla. El principal inconveniente es que por ejemplo, a la hora de ejecutar varios hilos a la misma vez, todos se ejecutan de manera simultánea, accediendo al mismo recurso de memoria, lo que se conoce como "condición de carrera", esto se puede solucionar agregando un orden de prioridad a la ejecución de cada hilo, o simplemente haciendo uso de ciertos métodos para esperar a que un hilo termine de ejecutarse, para ejecutar el siguiente (.join()).
+
+Un caso de aplicación, por ejemplo sería, imagina que tenemos un programa (este sería el proceso), que gestiona el procesamiento de datos de los alumnos, profesores y trabajadores del Lope. En este caso, por ejemplo, se podría hacer que 3 distintos hilos dentro del proceso, fueran los que procesaran los datos de cada parte. Un hilo procesa los datos de los alumnos, otro hilo los de los profesores, y otro el del resto de trabajadores.
+Con esto estaríamos aplicando programación concurrente, pues se está haciendo una multitarea y dividiendo el proceso principal en distintos subprocesos (hilos), que a su vez hacen uso de menos recursos que si todos los datos los procesáramos desde el proceso principal. (Este ejemplo también ayuda a entender mejor la pregunta anterior de la relación entre hilo y proceso).
+
+
+
 d) Utilizando tus propias palabras, indica las diferencias entre programación paralela y programación distribuida, sus ventajas e inconvenientes. 3 puntos.
+
+
+Para poder explicar la diferencia entre ambos paradigmas, primero voy a definirlas brevemente. La programación paralela, es un tipo de programación concurrente donde se ejecutan varias tareas de manera simultánea como ya conocemos, pero con la diferencia de que se centra en dividir los problemas en otros subproblemas y que las tareas se ejecutan en distintos núcleos o incluso máquinas distintas.
+La programación distribuida es un modelo de programación en el que las tareas o procesos, se ejecuten en distintas máquinas, conectadas mediante una red.
+
+Las ventajas de la programación paralela, son las mismas que la de la programación concurrente, pero los inconvenientes son, que tiene compiladores más complejos, tienen un mayor consumo de energía, y la comunicación y sincronización es más compleja.
+Las ventajas de la programación distribuida es que se pueden compartir recursos y datos, tiene una mayor flexibilidad, y que tienes los datos más distribuidos en distintos nodos. Las desventajas, es que la complejidad es mayor y tiene más problemas de seguridad.
+
+Un ejemplo de cada una sería, por ejemplo, para la programación distribuida, es muy común el framework PVM y para la programación paralela se conoce COBOL.
+
 
 Notas:
 
