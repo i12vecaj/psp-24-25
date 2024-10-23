@@ -1,19 +1,22 @@
 import java.util.Random;
 
-public class S_Vida {
-    private int porcentaje;
-    //en el contructor meto el metodo setter para que el atributo porcentaje tenga un valor
-    public S_Vida (){
-        setPorcentaje();
-    }
-    //Hago uso de la libreria Random para randomizar el porcentaje
-    public  void setPorcentaje() {
-        Random num = new Random (System.currentTimeMillis());
-        int num_random = num.nextInt(40);
-        porcentaje = num_random;
-    }
+public class S_Vida implements Runnable {
+    private Random porcentaje = new Random();
+    private static final int MAX_ITERATIONS = 10; // ciclos de uso = 10
 
-    public int getporcentaje(){
-        return porcentaje;
+    @Override
+    public void run() {
+        for (int i = 0; i < MAX_ITERATIONS; i++) {
+            int vida = porcentaje.nextInt(101); // genera porcentaje random
+            System.out.println("Vida actual: " + vida + "%");
+
+            try {
+                Thread.sleep(2000); // espera 2 segundos antes de  comprobar la temperatura
+            } catch (InterruptedException e) {
+                System.out.println("ERROR Hilo.");
+                break; // salir del bucle
+            }
+        }
+        System.out.println("Hilo de vida finalizado.");
     }
 }
