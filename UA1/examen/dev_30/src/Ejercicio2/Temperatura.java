@@ -10,6 +10,12 @@ public class Temperatura extends Thread {
             System.out.println("La temperatura que hace ahora mismo es: "+grados+" grados Celsius");
             System.out.println("Lectura realizada por el sensor: " + System.currentTimeMillis());
             System.out.println("");
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                System.out.println("La lectura de la temepratura ha fallado");
+            }
+
 
         }
 

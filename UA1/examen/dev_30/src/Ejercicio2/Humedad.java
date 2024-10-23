@@ -9,6 +9,11 @@ public class Humedad extends Thread{
             System.out.println("La Humedad que hace ahora mismo es: "+gramosAgua+" g / m³");
             System.out.println("Lectura realizada por el sensor: " + System.currentTimeMillis());
             System.out.println("");
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                System.out.println("La lectura de la Humedad ha fallado");
+            }
 
         }
     }

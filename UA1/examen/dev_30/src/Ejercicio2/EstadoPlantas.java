@@ -13,6 +13,11 @@ public class EstadoPlantas extends Thread{
             System.out.println("El estado actual de las plantas es del: "+estado+"%.");
             System.out.println("Lectura realizada por el sensor: " + System.currentTimeMillis());
             System.out.println("");
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                System.out.println("La lectura del Estado de las plantas ha fallado");
+            }
         }
     }
 }
