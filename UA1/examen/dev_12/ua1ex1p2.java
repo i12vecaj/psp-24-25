@@ -1,82 +1,72 @@
-package examen.dev_12;
 
+class Sensor implements Runnable {
+    private String nombreSensor;
+    private int tiempoLectura;
 
-public class ua1ex1p2 {
+    public Sensor(String nombreSensor) {
+        this.nombreSensor = nombreSensor;
+    }
+
+    @Override
+    public void run() {
+        Random random = new Random();
+        for (int i = 1; i <= 10; i++) {
+            // Generar un valor aleatorio para la medición (ajustado según el tipo de sensor)
+            double valorMedicion = 0;
+            String unidadMedicion = "";  // Esta variable almacenará la unidad de medida adecuada
+            
+            if (nombreSensor.contains("Temperatura")) {
+                valorMedicion = Math.round((random.nextDouble() * 30) * 100.0) / 100.0; // De 0 a 30°C
+                unidadMedicion = "°C";  // Unidad de temperatura
+            } else if (nombreSensor.contains("Humedad")) {
+                valorMedicion = Math.round((random.nextDouble() * 100) * 100.0) / 100.0; // De 0% a 100% de humedad
+                unidadMedicion = "%";  // Unidad de porcentaje de humedad
+            } else if (nombreSensor.contains("Estado de Plantas")) {
+                valorMedicion = Math.round((random.nextDouble() * 100) * 100.0) / 100.0; // De 0% a 100% de estado
+                unidadMedicion = "%";  // Unidad de porcentaje del estado de las plantas
+            }
+            
+            
+            // Tiempo aleatorio de espera entre 1 y 3 segundos
+            tiempoLectura = random.nextInt(3) + 1;
+            
+            
+            try {
+                // Simular la espera de tiempo entre lecturas
+                Thread.sleep(tiempoLectura * 1000); 
+            } catch (InterruptedException e) {
+                System.out.println("Error en el hilo" + nombreSensor);
+            }
+
+            
+            long currentTime = System.currentTimeMillis();
+            System.out.println(nombreSensor + ": " + valorMedicion + " " + unidadMedicion + "| Momento de la lectura: " + currentTime + " ms");
+        }
+    }
+
     public static void main(String[] args) {
-        // Crear hilos para cada sensor
-        HiloTemperatura hiloTemperatura = new HiloTemperatura();
-        HiloHumedad hiloHumedad = new HiloHumedad();
-        HiloEstadoPlantas hiloEstadoPlantas = new HiloEstadoPlantas();
+        // Crear hilos para los tres sensores: Temperatura, Humedad, Estado de las plantas
+        Thread sensorTemperatura = new Thread(new Sensor("Sensor de Temperatura"));
+        Thread sensorHumedad = new Thread(new Sensor("Sensor de Humedad"));
+        Thread sensorEstadoPlantas = new Thread(new Sensor("Sensor de Estado de Plantas"));
 
         // Iniciar los hilos
-        hiloTemperatura.start();
-        hiloHumedad.start();
-        hiloEstadoPlantas.start();
-    }
-}
-
-class HiloTemperatura extends Thread {
-
-    @Override
-    public void run() {
-        for (int i = 1; i <= 10; i++) { //Hago un bucle para simular los 10 ciclos
-            double temperatura = Math.random() * 30; //Genero un numero aleatorio para la temperatura
-            temperatura = Math.round(temperatura * 100.0) / 100.0;
-            double tiempoDormir = Math.random() * 3;
-
-            try {
-                Thread.sleep((long) (tiempoDormir * 1000));
-            } catch (InterruptedException e) {
-                System.out.println("Error en el Hilo Temperatura");
-            }
-
-            long currentTime = System.currentTimeMillis();
-            System.out.println("Sensor de Temperatura: " + temperatura + "°C | Momento de la lectura: " + currentTime + " ms");
+        sensorTemperatura.start();
+        sensorHumedad.start();
+        sensorEstadoPlantas.start();
+        
+        try {
+            // Esperar a que todos los hilos terminen
+            sensorTemperatura.join();
+            sensorHumedad.join();
+            sensorEstadoPlantas.join();
+        } catch (InterruptedException e) {
+            System.out.println("La ejecución fue interrumpida.");
         }
+
     }
 }
 
-class HiloHumedad extends Thread {
-
-    @Override
-    public void run() {
-        for (int i = 1; i <= 10; i++) { //Hago un bucle para simular los 10 ciclos
-            double humedad = Math.random() * 100;
-            humedad = Math.round(humedad * 100.0) / 100.0;
-            double tiempoDormir = Math.random() * 3;
-
-            try {
-                Thread.sleep((long) (tiempoDormir * 1000));
-            } catch (InterruptedException e) {
-                System.out.println("Error en el Hilo Humedad");
-            }
-
-            long currentTime = System.currentTimeMillis();
-            System.out.println("Sensor de Humedad del Suelo: " + humedad + "% | Momento de la lectura: " + currentTime + " ms");
-        }
-    }
-}
-
-class HiloEstadoPlantas extends Thread {
-
-    @Override
-    public void run() {
-        for (int i = 1; i <= 10; i++) { //Hago un bucle para simular los 10 ciclos
-            double estado = Math.random() * 100;
-            estado = Math.round(estado * 100.0) / 100.0;
-            double aleatorioDormir = Math.random() * 3;
-
-            try {
-                Thread.sleep((long) (aleatorioDormir * 1000));
-            } catch (InterruptedException e) {
-                System.out.println("Error en el Hilo Estado de las Plantas");
-            }
-
-            long currentTime = System.currentTimeMillis();
-            System.out.println("Estado de las plantas: " + estado + "% | Momento de la lectura: " + currentTime + " ms");
-        }
-    }
-}
 
 
 // PARTE PRÁCTICA 2/2
