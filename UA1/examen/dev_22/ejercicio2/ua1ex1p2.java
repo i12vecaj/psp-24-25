@@ -52,7 +52,7 @@ public class ua1ex1p2 {
             }
         }
 
-        System.out.println("Todos los sensores han finalizado.");
+       
 
     }
 }
