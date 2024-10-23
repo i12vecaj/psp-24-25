@@ -1,34 +1,40 @@
-public class Main {
+public class ua1ex1ep2 {
     public static void main(String[] args) {
         System.out.println("Sensores");
-        Thread sensorTemperatura = new Thread(new Sensor("Sensor de Temperatura"));
-        Thread sensorHumedad =  new Thread(new Sensor("Sensor de Humedad"));
-        Thread sensorEstadoDePlantas=  new Thread(new Hilo3());
-        sensorTemperatura .start();
-        sensorHumedad.start();
-        sensorEstadoDePlantas.start();
+        Thread hilo1 = new Thread(new Hilo1());
+        Thread hilo2 =  new Thread(new Hilo2());
+        Thread hilo3=  new Thread(new Hilo3());
+        hilo1.start();
+        hilo2.start();
+        hilo3.start();
     }
 }
-// he implementado el ejemplo que nos has puesto en el sensor 1 y 2.
-class Sensor implements Runnable{
-    private String nombreSensor;
 
-    public  Sensor(String nombreSensor){
-        this.nombreSensor = nombreSensor;
-    }
+class  Hilo1 implements  Runnable{
+
     @Override
-    public void  run(){
+    public void run() {
         for (int i = 0; i < 10; i++) {
-            System.out.println(nombreSensor+" -Checkeo "+i+" : "+Math.random()*100);
+                System.out.println("En el check " + (i + 1) + " del sensor de la temperatura,  la temperatura es : "+ Math.random()*41 );
+            }
+        System.out.println("Sensor del estado de las plantas ha completado sus 10 ciclos de lectura.");
+    }
+}
 
+class  Hilo2 implements  Runnable{
+
+    @Override
+    public void run() {
+        for (int i = 0; i < 10; i++) {
+                System.out.println("En el check " + (i + 1) + " del sensor de las plantas,  la humedad es : "+ Math.random()*101 );
+            
         }
-        System.out.println(nombreSensor + " ha completado sus 10 ciclos de lectura.");
+        System.out.println("Sensor de la humedad ha completado sus 10 ciclos de lectura.");
     }
 }
 
 
-// lo he dejado igual que lo tenia antes ya que no me gusta catalogar el estado de las plantas del 1 al 100
-// y creo que la forma que lo he hecho es bastante correcta.
+
 class  Hilo3 implements  Runnable{
 
     @Override
