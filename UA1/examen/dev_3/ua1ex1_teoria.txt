@@ -1,0 +1,54 @@
+PARTE TEÓRICA
+
+a) Definición de proceso. Ilustra tu solución con un ejemplo. 1 punto.  
+
+Un proceso es un progrma en ejecucion que no comparte memoria con nadie mas es decir en el caso de que haya mas de 1 proceso seran independientes uno de otros .
+Un ejemplo puede ser el caso de un programa que no quiera dar varias soluciones  a la vez 
+por ejemplo si el nos quiere dar la raiz y el numero elevado a algo a la vez podemos crear dos procesos uno para cada calculo y saldran a la vez.
+
+b) Utilizando tus propias palabras, indica la relación entre hilos y procesos. Ilustra tu solución con un ejemplo. 3 puntos.
+
+Se relacionan en que ambos se puede usar para realizar varias acciones a la vez pero uno es diferente del otro ya que los procesos no comparten memoria con nadie mientras que los hilos si lo hacen con la clase a la que se les llama.
+Un ejemplo de esto puede el programa del ejercicio anterior  hecho con procesos te mostrara varios procesos y si se lo pides varias veces con distintos numeros 
+saldran de forma ordenada , con los hilos sera igual pero no saldran de forma ordenada ya que los hilos empiezan a funcionar de forma aleatoria. 
+
+c) Utilizando tus propias palabras, indica las características de la programación concurrente y sus ámbitos de aplicación. 3 puntos.
+
+
+La programcion concurrente permite ejecutar varios procesos al mismo tiempo 
+
+Las principales caracteristicas son : 
+-Es mas eficiente.
+-Me velocidad de ejecución.
+
+Los ambitos en los que se puede aplicar son en aquellos en los que los recursos de una solo maquina no son suficientes.
+Un ejemplo  de programacion concurrente sería un ordenador que podría analizar datos de miles de estaciones meteorológicas, imágenes satelitales y muestras de suelo para predecir el momento óptimo de siembra para un cultivo en particular .
+
+
+d) Utilizando tus propias palabras, indica las diferencias entre programación paralela y programación distribuida, sus ventajas e inconvenientes. 3 puntos.
+
+Un programa paralelo esta distribuido entre varios nucleos de un mismo ordenador mientras que la distribuida esta distribuido entre varios  ordenadores conectada a una misma red.
+Paralelo
+ventajas:
+-Ejecucion simultanea 
+-Disminución del tiempo de ejecución
+-Facilita la capacidad de solucionar problemas complejos 
+desventajas:
+-Mayor complejidad.
+-Programas mas dificiles de desarrollar.
+-Mayor consumo de energía.
+-A la hora de querer acceder a cualquier dato sera más complicado
+
+Distribuida
+ventajas:
+-Capacidad para compartir datos y recursos 
+-Capacidad de crecimiento
+-Mas flexible
+-Alta disponibilidad
+
+desventajas:
+-Mas complejo 
+-Problemas con las redes 
+-Problemas de seguridad.
+
+
