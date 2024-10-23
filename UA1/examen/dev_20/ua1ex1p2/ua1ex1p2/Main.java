@@ -6,23 +6,21 @@ public class Main {
     HiloTemperatura hiloTemperatura = new HiloTemperatura();
     Thread threadTemperatura = new Thread(hiloTemperatura);
     threadTemperatura.start();
-    threadTemperatura.join();
 
     HiloHumedad hiloHumedad = new HiloHumedad();
     Thread threadHumedad = new Thread(hiloHumedad);
     threadHumedad.start();
-    threadHumedad.join();
 
     HiloEstadoPlantas hiloEstado = new HiloEstadoPlantas();
     Thread threadEstado = new Thread(hiloEstado);
     threadEstado.start();
-    threadEstado.join();
 
-
-
-
-
-
-
+    try{
+      threadTemperatura.join();
+      threadHumedad.join();
+      threadEstado.join();
+    }catch (Exception e){
+      System.out.println("Ejecución interrumpida: " + e);
+    }
   }
 }

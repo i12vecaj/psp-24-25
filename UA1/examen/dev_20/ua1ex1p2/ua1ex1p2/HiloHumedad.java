@@ -1,13 +1,15 @@
 package ua1ex1p2;
 
-public class HiloHumedad implements Runnable{
+import java.util.Random;
 
+public class HiloHumedad implements Runnable{
+  Random random = new Random();
   public int exitCode;
   @Override
   public void run() {
     try{
       for(int i = 0; i<10; i++) {
-        int humedad = (int) (Math.random() * 100) + 1; // En este caso el valor máximo es 100
+        int humedad = random.nextInt(100); // En este caso el valor máximo es 100
         try {
           Thread.sleep(1000); // Espera 1 segundo
         } catch (InterruptedException e) {

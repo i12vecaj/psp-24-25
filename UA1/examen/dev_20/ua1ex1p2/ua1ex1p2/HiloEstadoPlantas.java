@@ -1,12 +1,15 @@
 package ua1ex1p2;
 
+import java.util.Random;
+
 public class HiloEstadoPlantas implements Runnable{
   public int exitCode;
+  Random random = new Random();
   @Override
   public void run() {
     try{
       for(int i = 0; i<10; i++) {
-        int estado = (int) (Math.random() * 100) + 1;
+        int estado = random.nextInt(100);;
         try {
           Thread.sleep(3000);
         } catch (InterruptedException e) {
