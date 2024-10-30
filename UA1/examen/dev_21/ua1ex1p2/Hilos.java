@@ -1,5 +1,5 @@
 
-public class Hilos implements Runnable  {
+public class Hilos {
  static public void main(String[] args){
 
   Thread temperatura = new Thread(new Temperatura());
