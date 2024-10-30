@@ -25,10 +25,15 @@ public class Temperatura implements Runnable{
 
             //creamos el numero aleatorio y el tiempo en el que se ha creado
             int numero = (int) (Math.random() * 3000) + 1;
-            long tiempo = (System.currentTimeMillis() -startTime);
+            long tiempo = (System.currentTimeMillis() - startTime);
 
-            System.out.println("La temperatura en el sensor " + nombre_sensor + " es de " + humedad + " grados en el tiempo de " +
-                    " en el tiempo de " + tiempo);
+            String temperatura_redondeada = String.format("%.2f",humedad);
+
+            System.out.println("La temperatura en el sensor " + nombre_sensor + " es de "+ temperatura_redondeada
+                    +" grados en el tiempo de " +
+                    " en el tiempo de " + tiempo + " milisegundos");
+
+            this.estado = probarTest();
 
             //simulamos que la lectura tarda un tiempo aleatorio en realizarse en milisegundos
             try {
