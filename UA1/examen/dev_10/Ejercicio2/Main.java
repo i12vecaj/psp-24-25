@@ -1,47 +1,20 @@
-import java.util.Random;
-import java.util.random.*;
-
 public class Main {
   public static void main(String[] args) {
-    Random aleatorio = new Random();
-    // Crear una instancia de la clase Runnable
-    hiloTemperatura hilo1 = new hiloTemperatura(aleatorio.nextInt(100+1)-(-257));
-    Thread thread = new Thread(hilo1);
-    thread.start();
-    
+      Thread sensorTemperatura = new Thread(new hiloTemperatura());
+      Thread sensorHumedad = new Thread(new hiloHumedad());
+      Thread sensorEstadoPlantas = new Thread(new hiloEstadoPlantas(0));
 
-    try {
-      thread.join();//Espero a que termine el hilo
-    } catch (InterruptedException e) {
-        System.out.println("Hilo interrumpido");
+      sensorTemperatura.start();
+      sensorHumedad.start();eye
+      sensorEstadoPlantas.start();
+
+      try {
+          sensorTemperatura.join();
+          sensorHumedad.join();
+          sensorEstadoPlantas.join();
+      } catch (InterruptedException e) {
+          System.out.println("La ejecución fue interrumpida.");
       }
-      System.out.println("Fin del programa");
-
-
-    hiloEstadoPlantas hilo3 = new hiloEstadoPlantas(aleatorio.nextInt(100+1)-0);
-    Thread thread3 = new Thread(hilo3);
-    thread3.start();
-
-    try {
-      thread3.join();//Espero a que termine el hilo
-    } catch (InterruptedException e) {
-      System.out.println("Hilo interrumpido");
-    }
-    System.out.println("Fin del programa");
-
-    
-    hiloHumedad hilo2 = new hiloHumedad(aleatorio.nextInt(100+1)-0);
-    Thread thread2 = new Thread(hilo2);
-    thread2.start();
-
-    try {
-      thread2.join();//Espero a que termine el hilo
-    } catch (InterruptedException e) {
-      System.out.println("Hilo interrumpido");
-    }
-    System.out.println("Fin del programa");
+      System.out.println("El monitoreo del huerto se ha completado.");
   }
 }
-
-
-

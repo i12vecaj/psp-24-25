@@ -1,25 +1,20 @@
-class hiloHumedad implements Runnable {
-    private int humedad;
-    
-
-    // Constructor le pasa los argumentos al hilo
-    public hiloHumedad(int humedad) {
-        this.humedad = 0;
-
-    }
-
+import java.util.Random;
+public class hiloHumedad implements Runnable {
     @Override
     public void run() {
-        if (humedad < 0 || humedad > 100) {
-            System.out.println("La Humedad no es un valor real(Entre 0 y 100)");
-            return;
-        }
+        Random random = new Random();
+        for (int i = 1; i <= 10; i++) {
+            int humedad = random.nextInt(100);
+            int tiempoLectura = random.nextInt(3) + 1;
 
-        try {
+            System.out.println("[" + System.currentTimeMillis() + "] Sensor de Humedad - Lectura " + i + ": " + humedad);
 
-        } catch (NumberFormatException e) {
-            System.out.println("El argumento no es un número");
-            return;
+            try {
+                Thread.sleep(tiempoLectura * 1000);
+            } catch (InterruptedException e) {
+                System.out.println("Sensor de Humedad ha sido interrumpido.");
+            }
         }
+        System.out.println("Sensor de Humedad ha completado sus 10 ciclos de lectura.");
     }
 }

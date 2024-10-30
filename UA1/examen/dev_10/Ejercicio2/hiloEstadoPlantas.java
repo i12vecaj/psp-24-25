@@ -1,31 +1,26 @@
-
-
-class hiloEstadoPlantas implements Runnable {
+import java.util.Random;
+public class hiloEstadoPlantas implements Runnable {
     private int estadoPlantas;
-    
 
-    // Constructor le pasa los argumentos al hilo
-    public hiloEstadoPlantas(int estadoPlantas) {
-        this.estadoPlantas = 0;
- 
+    public hiloEstadoPlantas(int estadoInicial) {
+        this.estadoPlantas = estadoInicial;
     }
 
     @Override
     public void run() {
-        if (estadoPlantas < 0 || estadoPlantas > 100) {
-            System.out.println("El estado no es un valor real");
+        Random random = new Random();
+        for (int i = 1; i <= 10; i++) {
+            estadoPlantas = random.nextInt(100);
+            int tiempoLectura = random.nextInt(3) + 1;
 
-            return;
+            System.out.println("[" + System.currentTimeMillis() + "] Sensor de Estado de Plantas - Lectura " + i + ": " + estadoPlantas);
+
+            try {
+                Thread.sleep(tiempoLectura * 1000);
+            } catch (InterruptedException e) {
+                System.out.println("Sensor de Estado de Plantas ha sido interrumpido.");
+            }
         }
-
-        try {
-
-
-        } catch (NumberFormatException e) {
-            System.out.println("El argumento no es un número");
-
-            return;
-        }
+        System.out.println("Sensor de Estado de Plantas ha hecho sus 10 ciclos de lectura.");
     }
-
 }

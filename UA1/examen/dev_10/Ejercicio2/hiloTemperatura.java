@@ -1,26 +1,20 @@
-
-
-class hiloTemperatura implements Runnable {
-    private int Temperatura;
-
-    // Constructor le pasa los argumentos al hilo
-    public hiloTemperatura(int Temperatura) {
-        this.Temperatura = 0;
-    }
-
+import java.util.Random;
+public class hiloTemperatura implements Runnable {
     @Override
     public void run() {
-        if (Temperatura < -257 || Temperatura > 100) {
-            System.out.println("La temperatura no es un valor real");
-            return;
+        Random random = new Random();
+        for (int i = 1; i <= 10; i++) {
+            int temperatura = random.nextInt(100);
+            int tiempoLectura = random.nextInt(3) + 1;
+
+            System.out.println("[" + System.currentTimeMillis() + "] Sensor de Temperatura - Lectura " + i + ": " + temperatura);
+
+            try {
+                Thread.sleep(tiempoLectura * 1000);
+            } catch (InterruptedException e) {
+                System.out.println("Sensor de Temperatura ha sido interrumpido.");
+            }
         }
-
-        try {
-
-
-        } catch (NumberFormatException e) {
-            System.out.println("El argumento no es un número");
-            return;
-        }
+        System.out.println("Sensor de Temperatura ha completado sus 10 ciclos de lectura.");
     }
 }
