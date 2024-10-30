@@ -5,7 +5,7 @@ public class Main {
       Thread sensorEstadoPlantas = new Thread(new hiloEstadoPlantas(0));
 
       sensorTemperatura.start();
-      sensorHumedad.start();
+      sensorHumedad.start();eye
       sensorEstadoPlantas.start();
 
       try {
