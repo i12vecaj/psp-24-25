@@ -1,0 +1,141 @@
+NOMBRE:Ignacio de Loyola Díaz Jiménez
+FECHA:16/10/24
+
+PARTE TEÓRICA
+
+a) Definición de proceso. 1 punto.  
+
+Un proceso es una funcion o funcionalidad del programa que se esta ejecutando. Tiene un espacio de memoria
+diferente de otros procesos por lo que se complica la comunicacion entre ellos.
+
+b) Utilizando tus propias palabras, indica la relación entre hilos y procesos. 3 puntos.
+
+Un Hilo es una especie de subproceso que se puede ejecuar con otros Hilos a la vez, estan en el mismo espacio de
+memoria y pueden acceder a vaiables globales lo que ayuda en la comunicacion entre ellos a diferencia de los
+procesos que estan mas aislados entre si.
+
+Esto seria un ejemplo de hilo:
+
+class hilo implements Runnable {
+    public int exit;
+    private String[] args;
+
+    // Constructor le pasa los argumentos al hilo
+    public hilo(String[] args) {
+        this.args = args;
+        this.exit = 570;
+    }
+
+    @Override
+    public void run() {
+        if (args.length < 1) {
+            System.out.println("No hay argumentos de entrada");
+            exit = 1;
+            return;
+        }
+
+        try {
+            // Intentamos convertir el argumento a número
+            int numero = Integer.parseInt(args[0]);
+
+            // Verificamos si el número es menor que 0
+            if (numero < 0) {
+                System.out.println("El argumento es un número entero menor que 0");
+                exit = 3;
+            } else {
+                System.out.println("El argumento es un número válido");
+                System.exit(0);
+            }
+
+        } catch (NumberFormatException e) {
+            System.out.println("El argumento no es un número");
+            exit = 2;
+            return;
+        }
+    }
+    //Funcion paara enviar datos al testing para comprobar.
+    public int getExit(){
+        return exit;
+    }
+}
+
+Esto seria ejemplo de un proceso(con subprocesos con el fork()):
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+int main() {
+    int numero;
+    
+    printf("Introduce una variable entera: ");
+    scanf("%d", &numero);
+
+    //Crear un proceso
+    pid_t pid = fork();
+    
+    if (pid < 0) {
+        
+        //si fork() falla
+        perror("Error al crear el proceso");
+        return 1;
+    }
+
+    if (pid > 0) {
+        // Este es el proceso padre
+        wait(NULL); 
+        printf("Proceso Padre: la variable menos 5 es %d\n", numero, numero -5);
+    } else {
+        // Este es el proceso hijo
+        printf("Proceso Hijo: la variable más 4 es %d\n", numero, numero +4);
+        exit(0);    
+    }
+
+    return 0;
+}
+
+
+c) Utilizando tus propias palabras, indica las características de la programación concurrente y sus ámbitos de aplicación. 3 puntos.
+
+La programacion concurrente es una metodologia de trabajo en la que multiples(Multitarea) procesos se ejecutan a la vez mejorando la eficiencia y productividad de un programa en producción.
+Ejemplos de aplicacion:
+
+Fuente de lo escrito a continuación: https://www.unir.net/revista/ingenieria/programacion-concurrente/
+Esta en todas partes de la programación moderna:
+
+Varios ordenadores conectados en red.
+Múltiples aplicaciones ejecutándose en un ordenador.
+Múltiples procesadores en un ordenador(múltiples núcleos de procesador en un solo chip).
+
+Es esencial en la programación moderna:
+
+Los sitios web deben manejar múltiples usuarios simultáneos.
+Las aplicaciones móviles deben realizar parte de su procesamiento en servidores cloud.
+Las interfaces gráficas de usuario casi siempre requieren un trabajo en segundo plano que no interrumpa al usuario.
+
+Conclusión propia(de ignacio :))
+
+Creo que la programacion concurrente es practicamente dominante en el mundo de la programacion ya que la paralela es muy especifica o situacional.
+
+d) Utilizando tus propias palabras, indica las diferencias entre programación paralela y programación distribuida, sus ventajas e inconvenientes. 3 puntos.
+
+La programacion concurrente es multitarea y puede aprobechar el rendimiento del hardware practicamente de cualquier dispositivo democratizado tecnologicamente hablando actualmente
+mientras que la programacion paralela se puede dar en el ambito profesional y es muy situacional ya que necesita dos procesadores para trabajar de forma paralela valga la redundacia en este caso.
+
+Ventajas e inconvenientes de la concurrente frente a la paralela y viceversa:
+
+Concurrente.
+La programacion concurrente puede llevarse a cabo en practicamente cualquier dispositivo.
+Con la programacion concurrente puedes manejar muchas cosas simultaneamente.
+Permite optimizar mejor el uso de recursos.
+
+
+Paralela.
+Puedes hacer muchas cosas a la vez.
+Tiene la capacidad de almacenar y ejecutar varias versiones de una aplicación o un componente en el mismo equipo.
+
+
+
+Notas:
+
+El nombre del fichero .txt a entregar debe ser:	examen\dev_X\ua1ex1_teoria.txt , es decir, el fichero ua1ex1_teoria.txt debe estar ubicado en tu carpeta examen\dev_X\
