@@ -65,12 +65,12 @@ class HiloSumador extends Thread
         for(int j=0; j<300;j++) // TODO: Cambia a 3000 en ambos a ver qué ocurre ...
         {
             contador.incrementa();
-            /*
-            try {
+            
+            /*try {
                 sleep(100);
             }
-            catch (InterruptedException e) {}
-            */
+            catch (InterruptedException e) {}*/
+            
         }
         System.out.println(getName() + " - contador vale " + contador.valor());
     }
@@ -89,12 +89,12 @@ class HiloRestador extends Thread
         for(int j=0; j<300;j++) // TODO: Cambia a 3000 en ambos a ver qué ocurre ...
         {
             contador.decrementa();
-            /*
-            try {
+            
+            /*try {
                 sleep(100);
             }
-            catch (InterruptedException e) {}
-            */
+            catch (InterruptedException e) {}*/
+            
         }
         System.out.println(getName() + " - contador vale " + contador.valor());
     }

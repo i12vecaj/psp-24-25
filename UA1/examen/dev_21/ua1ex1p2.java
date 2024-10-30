@@ -1,3 +1,0 @@
-/*Jose David en esta segunda parte del examen he tenido problemas con el ide y no he podido hacer practicamente nada 
-el siguiente saldra menjor 
-*/
