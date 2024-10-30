@@ -1,46 +1,52 @@
-import java.util.Random;
+import java.util.*;
 
 class Sensor implements Runnable {
-    private String tipo;
+    private String tipoSensor;
 
-    public Sensor(String tipo) {
-        this.tipo = tipo;
+    // El constructor recibe el tipo de sensor y lo guarda.
+    public Sensor(String tipoSensor) {
+        this.tipoSensor = tipoSensor;
     }
 
     @Override
     public void run() {
-        Random rand = new Random();
-        for (int i = 1; i <= 10; i++) {
-            int valor = tipo.equals("DATOS DE TEMPERATURA") ? rand.nextInt(41) :
-                    tipo.equals("DATOS DE HUMEDAD") ? rand.nextInt(101) :
-                            rand.nextInt(2);
-            int tiempoLectura = rand.nextInt(3) + 1;
-            System.out.println("[" + System.currentTimeMillis() + "] " + tipo + " - Lectura " + i + ": " + valor);
+        Random randomGenerador = new Random();
+        // Simulamos 10 lecturas.
+        for (int lectura = 1; lectura <= 10; lectura++) {
+            int valorMedicion = randomGenerador.nextInt(100);
+            int tiempoEspera = randomGenerador.nextInt(3) + 1;
+
+            System.out.println("[" + System.currentTimeMillis() + "] " + tipoSensor + " - Lectura " + lectura + ": " + valorMedicion);
 
             try {
-                Thread.sleep(tiempoLectura * 1000);
+                // Simular el tiempo de espera entre lecturas
+                Thread.sleep(tiempoEspera * 1000);
             } catch (InterruptedException e) {
-                System.out.println(tipo + " ha sido interrumpido.");
+                System.out.println(tipoSensor + " ha sido interrumpido.");
             }
         }
-        System.out.println(tipo + " ha completado sus 10 ciclos de lectura.");
+        System.out.println(tipoSensor + " ha completado sus 10 ciclos de lectura.");
     }
 }
 
 public class Main {
-    public static void main(String[] args) {
-        Thread sensorTemperatura = new Thread(new Sensor("DATOS DE TEMPERATURA"));
-        Thread sensorHumedad = new Thread(new Sensor("DATOS DE HUMEDAD"));
-        Thread sensorEstadoPlantas = new Thread(new Sensor("Estado Plantas"));
 
-        sensorTemperatura.start();
-        sensorHumedad.start();
-        sensorEstadoPlantas.start();
+    public static void main(String[] args) {
+        // Creamos un hilo para cada sensor.
+        Thread hiloTemperatura = new Thread(new Sensor("Datos de Temperatura"));
+        Thread hiloHumedad = new Thread(new Sensor("Datos de Humedad"));
+        Thread hiloEstadoPlantas = new Thread(new Sensor("Estado de Plantas"));
+
+        // Arrancamos cada hilo.
+        hiloTemperatura.start();
+        hiloHumedad.start();
+        hiloEstadoPlantas.start();
 
         try {
-            sensorTemperatura.join();
-            sensorHumedad.join();
-            sensorEstadoPlantas.join();
+            // Esperar a que todos los hilos terminen
+            hiloTemperatura.join();
+            hiloHumedad.join();
+            hiloEstadoPlantas.join();
         } catch (InterruptedException e) {
             System.out.println("La ejecución fue interrumpida.");
         }
