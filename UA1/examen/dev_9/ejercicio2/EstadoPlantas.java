@@ -4,13 +4,11 @@ public class EstadoPlantas implements Runnable{
     public int contador;
     public String nombre;
     public long startTime;
-    public int estado;
 
     public EstadoPlantas (String nombre) {
         contador = 0;
         this.nombre = nombre;
         this.startTime = System.currentTimeMillis();
-        this.estado = 0;
     }
 
 
@@ -23,12 +21,8 @@ public class EstadoPlantas implements Runnable{
 
             long tiempo = (System.currentTimeMillis() -startTime);
 
-            String estadoPlanta_redondeada = String.format("%.2f",estado);
-
             System.out.println("El estado de la planta en el sensor " +
-                    nombre +" es de "  + estadoPlanta_redondeada + " en " + tiempo + " milisegundos");
-
-            this.estado = probarTest();
+                    nombre +" es de "  + estado + " en " + tiempo + " milisegundos");
 
             //simulamos que la lectura tarda un tiempo aleatorio en realizarse en milisegundos
             try {
@@ -42,11 +36,5 @@ public class EstadoPlantas implements Runnable{
             contador++;
 
         }
-    }
-    public int probarTest() {
-
-        this.estado = 1;
-
-        return 1;
     }
 }

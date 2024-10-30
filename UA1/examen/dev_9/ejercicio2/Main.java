@@ -9,25 +9,17 @@ public class Main {
         //Instanciamos las clases
 
         System.out.println("\t\t**COMENZAMOS**");
-        Sensores s1 = new Sensores();
-        Sensores s2 = new Sensores();
-        Sensores s3 = new Sensores();
+        Temperatura temperatura = new Temperatura("Temperatura");
+        Humedad humedad = new Humedad("Humedad");
+        EstadoPlantas plantas = new EstadoPlantas("Emilio");
 
-        //iniciamos distintos sensores
-        Thread t = new Thread(s1);
-        Thread t1 = new Thread(s2);
-        Thread t2 = new Thread(s1);
+        //Creamos el hilo que extiende de Runnable
+        Thread t = new Thread(temperatura);
+        Thread h = new Thread(humedad);
+        Thread p = new Thread(plantas);
 
-        /*Primer sensor activo*/
         t.start();
-        t.join();
-
-        /*Segundo sensor activo*/
-        t1.start();
-        t1.join();
-
-        /*Tercer sensor activo*/
-        t2.start();
-        t2.join();
+        h.start();
+        p.start();
     }
 }
