@@ -73,7 +73,7 @@ Por favor, leed el documento [INSTRUCCIONES_ENTREGAS.md](..\INSTRUCCIONES_ENTREG
 ### **T1 - Tarea 1 - Programación y sincronización de hilos en Java 1**
 ##### **Criterios a), b), c), d), e), f), g) y h)**
 ```
-Fecha de Entrega: 09/11/2022 - 14:00:00
+Fecha de Entrega: 06/11/2024 - 20:00:00
 ```
 * FR1: Crea un programa en Java que lance 5 hilos. Cada hilo incrementará una variable contador de tipo entero en 1000 unidades. Esta variable estará compartida por todos los hilos. Comprueba el resultado final de la variable y reflexiona sobre el resultado. ¿Se obtiene el resultado esperado? - 3 puntos
 * FR2: Modifica el programa anterior para sincronizar el acceso a dicha varaible. Lanza primero los hilos mediante la clase Thread y después mediante el interfaz Runnable. Comprueba los resultados e indica las variaciones - 3 puntos
