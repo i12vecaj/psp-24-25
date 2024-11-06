@@ -1,43 +1,47 @@
 public class Main {
     public static void main(String[] args) {
+        //creamos los objetos que usaremos para crear los hilos y el contador y los echamos a andar
         Contador contador = new Contador();
-        Hilo hilo1 = new Hilo(contador);
-        Hilo hilo2 = new Hilo(contador);
-        Hilo hilo3 = new Hilo(contador);
-        Hilo hilo4 = new Hilo(contador);
-        Hilo hilo5 = new Hilo(contador);
-        hilo1.run();
-        hilo2.run();
-        hilo3.run();
-        hilo4.run();
-        hilo5.run();
+        Hilo hilo1 = new Hilo("hilo1",contador);
+        Hilo hilo2 = new Hilo("hilo2",contador);
+        Hilo hilo3 = new Hilo("hilo3",contador);
+        Hilo hilo4 = new Hilo("hilo4",contador);
+        Hilo hilo5 = new Hilo("hilo5",contador);
+        hilo1.start();
+        hilo2.start();
+        hilo3.start();
+        hilo4.start();
+        hilo5.start();
     }
 }
- class Contador {
+ class Contador {//creamos el objeto contador
     int contador = 0;
 
-    public void incrementar() {
-        contador+=1000;
+    public void incrementar() {//funcion para incrementar
+        contador++;
     }
 
-    public void getContador() {
+    public void getContador()
+    {
         System.out.println(contador);
     }
 }
- class Hilo implements Runnable {
-    Contador contador;
+ class Hilo extends Thread {
+     Contador contador;
      String nombre;
 
-    public Hilo(String nombre,Contador contador) {
-        this.nombre= nombre;
-        this.contador = contador;
-    }
+     public Hilo(String nombre,Contador contador) {
+         this.nombre= nombre;
+         this.contador = contador;
+     }
     @Override
-    public void run() {
-        contador.incrementar();
-        System.out.println("El hilo ha sumado 1000, el valor es: ");
-        contador.getContador();
+    public void start() {
+        for (int i = 0; i < 1000; i++) {
+            contador.incrementar();
+            System.out.println("El "+nombre+" ha sumado 1000, el valor es: ");
+            contador.getContador();
+        }
     }
 }
+//aunque no estan sincronizados en este caso aparecen en orden
 
-//si, se obtiene el resultado esperado, ya que aunque se ejecuten en paralelo, el valor final es el mismo.
