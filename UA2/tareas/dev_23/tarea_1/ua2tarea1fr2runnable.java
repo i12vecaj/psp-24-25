@@ -1,4 +1,3 @@
-//En este codigo podemos observar al ejecutarlo como todos los hilos acceden a la vez al contador y por ello el valor del contador en cada hilo no coincide con el numero de hilo que es
 class Contador
 {
     private int c = 0;  // Atributo Contador
@@ -6,7 +5,7 @@ class Contador
         this.c = c;
     }
 
-    public void incrementa() {
+    public synchronized void incrementa() {
         c+=1000;
     }
 
@@ -16,33 +15,35 @@ class Contador
 } // Fin Class Contador
 
 
-class HiloRestador extends Thread 
-{
+class HiloRestador implements Runnable 
+{   
+    private String nombre;
     private Contador contador;
 
     public HiloRestador(String nombre, Contador c) {
-        setName(nombre);
+        this.nombre=nombre;
         contador = c;
     }
 
     public void run() {
-        contador.incrementa();
-        System.out.println(getName() + " - contador vale " + contador.valor());
+      contador.incrementa();
+      System.out.println(nombre + " - contador vale " + contador.valor());
     }
 } // Fin Class HiloRestador
 
 
-public class ua2tarea1fr1 {
+public class ua2tarea1fr2runnable {
     public static void main(String[] args) {
 
         Contador cont = new Contador(0);
-        HiloRestador hiloResta1 = new HiloRestador("Hilo Restador 1", cont);
-        HiloRestador hiloResta2 = new HiloRestador("Hilo Restador 2", cont);
-        HiloRestador hiloResta3 = new HiloRestador("Hilo Restador 3", cont);
-        HiloRestador hiloResta4 = new HiloRestador("Hilo Restador 4", cont);
-        HiloRestador hiloResta5 = new HiloRestador("Hilo Restador 5", cont);
+        Thread hiloResta1 = new Thread(new HiloRestador("Hilo Restador 1", cont));
+        Thread hiloResta2 = new Thread(new HiloRestador("Hilo Restador 2", cont));
+        Thread hiloResta3 = new Thread(new HiloRestador("Hilo Restador 3", cont));
+        Thread hiloResta4 = new Thread(new HiloRestador("Hilo Restador 4", cont));
+        Thread hiloResta5 = new Thread(new HiloRestador("Hilo Restador 5", cont));
         
-        System.out.println("Comienza la ejecución de los hilos ...");
+        
+        System.out.println("Comienza la ejecución sincronizada con runnable de los hilos ...");
         System.out.println("--------------------------------------");
         hiloResta1.start();
 
@@ -65,7 +66,6 @@ public class ua2tarea1fr1 {
       {
           // Nothing to do here ...
       }
-  
 
         System.out.println("--------------------------------------");
         System.out.println("... Finaliza la ejecución de los hilos");
@@ -74,4 +74,5 @@ public class ua2tarea1fr1 {
         System.out.println("--------------------------------------");
     }
 }
+
 
