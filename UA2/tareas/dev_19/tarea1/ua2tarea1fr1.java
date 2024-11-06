@@ -26,8 +26,10 @@ public class Main {
 }
  class Hilo implements Runnable {
     Contador contador;
+     String nombre;
 
-    public Hilo(Contador contador) {
+    public Hilo(String nombre,Contador contador) {
+        this.nombre= nombre;
         this.contador = contador;
     }
     @Override
