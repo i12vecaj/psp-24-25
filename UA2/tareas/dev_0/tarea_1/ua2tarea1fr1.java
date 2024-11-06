@@ -1,14 +1,14 @@
 public class ua2tarea1fr1 {
-    //variavle que se compartira por los hilos
-    private static int contador = 0;
+    //contador de los hilos
+    static int contador = 0;
 
     public static void main(String[] args) {
         //5hilos
-        Thread[]hilos= new Thread[5];
+        Thread[]hil0= new Thread[5];
 
        //hilos para incremnetar el contador
         for (int i = 0; i < 5; i++) {
-            hilos[i] = new Thread(new Runnable() {
+            hil0[i] = new Thread(new Runnable() {
                 @Override
                 public void run() {
                     for (int j = 0; j < 1000; j++) {
@@ -16,13 +16,13 @@ public class ua2tarea1fr1 {
                     }
                 }
             });
-            hilos[i].start();
+            hil0[i].start();
         }
 
         // Esperar a que todos los hilos terminen su ejecución
         try {
             for (int i = 0; i < 5; i++) {
-                hilos[i].join();
+                hil0[i].join();
             }
         } catch (InterruptedException e) {
         }
