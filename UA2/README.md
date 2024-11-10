@@ -80,9 +80,9 @@ Fecha de Entrega: 09/11/2022 - 14:00:00
 * Implementa el control de errores básico - 2 puntos
 * Documenta el código indicando el funcionamiento del programa y las diferencias que has observado entre el primer y el segundo apartado. - 2 puntos
 * Entregables:
-  * tareas\dev_X\tarea_1\ua2tarea1fr1.java
-  * tareas\dev_X\tarea_1\ua2tarea1fr2.java
-  * tareas\dev_X\tarea_1\ua2tarea1fr2runnable.java
+  * tareas\dev_X\tarea1\tarea_1.ua2tarea1fr1.java
+  * tareas\dev_X\tarea1\tarea_1.ua2tarea1fr2.java
+  * tareas\dev_X\tarea1\tarea_1.ua2tarea1fr2runnable.java
 
 
 

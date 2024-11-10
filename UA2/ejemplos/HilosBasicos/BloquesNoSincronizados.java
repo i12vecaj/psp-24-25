@@ -102,7 +102,7 @@ class HiloRestador extends Thread
 
 
 public class BloquesNoSincronizados {
-    public static void main(String[] args) {
+    BloquesNoSincronizados(){
         System.out.println("-------------------------------");
         System.out.println("Hilos: Bloques NO Sincronizados");
         System.out.println("-------------------------------");
