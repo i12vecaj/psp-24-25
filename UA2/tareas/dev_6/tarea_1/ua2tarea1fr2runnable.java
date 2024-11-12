@@ -1,12 +1,19 @@
-public class ua2tarea1fr2 {
+public class ua2tarea1fr2runnable {
     private static int contador = 0;
 
     public static void main(String[] args) {
+        Runnable tarea = new Runnable() {
+            @Override
+            public void run() {
+                incrementar();
+            }
+        };
+
         Thread[] hilos = new Thread[5];
 
         // Creación de 5 hilos
         for (int i = 0; i < 5; i++) {
-            hilos[i] = new Thread(() -> incrementar());
+            hilos[i] = new Thread(tarea);
         }
 
         // Inicio de los hilos
@@ -24,7 +31,7 @@ public class ua2tarea1fr2 {
         }
 
         // Resultado final
-        System.out.println("Valor final de contador (con sincronización): " + contador);
+        System.out.println("Valor final de contador (Runnable con sincronización): " + contador);
     }
 
     // Método sincronizado para incrementar el contador
