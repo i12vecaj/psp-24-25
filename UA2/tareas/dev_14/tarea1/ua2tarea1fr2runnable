@@ -1,0 +1,47 @@
+public class ua2tarea1fr2runnable {
+    private static int contador = 0;
+
+    public static void main(String[] args) {
+        Runnable tarea = new Incrementador();
+        Thread hilo1 = new Thread(tarea, "hilo1");
+        Thread hilo2 = new Thread(tarea, "hilo2");
+        Thread hilo3 = new Thread(tarea, "hilo3");
+        Thread hilo4 = new Thread(tarea, "hilo4");
+        Thread hilo5 = new Thread(tarea, "hilo5");
+
+        hilo1.start();
+        hilo2.start();
+        hilo3.start();
+        hilo4.start();
+        hilo5.start();
+
+        try {
+            hilo1.join();
+            hilo2.join();
+            hilo3.join();
+            hilo4.join();
+            hilo5.join();
+        } catch (InterruptedException e) {
+            System.out.println("Hilo interrumpido: " + e.getMessage());
+        }
+
+        System.out.println("Valor final con sincronización (Runnable): " + contador);
+    }
+
+    static class Incrementador implements Runnable {
+        @Override
+        public void run() {
+            incrementar(Thread.currentThread().getName());
+        }
+
+        private synchronized void incrementar(String nombreHilo) {
+            for (int j = 0; j < 1000; j++) {
+                contador++;
+                System.out.println("Soy " + nombreHilo + ": " + contador);
+            }
+        }
+    }
+}
+
+//con la sincronizacion evitamos que queda hilo vaya por su cuenta sincronizandolos y siguiendo 
+//un "orden" 
