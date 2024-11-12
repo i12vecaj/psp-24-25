@@ -24,7 +24,7 @@ public class ua2tarea1fr2 {
             try { hilo.join(); } catch (InterruptedException e) {}
         }
 
-        // Muestra el resultado final (debería ser 5000)
+        // Muestra el resultado final
         System.out.println("Contador final con sincronización (Thread): " + contador);
     }
 }
