@@ -11,6 +11,8 @@ public class GenerarIngreso extends Thread {
         this.nombrePersona = nombrePersona;
     }
 
+    //Llamamos al metodo ingresar de la cuenta corriente
+    //Parametros: cantidad a ingresar y nombre de la persona que realiza el ingreso
     @Override
     public void run() {
         cuenta.ingresar(cantidad, nombrePersona);

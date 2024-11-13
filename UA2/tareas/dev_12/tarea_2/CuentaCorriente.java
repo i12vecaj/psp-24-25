@@ -9,24 +9,27 @@ public class CuentaCorriente {
         this.saldo = saldoInicial;
     }
 
+    //Sincronizamos el metodo para que no se cruzen los hilos
     public synchronized double getSaldo() {
         simularRetraso();
         return saldo;
     }
 
+    //Cambiamos el saldo y realizamos el Retraso
     public synchronized void setSaldo(double nuevoSaldo) {
         simularRetraso();
         this.saldo = nuevoSaldo;
     }
 
+    //Sumamos la cantidad a ingresar al saldo de la cuenta
     public synchronized void ingresar(double cantidad, String nombrePersona) {
         System.out.println(nombrePersona + " esta ingresando una cantidad de: " + cantidad);
-        simularRetraso();
         System.out.println("Saldo anterior: " + saldo);
         saldo += cantidad;
         System.out.println("Saldo después del ingreso: " + saldo);
     }
 
+    //Simulamos el retraso mediante un sleep y un numero aletorio
     private void simularRetraso() {
         try {
             int tiempoEspera = new Random().nextInt(1751) + 250;
