@@ -34,7 +34,10 @@ public class ua2tarea1fr2{
 
     }
     public static class incrementadorContador extends Thread{
+
+
         Contador contador;
+
         public incrementadorContador(Contador contador){
             this.contador = contador;
         }
@@ -59,18 +62,21 @@ public class ua2tarea1fr2{
         }
 
     }
-
+    //creo la clase contador
     public static class Contador{
+
         private int valor_contador;
         public Contador(int valor_contador){
             this.valor_contador =valor_contador;
 
         }
+        
+        //metodo que incrementará el valor del contador
         public  void incrementarContador(){
 
             valor_contador++;
         }
-
+        //obtenemos el valor del contador
         public int getValorContador(){
             return valor_contador;
         }

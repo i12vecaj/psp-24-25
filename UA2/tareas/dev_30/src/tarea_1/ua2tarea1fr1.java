@@ -13,6 +13,7 @@ public class ua2tarea1fr1
         Thread hilo4 = new Thread(new incrementadorContador(contador));
         Thread hilo5 = new Thread(new incrementadorContador(contador));
 
+
         hilo1.start();
         hilo2.start();
         hilo3.start();
@@ -31,9 +32,12 @@ public class ua2tarea1fr1
 
 
     }
+    //creo la incrementar que es la que va a incrementar el valor del contador
     public static class incrementadorContador extends Thread{
         Contador contador;
+
         public incrementadorContador(Contador contador){
+
             this.contador = contador;
         }
 
@@ -48,12 +52,6 @@ public class ua2tarea1fr1
             }
             System.out.println("El valor del contador es de: "+contador.getValorContador() );
 
-
-
-
-
-
-
         }
 
     }
@@ -61,6 +59,7 @@ public class ua2tarea1fr1
     public static class Contador{
         private int valor_contador;
         public Contador(int valor_contador){
+
             this.valor_contador =valor_contador;
 
         }
