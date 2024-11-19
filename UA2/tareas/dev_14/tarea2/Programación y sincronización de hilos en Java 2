@@ -1,0 +1,188 @@
+class CuentaCorriente {
+    private int saldo;
+
+    
+    public CuentaCorriente(int saldoInicial) {
+        this.saldo = saldoInicial;
+    }
+
+    
+    public synchronized int getSaldo() {
+        try {
+            Thread.sleep((int) (Math.random() * 1750) + 250); // 250 - 2000 ms
+        } catch (InterruptedException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        return saldo;
+    }
+
+
+    public synchronized void setSaldo(int saldo) {
+        try {
+            Thread.sleep((int) (Math.random() * 1750) + 250);
+        } catch (InterruptedException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        this.saldo = saldo;
+    }
+
+
+    public synchronized void agregarSaldo(int cantidad, String nombre) {
+        System.out.println(nombre + " va a ingresar: " + cantidad);
+        System.out.println("Saldo antes: " + saldo);
+        saldo += cantidad;
+        System.out.println("Saldo después: " + saldo);
+        System.out.println("-------------------------");
+    }
+}
+
+
+class Usuario extends Thread {
+    private String nombre;
+    private int cantidad;
+    private CuentaCorriente cuenta;
+
+   
+    public Usuario(String nombre, int cantidad, CuentaCorriente cuenta) {
+        this.nombre = nombre;
+        this.cantidad = cantidad;
+        this.cuenta = cuenta;
+    }
+
+ 
+    public void run() {
+        cuenta.agregarSaldo(cantidad, nombre);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+       
+        CuentaCorriente cuenta = new CuentaCorriente(100);
+        System.out.println("Saldo inicial: " + cuenta.getSaldo());
+
+       
+        Thread hilo1 = new Usuario("Hilo 1", 50, cuenta);
+        Thread hilo2 = new Usuario("Hilo 2", 30, cuenta);
+        Thread hilo3 = new Usuario("Hilo 3", 70, cuenta);
+
+      
+        hilo1.start();
+        hilo2.start();
+        hilo3.start();
+
+      
+        try {
+            hilo1.join();
+            hilo2.join();
+            hilo3.join();
+        } catch (InterruptedException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+        
+        System.out.println("Saldo final: " + cuenta.getSaldo());
+    }
+}
+///////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+ahora sin el synchronize y con menos tiempo pa notar diferencia
+///////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+class CuentaCorriente {
+    private int saldo;
+
+    // Constructor
+    public CuentaCorriente(int saldoInicial) {
+        this.saldo = saldoInicial;
+    }
+
+    // Método getter sin synchronized
+    public int getSaldo() {
+        try {
+            Thread.sleep((int) (Math.random() * 50) + 10); // 10 - 60 ms
+        } catch (InterruptedException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        return saldo;
+    }
+
+    // Método setter sin synchronized
+    public void setSaldo(int saldo) {
+        try {
+            Thread.sleep((int) (Math.random() * 50) + 10); // 10 - 60 ms
+        } catch (InterruptedException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        this.saldo = saldo;
+    }
+
+    // Método para agregar saldo sin synchronized
+    public void agregarSaldo(int cantidad, String nombre) {
+        System.out.println(nombre + " va a ingresar: " + cantidad);
+        System.out.println("Saldo antes: " + saldo);
+        saldo += cantidad;
+        System.out.println("Saldo después: " + saldo);
+        System.out.println("-------------------------");
+    }
+}
+
+// Clase que extiende Thread
+class Usuario extends Thread {
+    private String nombre;
+    private int cantidad;
+    private CuentaCorriente cuenta;
+
+    // Constructor
+    public Usuario(String nombre, int cantidad, CuentaCorriente cuenta) {
+        this.nombre = nombre;
+        this.cantidad = cantidad;
+        this.cuenta = cuenta;
+    }
+
+    // Método run
+    public void run() {
+        cuenta.agregarSaldo(cantidad, nombre);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Crear cuenta con saldo inicial
+        CuentaCorriente cuenta = new CuentaCorriente(100);
+        System.out.println("Saldo inicial: " + cuenta.getSaldo());
+
+        // Crear lista de hilos
+        Thread[] hilos = new Thread[20]; // Incrementar el número de hilos
+
+        // Crear varios hilos con diferentes cantidades
+        for (int i = 0; i < hilos.length; i++) {
+            hilos[i] = new Usuario("Hilo " + (i + 1), (i + 1) * 10, cuenta);
+        }
+
+        // Iniciar los hilos
+        for (Thread hilo : hilos) {
+            hilo.start();
+        }
+
+        // Esperar a que los hilos terminen
+        for (Thread hilo : hilos) {
+            try {
+                hilo.join();
+            } catch (InterruptedException e) {
+                System.out.println("Error: " + e.getMessage());
+            }
+        }
+
+        // Mostrar saldo final
+        System.out.println("Saldo final: " + cuenta.getSaldo());
+    }
+}
+/////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+podemos observer que el resultado es erroeno 
+los hilos pueden volver a leer el mismo saldo antes de que este se actualice 
+Pueden omitirse algunos hilos o que no salgan en un orden correcto 
+
+
+
