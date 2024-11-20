@@ -78,7 +78,7 @@ public class ua2tarea2 {
         } catch (InterruptedException e) {
             System.err.println("Error al introducir los hilos: " + e.getMessage());
         }   
-        System.out.printf("Saldo final de la cuenta: %.2f€%n", cuenta.getSaldo());// Muestra el saldo despues de meter todas las cantidades
+        System.out.printf("Saldo final de la cuenta: %.2f%n", cuenta.getSaldo());// Muestra el saldo despues de meter todas las cantidades
 
         scanner.close();
     }
