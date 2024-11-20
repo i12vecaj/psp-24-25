@@ -52,7 +52,7 @@ class HiloIngreso extends Thread {
 }
 
 public class ua2tarea2 {
-    public static void ua2tarea2(String[] args) {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         CuentaCorriente cuenta = new CuentaCorriente(1000.0);// ya empieza con un saldo inicial
         System.out.printf("Saldo inicial de la cuenta: %.2f%n", cuenta.getSaldo());
