@@ -104,7 +104,7 @@ Fecha de Entrega: 13/11/2024 - 21:00:00
 ### **T3 - Tarea 3 - Programación y sincronización de hilos en Java 3**
 ##### **Criterios a), b), c), d), e), f), g) y h)**
 ```
-Fecha de Entrega: xx/11/2024 - xx:00:00
+Fecha de Entrega: 26/11/2024 - 23:59:00
 ```
 * FR1: Crea un programa que reciba a través de sus argumentos una lista de ficheros de texto (procura que sean de un cierto tamaño, por ejemplo [El Quijote.txt](https://gist.githubusercontent.com/jsdario/6d6c69398cb0c73111e49f1218960f79/raw/8d4fc4548d437e2a7203a5aeeace5477f598827d/el_quijote.txt)) y cuente el número de caracteres que hay en cada fichero (ejecución secuencial).  Ayuda en este [enlace](https://javiergarciaescobedo.es/programacion-en-java/15-ficheros/42-leer-un-fichero-caracter-a-caracter) - 2 puntos.
 * FR2: Modifica el programa para que cree un hilo para cada fichero (ejecución concurrente)  - 2 puntos.
