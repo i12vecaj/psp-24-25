@@ -1,0 +1,46 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+class ContadorHilo extends Thread {
+    private String nombreArchivo;
+
+    public ContadorHilo(String nombreArchivo) {           //aqui esta el hilo que estaria mejor si hubiese ams tareas para que iniciase tambiem pero eso no he podido hacerlo
+        this.nombreArchivo = nombreArchivo;
+    }
+
+    @Override
+    public void run() {
+        int contadorCaracteres = 0;
+
+        try (BufferedReader br = new BufferedReader(new FileReader(nombreArchivo))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                contadorCaracteres += linea.length();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Hay todos estos caracteres en  " + nombreArchivo + ": " + contadorCaracteres);  //Aqui estaria el resultadoq ue te dice de donde cojio el texto y cuantos caracters tiene
+    }
+}
+
+public class ContadorLetras {
+    public static void main(String[] args) {    
+        String[] archivos = {                //Aqui estaria de donde cojemos el archivo de texto si no, no se ejecutaria anda
+            "C:\\Users\\Jesus\\Desktop\\Ejercicios jose davvid\\Elquijote.txt",
+        };
+
+        for (String archivo : archivos) {
+            ContadorHilo contadorHilo = new ContadorHilo(archivo);
+            contadorHilo.start();
+        }
+    }
+}
+
+
+
+
+
+
