@@ -21,7 +21,6 @@ public class ua2tarea2fr2 {
 }
 // Hilo que agrega valores aleatorios a la cuenta corriente
 class Hilo extends Thread{
-  Random random = new Random();
   CuentaCorriente cuentaCorriente;
   int addicion;
   // Constructor en el que instancio la cuenta corriente

@@ -32,7 +32,8 @@ class CuentaCorriente {
   }
   // Funcion para añadir saldo a la cuenta corriente
   public synchronized void agregarSaldo(int addicion){
-    System.out.println("Operacion generada por: " + Thread.currentThread().getName());
+    String nombreHilo = Thread.currentThread().getName();
+    System.out.println("Operacion generada por: " + nombreHilo);
     System.out.println("Saldo anterior: " + this.saldo);
     this.saldo += addicion;
     System.out.println("nuevo saldo: " + this.saldo);
