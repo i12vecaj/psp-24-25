@@ -1,0 +1,83 @@
+import java.io.FileReader;  // Importamos la clase FileReader para leer archivos.
+import java.io.FileNotFoundException;  // Importamos la excepción que se lanza si un archivo no es encontrado.
+import java.io.IOException;  // Importamos la clase IOException para manejar errores de lectura de archivos.
+
+public class Main {  // Inicia la clase principal llamada Main.
+
+    public static void main(String[] args) {  // Método principal que se ejecuta cuando arranca el programa.
+
+        // Archivos para la ejecución secuencial y concurrente
+        String[] archivos = {"src/t1", "src/t2", "src/t3"};  // Definimos un arreglo con las rutas de los archivos t1, t2, t3.
+
+        // Ejecución secuencial (FR1)
+        System.out.println("Ejecución secuencial:");  // Imprime un mensaje para indicar que comenzamos con la ejecución secuencial.
+        long tComienzoSecuencial = System.currentTimeMillis();  // Capturamos el tiempo actual antes de comenzar la ejecución secuencial.
+
+        for (String archivo : archivos) {  // Iteramos sobre cada archivo en el arreglo "archivos".
+            contarCaracteres(archivo);  // Llamamos al método "contarCaracteres" para contar los caracteres de cada archivo.
+        }
+
+        long tFinSecuencial = System.currentTimeMillis();  // Capturamos el tiempo después de que terminamos la ejecución secuencial.
+        long tTotalSecuencial = tFinSecuencial - tComienzoSecuencial;  // Calculamos el tiempo total de ejecución restando los tiempos.
+        System.out.println("Tiempo total (secuencial): " + tTotalSecuencial + " ms\n");  // Imprimimos el tiempo total de la ejecución secuencial.
+
+        // Ejecución concurrente (FR2)
+        System.out.println("Ejecución concurrente:");  // Imprimimos un mensaje para indicar que comenzamos con la ejecución concurrente.
+        long tComienzoConcurrente = System.currentTimeMillis();  // Capturamos el tiempo antes de comenzar la ejecución concurrente.
+
+        Thread[] hilos = new Thread[archivos.length];  // Creamos un arreglo de hilos, uno para cada archivo.
+
+        for (int i = 0; i < archivos.length; i++) {  // Iteramos sobre cada archivo y creamos un hilo para cada uno.
+            String archivo = archivos[i];  // Tomamos el archivo actual.
+            hilos[i] = new Thread(() -> contarCaracteres(archivo));  // Creamos un hilo que ejecuta el método contarCaracteres para cada archivo.
+            hilos[i].start();  // Iniciamos el hilo.
+        }
+
+        // Esperar a que todos los hilos terminen
+        for (Thread hilo : hilos) {  // Iteramos sobre todos los hilos.
+            try {
+                hilo.join();  // Esperamos a que cada hilo termine su ejecución antes de continuar.
+            } catch (InterruptedException e) {  // Si ocurre un error durante la espera de un hilo.
+                System.out.println("Error al esperar un hilo: " + e.getMessage());  // Imprimimos el error si un hilo es interrumpido.
+            }
+        }
+
+        long tFinConcurrente = System.currentTimeMillis();  // Capturamos el tiempo después de que todos los hilos hayan terminado.
+        long tTotalConcurrente = tFinConcurrente - tComienzoConcurrente;  // Calculamos el tiempo total de la ejecución concurrente.
+        System.out.println("Tiempo total (concurrente): " + tTotalConcurrente + " ms\n");  // Imprimimos el tiempo total de la ejecución concurrente.
+
+        // Comparación de tiempos (FR3)
+        System.out.println("Comparación de tiempos:");  // Imprimimos un mensaje para comparar los tiempos de ejecución.
+        System.out.println("Secuencial: " + tTotalSecuencial + " ms");  // Imprimimos el tiempo total de la ejecución secuencial.
+        System.out.println("Concurrente: " + tTotalConcurrente + " ms");  // Imprimimos el tiempo total de la ejecución concurrente.
+    }
+
+    /**
+     * Método para contar caracteres en un archivo.
+     *
+     */
+    public static void contarCaracteres(String nombreFichero) {  // Definimos el método que cuenta los caracteres en un archivo.
+        FileReader fr = null;  // Creamos una variable para el lector de archivos (FileReader).
+        int contador = 0;  // Inicializamos un contador para los caracteres.
+
+        try {
+            fr = new FileReader(nombreFichero);  // Intentamos abrir el archivo con el FileReader.
+            int caract = fr.read();  // Leemos el primer carácter del archivo.
+            while (caract != -1) {  // Mientras no lleguemos al final del archivo.
+                contador++;  // Aumentamos el contador por cada carácter leído.
+                caract = fr.read();  // Leemos el siguiente carácter.
+            }
+            System.out.println("Archivo: " + nombreFichero + " - Total caracteres: " + contador);  // Imprimimos el nombre del archivo y el total de caracteres leídos.
+        } catch (FileNotFoundException e) {  // Si no se encuentra el archivo.
+            System.out.println("Error: Archivo no encontrado - " + nombreFichero);  // Imprimimos un mensaje de error.
+        } catch (IOException e) {  // Si ocurre un error al leer el archivo.
+            System.out.println("Error de lectura en el archivo - " + nombreFichero);  // Imprimimos un mensaje de error.
+        } finally {  // Este bloque siempre se ejecuta, haya o no ocurrido un error.
+            try {
+                if (fr != null) fr.close();  // Si el archivo fue abierto, lo cerramos.
+            } catch (IOException e) {  // Si ocurre un error al intentar cerrar el archivo.
+                System.out.println("Error al cerrar el archivo - " + nombreFichero);  // Imprimimos un mensaje de error.
+            }
+        }
+    }
+}
