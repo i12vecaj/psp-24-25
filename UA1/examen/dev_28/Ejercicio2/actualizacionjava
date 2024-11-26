@@ -1,0 +1,55 @@
+import java.util.Random;
+
+class actualizacionexamen {
+    static class Sensor extends Thread { // esta clase la hecho para simular el sensor
+        private String sensorName;
+        private Random random;
+
+        public Sensor(String sensorName) {  //aqui hemos hecho el contructor para el sensor
+            this.sensorName = sensorName;
+            this.random = new Random();
+        }
+
+        private void simuladordesensor() { // esta funcion la hago para generar un valor aleatorio
+            //el valor sera entre 0 y 100
+            int sensorValue = random.nextInt(101);
+            long timestamp = System.currentTimeMillis();
+            System.out.println(sensorName + " - Lectura: " + sensorValue + " - Timestamp: " + timestamp);
+        }
+
+        @Override //aqui hacemos la ejecucion del hilo.
+        public void run() {
+            for (int i = 0; i < 10; i++) {
+                simuladordesensor();
+                try {
+                    Thread.sleep(1000);  // Pausa de 1 segundo
+                } catch (InterruptedException e) {
+                    System.err.println(sensorName + " - tenemos un erro en el hilo");
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+
+        // voy usar la clase sensor para crear los hilos.
+        Sensor sensortemperatura = new Sensor("Sensor de Temperatura");
+        Sensor sensorhumedad = new Sensor("Sensor de Humedad del Suelo");
+        Sensor sensorplantas = new Sensor("Sensor para las Plantas");
+
+        sensortemperatura.start();
+        sensorhumedad.start();
+        sensorplantas.start();
+
+        try {
+            sensortemperatura.join();
+            sensorhumedad.join();
+            sensorplantas.join();
+        }
+        catch (InterruptedException e) {
+            System.err.println("Error en la espera de hilos");
+        }
+
+        System.out.println("Completado!!");
+    }
+}
