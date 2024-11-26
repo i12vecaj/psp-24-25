@@ -1,0 +1,1 @@
+Prueba de contador de caracteres en un archivo txt para la asignatura de Servicios
