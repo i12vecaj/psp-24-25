@@ -1,0 +1,54 @@
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+
+public class leerArchivo extends Thread{
+    leerArchivo(String nombreArchivo){
+        long time1 = System.currentTimeMillis();
+        //Declarar una variable FileReader que posteriormente se usará para abrir los archivos.
+        FileReader fr = null;
+        //Creacion de una variable que almacenará la cantidad de caracteres que tiene el archivo
+        int contadorDeCaracteres=0;
+        try {
+            //Abrir el fichero indicado en la variable nombreArchivo, variable que se obtiene al crear el objeto
+            fr = new FileReader(nombreArchivo);
+            //Leer el primer carácter
+            //Se debe almacenar en una variable de tipo int
+            int caract = fr.read();
+            //Se recorre el fichero hasta encontrar el carácter -1
+            //   que marca el final del fichero
+            while(caract != -1) {
+                //Mostrar en pantalla el carácter leído convertido a char
+                contadorDeCaracteres++;
+                //Leer el siguiente carácter
+                caract = fr.read();
+            }
+            System.out.println(contadorDeCaracteres);
+        }
+        catch (FileNotFoundException e) {
+            //Operaciones en caso de no encontrar el fichero
+            System.out.println("Error: Fichero no encontrado");
+            //Mostrar el error producido por la excepción
+            System.out.println(e.getMessage());
+        }
+        catch (Exception e) {
+            //Operaciones en caso de error general
+            System.out.println("Error de lectura del fichero");
+            System.out.println(e.getMessage());
+        }
+        finally {
+            //Operaciones que se harán en cualquier caso. Si hay error o no.
+            try {
+                //Cerrar el fichero si se ha abierto
+                if(fr != null)
+                    fr.close();
+            }
+            catch (Exception e) {
+                System.out.println("Error al cerrar el fichero");
+                System.out.println(e.getMessage());
+            }
+        }
+        long time2 = System.currentTimeMillis();
+        long timeTotal = time2-time1;
+        System.out.println(timeTotal);
+    }
+}
