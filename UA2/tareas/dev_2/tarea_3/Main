@@ -1,0 +1,11 @@
+public class Main {
+    public void main(String[] args) {
+        leerArchivo archivo1 = new leerArchivo("C:\\Users\\aalav\\IdeaProjects\\Ua2Tarea3\\src\\ElQuijote.txt");
+        leerArchivo archivo2 = new leerArchivo("C:\\Users\\aalav\\IdeaProjects\\Ua2Tarea3\\src\\SegundoArchivoLectura.txt");
+
+        //Habiendo comprobado cuanto tarda en ejecutarse cada proceso, siendo o no ejecutados como hilos, la diferencia es de escasos milisegundos,
+        // para el archivo del quijote unos 10, para el segundo, al ser mas corto, no hay diferencia apreciable
+        archivo1.start();
+        archivo2.start();
+    }
+}
