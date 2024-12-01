@@ -7,7 +7,7 @@ public class ua2tarea3 {
     // Clase hilo encargado de procesar un archivo
     static class ArchivoProcesador extends Thread {
         private String nombreArchivo;
-        private int caracteres;
+        public int caracteres;
 
         // Constructor que inicializa el nombre del archivo
         public ArchivoProcesador(String nombreArchivo) {
