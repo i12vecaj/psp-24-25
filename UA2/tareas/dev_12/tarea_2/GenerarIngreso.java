@@ -1,4 +1,4 @@
-package tarea2;
+package tarea_2;
 
 public class GenerarIngreso extends Thread {
     private CuentaCorriente cuenta;

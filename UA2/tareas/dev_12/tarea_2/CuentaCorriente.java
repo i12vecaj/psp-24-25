@@ -1,4 +1,4 @@
-package tarea2;
+package tarea_2;
 
 import java.util.Random;
 
