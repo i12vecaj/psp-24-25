@@ -1,11 +1,10 @@
 import java.util.Random;
-import java.util.Scanner;
 
-public class cuentacorriente {
+public class CuentaCorriente {
 
     private double saldo;
 
-    public cuentacorriente(double saldoInicial) {
+    public CuentaCorriente(double saldoInicial) {
         this.saldo = saldoInicial;
     }
 
@@ -28,47 +27,30 @@ public class cuentacorriente {
 
     private void dormir() {
         Random random = new Random();
-        int tiempoDeEspera = 250 + random.nextInt(1750);
+        int tiempoDeEspera = 250 + random.nextInt(1750); // Tiempo entre 250ms y 2000ms
         try {
             Thread.sleep(tiempoDeEspera);
         } catch (InterruptedException e) {
-            System.out.println("El hilo fue interrumpido: " + e.getMessage());
+            System.err.println("El hilo fue interrumpido: " + e.getMessage());
         }
     }
 
     public static void main(String[] args) {
+        CuentaCorriente cuenta = new CuentaCorriente(1000.0);
 
+        Thread hilo1 = new Thread(() -> cuenta.realizarIngreso(500.0, "Paco"));
+        Thread hilo2 = new Thread(() -> cuenta.realizarIngreso(300.0, "Matas"));
 
-            cuentacorriente cuenta = new cuentacorriente(1000.0);
+        hilo1.start();
+        hilo2.start();
 
-            Thread hilo1 = new Thread(() -> cuenta.realizarIngreso(500.0, "paco"));
-            Thread hilo2 = new Thread(() -> cuenta.realizarIngreso(300.0, "matas"));
-
-            hilo1.start();
-            hilo2.start();
-
-            try {
-                hilo1.join();
-                hilo2.join();
-            } catch (InterruptedException e) {
-                System.out.println("error con el hilo: " + e.getMessage());
-            }
-
-            System.out.println("este es el saldo final: " + cuenta.getSaldo());
+        try {
+            hilo1.join();
+            hilo2.join();
+        } catch (InterruptedException e) {
+            System.err.println("Error con el hilo: " + e.getMessage());
         }
+
+        System.out.println("Saldo final: " + cuenta.getSaldo());
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
