@@ -1,4 +1,4 @@
-# Revisión de la Tarea X
+# Revisión de la Tarea 1
 ## Reflexión
 - ¿Qué errores encontré en mi código?
 - ¿Qué aprendí al corregirlo?
