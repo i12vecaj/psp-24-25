@@ -1,26 +1,26 @@
 import java.io.FileReader;
 import java.io.IOException;
 
-public class HILO extends Thread {
-    private String nombreArchivo;
+public class Hilo extends Thread {
+    private final String nombreArchivo;
     private int numCaracteres;
 
-    public HILO(String nombreArchivo) {
+    public Hilo(String nombreArchivo) {
         this.nombreArchivo = nombreArchivo;
         this.numCaracteres = 0;
     }
 
     @Override
     public void run() {
-        try (FileReader revisiondecataracteres= new FileReader("src/" + nombreArchivo + ".txt")) {
-            int caracteres= revisiondecataracteres.read();
-            while (caracteres != -1) {
+        try (FileReader revisionDeCaracteres = new FileReader("src/" + nombreArchivo + ".txt")) {
+            int caracter = revisionDeCaracteres.read();
+            while (caracter != -1) {
                 numCaracteres++;
-                caracteres = revisiondecataracteres.read();
+                caracter = revisionDeCaracteres.read();
             }
-            System.out.println("EL archivo: " + nombreArchivo + " Esta cantidad de caracteres:" + numCaracteres);
+            System.out.println("El archivo \"" + nombreArchivo + "\" tiene esta cantidad de caracteres: " + numCaracteres);
         } catch (IOException e) {
-            System.err.println("Error con el  archivo " + nombreArchivo + ": " + e.getMessage());
+            System.err.println("Error al procesar el archivo \"" + nombreArchivo + "\": " + e.getMessage());
         }
     }
 }
