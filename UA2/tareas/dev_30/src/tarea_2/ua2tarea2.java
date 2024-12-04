@@ -1,6 +1,6 @@
 package tarea_2;
 
-public class main {
+public class ua2tarea2 {
     public static void main(String[] args) throws InterruptedException {
 
         CuentaCorriente cuenta = new CuentaCorriente(2000);
@@ -16,15 +16,6 @@ public class main {
         Hilo2.start();
         Hilo3.start();
 
-        try {
-            Hilo1.join();
-            Hilo2.join();
-            Hilo3.join();
-
-        }catch (Exception ex){
-
-
-        }
 
 
 
