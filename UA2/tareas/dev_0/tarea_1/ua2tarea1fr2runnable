@@ -1,46 +1,33 @@
+public class Ua2Tarea1FR2 {
 
-// ua2tarea1fr2runnable.java
-
-public class ua2tarea1fr2runnable {
-
-    // Variable contador
+    // Variable compartida entre los hilos
     private static int contador = 0;
 
-    
-    public synchronized static void incrementarContador() {
+    // Método sincronizado para incrementar el contador
+    private synchronized static void incrementarContador() {
         contador += 1000;
     }
 
     public static void main(String[] args) {
-        
-        Runnable tarea = new Runnable() {
-            @Override
-            public void run() {
-             
-                incrementarContador();
-            }
-        };
+        Runnable tarea = () -> incrementarContador();
 
-        // lanzamos los hilos
+        // Crear 5 hilos
         Thread[] hilos = new Thread[5];
 
-        try {
-            for (int i = 0; i < 5; i++) {
-                hilos[i] = new Thread(tarea);
-                hilos[i].start();  // Inicia el hilo
-            }
-
-            
-            for (int i = 0; i < 5; i++) {
-                hilos[i].join();  
-            }
-
-            // Imprimimos valor del contador
-            System.out.println("Valor final del contador: " + contador);
-
-        } catch (InterruptedException e) {
-            // Control de errores   
-            System.err.println("Error al ejecutar los hilos: " + e.getMessage());
+        for (int i = 0; i < 5; i++) {
+            hilos[i] = new Thread(tarea);
+            hilos[i].start();
         }
+
+        // Esperar a que todos los hilos terminen
+        for (int i = 0; i < 5; i++) {
+            try {
+                hilos[i].join();
+            } catch (InterruptedException e) {
+                System.err.println("Error al ejecutar los hilos: " + e.getMessage());
+            }
+        }
+
+        System.out.println("Valor final del contador: " + contador);
     }
 }
