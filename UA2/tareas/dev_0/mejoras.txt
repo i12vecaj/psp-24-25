@@ -1,0 +1,36 @@
+
+
+1. **Primer código (ua2tarea1fr1.java):**
+   - **Sincronización del contador**: Se agregó el uso de `synchronized` para asegurar la consistencia de la variable `contador` en escenarios de concurrencia.
+   - **Refinamiento de hilos**: Se usaron lambdas para simplificar la creación de los hilos.
+   - **Manejo de excepciones**: Mensajes de error claros en caso de interrupciones.
+   - **Legibilidad**: Nombres de variables y formato mejorados para seguir convenciones.
+
+2. **Segundo código (ua2tarea1fr2.java):**
+   - **Optimización del método sincronizado**: Se encapsuló la lógica para asegurar consistencia.
+   - **Uso de lambdas**: Simplificación de la tarea usando expresiones lambda.
+   - **Legibilidad**: Mejor estructura y nombres de clase más claros.
+
+3. **Tercer código (ua2tarea1fr2runnable.java):**
+   - **Uso de referencias a métodos**: Se utilizó `ClassName::methodName` para simplificar la creación de tareas.
+   - **Organización de comentarios**: Se aclararon los comentarios y se eliminó redundancia.
+   - **Manejo de excepciones**: Mensajes de error más claros.
+
+4. **Cuarto código (cuentacorriente.java):**
+   - **Nombres descriptivos y consistentes**: Cambio de nombres para cumplir con CamelCase y mayor claridad.
+   - **Mensajes de salida mejorados**: Mensajes claros y profesionales.
+   - **Refinamiento del manejo de hilos**: Uso eficiente de recursos y bloque `try-with-resources`.
+
+5. **Quinto código (Main.java):**
+   - **Consistencia en nombres**: Actualización para usar la versión mejorada `Hilo`.
+   - **Manejo de entradas del usuario**: Uso de carácter lógico (`*`) para salida del bucle.
+   - **Optimización de estructuras de datos**: Uso de listas genéricas para declarar colecciones.
+   - **Legibilidad mejorada**: Código simplificado y formato uniforme.
+   - **Mensajes claros**: Mejor gramática y claridad en la salida.
+
+Ventajas generales:
+- Los códigos ahora son más robustos, claros y consistentes con las mejores prácticas modernas de Java.
+- La experiencia del usuario se ha mejorado con mensajes más informativos y un flujo lógico.
+"""
+
+
