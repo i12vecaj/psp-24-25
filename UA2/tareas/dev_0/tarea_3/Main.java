@@ -4,22 +4,22 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<String> archivos = new ArrayList<>();
+        List<String> archivos = new ArrayList<>();
         try (Scanner scanner = new Scanner(System.in)) {
             String archivo;
             do {
-                System.out.println("introduce el nombre de tu archivo para salir usa esto(*):");
+                System.out.println("Introduce el nombre de tu archivo (para salir, usa '*'):");
                 archivo = scanner.nextLine();
-                if (!archivo.equals("ç")) {
+                if (!archivo.equals("*")) {
                     archivos.add(archivo);
                 }
             } while (!archivo.equals("*"));
         }
 
-      List<Thread> listaHilos = new ArrayList<>();
+        List<Thread> listaHilos = new ArrayList<>();
 
         for (String arch : archivos) {
-            HILO hilo = new HILO(arch);
+            Hilo hilo = new Hilo(arch); // Cambio a la clase mejorada "Hilo"
             listaHilos.add(hilo);
             hilo.start();
         }
@@ -28,10 +28,10 @@ public class Main {
             try {
                 hilo.join();
             } catch (InterruptedException e) {
-                System.err.println( "Error:" + e.getMessage());
+                System.err.println("Error al esperar el hilo: " + e.getMessage());
             }
         }
 
-        System.out.println("completado!");
+        System.out.println("¡Completado!");
     }
 }
