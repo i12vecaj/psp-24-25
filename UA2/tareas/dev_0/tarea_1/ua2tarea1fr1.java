@@ -1,32 +1,34 @@
-public class ua2tarea1fr1 {
-    //contador de los hilos
-    static int contador = 0;
+public class Ua2Tarea1FR1 {
+    // Contador de los hilos (debe ser seguro para hilos)
+    private static int contador = 0;
+
+    // Bloqueo para sincronizar el acceso al contador
+    private static final Object lock = new Object();
 
     public static void main(String[] args) {
-        //5hilos
-        Thread[]hil0= new Thread[5];
+        // Crear 5 hilos
+        Thread[] hilos = new Thread[5];
 
-       //hilos para incremnetar el contador
         for (int i = 0; i < 5; i++) {
-            hil0[i] = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    for (int j = 0; j < 1000; j++) {
+            hilos[i] = new Thread(() -> {
+                for (int j = 0; j < 1000; j++) {
+                    // Incrementar el contador de forma sincronizada
+                    synchronized (lock) {
                         contador++;
                     }
                 }
             });
-            hil0[i].start();
+            hilos[i].start();
         }
 
         // Esperar a que todos los hilos terminen su ejecución
-        try {
-            for (int i = 0; i < 5; i++) {
-                hil0[i].join();
+        for (int i = 0; i < 5; i++) {
+            try {
+                hilos[i].join();
+            } catch (InterruptedException e) {
+                System.err.println("El hilo fue interrumpido: " + e.getMessage());
             }
-        } catch (InterruptedException e) {
         }
-
 
         System.out.println("El valor final de contador es: " + contador);
     }
