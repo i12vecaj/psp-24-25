@@ -67,7 +67,7 @@ La evaluación de esta unidad didáctica estará basada en la entrega de las tar
 ### **T1 - Tarea 1 - Programación de Procesos en C**
 ##### **Criterios a), e), f), g), h)**
 ```
-Fecha de Entrega: 25/09/2024 - 14:00:00
+Fecha de Entrega: 01/10/2024 - 14:00:00
 ```
 PROCESOS. Crea un único programa en C que implemente las siguientes Funcionalidades Requeridas (FRs):
 * FR1: cree un proceso (existirán en realidad dos procesos, uno padre y el otro hijo) - 1 punto
@@ -125,7 +125,7 @@ Crea un programa Java que implemente las siguientes Funcionalidades Requeridas (
 ### **EX1 - Examen UA1 - Programación Multiproceso**
 ##### **Criterios a), b), c), d), e) f), g) y h)**
 ```
-Fecha de Examen: xx/10/2024 - 17:45:00
+Fecha de Examen: 16/10/2024 - 16:45:00
 ```
 El examen constará de dos partes:
 * Una primera parte de teoría, centrada sobre todo en los criterios de evaluación b), c) y d).  Serán unas preguntas cortas, donde deberéis responder utilizando vuestras propias palabras.  Para esta parte de teoría daremos un tiempo fijo y no permitiré el acceso a internet salvo para subir el resultado al repositorio.
