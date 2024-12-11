@@ -1,0 +1,54 @@
+Conceptos básicos sobre hilos (1 punto):
+
+a) Define qué es un hilo en Java y cómo se relaciona con la multitarea.
+
+Un hilo en java seria como un código en ejecución que comparte todos los elementos como archivos del proceso padre donde está ese hilo ejecutándose. Un proceso se crea cuando se ejecuta un programa, pues el hilo sería una parte de ese proceso que realiza una función especifica y que sin el proceso no existiría los hilos. Esto se relaciona con la multitarea ya que si tenemos un proceso en ejecución y queremos que haga varias tareas a la vez emplearíamos varios hilos y cada uno haría una cosa.
+
+b) Menciona dos diferencias entre la interfaz Runnable y la clase Thread.
+
+Al utilizar la clase Thread lo que hace es que estás heredando de esa clase por lo tanto al ahora de implementarlo al código estaría más limitado ya que no se podría utilizar la multi herencia. Al utilizar la interfaz Runnable lo que se estaría utilizando es una interfaz con todas sus ventajas y además el código sería más completo ya que se podría utilizar herencia en él.
+La segunda diferencia es la forma de instanciar los hilos ya que como el Thread es una herencia se instancia de forma diferente que la interfaz Runnable.
+
+Sincronización (1 punto):
+
+a) Explica qué es la sincronización de hilos y por qué es necesaria en Java.
+
+La sincronización de hilos sirve para para que si hay varios hilos ejecutándose a la misma vez, estos estén sincronizados y que primero realice una acción y luego otra. Esto es necesario en java a la hora de hacer el programa para que se ejecute lo que tu quieres primero y no al revés. 
+
+b) ¿Qué problemas pueden surgir si no se sincronizan adecuadamente los hilos?
+
+Si no se sincroniza bien los hilos el problema principal que puede surgir que se ejecute algo al principio que tu no quieres. Por ejemplo si hay un programa que quieres que un hilo meta datos y otro hilo que los recoja tendrás que sincronizarlos para que primero siempre empiece el hilo que introduzca los datos.
+
+
+Estados de un hilo (1 punto):
+
+a) Nombra y describe brevemente los principales estados de un hilo en su ciclo de vida.
+-New: En este estado es cuando el hilo se ha creado.
+-Runnable: En este estado es cuando el hilo está ejecutándose.
+-Dead: Es cuando un hilo da algún fallo y este se para.
+-Stop: El hilo está parado hasta que se vuelve a reanudar.
+
+b) ¿Qué método en Java se utiliza para pausar un hilo por un tiempo específico?
+El método que se usa es el sleep() donde el hilo se "duerme" un tiempo en segundos que la persona que programa el hilo le da.
+
+Bloques sincronizados y monitores (1 punto):
+
+a) ¿Qué es un monitor en Java?
+
+b) Explica cómo se utiliza el bloque synchronized para garantizar acceso exclusivo a un recurso.
+
+El bloque synchronized se puede usar dentro de un método y se utiliza poniendo la palabra synchronized. Esto hace que si existe un recurso compartido con dos hilos no vayan todos los hilos al mismo recurso a la vez si no que se sincronizan para que primero vaya uno normalmente el que más te interesa. También hay grados de prioridad del hilo que van del 1 al 10. 
+
+
+Métodos avanzados en hilos (1 punto):
+
+a) ¿Qué diferencia existe entre los métodos wait(), notify(), y notifyAll() en Java?
+
+-El método wait() lo que hace es hacer que el hilo espere y que no siga ejecutándose hasta que le avisen.
+-El método notify() es el que se encarga de notificar a ese wait() para que el hilo pueda seguir.
+-Y el método notifyAll() lo que hace es notificar a todos los wait() para que sigan todos.
+El método notify solo sirve para el wait que tiene delante por ejemplo un wait() después va el código y después de todo el notify.Pero con el notifyAll notifica a todos no solo al wait que tiene antes. 
+
+b) Explica un caso práctico donde utilizarías estos métodos para resolver un problema de concurrencia.
+
+Por ejemplo tenemos un programa que tiene un buffer que lo que hace es tener todas las letras del abecedario y tenemos un hilo que carga esas letras y después tenemos otro hilo que las recoge. Pues se pondría un wait para hacer que el hilo que recoge esas letras espere a que el hilo que las carga cargue algunas letras y luego mediante el notify se notifica a ese hilo que ya hay letras cargadas para poder recogerlas.
