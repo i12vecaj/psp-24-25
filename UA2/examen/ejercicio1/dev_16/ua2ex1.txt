@@ -1,0 +1,53 @@
+Conceptos básicos sobre hilos (1 punto):
+a) Define qué es un hilo en Java y cómo se relaciona con la multitarea.
+Un hilo en Java es la unidad más pequeña de ejecución dentro de un programa y dentro de este se puede contener 
+múltiples hilos que ejecutan las tareas de manera concurrente.
+La multitarea es la capacidad que tiene sistema a la hora de ejecutar múltiples tareas al mismo tiempo.
+En resumen la multitarea que se basa en hilos es más eficiente en Java, porque los hilos, comparten el mismo espacio de memoria del 
+proceso principal, lo que permite una comunicación más rápida entre ellos y consume menos recursos en comparación con los procesos independientes.
+
+b) Menciona dos diferencias entre la interfaz Runnable y la clase Thread.
+La principal diferencia entre la interfas Runnable y la clase Thread es que la clase Thread al extenderla limita la herencia de otras clase
+y la interfaz de Runnable permite implementar y heredar otras clases.
+Otra diferencia que tiene estas dos, es que la clase Thread puede combinar lógica y control del hilo, y 
+la interfaz Runnable separa la lógica de la tarea del control.
+
+Sincronización (1 punto):
+a) Explica muy resumidamente qué es la sincronización de hilos y por qué es necesaria en Java.
+La sincronización de hilos en Java es un como un mecanismo que controla el acceso concurrente a recursos compartidos 
+para evitar que haya inconsistencias.
+La sin sincronización es necesaria porque, múltiples hilos pueden modificar, el mismo recurso, al mismo tiempo, 
+haciendo que haya condiciones de carrera y unos resultados inesperados. 
+La sincronización hace que solo un hilo pueda acceder al recurso crítico a la vez que mantiene la integridad de los demas datos. 
+Se implementa en los códigos usando synchronized (ya vistas en clase).
+
+b) ¿Qué problemas pueden surgir si no se sincronizan adecuadamente los hilos?
+Si no se los hilos no se sincronizan adecuadamente, pueden aparecer estos problemas 3:
+1-Las condiciones de carrera esto sucede cuando varios hilos acceden y modifican un recurso compartido al mismo tiempo, 
+causando resultados malos y confusión.
+2-Las inconsistencia de datos, las operaciones dependientes del orden de ejecución pueden fallar, dejando los datos en un estado inválido.
+3-Los bloqueos, si la sincronización d los hilos está mal hecha, los hilos pueden quedarse esperando, bloqueando la ejecución del programa
+ya que no pueden seguir trabajando dichos hilos.
+
+Estados de un hilo (1 punto):
+a) Nombra y describe brevemente los principales estados de un hilo en su ciclo de vida.
+Los principales estados de un hilo en su ciclo de vida son:
+1-Nuevo, el hilo es creado pero no ha comenzado a ejecutarse, se debe activar con start().
+2-Ejecutable, el hilo ya está listo para ejecutarse, pero debe espera su turno.
+3-En ejecución, el hilo está ejecutando su tarea tras ser seleccionado.
+4-En espera o bloqueado, el hilo está pausado, esperando un recurso o una señal para continuar.
+5-Finalizado, el hilo ya ha completado su tarea y ya no puede volver a ejecutarse.
+
+b) ¿Qué método en Java se utiliza para pausar un hilo por un tiempo específico?
+Es el método de Thread.sleep(), porque se usa para pausar un hilo durante un tiempo específico, 
+el tiempo se escribe dentro de los parentesis y va en milisengundos.
+
+Bloques sincronizados y monitores (1 punto):
+a) ¿Qué es un monitor en Java?
+Un monitor en Java, es un como un mecanismo que permite sincronizar el acceso a recursos compartidos entre hilos. Cada objeto tiene su propipo
+monitor que se usa con el "synchronized" para garantizar que solo un hilo pueda acceder al recurso.
+b) Explica cómo se utiliza el bloque synchronized para garantizar acceso exclusivo a un recurso.
+Crearia el hilo, con su configuración normal, añadiendo el synchronized, para garantizar solo ese hilo pueda acceder al recurso.
+Métodos avanzados en hilos (1 punto):
+a) ¿Qué diferencia existe entre los métodos wait(), notify(), y notifyAll() en Java?
+b) Explica un caso práctico donde utilizarías estos métodos para resolver un problema de concurrencia.
