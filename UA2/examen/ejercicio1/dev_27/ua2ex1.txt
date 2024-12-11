@@ -1,0 +1,29 @@
+CONCEPTOS BASICOS SOBRE HILOS
+A)Un hilo en java es el encargado de ejecutar métodos de las clases que se le asignen, y se usa un hilo ya que este permite realizar varios métodos al mismo tiempo, porque se pueden ejecutar varios hilos simultáneamente.
+
+B)Cuando extendemos de la clase Thread nos limitamos a los métodos que contenga esa clase únicamente, en cambio, si implementamos Runnable podemos tener acceso a mas métodos de distintas clases.
+
+SINCRONIZACION
+A)La sincronización de los hilos es importante en java ya que para poder realizar varias tareas al mismo tiempo es importante que si estas tienen relación o una depende de la otra se ejecuten de forma correcta y ordenada, por ejemplo, si tenemos un hilo 1 que necesita la ejecución previa de un hilo 2, no podemos iniciar el hilo 1 antes que el 2 para que todo funcione correctamente.
+
+B)Si no sincronizan correctamente los hilos los problemas que pueden surgir son que haya fallos en ciertos hilos que dependan de otros o que se produzca una falta de datos por ejemplo, porque si un hilo necesita datos de otro pero este otro no se inicia al mismo tiempo o se inicia mas tarde, no puede ofrecer los datos que otros hilos pueden necesitar.
+
+ESTADOS DE UN HILO
+A)Los estados que tienen los hilos son los siguientes:
+-Bloqued: cuando el hilo esta bloqueado por algún motivo y no se puede usar.
+-New: cuando el hilo esta creado pero aun no ha sido ejecutado.
+-Wait: cuando el hilo se ha ejecutado pero se le ha parado hasta que otro hilo le notifique cuando puede continuar.
+-Run,join,start: cuando el hilo esta en ejecución, cada una de estas tres formas de ejecutarlo tienen procesos
+ distintos, pero las tres sirven para la ejecución del hilo.
+-Sleep: cuando el hilo esta dormido, es decir, que esta el tiempo que el usuario elija sin continuar la ejecución.
+
+B)Se utiliza el método thread.sleep(milisegundos).
+
+BLOQUES SINCRONIZADOS Y MONITORES
+A)
+B)
+
+METODOS AVANZADOS EN HILOS
+A)El método wait se utiliza para parar la ejecución de un hilo, el método notify se utiliza para notificar a un hilo que puede continuar con su ejecución y notifyall se utiliza para notificar a todos los hilos que estén en espera que pueden continuar la ejecución.
+
+B)Estos métodos se podrían usar cuando estemos ejecutando varios hilos al mismo tiempo, por ejemplo, si tuviésemos un hilo que comprobase el correcto funcionamiento de distintos hilos. Este hilo notificaría a cada hilo uno por uno (notify), y una vez acabase la comprobación de cada uno los pararía hasta terminar con todos (wait), y por ultimo cuando haya terminado de comprobar todos los hilos que todos sigan ejecutándose correctamente (notifyall)
