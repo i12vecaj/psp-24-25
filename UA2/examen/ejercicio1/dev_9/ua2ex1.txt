@@ -1,0 +1,89 @@
+Nombre: Juan Deogracias Moya
+Fecha: 11/12/2024
+
+EXAMEN
+Conceptos básicos sobre hilos (1 punto):
+a) Define qué es un hilo en Java y cómo se relaciona con la multitarea.
+Un hilo en java es un subproceso que trabaja de forma concurrente para poder realizar una tarea.
+Mediante los hilos como he indicado podemos realizar tareas de forma concurrente, por ejemplo,
+yo tengo unos clientes en un banco que quieren obtener dinero prestado y a su vez tengo una serie
+de empleados que se encargan de atender a los clientes pues gracias a los hilos podemos optimizar y
+realizar este tipo de cuestiones de manera simultánea es decir mientras un empleado esta atendiendo a
+un cliente otro está depositando dinero en el banco y viceversa. Por cierto los hilos comparten memoria
+dentro de un proceso el cual a diferencia de el hilo tiene asignada memoria de forma independiente es decir
+ocupan un espacio en memoria, en conclusión, un hilo no puede existir sin un proceso ya que comparte memoria
+dentro de uno y un proceso puede vivir sin un hilo.
+
+b) Menciona dos diferencias entre la interfaz Runnable y la clase Thread.
+Sincronización (1 punto):
+Cuendo extendemos de la clase Thread solo podemos extender de esta misma clase lo que imposibilita
+poder usar métodos, es decir, extender de otras clases. Es más sencilla de implementar ya que solo
+tenemos que instanciar la clase que extiende de Thread y llamar al .start(). Por otra parte, tenemos a
+Runnable que para utilizar esta interfaz tenemos que implementar Runnable y de este modo obtenemos todos
+los métodos de dicha clase pero una de las ventajas es que podemos extender de otras clases y obtener dichos
+métodos más los de Runnable, es un poco más "difícil" de implementar ya que tenemos que instanciar la clase
+y luego pasar la instancia a la clase Thread, así como, Thread t = new Thread(instancia de la clase) y luego
+t.start().
+
+a) Explica qué es la sincronización de hilos y por qué es necesaria en Java.
+La sincronización de hilos consiste en controlar la cola de hilos que puede surgir y evitar problemas como las
+condiciones de carrera. Es decir gracias a syncronized podemos limitar los hilos que acceden a clases o métodos
+ya que se puede sincronizar tanto uno como otro pese a ser más recomendable sincronizar únicamente los métodos.
+Un ejemplo de sincronización continuando con el ejemplo de el Banco sería el acceso a añadir dinero a el
+saldo de el mismo ya que si muchos hilos acceden y modifican este mismo recurso podrían originarse inconcluencias
+es decir 'condiciones de carrera' y el resultado no sería el esperado.
+
+b) ¿Qué problemas pueden surgir si no se sincronizan adecuadamente los hilos?
+Si no se sincroniza un hilo podrían aparecer conceptos como la condición de carrera donde se intenta acceder a un mismo
+recurso de forma simúltanea de forma que pueden surgir problemas en dicho recurso compartido ya que a mi me gusta poner
+el ejemplo de un supermercado donde imagínate todos los clientes intentan pasar sus productos a la misma vez a el cajero
+en dicho caso surgiría un caos. Pues lo mismo ocurre con los hilos para evitar las condiciones de carrera deberíamos
+utilizar los conceptos de syncronized anteriormente hablados
+Estados de un hilo (1 punto):
+a) Nombra y describe brevemente los principales estados de un hilo en su ciclo de vida.
+Tenemos cuatro estados new(nuevo) que es cuando se instancia la clase es decir cuando aparece el constructor,
+ejecución que es cuando llamamos a el método start(), bloked o pausado que es cuando llamamos a métodos como sleep o wait
+y dead o muerto que es cuando muere o termina el hilo.
+
+b) ¿Qué método en Java se utiliza para pausar un hilo por un tiempo específico?
+En el caso de querer pausar un hilo durante un tiempo específico recurrimos a los .sleep(duración que queramos en
+milisegundos) de este modo podríamos parar el hilos durante los milisegundos definidos y es importante remarcar que el uso de
+sleep no es tan recomendable como wait el cual se duerme durante un tiempo indefinido únicamente se puede controlar mediante bucles
+o condiciones.
+
+Bloques sincronizados y monitores (1 punto):
+a) ¿Qué es un monitor en Java?
+Podemos realizar en los hilos distintos separadores o debugueadores para poder marcar y delimitar las partes que queremos verificar
+de dicho modo podemos tener un mayor control sobre nuestro código. Por otra parte es importante resaltar la importancia de dichos
+recursos en los hilos ya que gracias a estos podemos delimitar en que momento el hilo no ha funcionado. Por otra parte la sincronización
+de los hilos es esencial para mantener una eficiencia en nuestra aplicación y de dicho modo poder realizar operaciones o actividades como
+la de el Banco o otros ejemplos que comentaré en las siguientes partes.
+
+b) Explica cómo se utiliza el bloque synchronized para garantizar acceso exclusivo a un recurso.
+Si tenemos por ejemplo una clase llamada cliente si queremos que solo pueda acceder un hilo a dicha clase utilizamos 
+syncronized(cliente) de este modo solo un hilo puede acceder a los recursos de el cliente por otra parte, sería exactamente
+igual con los métodos donde sería solo un hilo el que podría acceder a dicho método por ejemplo, public syncronized void aumentar_saldo()
+
+Métodos avanzados en hilos (1 punto):
+a) ¿Qué diferencia existe entre los métodos wait(), notify(), y notifyAll() en Java?
+- wait() permite pausar un hilo durante un tiempo no definido para ello se suelen usar diferente condiciones como el while para poder
+despertar a el hilo cuando se cumpla la condición. 
+- notify() permite despertar y permitir la entrada de un hilo aleatoriamente de todos los hilos que estén esperando.
+- notifyAll() despierta y permite el acceso a todos los hilos que estén esperando.
+
+b) Explica un caso práctico donde utilizarías estos métodos para resolver un problema de concurrencia.
+Para poner otro ejemplo distinto a el de el Banco voy a hablar de una tienda de móviles. Donde nos encontramos con la tienda
+que sería el recurso compartido por los hilos tenemos unos productos, unos clientes y los empleados. Los clientes intentan ser atendidos
+por el empleado/os pero estos solo pueden atender a un solo cliente a la vez por tanto, yo llamaría a wait() y lo metería en un bucle while
+que comprobase la disponibilidad de los empleados y cuando sea true pues que sigan con lo que indica el método que en dicho caso sería
+añadir saldo a la tienda y cuando terminen de realizar esto pues que notifiquen a el que le sigue en la cola de la tienda que puede ser
+atendido (llamaríamos a el notify o notifyAll) para así poder continuar la ejecución. Por cierto cada metódo sería acompañado de la palabra
+reservada syncronized para poder ser solo utilizado por un hilo dicho método.
+
+En el caso contrario si no utilizamos dichos métodos los hilos podrían atacar a un recurso al mismo tiempo y ocurrir problemas como las condiciones
+de carrera. He de comentar que existen otros dos modelos los cuales son muy útiles para explicar los posibles problemas y soluciones de la 
+programación concurrente que son el modelo productor-consumidor y la cena de los filósofos los cuales aplican conceptos de sincronización como
+los que he explicado de el Banco y la tienda de móviles al fin y al cabo aplicando los métodos wait, notify y notifyAll() facilitan el control de
+los hilos. Además de dichos métodos podemos evaluar los estados de los hilos mediante métodos como isAlive o incluso crear pools de hilos como
+usando ExecuterService()...  
+
