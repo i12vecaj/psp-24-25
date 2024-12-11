@@ -1,0 +1,48 @@
+Conceptos básicos sobre hilos (1 punto):
+a) Define qué es un hilo en Java y cómo se relaciona con la multitarea.
+
+un hilo es una ejecución de código que comparte espacio de memoria con los procesos ,  lo relacionamos con la multitarea a veces porque podemos hacer varios procedimientos con un solo codigo 
+b) Menciona dos diferencias entre la interfaz Runnable y la clase Thread.
+	
+1 esta diferencia hace más alusión  a cuando estamos programando exactamente no necesitamos un extends Thread , podemos hacer los hilos de multitud de formas pero Runneable siempre lo tenemos que usar a la hora de hacer un hilo porque si no no podemos hacer que el hilo funcione
+2 la otra diferencia más clave es a la hora de llamarlos nosotros a thread podemos llamarlo así (“extends Thread”) pero a Runneable la llámanos o invocamos así  (“Implements Runnable”)
+
+
+
+
+Sincronización (1 punto):
+a) Explica qué es la sincronización de hilos y por qué es necesaria en Java.
+
+la sincronización es un método que usamos para que tengamos orden con los hilos y es necesaria a la hora de cuando estemos programando un programa si usamos synchronizer  podemos sincronizar los hilos sobre todo en java que si no lo sincronizamos podemos tener problemas en nuestro código 
+
+b) ¿Qué problemas pueden surgir si no se sincronizan adecuadamente los hilos?
+
+Si no se sincroniza bien se puede ocurrir una condición llamada condición de carrera.
+
+
+Estados de un hilo (1 punto):
+a) Nombra y describe brevemente los principales estados de un hilo en su ciclo de vida.
+
+espera: el hilo espera a una acción determinada 
+muerto : el hilo dejo de funcionar o no funciona correctamente
+activo : el hilo está funcionando correctamente
+
+b) ¿Qué método en Java se utiliza para pausar un hilo por un tiempo específico?
+
+utilizamos el bloque sleep() y podemos asignar también el tiempo que queremos asignar
+
+Bloques sincronizados y monitores (1 punto):
+
+a) ¿Qué es un monitor en Java?
+un monitor es un proceso o método  que se encarga de monitorizar los estados del los hilos , esto lo podemos usar a nuestro favor  a la hora 
+b) Explica cómo se utiliza el bloque synchronized para garantizar acceso exclusivo a un recurso.
+
+El bloque anteriormente dicho lo utilizamos para sincronizarlos hilos y que no se produzca la condición de carrera.
+
+Métodos avanzados en hilos (1 punto):
+a) ¿Qué diferencia existe entre los métodos wait(), notify(), y notifyAll() en Java?
+
+wait sirve  para hacer esperar un hilo , notify sirve para notificar un hilo , y notifyall notifica todos los hilos, ahora con todo esto sabido , la diferencia principal es que el wait lo usamos en mayor medida para la sincronización 
+
+
+b) Explica un caso práctico donde utilizarías estos métodos para resolver un problema de concurrencia.
