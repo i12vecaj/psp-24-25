@@ -1,0 +1,48 @@
+Conceptos básicos sobre hilos (1 punto):
+a) Define qué es un hilo en Java y cómo se relaciona con la multitarea.
+    Un hilo es un trozo de programa que representa una tarea en específico y está pensado para tareas que se ejecutan de forma concurrente y en
+    paralelo
+
+b) Menciona dos diferencias entre la interfaz Runnable y la clase Thread.
+    Son dos formas diferentes pero similares de trabajar con hilos, al final las dos crean un hilo pero se trabajan de forma diferente.
+    Thread convierte la clase en un hilo y para arrancarlo tenemos que implementar el procedimiento run y donde lo llamemos lo instanciamos llamando
+    a la misma clase mientras que implementando la interfaz Runnable nos permite mediante poliformismo crear objetos de la clase Thread con las clases
+    en las que hallamos implementados la interfaz.
+
+Sincronización (1 punto):
+a) Explica qué es la sincronización de hilos y por qué es necesaria en Java.
+    La sincronización de hilos es el controlar un mismo recurso al que acceden varios hilos de forma concurrente y es necesario porque en la mayoría de
+    los casos si esto no se controla el resultado va a ser muy difícil de controlar o predecir ya que dejamos que sea el SO el encargado y esto en
+    ningún caso va a ser igual que otro.
+
+b) ¿Qué problemas pueden surgir si no se sincronizan adecuadamente los hilos?
+    Como se ha descrito en el punto anterior puede provocar excepciones no controladas, un flujo aleatorio del programa es decir, con cada ejecución
+    del mismo código podemos obtener resultados diferentes.
+
+Estados de un hilo (1 punto):
+a) Nombra y describe brevemente los principales estados de un hilo en su ciclo de vida.
+    Los hilos pueden estar:
+        -Pausados.
+        -En ejecución.
+        -En espera.
+
+b) ¿Qué método en Java se utiliza para pausar un hilo por un tiempo específico?
+    Para pausar un hilo se usa hiloX.Sleep("Tiempo en milisegundos");
+
+Bloques sincronizados y monitores (1 punto):
+a) ¿Qué es un monitor en Java?
+    Un monitor es un código pensando para mostrar ya sea por consola o mediante logs el estado actual de los hilos en ejecución.
+b) Explica cómo se utiliza el bloque synchronized para garantizar acceso exclusivo a un recurso.
+    Se utiliza con la palabra clave synchronized en la definición de un método y asegura de que solo lo pueda usar un hilo a la vez sin importar
+    los hilos en ejecución con acceso al bloque.
+
+Métodos avanzados en hilos (1 punto):
+a) ¿Qué diferencia existe entre los métodos wait(), notify(), y notifyAll() en Java?
+    -wait, obliga a pausar a un hilo en ejecución.
+    -Notify, notifica un hilo que despierte de su pausa.
+    -NotifyAll, notifica todos los hilos que despierten de su pausa.
+
+b) Explica un caso práctico donde utilizarías estos métodos para resolver un problema de concurrencia.
+    Un ejemplo de demostración del mundo real que no es de aplicación en sí podría ser un bar donde usando el patrón productor-consumidor
+    donde el camarero sería el productor y los clientes los consumidores que cada uno corresponde a un hilo. Un camarero para servir a todos los clientes
+    y solo se sirven de 1 en 1, el recurso a sincronizar sería servir bebida mientras que solo un hilo podría ser servido a la vez.
