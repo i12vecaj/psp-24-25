@@ -1,0 +1,60 @@
+a) Define qué es un hilo en Java y cómo se relaciona con la multitarea.
+Un hilo en java podemos decir que es un subproceso de ejecución que comparte tanto espacio de memoria, como recursos. El hilo comparte estos recursos con los demás hilos del proceso al que pertenecen, por lo tanto podemos decir que un proceso tiene su propio espacio de memoria y que los hilos comparten ese espacio del proceso del que vienen.
+
+Podemos decir que el hilo está estrechamente relacionado con la multitarea ya que un hilo puede ejecutarse en paralelo con otros hilos lo que nos permitiría realizar tareas al mismo tiempo dentro de una aplicación.
+
+
+b) Menciona dos diferencias entre la interfaz Runnable y la clase Thread.
+-El nivel de abstracción: al implementar la interfaz Runnable podemos extender de una clase de nivel superior.
+-La forma de crear un Hilo:
+Extendiendo de Thread: Simplemente creamos el objeto de nuestra clase y lo iniciamos con start()
+Implementado Runnable: Creamos un objeto de nuestra clase, luego creamos un objeto Thread al cual le pasamos el objeto de nuestra clase e iniciamos el hilo utilizando el método start() del objeto Thread
+
+Sincronización (1 punto):
+a) Explica qué es la sincronización de hilos y por qué es necesaria en Java.
+La sincronización de hilos es el método que utilizamos para controlar el acceso a un recurso por parte de varios hilos de forma simultanea. 
+En este caso es necesaria ya que de no controlarlo puede llegar a generar problemas a tener varios hilos tratando el mismo recurso, lo que genera que el resultado no es el esperado
+
+
+b) ¿Qué problemas pueden surgir si no se sincronizan adecuadamente los hilos?
+Al no sincronizar los hilos se puede dar el problema de condición de carrera, que se da cuando varios hilos acceden al mismo recurso de manera simultánea sin ningún tipo de control lo que puede llegar a provocar que el resultado no sea lo esperado.
+
+
+Estados de un hilo (1 punto):
+a) Nombra y describe brevemente los principales estados de un hilo en su ciclo de vida.
+New()-->Cuando creamos el objeto del hilo
+Runnable()---> Cuando lo iniciamos con el método start()
+Blocked()-->Cuando se encuentra detenido por algún método(wait(), sleep()...)
+Dead()-->Cuando termina su ejecución
+
+
+b) ¿Qué método en Java se utiliza para pausar un hilo por un tiempo específico?
+El método utilizado para pausar un hilos por un tiempo específica es sleep(), al cual le tenemos que pasar los milisegundos que va a estar el hilo en espera
+
+
+Bloques sincronizados y monitores (1 punto):
+a) ¿Qué es un monitor en Java?
+Podemos decir que un monitor en Java es el encargado de gestionar 
+
+b) Explica cómo se utiliza el bloque synchronized para garantizar acceso exclusivo a un recurso.
+El bloque synchronized lo podemos utilizar de diferentes formar para garantizar el acceso exclusivo a un recurso.
+La primera forma es colocando el término synchronized al método que queramos sincronizar, esto hará que a ese método solo pueda acceder un hilo de forma simultánea.
+La otra forma de sincronizarlo es utilizando el bloque de código :
+synchronized("El recurso"){
+	//Tu código
+}
+De esta manera estamos sincronizando la clase entera lo que provoca que el primer hilo que entre en esa secuencia será el que primero la utilice mientras que los demás esperan. La principal diferencia es que el método anterior estábamos sincronizando solo un método y aquí es la clase entera
+
+
+Métodos avanzados en hilos (1 punto):
+a) ¿Qué diferencia existe entre los métodos wait(), notify(), y notifyAll() en Java?
+La diferencia principal entre esos métodos es el efecto que producen sobre los hilos, para entender mejor esto tenemos que sabes que hace cada método:
+-wait() --> Este método se utiliza para poner en espera al hilo
+-notify() --> Este método restable la ejecución de uno de los hilos que está parado
+-notifyAll() --> Este método restable la ejecución de todos los hilos que están parados.
+
+b) Explica un caso práctico donde utilizarías estos métodos para resolver un problema de concurrencia.
+Ejemplo práctico:
+Un ejercicio donde tenemos los hilos ConexionBD y Usuario, los cuales comparte el recurso BBD.
+Para controlar si la conexión esta abierta tengo dato de tipo bool en BBDD que me dice true si esta abierta y false si está cerrada, en el caso de estar abierta los usuarios pueden rescatar los datos pero en el caso contrario el hilo de Usuario quedaría esperando(aquí utilizamos el método wait()).
+Para abrir la conexión también tenemos un método llamado conectar al cual lo llamamos desde ConexionBD y que pondrá en true esa variable y que despertará a todos los hilos que están esperando(aquí utilizamos notifyAll() o notify() si solo queremos despertar a un hilo ) y que podrán continuar con su ejecución ya que se ha realizado un cambio en la variable.
