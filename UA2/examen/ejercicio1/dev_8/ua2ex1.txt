@@ -1,0 +1,46 @@
+Conceptos básicos sobre hilos (1 punto):
+a) Define qué es un hilo en Java y cómo se relaciona con la multitarea.
+Un hilo es una serie de ordenes que sigue un proceso, esto permite la programación en concurrente provocando una mayor eficiencia en la rapidez de acceso a datos, trabajos con datos etc.
+Es como si en una cocina hay un encargado de lavar los platos(hilo1) otro se encarga de emplatar (hilo2) otro se encarga de cocinar los alimentos (hilo3) etc.
+
+b) Menciona dos diferencias entre la interfaz Runnable y la clase Thread.
+Son dos maneras de implementar el uso de hilos; la mejor forma es Runnable ya que permite adaptar mejor por así decirlo con Runnable le dices lo que tiene que hacer el hilo como tal de manera mas personalizada y eficiente, mientras que con Thread el hilo se encarga de lo que tiene listado por hacer
+Ej.: Con Runnable es como si le vas explicando poco a poco como se hace un plato de salmorejo por ejemplo mientras que con Thread lo que haces es le das la lista de instrucciones 
+
+
+Sincronización (1 punto):
+a) Explica qué es la sincronización de hilos y por qué es necesaria en Java.
+La sincronización de hilos es un aspecto importante cuando hablamos de acceder a variables o hacer usos de funciones concretas con varios hilos así no se pisan entre ellos y se maneja la información de forma mas eficiente y segura.
+Ej.: si los hilos no están sincronizados se accede a la información de manera aleatoria sin control mientras que, si lo hacen de manera sincronizada unos hilos accederán a la información antes que otros. Como ejemplo pondría el ejercicio que hicimos aquí que era de simular una cuenta bancaria, en el cual si se hacia de forma no sincronizada el saldo de la cuenta a veces podía ser erróneo, mientras que si se hacia de forma sincronizada el saldo si era realmente correcto porque se accedía a la información de forma segura y ordenada  
+
+b) ¿Qué problemas pueden surgir si no se sincronizan adecuadamente los hilos?
+pues como he dicho anteriormente, la información puede ser manejada de una forma incorrecta y esto puede provocar que la información que se muestre sea errónea, así como también puede provocar saturación en el sistema, cuelgues en el programa etc.
+
+
+Estados de un hilo (1 punto):
+a) Nombra y describe brevemente los principales estados de un hilo en su ciclo de vida.
+Nuevo: el hilo está recién creado y listo a la espera de ser usado
+Ejecutando: esta realizando una acción que se le ha ordenado
+En espera: se detiene a la espera de retomar su tarea o a la espera de que se le asigne una nueva tarea
+Terminado: ha terminado su acción
+
+b) ¿Qué método en Java se utiliza para pausar un hilo por un tiempo específico?
+Sleep(tiempo) es la función que digamos pausa la ejecución el tiempo que nosotros le pongamos en ms. ejemplo lo usamos en la simulación de cuenta bancaria para simular la conexión a la base de datos
+
+
+Bloques sincronizados y monitores (1 punto):
+a) ¿Qué es un monitor en Java?
+Se encarga de monitorizar la importancia de ese hilo, a mayor importancia se le asigne al hilo antes se ejecutara.
+
+b) Explica cómo se utiliza el bloque synchronized para garantizar acceso exclusivo a un recurso.
+Si tenemos un recurso que queremos que se opere por mas de un hilo es importante que los hagan de forma sincronizada para ello hacemos uso de la palabra clave "synchronized" esta se encarga de ordenar el acceso al recuro entre los hilos, ya sean estos de hilos de producción o hilos consumidores del recurso.
+
+
+Métodos avanzados en hilos (1 punto):
+a) ¿Qué diferencia existe entre los métodos wait(), notify(), y notifyAll() en Java?
+(jose david me voy a tirar un tiple pero no se exactamente que diferencias hay)
+wait pone al hilo en espera, notify cuando el hilo termina su ejecución notifica al siguiente hilo de que ya puede empezar y por ultimo el notifyall notifica al resto de hilos de que ha terminado.
+
+
+b) Explica un caso práctico donde utilizarías estos métodos para resolver un problema de concurrencia.
+Cuando tengamos un programa muy complejo que opere con muchos datos, se debería de hacer uso de hilos sincronizados para que se encarguen de tareas mas pequeñitas pero que en definitiva de como resultado el real comportamiento del programa es decir por ejemplo en un software de gestión empresarial
