@@ -179,7 +179,7 @@ class Consumidor extends Thread {
 /**
  * @brief              runs the program
  *
- *                     will create threads and give value to capacidad, which is the
+ *                     will initialize threads and give value to capacidad, which is the
  *                     variable that stores the amount of char c that will fit in.
  *                     later in the code, threads are started.
  *
