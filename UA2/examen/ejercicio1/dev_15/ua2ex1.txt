@@ -1,0 +1,42 @@
+Conceptos básicos sobre hilos (1 punto):
+a) Define qué es un hilo en Java y cómo se relaciona con la multitarea.
+Un hilo es un proceso que realiza una tarea en un programa, se relaciona con la multitarea porque un hilo puede ejecutarse en paralelo con otros hilos.
+Ejemplo: En el supermercado cuando vas a pagar hay varias cajas para pagar cada caja seria un hilo y todos estarian haciendo una misma tarea.
+
+b) Menciona dos diferencias entre la interfaz Runnable y la clase Thread.
+La diferencia que hay entre la interfaz Runnable y la clase Thread es que Runnable solo tiene un método llamado run() y la clase Thread tiene un varios metodos llamados run(),
+start() y join().
+
+Sincronización (1 punto):
+a) Explica qué es la sincronización de hilos y por qué es necesaria en Java.
+La sincronización de hilos en Java es necesaria porque, si varios hilos acceden a los mismos recursos puede haber un problema en el programa.
+
+b) ¿Qué problemas pueden surgir si no se sincronizan adecuadamente los hilos?
+Si los hilos no se sincronizan correctamente pueden haber problemas como la concurrencia, la inestabilidad y la pérdida de datos.
+
+Estados de un hilo (1 punto):
+a) Nombra y describe brevemente los principales estados de un hilo en su ciclo de vida.
+Nuevo: Esta creado pero no esta todavia funcinando.
+Ejecutable: Comienza a ejecutarse después de que lo inicies.
+Bloqueado: Se detiene temporalmente porque este esperando a otro hilo o porque el usuario lo haya parado intencionadamente.
+Muerto: Es cuando termina su tarea.
+
+b) ¿Qué método en Java se utiliza para pausar un hilo por un tiempo específico?
+Sleep() se utiliza para pausar el hilo durante un tiempo en específico
+
+Bloques sincronizados y monitores (1 punto):
+a) ¿Qué es un monitor en Java?
+
+b) Explica cómo se utiliza el bloque synchronized para garantizar acceso exclusivo a un recurso. 
+El bloque synchronized es utilizado para que un solo hilo es el que puede acceder a ese recurso en un momento dado.
+Ejemplo: Estamos en un baño en el que solo hay un servicio y hay dos personas que quieren entrar al baño, solo una persona puede entrar al baño en ese momento, cuando el primero salga
+podra entrar la segunda persona.
+
+Métodos avanzados en hilos (1 punto):
+a) ¿Qué diferencia existe entre los métodos wait(), notify(), y notifyAll() en Java?
+Metodo wait(): Se utiliza para que el hilo se detenga y espere a que otro hilo.
+Metodo notify(): Se utiliza para que el hilo que esta esperando se active.
+Metodo notifyAll: Se utiliza para todos los hilos que estan epe se activen todos a la vez.
+
+b) Explica un caso práctico donde utilizarías estos métodos para resolver un problema de concurrencia.
+
