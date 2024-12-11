@@ -1,0 +1,86 @@
+Conceptos básicos sobre hilos (1 punto):
+
+a) Define qué es un hilo en Java y cómo se relaciona con la multitarea.
+
+Un hilo es un subproceso que se puede ejecutar en un programa a la vez que se ejecutan otros, es decir en un mismo
+programa podemos tener varios hilos ejecutándose de forma concurrente, esto se relaciona con la multitarea puesto
+que nos permite realizar varias tareas o procesos en un mismo código a la misma vez, por ejemplo podemos tener un 
+programa que mida la temperatura, y a su misma vez mida la humedad.
+
+b) Menciona dos diferencias entre la interfaz Runnable y la clase Thread.
+
+La interfaz Runneable como su propio nombre indica implementa la interfaz, y la clase Thread lo que hace es extender
+de dicha clase, es decir que hereda sus métodos y sus atributos
+
+Otra diferencia puede ser que con la clase Theard te limita a poder extender de otra clase en caso de que fuese 
+necesario en tu código, esto en cambio no pasaría con la interfaz Runneable puesto que esta no se extiende sino
+que se implementa
+
+
+
+Sincronización (1 punto):
+
+a) Explica qué es la sincronización de hilos y por qué es necesaria en Java.
+
+La sincronización de los hilos lo que hace es darle un orden a las entradas y salidas a un método o variable, esto es
+muy necesario para no sobrecargar una clase puesto que sin este método podemos tener varios hilos intentando utilizar
+y modificar una variable o un método al mismo tiempo, la sincronización lo que hace es evitar esto dándole un orden a 
+la entrada y salida de los hilos, es decir que un hilo, por ejemplo, no podrá acceder a una variable mientras otro
+hilo la este utilizando, tendrá que esperar a que ese hilo termine para poder usarla.
+
+b) ¿Qué problemas pueden surgir si no se sincronizan adecuadamente los hilos?
+
+Podemos tener varios problemas como:
+
+Condición de carrera, que se da cuando varios hilos acceden al mismo tiempo al buffer sin un control
+Interbloqueo, que se da cuando los hilos esperan indefinidamente poder usar un recurso
+Inanición, que se da cuando hilos no obtienen suficientes recursos para continuar 
+
+
+
+Estados de un hilo (1 punto):
+
+a) Nombra y describe brevemente los principales estados de un hilo en su ciclo de vida.
+
+Los principales estados de un hilo son los siguientes:
+
+Nuevo (new): Cuando el hilo se acaba de crear
+Ejecutando(Runneable): Cuando el hilo esta en ejecución
+Bloqueado(Bloqued): Cuando el hilo se encuentra bloqueado o paralizado
+Muerto(Dead): Cuando el hilo ha muerto, es decir a finalizado
+
+b) ¿Qué método en Java se utiliza para pausar un hilo por un tiempo específico?
+
+Tenemos varios métodos, uno de ellos puede ser el método "sleep()", lo que hace es dormir el hilo con el numero de 
+milisegundo que nosotros le indiquemos, cuando termine este tiempo, el hilo vuelve a estar en ejecución.
+
+
+Bloques sincronizados y monitores (1 punto):
+
+a) ¿Qué es un monitor en Java?
+
+Un monitor es un hilo en Java que nos ayuda a controlar las entradas y salidas a un hilo o recurso en 
+especifico
+
+b) Explica cómo se utiliza el bloque synchronized para garantizar acceso exclusivo a un recurso.
+
+Debemos utilizar el bloque synchronized en el recurso o método que sea vulnerable, porque vayan a acceder varios 
+hilos al mismo tiempo, así evitaremos que entren a la misma vez en el recurso que sea vulnerable.
+
+
+
+Métodos avanzados en hilos (1 punto):
+
+a) ¿Qué diferencia existe entre los métodos wait(), notify(), y notifyAll() en Java?
+
+El método wait(), lo que hace es esperar para entrar a un recurso, el método notify(), notifica a un hilo especifico de
+que el recurso esta libre o accesible, y el método notifyAll(), lo que hace es notificar a todos los hilos de que ha
+dejado de utilizar el recurso
+
+b) Explica un caso práctico donde utilizarías estos métodos para resolver un problema de concurrencia.
+
+Imaginemos que tenemos un ejercicio que es el bar de mou, el hilo clientes quieren utilizar el vaso del hilo camarero, 
+varios clientes quieren acceder a un vaso, pero no hay ninguno disponible, con el método wait(), los clientes esperaran
+a que otro cliente suelte su vaso, y así tengan uno disponible, al mismo tiempo desde el hilo camarero cuando recojamos 
+un vaso podemos utilizar el método notify() para avisar a un cliente especifico de que ya se puede usar el vaso, o 
+notifyAll() para avisar a todos los clientes
