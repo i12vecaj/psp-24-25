@@ -2,12 +2,12 @@ Conceptos básicos sobre hilos (1 punto):
 a) Define qué es un hilo en Java y cómo se relaciona con la multitarea.
 
 un hilo es una ejecución de código que comparte espacio de memoria con los procesos ,  lo relacionamos con la multitarea a veces porque podemos hacer varios procedimientos con un solo codigo 
+
 b) Menciona dos diferencias entre la interfaz Runnable y la clase Thread.
 	
 1 esta diferencia hace más alusión  a cuando estamos programando exactamente no necesitamos un extends Thread , podemos hacer los hilos de multitud de formas pero Runneable siempre lo tenemos que usar a la hora de hacer un hilo porque si no no podemos hacer que el hilo funcione
+
 2 la otra diferencia más clave es a la hora de llamarlos nosotros a thread podemos llamarlo así (“extends Thread”) pero a Runneable la llámanos o invocamos así  (“Implements Runnable”)
-
-
 
 
 Sincronización (1 punto):
@@ -30,6 +30,9 @@ activo : el hilo está funcionando correctamente
 b) ¿Qué método en Java se utiliza para pausar un hilo por un tiempo específico?
 
 utilizamos el bloque sleep() y podemos asignar también el tiempo que queremos asignar
+
+
+
 
 Bloques sincronizados y monitores (1 punto):
 
