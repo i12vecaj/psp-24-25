@@ -34,7 +34,7 @@ El método utilizado para pausar un hilos por un tiempo específica es sleep(), 
 
 Bloques sincronizados y monitores (1 punto):
 a) ¿Qué es un monitor en Java?
-Podemos decir que un monitor en Java es el encargado de gestionar 
+Podemos decir que un monitor en Java es el encargado de gestionar el orden de ejecución, este varía dependiendo del la prioridad del hilo, aunque cabe destacar que esto a veces no se puede controlar por la velocidad de ejecución, esta prioridades van desde 1-10, siendo 10 la más importante. Manejar esto a mano puede llegar a ser muy peligroso.
 
 b) Explica cómo se utiliza el bloque synchronized para garantizar acceso exclusivo a un recurso.
 El bloque synchronized lo podemos utilizar de diferentes formar para garantizar el acceso exclusivo a un recurso.
