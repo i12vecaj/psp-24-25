@@ -1,0 +1,59 @@
+Conceptos básicos sobre hilos (1 punto):
+a) Define qué es un hilo en Java y cómo se relaciona con la multitarea.
+ 
+Un hilo es un camino dentro de un programa es decir cada hilo hace una funcion y cada uno de ellos tiene una tarea a realizar por ejemplo: es como si nosotros hiciéramos una ruta y tenemos que ir paso a paso acda paso es una hilo corespondiente construyendo esa ruta.
+
+b) Menciona dos diferencias entre la interfaz Runnable y la clase Thread.**
+
+-Runnable permite que una clase herede de adeamas que tambien puede imlemntar hilos, mientras que Threa no permite extender otras clases.
+
+-Runnable solo define la tarea a realizar, y deja que se enacrague del hilo a otra clase, mientras que Thread puede combina ambas funciones.
+
+
+Sincronización (1 punto):
+a) Explica qué es la sincronización de hilos y por qué es necesaria en Java.
+ 
+La sincronización  es un metodo o mecanismo de que los hilos puede acceder a los hilos de forma vigilada para que no haya errores en el codigo.
+
+b) ¿Qué problemas pueden surgir si no se sincronizan adecuadamente los hilos?
+
+Los hilos hacen una carrera para intentar que los datos se modifique y esto nos puede llegar a dar problemas en el codigo.
+Un hilo o varios hilos pueden quedar nulo es decir como si estuviera atrapado y no puede a llegar trabajar o dar lo datos que corresponde.
+
+
+Estados de un hilo (1 punto):
+a) Nombra y describe brevemente los principales estados de un hilo en su ciclo de vida.
+
+-New: Un hilo está en este estado cuando se ha creado pero aún no ha comenzado a ejecutarse.
+
+-Runnable: El hilo pasa a este estado cuando se llama al método start().
+
+-Dead (esta muerto el hilo): Un hilo entra en este estado cuando ha terminado su ejecución. Esto puede ocurrir por que el metodo run acabado o se producido un error en el codigo o puede que este el metodo esto que para literalmente y se acaba.
+
+ -El método run() ha finalizado, como si el viaje hubiera terminado.
+
+ -bloqueado: El hilo entra en este estado cuando no puede continuar su ejecucion hasta que no se haga la condicion que haya en el codigo, como estar a que se complete una operación de entrada/salida oalgun recurso el cual haya en el codigo.Se puede poner este ejemplo como si el coche esta parado en un semaforo en rojo esperando a que se ponga en verde para que la ruta pueda continuar.
+
+
+b) ¿Qué método en Java se utiliza para pausar un hilo por un tiempo específico?
+
+-Para pausar un hilo por un tiempo , se utiliza un metodo que detiene su ejecucion durante el periodo indicado que este caso seria el stop()
+
+
+Bloques sincronizados y monitores (1 punto):
+
+a) ¿Qué es un monitor en Java?
+
+- Un monitor es una herramienta de Java que controla el acceso de los hilos pero el recurso debe de ser ente caso compartido.Y cada objeto se le asigna un monitor.
+
+b) Explica cómo se utiliza el bloque synchronized para garantizar acceso exclusivo a un recurso.
+
+- Los bloques sincronizados utilizan el monitor de que solo un hilo entra al recuso compartido. Con esto aseguramos de que el contenido este seguro.
+
+Métodos avanzados en hilos (1 punto):
+
+a) ¿Qué diferencia existe entre los métodos wait(), notify(), y notifyAll() en Java?
+
+
+b) Explica un caso práctico donde utilizarías estos métodos para resolver un problema de concurrencia.
+
