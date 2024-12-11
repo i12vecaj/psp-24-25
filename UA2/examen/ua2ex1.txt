@@ -1,0 +1,33 @@
+Conceptos básicos sobre hilos (1 punto):
+a) Define qué es un hilo en Java y cómo se relaciona con la multitarea.
+Un hilo o thread es un metodo usado en codigo para ejecutar varias tareas a la vez. Su relacion con la multitarea es que, 
+como dice el propio nombre puedes hacer varias tareas a la vez en un orden y tiempo deseado.
+
+b) Menciona dos diferencias entre la interfaz Runnable y la clase Thread.
+La diferencia principl de su interfaz...
+
+Sincronización (1 punto):
+a) Explica qué es la sincronización de hilos y por qué es necesaria en Java.
+la sincronizacion entre hilos es la habilidad de procesar una tarea al mismo tiempo siendo de distintos hilos, 
+es necesaria para el correcto funcionamiento de varias actividades de java o codigos
+
+b) ¿Qué problemas pueden surgir si no se sincronizan adecuadamente los hilos?
+Desde que el codigo no compile asta que no haya ningun tipo de control de tiempo en sus acciones.
+
+Estados de un hilo (1 punto):
+a) Nombra y describe brevemente los principales estados de un hilo en su ciclo de vida.
+
+b) ¿Qué método en Java se utiliza para pausar un hilo por un tiempo específico?
+Wait
+
+Bloques sincronizados y monitores (1 punto):
+a) ¿Qué es un monitor en Java?
+Un monitor es un bloque sincronizado que sincroniza hilos
+
+b) Explica cómo se utiliza el bloque synchronized para garantizar acceso exclusivo a un recurso.
+El bloque synchronized es codigo que solo puede ser ejecutado por un solo hilo a la vez.
+
+Métodos avanzados en hilos (1 punto):
+a) ¿Qué diferencia existe entre los métodos wait(), notify(), y notifyAll() en Java?
+b) Explica un caso práctico donde utilizarías estos métodos para resolver un problema de concurrencia.
+
