@@ -1,0 +1,61 @@
+Pablo Alcalá-Zamora Bermúdez
+
+Conceptos básicos sobre hilos (1 punto):
+a) Define qué es un hilo en Java y cómo se relaciona con la multitarea.
+Un hilo son procesos que nos permiten gestionar varias tareas a la vez.
+Podemos relacionarlo con la multitarea ya que los hilos nos permiten ejecutar varias tareas o procesos al mismo tiempo aunque no esten relacionados entre si.
+b) Menciona dos diferencias entre la interfaz Runnable y la clase Thread.
+1.La forma de iniciarlas, por ejemplo , Thread seria: 
+Thread thread = new Thread()
+thread.start()
+y la de Runnable para empezar el hilo  es diferente.
+
+2.Tambien Runnable es uan interfaz que nos fuerza a usar la funcion "run" dentro de su clase cosa que Thread no.
+
+Sincronización (1 punto):
+a) Explica qué es la sincronización de hilos y por qué es necesaria en Java.
+La sincronizacion Es una herramiento que nos permite establecer orden mediante la gestion de los hilos para evitar que algunos hilos terminen antes que otros.
+Es necesaria la sincronizacion ya que nos ayuda a evitar errores , hilos zombie y en caso de que sea necesario para controlar las acciones de los hilos.
+b) ¿Qué problemas pueden surgir si no se sincronizan adecuadamente los hilos?
+Si por ejemplo necesitaramos que un hilo vaya siempre antes que otros si no los sincronizamos este podria ejecutarse despues de otros hilos lo que derivaria en errores.
+
+Estados de un hilo (1 punto):
+a) Nombra y describe brevemente los principales estados de un hilo en su ciclo de vida.
+new:
+Se acaba de crear el hilo
+Runnable:
+se empieza a ejecutar.
+Blocked:
+el hilo esta suspendido
+Dead: 
+El hilo ha terminado el proceso
+b) ¿Qué método en Java se utiliza para pausar un hilo por un tiempo específico?
+Dependiendo de a que nos refiramos con un tiempo especifico es un metodo u otro
+
+si nos referimos a tiempo exacto , es decir, segundos o minutos entonces hablamos de sleep el cual nos permite parar el hilo el tiempo que nosotros queramos.
+
+Si es hasta que se complete una accion es wait y lo volveriamos a activar cuando quisieramos reanudarlo con notify
+
+
+Bloques sincronizados y monitores (1 punto):
+a) ¿Qué es un monitor en Java?
+b) Explica cómo se utiliza el bloque synchronized para garantizar acceso exclusivo a un recurso.
+usando la funcion Public sinchronyzed void() e introduciendo dentro la variable que queramos sincronizar , esto nos permite que en caso de que estemos en una parte del codigo critica
+y queremos que solo un hilo a la vez use la variable se puede hacer esto.
+
+
+Métodos avanzados en hilos (1 punto):
+a) ¿Qué diferencia existe entre los métodos wait(), notify(), y notifyAll() en Java?
+wait()es el metodo que nos permite pausar un hilo de forma ilimitada, notify()es el metodo que nos permite reanudar ese mismo hilo y en el caso de
+que haya dos o mas hilos suspendidos con wait el notifyAll despierta a todos los hilos.
+b) Explica un caso práctico donde utilizarías estos métodos para resolver un problema de concurrencia.
+Si por ejemplo tenemos un hilo justo al principio de nuestro programa(por necesidades de este) 
+pero no queremos que termine hasta que los otros hayan terminado podemos pausarlo y despertarlo una vez haya terminado el proceso o el programa.
+
+Toda la implementación debe estar en un único fichero Java, nombrado como: UA2/examen/ejercicio1/dev_X/ua2ex1.txt
+
+
+
+
+
+
