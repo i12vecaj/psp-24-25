@@ -1,0 +1,30 @@
+Se pide implementar el modelo Productor-Consumidor en Java utilizando
+hilos para producir y consumir caracteres almacenados en un array
+compartido.El programa debe contener las siguientes funcionalidades requeridas (FR):FR1 [2 puntos]. Clase Buffer
+Esta clase representará el array compartido donde se almacenarán los caracteres.1.1. Atributosbuffer: array de caracteres que contendrá los elementos producidos y consumidos.
+capacidad: tamaño máximo del buffer.
+indiceEscritura: posición actual donde el productor escribirá.
+indiceLectura: posición actual desde donde el consumidor leerá.1.2. MétodosConstructor: inicializar el buffer con un tamaño dado.
+producir(char c): añade un carácter al buffer si hay espacio disponible. Debe esperar si el buffer está lleno.
+consumir(): extrae un carácter del buffer si hay elementos disponibles. Debe esperar si el buffer está vacío.FR2 [2 puntos]. Clase Productor
+Simula un hilo encargado de generar caracteres aleatorios y almacenarlos en el buffer.2.1. Atributos
+buffer: referencia al objeto compartido Buffer.2.2. Métodos
+Constructor: recibe el objeto Buffer como argumento.
+run()
+ (sobrescrito): genera caracteres aleatorios (puedes usar (char)
+(Math.random() * 26 + 'A')) y los introduce en el buffer. Esperar un
+tiempo aleatorio (entre 200 ms y 500 ms) entre cada producción.FR3 [2 puntos]. Clase Consumidor
+Simula un hilo encargado de extraer caracteres del buffer y procesarlos.3.1. Atributos
+buffer: referencia al objeto compartido Buffer.3.2. Métodos
+Constructor: recibe el objeto Buffer como argumento.
+run()
+ (sobrescrito): extrae caracteres del buffer y los procesa (por ejemplo,
+ imprime por pantalla el carácter consumido). Esperar un tiempo
+aleatorio (entre 300 ms y 700 ms) entre cada consumo.FR4 [2 puntos]. Aplicación Principal
+Debe crear y ejecutar los hilos necesarios para simular el sistema:Instanciar un objeto Buffer con capacidad de 10 elementos.
+Crear un hilo Productor y un hilo Consumidor, ambos compartiendo el mismo Buffer.
+Sincronizar adecuadamente el acceso al Buffer para evitar condiciones de carrera.
+Ejecutar el programa y asegurarse de que funciona correctamente.FR5 [2 puntos]. Características adicionales
+Toda la implementación debe estar en un único fichero Java, nombrado como: UA2/examen/ejercicio2/dev_X/ua2ex2.java.Todos
+ los métodos deben imprimir mensajes claros sobre su ejecución,
+indicando los caracteres producidos/consumidos y el estado del buffer.Implementar control de errores y excepciones cuando sea necesario.
