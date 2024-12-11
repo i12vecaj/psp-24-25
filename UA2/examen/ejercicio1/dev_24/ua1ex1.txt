@@ -1,0 +1,59 @@
+Conceptos básicos sobre hilos (1 punto):
+a) Define qué es un hilo en Java y cómo se relaciona con la multitarea.
+    Los hilos son procesos o tareas que de manera artificial en cierta manera, nos permiten ejecutar varias tareas al mismo tiempo. Se relaciona con la multitarea por lo mismo, por que nos 
+    la creación de varios hilos nos permite que varios procesos se ejecuten al mismo tiempo. Realmente no se ejecutan al mismo tiempo ya que primero se ejecuta un trozo de uno y luego otro 
+    así se van intercalando y crean la sesación de que se estan ejecutando al mismo tiempo. Esto es usado cuando el procesador no tiene la capacidad de multiproceso, permtiendo asi que se puedan
+    ejecutar varios procesos al mismo tiempo sin la necesidad de tener un procesador multi nucleo.
+
+b) Menciona dos diferencias entre la interfaz Runnable y la clase Thread.
+    Mientras que Thread hereda directamente sus atributos y métodos sobre la clase donde se aplica, conviertiendo en cierto modo a esa misma clase en un Thread.
+    mientras que Runnable es una interfaz, que implementa algunos métodos sobre la clase en la que se aplica. Con Runnable luego necesitaremos de crear un hilo para poder iniciarlo.
+
+
+Sincronización (1 punto):
+a) Explica qué es la sincronización de hilos y por qué es necesaria en Java.
+    La sincronicación de hilos es una herramienta de orden, que nos permite gestionar los hilos de manera todos los hilos esperen a los demás para terminar. En Java
+    la sincronización de los hilos es muy importante para controlar errores, evitar los hilos zombies y coordinar las acciones de los distintos hilos en ejecución.
+
+b) ¿Qué problemas pueden surgir si no se sincronizan adecuadamente los hilos?
+    Puden surgir varios problemas si no sincronizamos nuestros hilos, mediante un join(). Los problemas pueden relacionarse con la falta de control de errores, 
+    la generación de hilos zombies, o un desorden indeseado a la hora de ejecutar nuestros hilos creando malos tiempos de ejecucion.
+
+
+Estados de un hilo (1 punto):
+a) Nombra y describe brevemente los principales estados de un hilo en su ciclo de vida.
+    Los principales estados de un hilo son:
+                -New: Acaba de crease el hilo.
+                -Runnable: El hilo esta listo para ejecutarse. 
+                -Blocked: El hilo esta esperando.
+                -Dead: El hilo ha terminado la ejecucion.
+
+    Luego tenemos también:
+                Waiting: El hilo esta esperando a un notify o esta sleep() durante un periodo de tiempo.
+
+b) ¿Qué método en Java se utiliza para pausar un hilo por un tiempo específico?
+    Como he especificado en la pregunta anterior, para pausar un hilo por un tiempo específico tenemos el método .sleep(milisegundos).
+
+
+Bloques sincronizados y monitores (1 punto):
+a) ¿Qué es un monitor en Java?
+    No lo sé.
+
+b) Explica cómo se utiliza el bloque synchronized para garantizar acceso exclusivo a un recurso.
+    Un bloque synchronized es un bloque que es declarado o bien en un bloque especifico de código o bien en un método entero directamente que nos permite
+    hacer que dos o más hilos no puedan acceder a ese bloque de código, ejecutar ese bloque de código o ejecutar ese método al mismo tiempo, puediendo probocar errores.
+    suele usarse en zonas de código criticas donde por ejemplo se editan o se accede a variables por varios hilos, puediendo provocar errores en el caso de que 
+    dos hilos den un valor al mismo tiempo a esa variable.
+
+Métodos avanzados en hilos (1 punto):
+a) ¿Qué diferencia existe entre los métodos wait(), notify(), y notifyAll() en Java?
+    El método wait() pone en pausa un hilo que se este ejecutando, notify() permite despausar a un hilo especifico mientras que notifyAll() despausa a todos los 
+    hilos que esten en wait.
+
+b) Explica un caso práctico donde utilizarías estos métodos para resolver un problema de concurrencia.
+    Un caso practico donde sería útil usar estos métodos sería cuando por necesidad necesitemos que en el caso de que uno de los procesos deba de ser pausado
+    para dejar a otro resolver una operación hasta que haya terminado y le notifique (notify()) de que puede serguir permitiendo así controlar errores y el flujo
+    de nuestros procesos.
+
+    Un ejemplo práctico podría ser en un programa donde se realizen calculos mátematicos para poder operar y se trabajen con grandes bloques de código (procesos/hilos) 
+    cuando una operación necesite de otros hilos realizen otras operaciones para seguir funcionando, este wait podría resultar útil.
