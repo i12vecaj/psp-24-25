@@ -1,0 +1,48 @@
+Conceptos básicos sobre hilos (1 punto):
+a) Define qué es un hilo en Java y cómo se relaciona con la multitarea.
+b) Menciona dos diferencias entre la interfaz Runnable y la clase Thread.
+
+Sincronización (1 punto):
+a) Explica qué es la sincronización de hilos y por qué es necesaria en Java.
+b) ¿Qué problemas pueden surgir si no se sincronizan adecuadamente los hilos?
+
+Estados de un hilo (1 punto):
+a) Nombra y describe brevemente los principales estados de un hilo en su ciclo de vida.
+b) ¿Qué método en Java se utiliza para pausar un hilo por un tiempo específico?
+
+Bloques sincronizados y monitores (1 punto):
+a) ¿Qué es un monitor en Java?
+b) Explica cómo se utiliza el bloque synchronized para garantizar acceso exclusivo a un recurso.
+
+Métodos avanzados en hilos (1 punto):
+a) ¿Qué diferencia existe entre los métodos wait(), notify(), y notifyAll() en Java?
+b) Explica un caso práctico donde utilizarías estos métodos para resolver un problema de concurrencia.
+
+Toda la implementación debe estar en un único fichero Java, nombrado como: UA2/examen/ejercicio1/dev_X/ua1ex1.txt
+
+
+
+Conceptos básicos sobre hilos (1 punto)
+a) Un hilo es como un proceso más pequeño dentro de un programa que permite hacer varias tareas a la vez. En Java, se usa para la multitarea.
+
+b) La interfaz Runnable no hereda de Thread, mientras que la clase Thread sí. Con Runnable puedes compartir código entre hilos, con Thread no.
+
+Sincronización (1 punto)
+a) La sincronización hace que los hilos trabajen de forma ordenada para no estropear datos compartidos. Es necesaria para evitar errores al acceder a recursos al mismo tiempo.
+
+b) Sin sincronización, los datos pueden llegar mal y comrrompidos y los hilos pueden ejecutarse en un orden impredecible, causando muchos problemas.
+
+Estados de un hilo (1 punto)
+a) Los estados son: Nuevo (creado pero no iniciado), Ejecutando (en marcha), Bloqueado (esperando recursos) y Terminado (acabó).
+
+b) Para pausar un hilo usas el método Thread.sleep() y dentro del parentesis pones los milisegundos que quieres que esté pausado
+
+Bloques sincronizados y monitores (1 punto)
+a) Un monitor es como un control que asegura que un recurso solo sea usado por un hilo a la vez.
+
+b) Con synchronized, un hilo bloquea un recurso mientras lo usa para que otros esperen su turno.
+
+Métodos avanzados en hilos (1 punto)
+a) wait() pausa el hilo, notify() despierta a uno que estaba esperando, y notifyAll() despierta a todos los que esperaban.
+
+b) Los usas cuando varios hilos dependen de una condición, como esperar a que una lista tenga datos antes de procesarlos. Creo que es un ejemplo simple y q se entiende.
