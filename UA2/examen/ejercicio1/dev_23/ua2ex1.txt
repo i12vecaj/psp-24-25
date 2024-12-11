@@ -2,12 +2,13 @@ Conceptos básicos sobre hilos (1 punto):
 
 a) Define qué es un hilo en Java y cómo se relaciona con la multitarea.
 
-Un hilo en java consta de un proceso que se encarga de realizar una tarea especifica dentro del proceso principal, por lo que su relacion con la multitarea se basa en que dentro del mismo programa puedes estar realizando a la vez, con varios hilos diferentes, distintas tareas como por ejemplo un hilo se encarga de medir la temperatura, otro se encarga de medir la humedad, otro se encarga de establecer la hora, etc.
+Un hilo en java consta de un subproceso que se encarga de realizar una tarea especifica dentro del proceso principal, por lo que su relacion con la multitarea se basa en que dentro del mismo programa puedes estar realizando a la vez, con varios hilos diferentes, distintas tareas como por ejemplo un hilo se encarga de medir la temperatura, otro se encarga de medir la humedad, otro se encarga de establecer la hora, etc.
 
 b) Menciona dos diferencias entre la interfaz Runnable y la clase Thread.
 
--Interfaz Runnable: Crear un hilo con la interfaz runnable hace que el mismo metodo run pueda ser utilizado en varios hilos diferentes y, usar tambien esta interfaz te permite crear un hilo que pueda heredar de otra clase que no sea Thread.
--Clase Thread: Crear un hilo extendiendo de la clase Thread hace que no puedas extender de ninguna otra clase ya que, en java, una clase solo puede extender de otra, no de varias. 
+-Interfaz Runnable: Crear un hilo con la interfaz runnable solo te permite usar el metodo run() del hilo, usar tambien esta interfaz te permite crear un hilo que pueda heredar de otra clase que no sea Thread.
+
+-Clase Thread: Crear un hilo extendiendo de la clase Thread hace que no puedas extender de ninguna otra clase ya que, en java, una clase solo puede extender de una sola clase, y otra diferencia es que, al heredar de la clase Thread, heredas todos los atributos y metodos de la clase Thread lo que lo hace menos felxible a la hora de implementar la logica.
 
 Sincronización (1 punto):
 
@@ -26,7 +27,7 @@ a) Nombra y describe brevemente los principales estados de un hilo en su ciclo d
 -Vivo: Cuando creamos el hilo utilizando el .Start().
 -En ejecución: El hilo esta realizando sus tareas con los recursos necesarios
 -En espera: El hilo esta bloqueado debido a que otro hilo esta utilizando los recursos en ese momento. Esto se maneja utilizando los metodos Wait() y notify() o notifyAll().
--Muerto: El hilo ha terminando su ejecucion, lo que significa que este hilo ya no va a utilizarse mas. 
+-Muerto: El hilo ha terminando su ejecucion, por lo que no se va a utilizar mas en el programa.
 
 b) ¿Qué método en Java se utiliza para pausar un hilo por un tiempo específico?
 
