@@ -1,0 +1,50 @@
+Conceptos básicos sobre hilos (1 punto):
+a) Define qué es un hilo en Java y cómo se relaciona con la multitarea.
+b) Menciona dos diferencias entre la interfaz Runnable y la clase Thread.
+  
+Un hilo en java es un codigo que genera subroceso que podemos crear en un proceso en el cual podemos realizar varias tareas al mismo tiempo en un proceso, como hacer 4 contadores que cuenten hasta
+x numero distinto entre ellos entre mas cosas o que un usuario ponga un numero y 2 realicen tareas distintas al mismo tiempo con ese numero dado.
+
+las 2 diferencias principales entre el Runnable y la clase Thread es que la clase Thread no puede extender de otras clases, es decir , solo podemos extender una vez, esto es util
+para hilos que hacen un proceso propio y no dependen de otras clases en mayor medida, mientras tanto el Runnable si puede extender de otras clases lo que le permite relacionarse con otras clases
+
+
+
+Sincronización (1 punto):
+a) Explica qué es la sincronización de hilos y por qué es necesaria en Java.
+b) ¿Qué problemas pueden surgir si no se sincronizan adecuadamente los hilos?
+
+La sincronizacion de hilos como el nombre indica permite sincronizar hilos entre ellos, porque de forma normal cada hilo iria por su cuenta y funcionaria independientemente de cada uno
+esto aunque en algunos casos puede dar igual en otros donde varios hilos estan relacionados por una tarea comun puede probocar estados de carrera, en el cual los hilos al no tener un orden puede probocar fallos en el programa,
+por ejemplo si tenemos varios hilos que producen un numero aleatorio y otros hilos que lo reciven se puede provocar que si un hilo genera un numero y otro hilo recoge ese numero, el hilo que recoge el numero recoga 2 veces el mismo numero sin esperar al que el
+hilo productor genere otro, es por ello que es importante mantener un orden y una sincronización entre hilos para que el funcionamiento del programa sea correcto o al menos que al enviar datos a la terminal tengamos un orden 
+
+
+
+Estados de un hilo (1 punto):
+a) Nombra y describe brevemente los principales estados de un hilo en su ciclo de vida.
+  Un hilo pasa por 3 estados, muerto: el hilo a dejado de realizar su funcion o tiene algun fallo, espera: el hilo esta en reposo , activo: el hilo está actuando 
+b) ¿Qué método en Java se utiliza para pausar un hilo por un tiempo específico?
+  el metodo de java para pausar un hilo por tiempo especifico es el sleep()
+
+
+Bloques sincronizados y monitores (1 punto):
+a) ¿Qué es un monitor en Java?
+  un proceso encargado de monotorizar el estado de un hilo
+b) Explica cómo se utiliza el bloque synchronized para garantizar acceso exclusivo a un recurso.
+  el bloque synchronized se utiliza para sincronizar hilos 
+
+
+Métodos avanzados en hilos (1 punto):
+a) ¿Qué diferencia existe entre los métodos wait(), notify(), y notifyAll() en Java?
+  el metodo wait sirve para suspender un hilo hasta que se vuelva a reactivar por un notify
+  el metodo notify() sirve para reactivar un hilo pausando por un wait
+  el metodo notifyAll() sirve para reactivar todos los hilos que esperan 
+
+b) Explica un caso práctico donde utilizarías estos métodos para resolver un problema de concurrencia.
+  si queremos hacer un ejercicio donde varios hilos genrean y recogen datos de una lista limitada, podemos hacer un wait() y un notify() a un hilo que esta generando numeros para que pare y prosiga si querenemos que añada numeros 
+    a la lista una vez esta esté vacia y que pare cuando esté llena y el wait y notifyAll para los demas hilos que se encargan de recoger los datos paraque paren una vez esté la lista vacia y prosigan solo cuando la lista está llena
+
+
+
+  
