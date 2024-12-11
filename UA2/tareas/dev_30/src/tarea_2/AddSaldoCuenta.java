@@ -16,6 +16,7 @@ public class AddSaldoCuenta extends Thread{
     public void run() {
 
         try {
+
             //llamo a la clase cuenta corriente y le paso el saldo nuevo y la persona que lo ha añadido
 
             CuentaCorriente.addSaldo(nuevo_saldo,persona);
