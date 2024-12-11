@@ -48,6 +48,7 @@ Un monitor en Java, es un como un mecanismo que permite sincronizar el acceso a 
 monitor que se usa con el "synchronized" para garantizar que solo un hilo pueda acceder al recurso.
 b) Explica cómo se utiliza el bloque synchronized para garantizar acceso exclusivo a un recurso.
 Crearia el hilo, con su configuración normal, añadiendo el synchronized, para garantizar solo ese hilo pueda acceder al recurso.
+
 Métodos avanzados en hilos (1 punto):
 a) ¿Qué diferencia existe entre los métodos wait(), notify(), y notifyAll() en Java?
 b) Explica un caso práctico donde utilizarías estos métodos para resolver un problema de concurrencia.
