@@ -1,0 +1,77 @@
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+
+//no consegui enterder del todo la manera de comentarlo que adjuntaste 
+
+class Escritor extends Thread {
+    private BlockingQueue<Character> buffer;
+
+    public Escritor(BlockingQueue<Character> buffer) {
+        this.buffer = buffer;
+    }
+
+    public void run() {                               //Este hilo escribe los caracteres para que el leector los lea
+        for (char c = 'A'; c <= 'Z'; c++) {          //Escribir los caracteres de la "a" a la "z"
+            try {buffer.put(c);
+                System.out.println("Escribiendo " + c); 
+            } 
+            
+            catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                Thread.sleep(500); //delay de 100 microsegundos
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+}
+
+class Lector extends Thread {
+    private BlockingQueue<Character> buffer;
+
+    public Lector(BlockingQueue<Character> buffer) {
+        this.buffer = buffer;
+    }
+
+    public void run () {   //Este hilo lee todo lo que el escritor alla puesto
+        while (true) {
+            try {
+                char c = buffer.take();
+                System.out.println("Leer " + c); //lee el hilo escritor
+                if (c == 'Z') {break;  //Detenerse cuando llega a la letra z
+                }
+            } 
+            
+            catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            try{
+                Thread.sleep(50);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+}
+
+public class Hiloexamen {
+
+    public static void main(String[] args) {
+        
+        BlockingQueue<Character> buffer = new ArrayBlockingQueue<>(1); //Crear el buffer
+       
+        Escritor productor = new Escritor(buffer);   //clase main para ejecutar los dos hilos 
+        Lector consumidor = new Lector(buffer); 
+
+        productor.start();
+        consumidor.start();  //Empiezan los hilos 
+    } 
+}
+
+
