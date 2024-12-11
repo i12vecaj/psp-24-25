@@ -1,0 +1,71 @@
+Conceptos básicos sobre hilos (1 punto):
+a) Define qué es un hilo en Java y cómo se relaciona con la multitarea.
+
+Podemos definir un hilo como una parte de código que se ejecuta de manera concurrente, esto quiere decir que un hilo es un trozo de código
+que se ejecuta de manera simultanea que otro hilo o directamente el main, de esta manera los hilos nos pueden ayudar a hacer varias
+tareas aunque hay aspectos que tenemos que tener en cuenta con respecto a lo que hacen los hilos, por ejemplo en caso de que interactuen
+con un método,clase o variable habrá que sincronizarlos para evitar la carrera.
+
+b) Menciona dos diferencias entre la interfaz Runnable y la clase Thread.
+
+Una diferencia es que en el caso de implementar la interfaz habrá que instanciarlo luego como una clase Thread ya que no se hereda
+todos los métodos de la clase y tiene sus propios métodos, en cambio si extendemos de Thread ya tenemos todos los métodos necesarios
+como .start() o .join()
+
+La otra diferencia podemos encontrarla al declarar el hilo ya que Runnable al ser una interfaz se declara implementandola mientras
+que la clase es extendiendo
+
+Sincronización (1 punto):
+a) Explica qué es la sincronización de hilos y por qué es necesaria en Java.
+
+Es un "método" que nos permite que dos o más hilos interactuen con una clase, variable o función a la vez.
+Pongamos el caso práctico de que tenemos 3 hilos (hilo1 , hilo2 y hilo3) y todos quieren modificar una variable suma,
+en caso de no utilizar sincronización se generará una condición de carrera de manera que es posible que el hilo1 llegue antes
+o que el hilo3 llegue antes, además es posible que tengamos fallos en los resultados ya que todos están modificando a la vez,
+pero si utilizamos la sincronización y declaramos primero el hilo1 la variable queda "bloqueada" hasta que termine el hilo1 pasando
+a estar disponible parar el siguiente, de manera que todo es más ordenado y no tendremos fallos en los resultados
+
+b) ¿Qué problemas pueden surgir si no se sincronizan adecuadamente los hilos?
+
+En caso de que no se sincronizen podremos obserbar una condición de carrera de manera que el "más rápido" es el que modifica primero pero
+a su vez los demás también modifican generando resultados inesperados
+
+Estados de un hilo (1 punto):
+a) Nombra y describe brevemente los principales estados de un hilo en su ciclo de vida.
+
+New: Estado inicial del hilo, el hilo se encuentra en estado new cuando acaba de instanciarse
+Runnable: cuando un hilo se puede utilizar está en estado runnable
+Bloqued: El hilo ha sido parado durante el proceso mediante el método sleep u otro elemento
+Dead: EL hilo ha terminado su ejecución y ha "muerto"
+
+b) ¿Qué método en Java se utiliza para pausar un hilo por un tiempo específico?
+
+Se utiliza el método sleep el cual recibe como parámetros un tiempo en milisegundos (1000, 2000, 3500 ...)
+
+Bloques sincronizados y monitores (1 punto):
+a) ¿Qué es un monitor en Java?
+
+
+
+b) Explica cómo se utiliza el bloque synchronized para garantizar acceso exclusivo a un recurso.
+
+El synchronized se coloca permitiendo que solo un hilo tenga acceso al elemento, de manera que otros hilos no pueden modificarlo o
+hacer uso de el hasta que el primero termine.
+
+Métodos avanzados en hilos (1 punto):
+a) ¿Qué diferencia existe entre los métodos wait(), notify(), y notifyAll() en Java?
+
+El método notify() despierta a un hilo en especifico el cual se encontraba bloqued, mientras que el método notifyAll() despierta a todos
+los hilos a la vez y el método wait() es ligeramente diferente ya que su función es esperar a que otro hilo termine para continuar
+
+b) Explica un caso práctico donde utilizarías estos métodos para resolver un problema de concurrencia.
+
+En el caso de que tengamos dos hilos uno que mida la temperatura y otro el agua, si el del agua necesita que un valor sea
+modificado por el de temperatura podemos usar wait() para que el medidor de agua pare hasta que el de temperatura termine de modificar
+
+Imaginemos que tenemos 3 hilos, uno de ellos calcula una variable y en función de si esa variable es positiva o negativa
+despierta con notify() a hilo2 u hilo3 de manera que tenemos más control sobre que hilo está encendido o no
+
+Imaginemos que queremos calcular el estado de una planta, para ello creamos 3 hilos, el hilo1 calcula la altura, el hilo2 la temperatura
+y el hilo3 la humedad, en caso de que se necesite primero calcular la altura podemos hacer uso del notifyAll() de manera
+que al terminar su ejecución "despierta" a todos los demás hilos para que midan todo.
