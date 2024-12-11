@@ -1,0 +1,43 @@
+Conceptos básicos sobre hilos (1 punto):
+a) Define qué es un hilo en Java y cómo se relaciona con la multitarea.
+  Un hilo en java es el encargado de llevar un proceso permite que se realicen varios de forma concurrente, 
+  ya que se pueden ejecutar varios hilos a la misma vez y precisamente esta caracteristica es la que relaciona loshilos con la multitarea.
+b) Menciona dos diferencias entre la interfaz Runnable y la clase Thread.
+  Una de las principales diferencias entre la clase Thread y la interfaz Runnable es que al utilizar la interfaz Runnable para crear un hilo, 
+  esta nos permite extender el hilo que queremos a otra clase, cosa que con la clase Thread no nos es posible.
+  
+Sincronización (1 punto):
+a) Explica qué es la sincronización de hilos y por qué es necesaria en Java.
+  La sincronización de hilos es un modo de comunicación entre los mismos que regula el cuando estos se ejecutan, 
+  la manera en la que lo hace es bloqueando recursos a los que múltiples hilos desean acceder, 
+  esto hace que si dos hilos quisieran acceder almismo recurso uno de los dos deba esperar hsta que el otro termine de utilizarlo.
+b) ¿Qué problemas pueden surgir si no se sincronizan adecuadamente los hilos?
+  Pueden surgir problemas en la ejecución del código ya que si dos hilos actuan sobre el mismo recurso cambiandolo y modificándolo 
+  puede llevar a que el programa falle, esto se conoce como condición de carrera.
+Estados de un hilo (1 punto):
+a) Nombra y describe brevemente los principales estados de un hilo en su ciclo de vida.
+  Un hilo nuevo, este está recien creado pero aún no se ha llamado.
+  Un hilo en estado ejecutado, este hilo ha sido llamado y está realizando sus procesos correspondientes.
+  Un hilo muerto, es un hilo el cual ya ha terminado todos sus procesos y este deja de funcionar.
+  Un hilo bloqueado, este está a la espera de que lo notifiquen para que siga con su actividad, mientras tanto está "parado" o esperando.
+b) ¿Qué método en Java se utiliza para pausar un hilo por un tiempo específico?
+  En java se utiliza el método "sleep(ms)" siendo "ms" la cantidad de tiempo que debe pausarse el hilo en milisegundos
+Bloques sincronizados y monitores (1 punto):
+a) ¿Qué es un monitor en Java?
+  
+b) Explica cómo se utiliza el bloque synchronized para garantizar acceso exclusivo a un recurso.
+  El bloque synchronized se utiliza, como he comentado antes, para bloquear el acceso a una parte del código, 
+  esta parte se le llama parte crítica y la manera en la que lo hace es impidiendo el acceso de otros hilos a un recurso cuando este ya está siendo usado por un hilo.
+  Un ejemplo sería si tuvieramos un int al cual le estamos añadiendo o restando un valor usando hilos, 
+  cada uno realiza una de las dos operaciones sobre la misma variable y el método synchronized impide que los dos hilos puedan modificar el valor a la misma vez, 
+  estos deben esperar a que acabe el hilo que está actuando para poder utilizar otra vez la variable que se está modificando.
+Métodos avanzados en hilos (1 punto):
+a) ¿Qué diferencia existe entre los métodos wait(), notify(), y notifyAll() en Java?
+  "wait()" es un método que hace esperar al hilo un tiempo indefinido, hasta que se le notifique que vuelta a actuar.
+  "notify()" es el método que notifica a los hilos en estado "wait()" este llama al hilo con más prioridad en dicho estado y permite que siga con su proceso.
+  "notifyAll()" es el mismo método que "notify()" solo que este llama a todos los hilos en estado "wait()" en vez de solo a uno.
+b) Explica un caso práctico donde utilizarías estos métodos para resolver un problema de concurrencia.
+  Un ejemplo muy conocido en el que utilizar estos métodos podría ser en un modelo producto consumidor, en este se haría esperar a un hilo (wait()), 
+  el productor por ejempo, para que actuara el hilo consumidor, una vez esta acabe notificaría (notify()) al productor y este volvería a actuar, a la misma vez que el consumidor esperaría.
+  Para el notifyAll() un ejemplo podría ser un caso en el que múltiples hilos deben realizar varios procesos a la vez pero deben empezar todos al unisono, 
+  como podría ser una simulacion de una carrera de bicicletas en la que cada bicicleta es representada por un hilo y el notifyAll() es el pistoletazo de salida.
