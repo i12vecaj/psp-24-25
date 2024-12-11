@@ -1,0 +1,57 @@
+Conceptos básicos sobre hilos (1 punto):
+a) Define qué es un hilo en Java y cómo se relaciona con la multitarea.
+   Un hilo es una secuencia de código de ejecución dentro del contexto de un proceso, estos hilos pueden existir sin un proceso
+   y dentro de un proceso pude haber varios hilos ejecutandose, al poder haber varios hilos en ejecucion los tranforma en una herramienta
+   muy util en el campo de la multitarea, ya que pueden ejecutarse a la vez, un ejemplo de ello seria un programa de dos hilos que vayan sumando, restando, multiplicando y dividiendo
+   consecutivamente a una variable
+b) Menciona dos diferencias entre la interfaz Runnable y la clase Thread.
+     al crear un hilo con la clase Thread, estamos extendiendo de la superclase Thread, no como en el caso de Runnable, que estamos implemnetando una funcionalidad de las interfaces
+     Esto hace que al crearlos haya diferencias,por ejeplo:
+      Thread:
+        Hilo hilo = new Hilo()
+        hilo.start()
+      Runnable:
+        Hilo hilo = new Hilo()
+        new Thread(hilo).start()
+
+Sincronización (1 punto):
+a) Explica qué es la sincronización de hilos y por qué es necesaria en Java.
+  la sincronizacion es una herramienta que podemos usar en java para poder hacer que los hilos, o sigan un orden de prioridad, o esperen a que otro hilo termine,
+  es necesaria para evitar casos de "condicion de carrera", que explico en el siguiente apartado
+b) ¿Qué problemas pueden surgir si no se sincronizan adecuadamente los hilos?
+  la sincronizacion es necesarie en el ambito de los hilos para evitar el problema conocido como:"condicion de carrera",
+  este problema se da cuando varios hilos intentan acceder a la vez a un mismo recurso
+    
+Estados de un hilo (1 punto):
+a) Nombra y describe brevemente los principales estados de un hilo en su ciclo de vida.
+    nuevo: el hilo es recien creado por el constructor
+    ejecutar: el hilo se pone en ejecucion
+    muerto: este estado se puede dar por la finalizacion del hilo o por una excepcion no manejada que lo interrumpa
+    bloqueado: este estado es en el que entra el hilo al ser denegado el acceso a un recurso que, por ejemplo, ya lo esta usando otro hilo
+      permanecera bloqueado hasta que el recurso este libre siempre y cuando no haya otro hilo con una prioridad mas alta esperando, en cuyo caso debera esperar
+b) ¿Qué método en Java se utiliza para pausar un hilo por un tiempo específico?
+        se utiliza el metodo sleep(), el cual se le meten los milisegundos en el parentesis y debe de estar en un bloque try catch para poder usarlo
+
+Bloques sincronizados y monitores (1 punto):
+a) ¿Qué es un monitor en Java?
+        un monitor es aque que gestiona la prioridad de los hilos, se le invoca con yield(), y es mas recomendable usar esto que modificar manualmente la prioridad de los hilos
+b) Explica cómo se utiliza el bloque synchronized para garantizar acceso exclusivo a un recurso.
+        tenemos dos formas de hacerlo:
+        sincronizando una variable(no recomendado)
+          se haria que la variable del objeto que se va a modificar este dentro de un bloque synchronized
+        sincronizando un metodo(recomendado)
+          en este caso no se sincroniza la variable dentro de un bloque si no que se sincroniza el metodo del objeto dueño de esta variable,ayudandonos de 
+          una variable que la usemos como un boolean para controlar el acceso y haciendo que en los metodos sincronizados si va a entrar un hilo cuando no le toca,
+          este espere usando el metodo wait(), y cuando este metodo del objeto finalice lance un notify() para que los demas hilos puedan acceder al metodo sincronizado       
+
+            Métodos avanzados en hilos (1 punto):
+a) ¿Qué diferencia existe entre los métodos wait(), notify(), y notifyAll() en Java?
+  la diferencia es que wait() es usado para poner en espera a un hilo, y la relacion que tiene con los otros dos es, que notify() notifica a un hilo aleatorio de los que estan en espera
+  en cambio notifyAll() notifica a todos los hilos en espera
+b) Explica un caso práctico donde utilizarías estos métodos para resolver un problema de concurrencia.
+  en caso de que amis amigos y a mi nos gusten hace apuestas de retos y me piden diseñar un programa que simule un hipodromo, donde los caballos seran hilos
+  y deberan de esperar a la señal de salida para que empiecen
+    para resolverlo haria falta una clase caballo que sea un hilo y que avance aleatoriamente de 1 a 5 metros, una clase arbitro que de la señal (notifyAll())
+    y que se este comprobando constantemente que la distancia reccorida para poder marcar al ganador correctamente
+  la sincronizacion en este problema se usaria en la salida de los hilos con un wait(), y que la clase arbitro diese la señal con un notifyAll()cuando todos los hilos
+  se hayan ejecutado, y comience la carrera
