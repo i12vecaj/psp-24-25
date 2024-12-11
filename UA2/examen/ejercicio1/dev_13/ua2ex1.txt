@@ -1,0 +1,76 @@
+Conceptos básicos sobre hilos (1 punto):
+    a) Define qué es un hilo en Java y cómo se relaciona con la multitarea.
+
+    Un hilo en java es un subproceso, es decir, una forma de ejecutar varios procesos de manera concurrente.
+    En Java, los hilos se utilizan para realizar tareas simultáneas, como por ejemplo, ejecutar un proceso en segundo plano mientras el programa principal sigue ejecutándose.
+
+    Se relaciona con la multitarea ya que permite que un programa realice varias tareas al mismo tiempo, lo que hace mejor la eficiencia y la capacidad de respuesta
+    de la aplicación.
+
+    b) Menciona dos diferencias entre la interfaz Runnable y la clase Thread.
+
+    1. La interfaz Runnable es una interfaz funcional que se utiliza para definir una tarea que se puede ejecutar en un hilo, mientras que la clase Thread es una clase que
+    se utiliza para crear y controlar hilos en Java.
+
+    2. Una clase puede implementar la interfaz Runnable y extender otra clase, mientras que solo puede extender de una unica clase en Java.
+
+Sincronización (1 punto):
+    a) Explica qué es la sincronización de hilos y por qué es necesaria en Java.
+
+    La sincronizacion de los hilos es el proceso mediante el cual se controla el acceso a los recursos compartidos por varios hilos para evitar problemas de concurrencia, como condiciones de carrera
+    y bloqueos mutuos. Es necesaria en Java para garantizar que los hilos no interfieran entre ellos al acceder a los mismo recursos al mismo tiempo.
+
+    b) ¿Qué problemas pueden surgir si no se sincronizan adecuadamente los hilos?
+
+    Si no se sincronizan de manera correcta los hilos, pueden surgir problemas de concurrencia, como condiciones de carrera, bloqueos mutuos y corrupción de datos. Esto puede
+    provocar que los hilos accedan a los mismo recursos al mismo tiempo, lo que puede dar lugar a resultados inesperados y errores en la aplicación.
+
+Estados de un hilo (1 punto):
+    a) Nombra y describe brevemente los principales estados de un hilo en su ciclo de vida.
+
+    Principales estados de un hilo en Java:
+
+    1. Nuevo: El hilo ha sido creado pero aun no ha sido identificado.
+    2. Listo: El hilo esta listo para ser usado pero aun no ha sido ejecutado.
+    3. En ejecución: El hilo esta siendo ejecutado por el planificador de hilos.
+    4. Bloqueado: El hilo esta esperando para acceder a un recurso compartido.
+    5. Terminado: El hilo ha completado su ejecucion y ha terminado.
+
+    b) ¿Qué método en Java se utiliza para pausar un hilo por un tiempo específico?
+
+    El metodo usado para pausar un hilo por un tiempo especifico en Java es el metodo thread.sleep();.
+
+Bloques sincronizados y monitores (1 punto):
+    a) ¿Qué es un monitor en Java?
+
+    Un monitor en Java es un mecanismo que se utiliza para asegurar el acceso exclusivo a un recurso compartido por varios hilos.
+
+    b) Explica cómo se utiliza el bloque synchronized para garantizar acceso exclusivo a un recurso.
+
+    El bloque synchronized se utiliza para asegurar el acceso exclusivo a un recurso compartido por varios hilos. Para ello se utiliza la palabra clave synchronized seguida
+    de un objeto de bloqueo, que puede ser un objeto o una clase. Cuando un hilo entra en un bloque synchronized adquiere un bloqueo sobre el objeto al que ningun otro hilo
+    puede acceder hasta que el hilo que lo tiene lo libere.
+
+
+Métodos avanzados en hilos (1 punto):
+    a) ¿Qué diferencia existe entre los métodos wait(), notify(), y notifyAll() en Java?
+
+    wait(): Se utiliza para hacer que un hilo espere hasta que otro hilo notifique que se ha producido un cambio en el recurso compartido.
+    notify(): Se utiliza para notificar a un hilo en espera que se ha producido un cambio en el recurso compartido.
+    notifiAll(): Se utiliza para notificar a todos los hilos en espera que se ha producido un cambio en el recurso compartido.
+
+    b) Explica un caso práctico donde utilizarías estos métodos para resolver un problema de concurrencia.
+
+    Usar wait():
+    Tenemos un hilo que produce un recurso comparido y otro que se encarga de consumirlo, si el hilo consumidor intenta consumir el recurso antes de que el hilo productor
+    lo haya producido, podemos aplicar un wait() al hilo consumidor para que espere hasta que el hilo productor haya producido el recurso.
+
+    Usar notify():
+    Tenemos varios hilos, que comparten un mismo recurso entre si, si un hilo modifica el recurso y quiere notificar a los demas hilos que se ha producido un cmabio, podemos
+    aplicar un notify(): al hilo modificador para que notifique a los demas hilos que estan en espera que modifico el recuros.
+
+    Usar notifyAll():
+    Tenemos varios hilos, compartiendo un mismo recurso, si un hilo modifica el recurso y quiere notificar a todos los demas hilos, podemos aplicar un notifyAll() al hilo
+    modificador para que notifique a todos los hilos que modifico el recurso.
+
+Toda la implementación debe estar en un único fichero .txt, nombrado como: UA2/examen/ejercicio1/dev_X/ua2ex1.txt
