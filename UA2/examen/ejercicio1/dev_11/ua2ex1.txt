@@ -1,0 +1,73 @@
+Examen - Álvaro Fernández Amaro 2º DAM - 11/12/2024
+
+Conceptos básicos sobre hilos (1 punto):
+a) Define qué es un hilo en Java y cómo se relaciona con la multitarea.
+
+Un hilo es un subproceso de ejecución independiente dentro de un programa.
+Los hilos hacen posible la programación concurrente, lo que significa que varios procesos pueden ejecutarse de manera simultánea, 
+mejorando la eficiencia del programa al aprovechar los recursos del sistema.
+
+b) Menciona dos diferencias entre la interfaz Runnable y la clase Thread.
+
+La interfaz Runnable y la clase Thread, son dos cosas muy importantes para la implementación de hilos a la hora
+de la programación concurrente, pues un hilo se puede instanciar tanto implementando la interfaz Runnable, o heredando
+de la clase Thread. Eso conlleva que una de las diferencias es la forma de implementarlas para instanciar un hilo, además,
+al implementar Runnable tenemos más capacidad de abstracción sobre nuestro hilo que simplemente extendiendo de la clase Thread,
+pues implementando Runnable, podemos acceder a todos los métodos de los hilos e implementar los nuestros propios, mientras que
+extendiendo de Thread, no.
+
+Sincronización (1 punto):
+a) Explica qué es la sincronización de hilos y por qué es necesaria en Java.
+
+La sincronización de hilos, en la programación concurrente en Java, se trata de hacer posible que la concurrencia de procesos
+se haga de manera que por ejemplo, varios hilos puedan acceder a un mismo recurso. Esto permite que los hilos dentro de un proceso puedan
+compartir recursos de manera concurrente, y por ello es tan necesario en Java.
+
+b) ¿Qué problemas pueden surgir si no se sincronizan adecuadamente los hilos?
+
+Si no se sincronizan adecuadamente los hilos puede llevar a varios problemas, entre ellos, y el más común, es la condición de
+carrera, que se trata de cuando varios hilos quieren acceder al mismo recurso de manera simultánea, dando lugar a problemas como que
+los hilos no se ejecuten de manera concurrente y correcta. Para darle solución a esto podemos usar el bloque synchronized.
+
+Estados de un hilo (1 punto):
+a) Nombra y describe brevemente los principales estados de un hilo en su ciclo de vida.
+
+Los estados principales de un hilo son:
+New (nuevo): Cuando se crea o instancia el hilo (Thread threadEjemplo = new Thread()).
+Runnable (ejecutable): Al iniciar el hilo con el método start() --> (threadEjemplo.start()).
+Blocked (bloqueado): Cuando se suspende temporalmente (con métodos como sleep(), wait().
+Dead (muerto): Cuando el método run() del hilo finaliza o se detiene.
+
+b) ¿Qué método en Java se utiliza para pausar un hilo por un tiempo específico?
+
+El método que se usa en Java para pausar un hilo por un tiempo específico es el Thread.sleep(tiempoEnMilisegundos). Consiguiendo
+así que el hilo se detenga durante los milisegundos indicados.
+
+Bloques sincronizados y monitores (1 punto):
+a) ¿Qué es un monitor en Java?
+b) Explica cómo se utiliza el bloque synchronized para garantizar acceso exclusivo a un recurso.
+
+El bloque synchronized se puede utilizar de las siguientes manera:
+Se puede sincronizar una clase haciendo así que toda la clase funcione de manera sincronizada con el resto de hilos y también
+se puede colocar la palabra reservada synchronized al método que se quiera sincronizar para que así, cuando varios hilos usen dicho método
+accediendo a ese recurso, puedan hacerlo de manera simultánea y sincronizada. 
+Ejemplo:
+
+public synchronized void ejemploDeMetodo() {
+	...
+}
+
+
+
+Métodos avanzados en hilos (1 punto):
+a) ¿Qué diferencia existe entre los métodos wait(), notify(), y notifyAll() en Java?
+b) Explica un caso práctico donde utilizarías estos métodos para resolver un problema de concurrencia.
+
+La principal diferencia es la siguiente:
+El método wait(), por ejemplo, es cuando en un ejemplo de productor-consumidor, el buffer compartido está lleno porque
+tenga una capacidad máxima, entonces se hace uso de este método para avisar al productor que el buffer está lleno y que debe
+esperar a que el consumidor quite recursos del buffer para poder seguir produciendo. O en el caso contrario, que si el buffer 
+está vacío debido a que se ha consumido todos los recursos del buffer, hacer uso de este método para avisar que el productor debe
+seguir produciendo.
+Los métodos notify() y notifyAll() sirven para avisar a un hilo concreto o a todos los hilos, respectivamente de que ya ha terminado
+su ejecución y que se puede dar paso a la siguiente.
