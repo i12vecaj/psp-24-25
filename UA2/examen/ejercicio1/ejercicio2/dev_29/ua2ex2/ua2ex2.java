@@ -1,4 +1,11 @@
 /**
+Feedback JD - 12//12/2024
+Fortalezas: Código bien estructurado y funcional; separación de responsabilidades adecuada; uso correcto de synchronized.
+Áreas de mejora: Implementación incorrecta del patrón productor-consumidor; falta de uso de wait() y notify() provoca bloqueos; documentación excesivamente subjetiva; métodos y atributos innecesarios (indiceLectura, indiceEscritura).
+Recomendaciones: Corregir concurrencia con wait()/notify(), simplificar la documentación con un tono profesional, y eliminar elementos no utilizados.
+**/
+
+/**
  * @mainpage                    Programa que representa la vida misma con la metáfora del patrón Productor-Consumidor
  *                              Existe una clase que representa un almacén y sirve para guardar las existencias y controlar que no se llene más
  *                              de lo que puede, clase que representa un trabajador exclavizado por el sistema necesita producir 24/7 para poder pagar
