@@ -1,3 +1,16 @@
+/**
+Feedback JD: 12/12/2024
+
+Jesús, el código es funcional: enhorabuena, con algunas aclaraciones:
+
+Actualizar comentarios: Usa descripciones detalladas y correctas sobre el comportamiento de los hilos y el buffer. Por ejemplo, cambia "delay de 100 microsegundos" a "retardo de 500 milisegundos".
+
+JavaDoc: Añade documentación estandarizada a las clases y métodos para que sea más fácil de entender.
+
+Manejo de interrupciones: Implementa una estrategia más limpia al finalizar los hilos.
+
+**/
+
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
