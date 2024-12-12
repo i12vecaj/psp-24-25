@@ -1,3 +1,17 @@
+/**
+Feedback JD: 12/12/2024
+
+Manuel como sabes tu código no representa del todo el productor - consumidor, ya que una de las partes no está bien implementada. Aunque doy como válida tu solución.
+
+Además, he visto algunos aspectos mejorables:
+
+Se utiliza join() en el main, lo que provoca que el productor finalice completamente antes de que el consumidor inicie, eliminando el comportamiento concurrente esperado.
+El consumidor imprime el contenido completo del buffer (getNumeros()), pero no elimina los elementos consumidos, lo que contradice el propósito del consumo.
+Los mensajes "El consumidor ha terminado" y "El productor ha terminado" están intercambiados en los métodos run() de las respectivas clases.
+Aunque se utiliza wait() y notifyAll(), no se verifican adecuadamente las condiciones del buffer al consumir o producir en algunos casos, lo que puede generar inconsistencias en escenarios más complejos.
+
+**/
+
 import java.util.ArrayList;
 
 public class ua2ex2 {
