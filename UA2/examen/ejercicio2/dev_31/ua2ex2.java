@@ -1,3 +1,17 @@
+/**
+Feedback JD: 12/12/2024
+
+A nivel general buen trabajo. Algunas cuestiones que he revisado:
+Tanto el productor como el consumidor ejecutan bucles infinitos (while(true)), lo que puede ser útil para simulaciones, pero es inadecuado si el programa requiere un control más preciso o una terminación explícita.
+
+Capturar las excepciones con e.printStackTrace() es funcional, pero no siempre adecuado para un entorno de producción; sería mejor utilizar un sistema de registro o mensajes personalizados.
+
+No se prueba el comportamiento en escenarios como buffer completamente lleno o completamente vacío en múltiples ciclos concurrentes.
+
+No hay forma de detener de manera segura los hilos (productor y consumidor), lo que podría provocar problemas si el programa necesita finalizarse correctamente.
+
+**/
+
 public class ua2ex2 {
 
     public static void main(String[] args) {
