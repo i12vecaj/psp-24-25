@@ -1,3 +1,16 @@
+/**
+Feedback JD: 12/12/2024
+ENHORABUENA JUAN
+
+Puntos Fuertes:
+Correcta sincronización (synchronized y notifyAll) y aleatoriedad bien implementada.
+Código funcional y estructurado con nombres descriptivos.
+Documentación básica presente.
+
+Áreas de Mejora:
+Productores deberían trabajar más tiempo (actualmente producen solo un carácter).
+**/
+
 package org.example;
 
 import java.util.ArrayList;
