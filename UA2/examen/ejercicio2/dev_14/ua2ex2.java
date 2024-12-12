@@ -1,3 +1,26 @@
+/**
+Feedback JD: 12/12/2024
+
+Puntos positivos:
+
+Buena estructura general del código y definición del flujo principal.
+Implementación adecuada de generación de caracteres aleatorios en el hilo productor.
+Correcto uso de synchronized para los métodos de acceso al buffer.
+
+Errores funcionales:
+Los métodos producir y consumir no manejan correctamente los índices del buffer, lo que puede provocar sobrescritura o lectura incorrecta.
+No se implementa lógica para manejar el buffer lleno o vacío, lo cual rompe el comportamiento esperado del programa.
+Falta de uso de wait/notify, una técnica esencial en este tipo de problemas de sincronización.
+
+Detalles menores y presentación:
+Mensajes repetidos o incorrectos en la salida.
+La estructura de los bucles y los índices no es clara ni adecuada, lo que puede confundir al lector.
+Documentación inexistente con la herramienta propuesta.
+
+Falta de condiciones de terminación:
+El programa funciona de manera infinita sin un criterio de finalización opcional, lo cual sería deseable en un entorno de aprendizaje o evaluación.
+**/
+
 //en el main creamos el buffer y los hilos para iniciar el proceso del programa
 public class Main {
     public static void main(String[] args) {
