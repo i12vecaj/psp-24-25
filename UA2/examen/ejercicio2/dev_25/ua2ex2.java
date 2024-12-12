@@ -1,3 +1,17 @@
+/**
+Feedback JD: 12/12/2024
+
+Buen trabajo Francisco, algunas cosas a mejorar:
+
+Tamaño del buffer: El constructor ignora el parámetro tamanio, lo que limita la reutilización del código.
+Nombres de variables: Consistencia en el estilo (por ejemplo, nombres en minúsculas para variables como Consumidor).
+Sincronización innecesaria en run: El uso de synchronized en métodos que ya operan sobre métodos sincronizados es redundante.
+Optimización del control: Los flags indiceEscritura y indiceLectura son innecesarios; el índice siguiente ya puede manejar la lógica.
+Mensajes: Los logs podrían proporcionar información más útil sobre el estado del buffer.
+
+**/
+
+
 import static java.lang.Thread.sleep;
 
 public class ua2ex2 {
