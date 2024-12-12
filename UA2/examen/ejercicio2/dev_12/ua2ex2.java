@@ -1,4 +1,22 @@
 /**
+Feedback JD: 12/12/2024
+ENHORABUENA ANTONIO
+
+Fortalezas:
+
+El código está bien estructurado, con clases claramente diferenciadas y comentarios que explican cada parte de la implementación.
+La lógica de los hilos (Productor y Consumidor) está correctamente manejada mediante el uso de synchronized, wait(), y notifyAll(), lo que asegura que los hilos no se bloqueen ni accedan al buffer de manera concurrente.
+El uso del generador aleatorio Random para producir y consumir caracteres aleatorios está bien implementado, lo que simula de forma adecuada el comportamiento aleatorio del productor y consumidor.
+Los mensajes de depuración en cada operación son claros y ayudan a seguir el flujo de ejecución del programa.
+
+Mejoras:
+Mensajes de consola: Los mensajes de consola para los hilos productor y consumidor tienen un pequeño error en el mensaje de espera: el productor espera cuando el buffer está lleno y el consumidor espera cuando el buffer está vacío. Los mensajes para cada caso deberían ser más precisos. Por ejemplo, el consumidor está esperando cuando el buffer está vacío, no "lleno", y viceversa para el productor.
+Finalización del ciclo: Aunque el código está diseñado para funcionar indefinidamente, el bucle en los métodos run() de las clases Productor y Consumidor solo se ejecutan 10 veces. Sería interesante manejar un ciclo de vida más flexible, como hacerlo indefinido o añadir una condición para la finalización del proceso que se pueda controlar.
+Manejo de interrupciones: Aunque se gestionan correctamente las interrupciones con try-catch en ambos hilos, el tratamiento podría mejorarse, por ejemplo, restableciendo el estado de interrupción del hilo utilizando Thread.currentThread().interrupt() dentro del bloque catch. Esto podría ser útil para una mayor robustez, especialmente si en algún momento el programa requiere un manejo de hilos interrumpidos más detallado.
+**/
+
+
+/**
  * Antonio Gomez Cuevas
  * 
  * @file ua2ex2.java
