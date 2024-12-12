@@ -1,3 +1,11 @@
+/**
+Feedback JD: 12/12/2024
+Buen trabajo Rafa. Algunas mejoras:
+    Uso de la variable disponible: La lógica de esta variable es redundante y no se necesita con un índice de escritura (indiceEscritura) y lectura (indiceLectura) bien gestionados. Además, no refleja correctamente la condición de lleno o vacío del buffer circular.
+    Buffer circular no implementado: Los índices (indiceEscritura y indiceLectura) deben operar en un esquema circular (% capacidad), de lo contrario, se desperdicia espacio en el buffer.
+    Condición de espera indefinida: Aunque el buffer es limitado, el código no considera adecuadamente la condición en la que el índice de escritura alcanza la capacidad, lo que puede causar errores.
+**/
+
 import java.util.Random;
 /**
  * @brief              Clase buffer usada por los productores y consumidores
