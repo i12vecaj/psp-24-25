@@ -1,3 +1,20 @@
+/**
+Feedback JD: 12/12/2024
+
+Algunas recomendaciones Sergio (buen trabajo):
+
+Recomendaciones para mejora:
+
+    Cambiar la estructura del buffer:
+        Usa un array de tamaño fijo en lugar de ArrayList para un comportamiento más eficiente.
+    Corregir la lógica del buffer:
+        Los índices indiceEscritura y indiceLectura no son necesarios con ArrayList y deben eliminarse, o ajustarse si se usa un array circular.
+    Control del bucle infinito:
+        Introducir un mecanismo para detener los hilos (e.g., una variable boolean compartida) para que el programa pueda finalizar adecuadamente.
+    Uso de while en las condiciones:
+        Las condiciones en producir y consumir deben usarse con while para garantizar que las condiciones sean reevaluadas correctamente después de una notificación.
+**/
+
 import java.util.ArrayList;
 
 public class Main {
