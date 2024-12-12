@@ -1,3 +1,13 @@
+/**
+
+Feedback JD: 12/12/2024
+
+El resultado por pantalla no es el esperado: solo consume.
+
+Valoro tu esfuerzo y solución, pero no es correcto tu planteamiento.
+
+**/
+
 import java.util.Random;
 
 //Clase Buffer
