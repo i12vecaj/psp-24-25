@@ -1,4 +1,20 @@
 /**
+Feedback JD: 12/12/2024
+ENHORABUENA DANI
+
+Fortalezas:
+
+Buena implementación de la sincronización con wait() y notifyAll() para manejar la producción y el consumo.
+El código es claro, bien estructurado y documentado (además en inglés: chapó).
+El uso de Thread.sleep con tiempos aleatorios para simular el trabajo es adecuado.
+
+Mejoras:
+Considerar la posibilidad de mejorar la gestión de excepciones dentro de los métodos run().
+Sería útil agregar más control sobre las condiciones de parada de los hilos para evitar un bucle infinito.
+**/
+
+
+/**
  * @file               ua2ex2.java
  *
  * @brief              Producer - Consumer model, to implement threads and synchronization.
