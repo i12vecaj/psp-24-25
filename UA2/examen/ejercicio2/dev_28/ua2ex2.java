@@ -1,3 +1,20 @@
+/**
+Feedback JD: 12/12/2024
+ENHORABUENA Alejandro
+
+Fortalezas:
+
+El código está bien organizado y es muy claro. Las clases Buffer, Productor y Consumidor están claramente separadas.
+El uso de la sincronización con synchronized y wait()/notifyAll() es correcto y asegura que los hilos productores y consumidores se gestionen adecuadamente.
+El uso de Thread.sleep() para simular el trabajo de cada hilo es adecuado y se genera un buen comportamiento aleatorio.
+La implementación del método toString() en Buffer es muy útil para observar el estado del buffer y facilita el seguimiento del proceso.
+
+Mejoras:
+El uso de System.out.println() dentro de los métodos sincronizados es adecuado para la demostración, pero en un entorno real podría ser una fuente de congestión si los hilos se ejecutan a una velocidad alta. Considera reemplazarlo por un mecanismo de logging más eficiente si el sistema debe escalar.
+Aunque el código usa join() para esperar a que los hilos terminen, en este caso, los hilos se ejecutan de manera infinita, lo que hace que esta espera nunca termine. Esto no es un problema en este contexto, pero es algo a tener en cuenta si se modifica el flujo del programa.
+Documentación escasa, con el método que hemos indicado
+**/
+
 import java.util.Random;
 
 public class ua2ex2 {
