@@ -1,3 +1,16 @@
+/**
+Feedback JD - 12//12/2024
+
+Puntos fuertes:
+
+Coordinación entre hilos bien implementada con synchronized, wait() y notifyAll().
+Separación adecuada de responsabilidades entre las clases.
+
+Aspectos a mejorar:
+Ineficiencia en el consumo: no elimina elementos del buffer tras consumirlos, lo que podría generar problemas en escenarios más complejos.
+Problemas de estilo: nombres de variables y clases poco descriptivos.
+**/
+
 package org.example;
 
 import java.util.ArrayList;
