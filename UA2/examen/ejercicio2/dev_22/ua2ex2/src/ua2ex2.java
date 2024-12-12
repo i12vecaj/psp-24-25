@@ -1,4 +1,27 @@
 /**
+Feedback JD: 12/12/2024
+Buen trabajo Francisco.
+
+Problemas y áreas de mejora:
+
+Condiciones de espera mal aplicadas:
+            En producir, el bucle while (!(contador == capacidad)) nunca permite a los productores esperar; debería ser while (contador == capacidad).
+            Lo mismo ocurre en consumir, donde while (!(contador == 0)) debe cambiar a while (contador == 0).
+        Esto genera un comportamiento inesperado donde wait() no se invoca en las condiciones adecuadas.
+    
+Errores de flujo en los métodos:
+        wait() se ejecuta fuera del bucle, lo que puede generar fallos o un comportamiento indefinido si el estado del buffer cambia antes de la espera.
+    
+Producción/consumo único por ejecución:
+        Los métodos producir y consumir no están diseñados para trabajar en un bucle continuo dentro del hilo (e.g., producción/consumo repetitiva), limitando el propósito del programa.
+    
+Falta de control de excepciones robusto:
+        Las excepciones son manejadas con un RuntimeException, lo cual no proporciona suficiente información para depuración en un entorno real.
+
+
+**/
+
+/**
  * @file               ua2ex2.java
  *
  * @brief              Aplicacion q produce y consume caracteres almacenados en un array
