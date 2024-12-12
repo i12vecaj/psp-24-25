@@ -1,3 +1,10 @@
+/**
+Feedback JD: 12/12/2024
+
+Enhorabuena Alberto, muy buena solución: Esta solución está muy bien implementada, y cumple con el comportamiento esperado de los hilos productor-consumidor utilizando un buffer circular. La lógica de sincronización es sólida y la aleatoriedad en la producción y consumo simula bien la interacción entre los hilos. Sin embargo, la mejora en la gestión de excepciones y la impresión podría hacer el código aún más robusto.
+**/
+
+
 //Examen de Alberto Mármol Bello con fecha 11/12/2024 para la asignatura de Procesos y Servicios.
 
 //Si no compila bien pruebe en un compilador online.
