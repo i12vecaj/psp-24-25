@@ -1,3 +1,25 @@
+/**
+Feedback JD: 12712/2024
+
+Comentarios y documentación:
+Los comentarios podrían ser más claros y concisos, evitando redundancias como "no sé qué más poner".
+Usa estándares de JavaDoc más descriptivos para explicar los métodos.
+
+Buffer visualización:
+En el método producir y consumir, la impresión del buffer completo podría generar ruido en aplicaciones reales. Considera mostrar solo el contenido relevante.
+
+Random como estático:
+Random podría declararse como estático para optimizar la generación de números aleatorios.
+
+Lógica de control:
+En el bloque main, podrías manejar excepciones específicas como InterruptedException en lugar de una general Exception.
+
+Modularidad:
+La clase principal Aplicación_Principal podría dividirse en archivos separados para mejorar la modularidad y legibilidad.
+
+Además, valoro que me has incluido este archivo, que era el que se pedía en el examen. Te lo doy como válido, ya que me lo comentaste in situ. Enhorabuena Ignacio.
+**/
+
 import java.util.Random;
 
 public class ua2ex2 {
