@@ -1,4 +1,22 @@
 /**
+Feedback JD: 12/12/2024
+
+Buena estructura y separación de responsabilidades entre las clases (Productor, Consumidor, Buffer).
+Correcta implementación de sincronización con wait() y notify().
+Generación adecuada de caracteres aleatorios.
+
+Áreas de mejora:
+Manejo de la espera en el hilo productor: El uso de Random es incorrecto, se debería generar un número aleatorio para el tiempo de espera.
+Sincronización: El control de la variable disponible puede simplificarse utilizando las condiciones del buffer (lleno o vacío).
+Índices del buffer: Los índices no se reinician correctamente, lo que puede causar desbordamientos. Utiliza un ciclo para reiniciarlos cuando se alcance el final.
+Uso de Random: La forma en que se está usando el constructor de Random es incorrecta.
+Comentarios: Mejorar la claridad y especificidad de los comentarios, especialmente en la clase Productor.
+
+Conclusión: El código está bien estructurado, pero se pueden mejorar detalles como el manejo de valores aleatorios, sincronización y control de índices en el buffer.
+
+**/
+
+/**
  * @file         ua2ex2.java
  */
 
