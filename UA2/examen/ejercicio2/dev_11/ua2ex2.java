@@ -1,6 +1,23 @@
+/**
+Feedback JD: 12/12/2024
+Casi te das tu mismo el feedback de tu código, pero añado más cositas:
+
+Fortalezas:
+Buena implementación básica del patrón productor-consumidor.
+Uso adecuado de synchronized y wait/notifyAll para la sincronización de los hilos.
+La lógica del productor y consumidor está clara y funcional.
+
+Mejoras:
+El buffer debería ser más dinámico en cuanto al tamaño; el actual enfoque de producir y consumir 20 caracteres puede ser confuso o innecesario en algunos casos.
+Se podrían agregar más verificaciones o control de excepciones, sobre todo al manipular la lista del buffer.
+La lógica de producción y consumo está bien, pero se podría mejorar la gestión del tiempo de espera, y considerar más flexibilidad en la cantidad de elementos procesados por cada hilo.
+
+**/
+
 import java.util.ArrayList;
 
-/* Me he dado cuenta que en mi solución no esta correcta debido a que el productor, produce la cantidad maxima
+/* 
+Me he dado cuenta que en mi solución no esta correcta debido a que el productor, produce la cantidad maxima
 de caracteres para introducirlo en el buffer, avisa de que termino, y el consumidor empieza a consumir del buffer.
 Para solucionar esto deberia implementar la logica de los metodos sincronizados producir y consumir de la clase
 Buffer en los metodos run de las clases Productor y Consumidor, respectivamente.
