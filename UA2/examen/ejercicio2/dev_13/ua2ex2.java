@@ -1,4 +1,28 @@
 /**
+Feedback JD: 12/12/2024
+
+Sincronización y Bloqueo:
+La lógica de sincronización (wait y notifyAll) está bien implementada y evita condiciones de carrera.
+Podrías usar una estructura como ArrayBlockingQueue para simplificar el código de sincronización.
+
+Estado del Buffer:
+Mostrar el estado del buffer en cada operación es excelente para visualizar el flujo, pero podrías formatearlo mejor o incluir índices de lectura/escritura para más claridad.
+
+Control de Iteraciones:
+Limitar las iteraciones de productor y consumidor es correcto para este ejemplo. Considera hacer configurable el número de elementos.
+
+Nombres Descriptivos:
+Los nombres de clases y métodos son claros. Buen uso de comentarios para describir el propósito.
+Rendimiento:
+
+Los tiempos de espera (Thread.sleep) son adecuados para simular retrasos, pero en un entorno real podría eliminarse o ajustarse según los requisitos.
+
+En general, ¡muy buen trabajo! Muy bien Alejandro.
+
+
+**/
+
+/**
  * Clase principal que ejecuta el productor y el consumidor.
  */
 public class Main {
