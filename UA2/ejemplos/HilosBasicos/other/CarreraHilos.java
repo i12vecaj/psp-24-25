@@ -1,7 +1,7 @@
-// CarreraHilos - Java Swing
+package other;// other.CarreraHilos - Java Swing
 // @author: dperez@ceslopedevega.com
 //
-// Compilar y ejecutar: javac CarreraHilos.java && java CarreraHilos
+// Compilar y ejecutar: javac other.CarreraHilos.java && java other.CarreraHilos
 //
 // Funcionalidades a añadir: 
 //          1. Tenéis que hacer las etiquetas progresoHilo1, progresoHilo2 y progresoHilo3 se actualicen con el valor de la barra de progreso en "tiempo real"
@@ -72,7 +72,7 @@ class MainWindow extends JFrame
 
     private void configurarVentanaPrincipal()
     {
-        setTitle("Carrera de Hilos - " + author);   
+        setTitle("other.Carrera de Hilos - " + author);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(mwWidth, mwHeight);
         setLocation(0,0);
@@ -110,8 +110,8 @@ class MainWindow extends JFrame
         prioridadSliderHilo3 = new JSlider(JSlider.HORIZONTAL, 1, 10, 5) ;
         prioridadHilo3 = new JLabel("Prioridad: "+prioridadSliderHilo3.getValue());
 
-        comenzarCarrera = new JButton("Comenzar Carrera");        
-        nuevaCarrera = new JButton("Nueva Carrera");
+        comenzarCarrera = new JButton("Comenzar other.Carrera");
+        nuevaCarrera = new JButton("Nueva other.Carrera");
         nuevaCarrera.setEnabled(false);
         
         panel = getContentPane();
@@ -189,7 +189,7 @@ class MainWindow extends JFrame
                 hilo2.setPriority(prioridadSliderHilo2.getValue());
                 hilo3.setPriority(prioridadSliderHilo3.getValue());
                 
-                System.out.println("Comienza la Carrera !");
+                System.out.println("Comienza la other.Carrera !");
                 
                 hilo1.start();
                 hilo2.start();
@@ -216,7 +216,7 @@ class MainWindow extends JFrame
                 hilo1.stop();
                 hilo2.stop();
                 hilo3.stop();
-                System.out.println("Configura la nueva Carrera");                
+                System.out.println("Configura la nueva other.Carrera");
             }
         }        
     }
@@ -288,7 +288,7 @@ class HiloCorredor extends Thread
 public class CarreraHilos {
     public static void main(String[] args) {
         System.out.println("----------------");
-        System.out.println("Carrera de Hilos");
+        System.out.println("other.Carrera de Hilos");
         System.out.println("----------------");
         
         MainWindow mw = new MainWindow();
