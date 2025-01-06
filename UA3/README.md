@@ -119,7 +119,7 @@ Fecha de Entrega: 29/01/2025
 ##### **Criterios a), b), c), d), e) f), g) y h)**
 Enunciado disponible en [actividad/README.md](actividad/README.md)
 
-*¡¡ Preparad Presentación para el día 21 !!*
+*¡¡ Preparad Presentación para el día 29 !!*
 
 ```
 Fecha de Examen: 05/02/2025 - Fecha Defensa: 29/01/2025
