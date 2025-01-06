@@ -1,7 +1,7 @@
 ![lope_logo](https://www.ceslopedevega.com/wp-content/uploads/2020/03/pruebalogo.svg_.png)
 
 # UA3 - Actividad Evaluable
-## 14/12/2022
+## 29/01/2025
 
 Vamos a simular el comportamiento de una red [TOKEN RING](https://es.wikipedia.org/wiki/Token_Ring) con, inicialmente, 3 miembros en dicha red.
 
