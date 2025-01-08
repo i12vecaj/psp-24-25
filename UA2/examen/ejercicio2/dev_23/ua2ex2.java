@@ -1,3 +1,20 @@
+/**
+Feedback JD: 12/12/2024
+Enhorabuena Javier
+
+Fortalezas:
+Estructura clara y modular: El código está bien organizado en clases diferenciadas (Productor, Consumidor, Buffer) con responsabilidades claras.
+Uso correcto de hilos y sincronización: El uso de synchronized, wait() y notify() en la clase Buffer está bien implementado para gestionar la interacción entre el productor y el consumidor, evitando condiciones de carrera.
+Uso de Thread.currentThread().interrupt(): El manejo de interrupciones en los hilos es adecuado, permitiendo que el hilo se pueda interrumpir correctamente en caso de excepciones.
+Lógica de producción y consumo: La lógica de producción de caracteres aleatorios y consumo con tiempos aleatorios está bien estructurada, haciendo que el comportamiento sea realista.
+Implementación eficiente del buffer circular: El uso de índices circulares (% capacidad) para manejar el buffer es correcto, asegurando que las operaciones de lectura y escritura no se desborden.
+
+Mejoras:
+Mensajes de consola: Aunque los mensajes de consola son útiles, podrían ser más descriptivos para el usuario que observe el comportamiento. Por ejemplo, el consumidor podría imprimir también el número total de caracteres consumidos hasta el momento, o el productor el número de caracteres producidos.
+Uso de Thread.sleep: Los tiempos de sueño para los hilos productor y consumidor están bien, pero podrías también considerar ajustar la variabilidad de los tiempos para simular de forma más realista los tiempos de producción y consumo en escenarios más complejos.
+Lógica de interrupciones: El código maneja adecuadamente las excepciones InterruptedException, pero en algunos casos, sería más robusto restablecer el estado de interrupción del hilo con Thread.currentThread().interrupt() para que el hilo pueda manejar la interrupción de manera más controlada si se requiere.
+**/
+
 import java.util.Random;
 
 public class ua2ex2 {
