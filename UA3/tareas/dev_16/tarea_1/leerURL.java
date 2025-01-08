@@ -2,20 +2,19 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Scanner;
 
-public class URLInfoViewer {
+public class leerURL {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String input;
 
-        System.out.println("Ingrese una URL o IP (escriba 'localhost' para salir):");
+        System.out.println("Escriba una URL o una IP (escriba 'localhost' para salir):");
 
         while (true) {
-            System.out.print("> ");
             input = scanner.nextLine().trim();
 
             if ("localhost".equalsIgnoreCase(input)) {
-                System.out.println("Saliendo del programa...");
+                System.out.println("Estamos saliendo del programa es pere...");
                 break;
             }
 
