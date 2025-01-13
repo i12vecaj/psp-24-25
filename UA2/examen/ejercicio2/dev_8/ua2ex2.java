@@ -1,3 +1,21 @@
+/**
+Feedback JD: 12/12/2024
+
+Funcionalidad básica cumplida: Todas las funcionalidades requeridas (FR1 a FR4) están implementadas y se entienden claramente.
+Buen uso de sincronización: La implementación de los métodos wait() y notifyAll() asegura la sincronización de los hilos de manera eficiente.
+Código estructurado y comentado: Los comentarios son claros y explican el propósito de cada parte del código.
+Buffer circular: La lógica de índices cíclicos para gestionar el buffer es precisa y funcional.
+Simulación controlada: La generación de caracteres aleatorios y los intervalos de tiempo para los hilos son coherentes y reproducen bien el escenario planteado.
+
+Aspectos mejorables:
+Uso de `while (true): Aunque funcional, sería recomendable manejarlo con condiciones más claras o señales de parada para evitar problemas en producción.
+Manejo de excepciones: Aunque se utiliza interrupt(), sería ideal profundizar en el tratamiento de interrupciones para garantizar una terminación limpia.
+Random como atributo estático: Podría optimizarse al declararlo como un atributo compartido para evitar múltiples instancias.
+
+En general, el ejercicio está bien ejecutado, con una correcta implementación técnica y claridad en los objetivos alcanzados. Enhorabuena.
+
+**/
+
 import java.util.Random;
 
 /*
