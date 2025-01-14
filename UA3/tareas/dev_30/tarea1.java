@@ -1,7 +1,7 @@
 import java.net.*;
 import java.util.Scanner;
 
-public class Main {
+public class tarea1 {
     URL url;
 
     public static void main(String[] args) {
