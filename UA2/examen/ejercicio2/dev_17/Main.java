@@ -1,3 +1,12 @@
+/**
+Feedback JD: 12/12/2024
+
+Miguel la estructura del examen no es válida (se pedía un único archivo).
+
+No obstante, entrando a valorar tu solución: no es del todo correcta, en general no cumple con lo establecido. 
+
+**/
+
 public class Main {
     public static void main(String[] args) {
         Buffer buffer = new Buffer(); //Creamos el objeto buffer de la clase Buffer
