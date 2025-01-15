@@ -23,6 +23,7 @@ public class Main
                 }
                 else {
                     System.out.println("El programa se ha detenido ya que se ha insertado localhost");
+                    i=1;
                 }
             }
         }
