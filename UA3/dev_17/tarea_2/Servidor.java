@@ -2,9 +2,9 @@ import java.io.*;
 import java.net.*;
 public class Servidor {
     public static void main(String[] args) throws IOException {
-        int puerto = 6000;
+        int puerto = 6000; //Asignamos el puerto 6000 a una variable
 
-        try(ServerSocket serverSocket = new ServerSocket(puerto)){
+        try(ServerSocket serverSocket = new ServerSocket(puerto)){ //Y declaramos el server y su puerto con la variable anterior
 
             System.out.println("Esperando al cliente.....\n");
 
@@ -26,11 +26,14 @@ public class Servidor {
             DataOutputStream flujoSalidaCliente2 = new DataOutputStream(salidaCliente2);
             flujoSalidaCliente2.writeUTF("Saliendo..."); //Enviamos un mensaje al cliente2
 
+            //Cerramos el servidor
             serverSocket.close();
 
+            //Cerramos los clientes
             cliente1.close();
             cliente2.close();
 
+            //Cerramos los flujos de salida de los clientes
             salidaCliente1.close();
             flujoSalidaCliente1.close();
 
@@ -40,8 +43,5 @@ public class Servidor {
         }catch(Exception e){
             System.out.println("Error en el servidor: " + e.getMessage());
         }
-        ;
-
-
     }
 }
