@@ -1,0 +1,28 @@
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class ServidorTCP {
+    public static void main(String[] args) {
+        int puertoServidor = 12345;
+        try (ServerSocket servidor = new ServerSocket(puertoServidor)) {
+            System.out.println("Servidor iniciado en el puerto: " + puertoServidor);
+
+            for (int i = 1; i <= 2; i++) {
+                System.out.println("Esperando cliente " + i + "...");
+                Socket cliente = servidor.accept();
+
+
+                System.out.println("Cliente " + i + " conectado.");
+                System.out.println("Puerto local: " + cliente.getLocalPort());
+                System.out.println("Puerto remoto: " + cliente.getPort());
+                System.out.println("Dirección IP del cliente: " + cliente.getInetAddress().getHostAddress());
+
+
+
+            }
+        } catch (IOException e) {
+            System.out.println("Error en el servidor: " + e.getMessage());
+        }
+    }
+}
