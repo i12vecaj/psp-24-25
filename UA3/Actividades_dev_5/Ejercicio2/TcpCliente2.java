@@ -1,7 +1,7 @@
 import java.io.*;
 import java.net.*;
 
-public class Cliente2 {
+public class TcpCliente2.java {
     public static void main(String[] args) throws IOException {
         String host = "localhost";
         int puerto = 6000; // Puerto
