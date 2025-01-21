@@ -1,0 +1,22 @@
+import java.io.*;
+import java.net.*;
+
+public class ClienteTCP {
+    public static void main(String[] args) {
+        String host = "localhost";
+        int puerto = 12345;
+
+        try {
+            Socket cliente = new Socket(host, puerto);
+            System.out.println("Conectado a " + host + " en el puerto " + puerto);
+            System.out.println("Puerto local: " + cliente.getLocalPort() + ", Puerto remoto: " + cliente.getPort());
+            System.out.println("Dirección IP de la máquina remota: " + cliente.getInetAddress().getHostAddress());
+
+
+            cliente.close();
+        } catch (IOException e) {
+            System.err.println("Error al conectarse al servidor: " + e.getMessage());
+        }
+    }
+}
+
