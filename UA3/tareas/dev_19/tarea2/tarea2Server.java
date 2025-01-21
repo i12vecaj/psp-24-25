@@ -3,7 +3,7 @@ import java.net.*;
 
 public class TCPServer {
     public static void main(String[] args) {
-        int serverPort = 12345;
+        int serverPort = 10000;
 
         try (ServerSocket serverSocket = new ServerSocket(serverPort)) {
             System.out.println("Servidor iniciado en el puerto " + serverPort);
