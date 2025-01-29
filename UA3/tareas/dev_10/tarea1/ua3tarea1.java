@@ -1,8 +1,10 @@
+package tarea1;
+
 import java.net.URI;
 import java.net.URL;
 import java.util.Scanner;
 
-public class tarea1 {
+public class ua3tarea1 {
   public static void main(String[] args) {
 
     Scanner scanner = new Scanner(System.in);
