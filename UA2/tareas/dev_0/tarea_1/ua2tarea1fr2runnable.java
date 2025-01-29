@@ -15,33 +15,33 @@ class Contador
 }
 
 
-class hiloRest extends Thread 
-{
-  
+class hiloRest implements Runnable 
+{   
+    private String nombre;
     private Contador contador;
 
     public hiloRest(String nombre, Contador c) {
-        setName(nombre);
+        this.nombre=nombre;
         contador = c;
     }
 
     public void run() {
       contador.incrementa();
-      System.out.println(getName() + " - contador vale " + contador.valor());
+      System.out.println(nombre + " - contador vale " + contador.valor());
     }
 }
 
 
-public class ua2tarea1fr2 {
+public class ua2tarea1fr2runnable {
     public static void main(String[] args) {
 
         Contador cont = new Contador(0);
-        hiloRest hiloRest1 = new hiloRest("Hilo 1", cont);
-        hiloRest hiloRest2 = new hiloRest("Hilo 2", cont);
-        hiloRest hiloRest3 = new hiloRest("Hilo 3", cont);
-        hiloRest hiloRest4 = new hiloRest("Hilo 4", cont);
-        hiloRest hiloRest5 = new hiloRest("Hilo 5", cont);
-      
+        Thread hiloRest1 = new Thread(new hiloRest("Hilo 1", cont));
+        Thread hiloRest2 = new Thread(new hiloRest("Hilo 2", cont));
+        Thread hiloRest3 = new Thread(new hiloRest("Hilo 3", cont));
+        Thread hiloRest4 = new Thread(new hiloRest("Hilo 4", cont));
+        Thread hiloRest5 = new Thread(new hiloRest("Hilo 5", cont));
+        
         hiloRest1.start();
         hiloRest2.start();
         hiloRest3.start();
@@ -59,7 +59,6 @@ public class ua2tarea1fr2 {
       {
           // Nothing to do here ...
       }
-
         System.out.println("Finaliza la ejecución de los hilos");
         System.out.println("Valor Final del Contador: " + cont.valor());
     }

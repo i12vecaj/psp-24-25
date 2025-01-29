@@ -1,0 +1,52 @@
+//MAIN
+
+public class Main {
+    public static void main(String[] args) {
+        // Crea una instancia de la clase proyectoleer
+        proyectoleer pyleer = new proyectoleer();
+
+        // Ejecuta el método que lee y muestra la cadena
+        pyleer.leerYMostrarCadena();
+    }
+}
+
+//Clase que se encarga de leer una cadena de caracteres
+
+import java.util.Scanner;
+
+public class proyectoleer {
+
+    /**
+     * Método principal que lee una cadena desde la entrada estándar
+     * hasta recibir un carácter de terminación ('*') y muestra la cadena completa.
+     */
+    public void leerYMostrarCadena() {
+        Scanner scanner = new Scanner(System.in);
+        StringBuilder cadena = new StringBuilder();
+        char caracter = ' ';
+
+        System.out.println("Introduce caracteres. Termina con '*':");
+
+        // Bucle para leer caracteres hasta encontrar '*'
+        while (true) {
+            try {
+                // Lee el siguiente carácter de la entrada estándar
+                caracter = scanner.nextLine().charAt(0);
+
+                // Verifica si es el carácter de terminación
+                if (caracter == '*') {
+                    break;
+                }
+                // Añade el carácter leído a la cadena
+                cadena.append(caracter);
+
+            } catch (Exception e) {
+                System.out.println("Error al leer el carácter. Intenta de nuevo.");
+            }
+        }
+
+        // Muestra toda la cadena leída
+        System.out.println("Cadena leída: " + cadena.toString());
+        scanner.close();
+    }
+}
