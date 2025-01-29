@@ -1,0 +1,35 @@
+import java.io.*;
+import java.net.*;
+
+public class ServidorUDP {
+    public static void main(String[] args) {
+        DatagramSocket socket = null;
+
+        try {
+            socket = new DatagramSocket(12345);
+
+            while (true) {
+                byte[] buffer = new byte[1024];
+                DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
+                socket.receive(packet);
+
+                String message = new String(packet.getData(), 0, packet.getLength());
+                if (message.equals("*")) {
+                    break;
+                }
+                System.out.println("Mensaje recibido: " + message);
+
+                String response = message.toUpperCase();
+                byte[] responseBuffer = response.getBytes();
+                DatagramPacket responsePacket = new DatagramPacket(responseBuffer, responseBuffer.length, packet.getAddress(), packet.getPort());
+                socket.send(responsePacket);
+            }
+        } catch (IOException e) {
+            System.out.println("Error de E/S: " + e.getMessage());
+        } finally {
+            if (socket != null && !socket.isClosed()) {
+                socket.close();
+            }
+        }
+    }
+}
