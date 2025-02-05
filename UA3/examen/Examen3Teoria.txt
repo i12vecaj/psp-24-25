@@ -1,0 +1,98 @@
+Responde de manera clara y concisa cada una de las siguientes preguntas. Justifica tus respuestas cuando sea necesario.Preguntas
+
+1. Concepto de socket:
+Explica qué es un socket en el contexto de la programación en red y qué elementos lo componen.
+
+    Un Socket es un canal de comunicación en una red entre un cliente y un servidor, el cliente
+    envía un mensaje a través del socket al servidor, este lo procesa y lo envía de vuelta desde el serverSocket al socket del cliente
+
+    Elementos:
+    Paquete de datos
+    Puerto
+    IP
+    Socket
+    ServerSocket
+    Servidor
+    Cliente
+
+2. Diferencias entre TCP y UDP:
+Compara los sockets orientados a conexión (TCP) y los sockets no orientados a conexión (UDP). Indica al menos tres diferencias clave entre ellos.
+
+    TCP
+    Envia mensajes estructurados y ordenados
+    Más lento y se orienta en conexión
+    Más seguro
+
+    UDP
+    Envía los mensajes desordenados y el receptor se encarga de ordenarlos pudiendo haber perdidas de datos
+    Más Rápido y no se orienta en conexión
+    Menos seguro al perder datos y un tercero pueda interceptarlos
+
+3. Creación de un socket TCP en Java:
+Escribe un fragmento de código en Java que cree un socket TCP en el lado del cliente y establezca una conexión con un servidor en la IP 192.168.1.100 y el puerto 5000. Explica brevemente su funcionamiento.
+
+      String servidorIP = "192.168.1.100";
+      int servidorPuerto = 5000;
+      Socket socket = new Socket(servidorIP, servidorPuerto)
+
+    Con esta instanciación del socket podríamos hacer la conexión con el servidor.
+
+
+4. Transferencia de objetos en TCP:
+Explica cómo se pueden enviar y recibir objetos a través de sockets TCP en Java. Menciona qué clases o mecanismos son necesarios para lograrlo.
+
+    Para enviar y recibir objetos a través de sockets TCP en Java es necesario tener un socket por el cual un cliente envía el objeto y un servidor
+    lo recibe en su puerto de entrada lo procesa y el server socket lo envía de vuelta por el socket al puerto del cliente.
+
+5. Transferencia de objetos en UDP:
+¿Cómo se pueden transferir objetos utilizando sockets UDP? ¿Qué limitaciones presenta este enfoque en comparación con TCP?
+
+    UDP es un protocolo no orientado a conexión que envía paquetes de datos sin garantizar su entrega ni su orden.
+
+    Para transferir objetos en UDP en Java:
+    Serializar el objeto
+    Enviar el objeto
+    Recibir y deserializar
+
+    Limitaciones del UDP:
+
+    No garantiza entrega: UDP no retransmite paquetes perdidos.
+    No mantiene orden: Los paquetes pueden llegar en desorden.
+
+6. Multicast:
+Explica qué es el multicast en redes y cómo se implementa en Java utilizando sockets. ¿En qué situaciones es útil esta técnica?
+
+    El multicast permite enviar un mensaje a múltiples clientes en una red sin enviar copias a cada uno y asi es más eficiente
+
+    Casos de uso:
+    Streaming en vivo (Tele, twitch, you tube etc).
+    Juegos multijugador(comunicación entre múltiples jugadores).
+    Sistemas de mensajería en tiempo real como whatssapp o telegram.
+
+7. Modelo Cliente-Servidor:
+Describe el modelo Cliente-Servidor utilizando sockets. Explica cómo funciona la comunicación entre ambos y menciona un caso de uso donde este modelo sea imprescindible.
+
+    Es un modelo de comunicación donde un servidor ofrece servicios y los clientes los consumen.
+    Como ya he dicho antes:
+
+    Para enviar y recibir objetos a través del modelo cliente-servidor es necesario tener un socket por el cual un cliente envía el mensaje y un servidor
+    lo recibe en su puerto de entrada lo procesa y el server socket lo envía de vuelta por el socket al puerto del cliente.
+
+    Un caso de uso donde seria imprescindible podria ser un sistema de verificación de usuarios, para saber la autenticidad de los usuarios que acceden
+
+
+
+8. Diferencias entre comunicación síncrona y asíncrona:
+Explica la diferencia entre la comunicación síncrona y asíncrona en el contexto de los sockets. Proporciona un ejemplo de cada una.
+
+    Ni idea... :(
+
+9. Seguridad en la comunicación con sockets:
+Menciona tres medidas de seguridad que se deben considerar al utilizar sockets para la comunicación en red.
+
+    Creo que habria que tener en cuenta el tema del cifrado de datos, la autenticacion de los usuarios con un control de acceso y posibles ataques de terceros
+
+10. Caso práctico - Elección de protocolo:
+Imagina que debes desarrollar una aplicación en red para un juego multijugador en tiempo real. ¿Qué protocolo (TCP o UDP) elegirías para la comunicación entre los jugadores y por qué?
+
+    Escogería la opción UDP porque se necesita la mayor velocidad posible en la comunicación.
