@@ -1,37 +1,83 @@
-/**
- * @file        MiembroToken.java
- *
- * @brief       Solución para la actividad evaluable de la UA3.
- * @date        14/12/2022
- * @author      Nombre Apellidos Miembro 1 - github@email (dev_A)
- * @author      Nombre Apellidos Miembro 2 - github@email (dev_B)
- * @author      Nombre Apellidos Miembro 3 - github@email (dev_C)
- * @author      Nombre Apellidos Miembro 4 - github@email (dev_D)
- *
- * @note        ¡Pero qué diablos!
- * @note        https://docs.google.com/presentation/d/e/2PACX-1vQzxbSl2IXLxelLggksAWEQd2tDT-5sNqETQCpIHCnNBqjoSmbvlJdCcOfu_rjQLz_BN6lsoOjimqSO/pub?start=false&loop=false&delayms=3000
- */
+import java.net.*;
+import java.io.*;
 
-/*
-* @class    MiembroToken
-* @brief    Clase para simular el comportamiento de una red token ring
-*
-* @todo FR1 [5 puntos]: Implementa la clase MiembroToken con la funcionalidad descrita previamente. Para comprobar la correcta ejecución del sistema, la clase MiembroToken debe imprimir por pantalla la suficiente información para ver el estado de cada Miembro de la red.
-* @todo FR2 [2,5 puntos]: Mejora la clase MiembroToken para poder ejecutar su funcionalidad, en este caso, dormir una cantidad de tiempo determinada, como un hilo.
-* @todo FR4 [1 punto]: Mejora la clase MiembroToken para crear una red token ring de anillo doble, es decir, se puede tener otro token en otro anillo virtual, en sentido contrario.
-*/
+public class MiembroToken implements Runnable {
+    private int id;
+    private int puerto;
+    private boolean tengoToken;
+    private boolean soyElUltimo;
+    private int siguientePuerto;
+    private Thread hilo;
 
-public class MiembroToken
-{
-    /* @brief       Classic java main, starting execution
-     * @param       arg[0] = [id]
-     * @param       arg[1] = [puerto]
-     * @param       arg[2] = [token_al_inicio]
-     * @param       arg[3] = [soy_el_ultimo]
-     */
-    public static void main(String[] args)
-    {
+    public MiembroToken(int id, int puerto, boolean tengoToken, boolean soyElUltimo) {
+        this.id = id;
+        this.puerto = puerto;
+        this.tengoToken = tengoToken;
+        this.soyElUltimo = soyElUltimo;
+        this.siguientePuerto = soyElUltimo ? 10000 : puerto + 1;
+        this.hilo = new Thread(this);
+    }
 
-    } // End of main()
+    public void iniciar() {
+        hilo.start();
+        try (DatagramSocket socket = new DatagramSocket(puerto)) {
+            byte[] buffer = new byte[1];
+            DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
 
-} // End of class
+            while (true) {
+                if (!tengoToken) {
+                    System.out.println("Miembro " + id + " esperando el token en el puerto " + puerto);
+                    socket.receive(packet);
+                    tengoToken = true;
+                }
+
+                long tiempoInicio = System.currentTimeMillis();
+                System.out.println("Miembro " + id + " tiene el token. Ejecutando tarea...");
+                hilo.join(); // Espera a que termine la tarea antes de continuar
+                long tiempoFin = System.currentTimeMillis();
+
+                System.out.println("Miembro " + id + " terminó su tarea. Tiempo transcurrido: " + (tiempoFin - tiempoInicio) + " ms");
+                tengoToken = false;
+                enviarToken();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void enviarToken() {
+        try (DatagramSocket socket = new DatagramSocket()) {
+            byte[] buffer = new byte[1];
+            InetAddress direccion = InetAddress.getByName("localhost");
+            DatagramPacket packet = new DatagramPacket(buffer, buffer.length, direccion, siguientePuerto);
+            socket.send(packet);
+            System.out.println("Miembro " + id + " envió el token al puerto " + siguientePuerto);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void run() {
+        try {
+            Thread.sleep(id * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        if (args.length < 4) {
+            System.out.println("Uso: java MiembroToken [id] [puerto] [token_al_inicio] [soy_el_ultimo]");
+            return;
+        }
+
+        int id = Integer.parseInt(args[0]);
+        int puerto = Integer.parseInt(args[1]);
+        boolean tengoToken = args[2].equalsIgnoreCase("yes");
+        boolean soyElUltimo = args[3].equalsIgnoreCase("yes");
+
+        MiembroToken miembro = new MiembroToken(id, puerto, tengoToken, soyElUltimo);
+        miembro.iniciar();
+    }
+}
