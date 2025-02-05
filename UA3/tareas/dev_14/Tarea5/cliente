@@ -1,0 +1,48 @@
+import java.io.*;
+import java.net.*;
+import java.util.Scanner;
+
+public class Cliente {
+    public static void main(String[] args) {
+        final String SERVIDOR = "localhost";
+        final int PUERTO = 5000;
+
+        try (Socket socket = new Socket(SERVIDOR, PUERTO);
+             ObjectOutputStream salida = new ObjectOutputStream(socket.getOutputStream());
+             ObjectInputStream entrada = new ObjectInputStream(socket.getInputStream());
+             Scanner scanner = new Scanner(System.in)) {
+
+            System.out.print("Introduce un número entero positivo: ");
+            int numero;
+
+            while (true) {
+                try {
+                    numero = Integer.parseInt(scanner.nextLine());
+                    if (numero < 0) {
+                        throw new NumberFormatException("El número debe ser mayor o igual a 0.");
+                    }
+                    break;
+                } catch (NumberFormatException e) {
+                    System.out.print("Entrada inválida. Introduce un número entero positivo: ");
+                }
+            }
+
+            // Crear objeto y enviarlo al servidor
+            Numeros numeros = new Numeros(numero);
+            salida.writeObject(numeros);
+
+            // Recibir objeto modificado desde el servidor
+            numeros = (Numeros) entrada.readObject();
+
+            // Mostrar resultados
+            System.out.println("Número: " + numeros.getNumero());
+            System.out.println("Cuadrado: " + numeros.getCuadrado());
+            System.out.println("Cubo: " + numeros.getCubo());
+
+        } catch (IOException e) {
+            System.out.println("Error de conexión con el servidor: " + e.getMessage());
+        } catch (ClassNotFoundException e) {
+            System.out.println("Error recibiendo datos del servidor.");
+        }
+    }
+}
