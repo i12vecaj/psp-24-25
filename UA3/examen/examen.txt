@@ -1,0 +1,108 @@
+Examen de Alberto Mármol Bello con fecha 05/02/2025 para la asignatura de Procesos y Servicios.
+Responde de manera clara y concisa cada una de las siguientes preguntas. Justifica tus respuestas cuando sea necesario.
+
+1. Concepto de socket:
+Explica qué es un socket en el contexto de la programación en red y qué elementos lo componen.
+Un socket es un punto de comunicación que permite a dos programas, (uno que puede ser el cliente y 
+otro puede ser el servidor como ejemplos) e intercambiar datos a través de una red. 
+
+En la programación en red, se usa para establecer una conexión entre aplicaciones. 
+Un socket se compone de los siguientes elementos:
+1-La dirección IP la dirección del host en la red.
+2-El identificador que permite distinguir las aplicaciones que escuchan en la misma dirección IP.
+3- El protocolo que puede ser TCP o UDP, que define cómo se gestionan los datos.
+
+2. Diferencias entre TCP y UDP:
+Compara los sockets orientados a conexión (TCP) y los sockets no orientados a conexión (UDP). Indica al menos tres diferencias clave 
+entre ellos.
+La primera diferencia que hay entre estos dos sockets son en la orientación a la conexión. El TCP está orientado a la conexión, 
+lo cuál que antes de transmitir datos, establece una conexión entre el cliente y el servidor, en cambio, el UDP no es orientado 
+a la conexión, los datos se envían sin establecer una conexión previa.
+
+La segunda diferencia que hay entre estos es la fiabilidad, el TCP es un protocolo de transmisión confiable, lo que significa que
+TCP garantiza que los datos lleguen correctamente y en el orden correcto mediante verificación y reenvío de paquetes perdidos, 
+en cambio el UDP no garantiza la entrega de los paquetes ni su orden, lo que puede hacer que se pierdan o lleguen fuera de secuencia.
+
+Y la tercera y última diferencia que hay entre estos dos sockets es la velocidad, el TCP es más lento debido al proceso de 
+verificación de errores y control de flujo, mientras que el UDP es más rápido porque no tiene mecanismos de control de errores.
+
+3. Creación de un socket TCP en Java:
+Escribe un fragmento de código en Java que cree un socket TCP en el lado del cliente y establezca una conexión con un 
+servidor en la IP 192.168.1.100 y el puerto 5000. Explica brevemente su funcionamiento.
+
+Aquí he echo una pequeña demostración de cómo crear un socket TCP en Java:
+public class SocketTCP {
+    public static void main(String[] args) {
+        try {
+            //Creo un socket para que se conecte al servidor.
+            Socket socket = new Socket("192.168.1.100", 5000);
+            System.out.println("Se ha concetado con el servidor...");
+
+            //Luego envio datos.
+            OutputStream os = socket.getOutputStream();
+            PrintWriter writer = new PrintWriter(os, true);
+            writer.println("Hola, servidor!");
+
+            //Y recibo datos.
+            InputStream is = socket.getInputStream();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+            Por útimo recibo una respuesta del servidor.
+            String respuesta = reader.readLine();
+            System.out.println("Respuesta del servidor: " + respuesta);
+
+            //Cierro programa.
+            socket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+Explicación del Código: Este pequeño trozo de código crea, más o menos, un socket TCP en el lado del cliente, luego, 
+establece una conexión con el servidor en la IP 192.168.1.100 y el puerto 5000 y por último, envía un mensaje y recibe una respuesta.
+
+4. Transferencia de objetos en TCP:
+Explica cómo se pueden enviar y recibir objetos a través de sockets TCP en Java. Menciona qué clases 
+o mecanismos son necesarios para lograrlo.
+Lo que yo uso para enviar y recibir los objetos a través de un socket TCP en Java, son las clases 
+ObjectOutputStream para enviar los objetos y luego el ObjectInputStream para recibirlos.
+
+5. Transferencia de objetos en UDP:
+¿Cómo se pueden transferir objetos utilizando sockets UDP? ¿Qué limitaciones presenta este enfoque en comparación con TCP?
+Se puede transferir objetos utilizando sockets UDP mediante la clase DataOutputStream para enviar los objetos y luego el DataInputStream 
+para recibirlos.
+Pero a comparación del TCP, el UDP tiene algunas limitaciones como la falta de garantías en la entrega en el UDP no hay control 
+de flujo ni retransmisión de paquetes perdidos, también podemos sacar otra limitación en comparación al TCP y es la fiabilidad
+ya que el UDP no garantiza que los objetos lleguen en el orden correcto y la última seria el rendimiento ya que no 
+hay control de congestión ni de reenvío de datos.
+
+6. Multicast:
+Explica qué es el multicast en redes y cómo se implementa en Java utilizando sockets. ¿En qué situaciones es útil esta técnica?
+El multicast es un método de transmisión en red donde solo un paquete se envía a un grupo de personas destinatarios. 
+En Java, se implementa utilizando MulticastSocket y se usa para para enviar la misma información a múltiples destinatarios 
+sin duplicar los datos para cada uno.
+
+7. Modelo Cliente-Servidor:
+Describe el modelo Cliente-Servidor utilizando sockets. Explica cómo funciona la comunicación entre ambos y menciona 
+un caso de uso donde este modelo sea imprescindible.
+En el modelo Cliente-Servidor, el servidor espera conexiones de los clientes, y estos luego lo solicitan servicios del servidor. 
+La comunicación se realiza a través de sockets, donde el servidor escucha en un puerto específico y el cliente se conecta a ese puerto, 
+el caso de uso podría ser en un servidor web que responde las peticiones de diferentes clientes.
+
+8. Diferencias entre comunicación síncrona y asíncrona:
+Explica la diferencia entre la comunicación síncrona y asíncrona en el contexto de los sockets. Proporciona un ejemplo de cada una.
+La comunicación síncrona es el cliente que espera la respuesta del servidor antes de continuar con otras tareas, un ejemplo podría ser
+el enviar un mensaje y esperar una confirmación antes de enviar otro.
+La comunicación asíncrona es el cliente que este no espera la respuesta y por eso puede seguir trabajando mientras se gestionan 
+las comunicaciones, un ejemplo es el de enviar mensajes sin esperar confirmaciones inmediatas.
+
+9. Seguridad en la comunicación con sockets:
+Menciona tres medidas de seguridad que se deben considerar al utilizar sockets para la comunicación en red.
+La primera es el cifrado, ósea, usar SSL/TLS para cifrar los datos transmitidos, la segunda es la autenticación, que verifica la 
+identidad de los usuarios mediante certificados o contraseñas y la última es la integridad, que usa técnicas como HMAC para 
+asegurarse de que los datos no han sido alterados.
+
+10. Caso práctico - Elección de protocolo:
+Imagina que debes desarrollar una aplicación en red para un juego multijugador en tiempo real. 
+¿Qué protocolo (TCP o UDP) elegirías para la comunicación entre los jugadores y por qué?
+Elegiría el protocolo UDP, ya que en un juego requiere de una comunicación en tiempo real y el protocolo UDP es más rápido que el TCP, 
+pero si el juego requiere una comunicación más confiable y no en tiempo real, elegiría el protocolo TCP, ya que es más fiable.
