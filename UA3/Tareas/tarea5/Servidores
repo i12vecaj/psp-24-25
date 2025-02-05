@@ -1,0 +1,40 @@
+import java.io.*;
+import java.net.*;
+
+public class Servidor {
+    public static void main(String[] args) {
+        final int PUERTO = 5000;
+
+        try (ServerSocket serverSocket = new ServerSocket(PUERTO)) {
+            System.out.println("Servidor esperando conexiones en el puerto " + PUERTO + "...");
+
+            while (true) {
+                try (Socket socket = serverSocket.accept();
+                     ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
+                     ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream())) {
+
+                    System.out.println("Cliente conectado desde " + socket.getInetAddress());
+
+                    Numeros numero = (Numeros) in.readObject();
+                    System.out.println("Número recibido: " + numero.getNumero());
+
+
+                    int num = numero.getNumero();
+                    numero.setCuadrado((long) num * num);
+                    numero.setCubo((long) num * num * num);
+
+
+                    out.writeObject(numero);
+                    System.out.println("Enviado: " + numero);
+
+                } catch (EOFException e) {
+                    System.out.println("Cliente desconectado inesperadamente.");
+                } catch (IOException | ClassNotFoundException e) {
+                    System.err.println("Error en la comunicación con el cliente: " + e.getMessage());
+                }
+            }
+        } catch (IOException e) {
+            System.err.println("No se pudo iniciar el servidor: " + e.getMessage());
+        }
+    }
+}

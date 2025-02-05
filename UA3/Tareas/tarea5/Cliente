@@ -1,0 +1,37 @@
+import java.io.*;
+import java.net.*;
+import java.util.Scanner;
+
+public class Cliente {
+    public static void main(String[] args) {
+        final String SERVIDOR = "127.0.0.1"; // Servidor local
+        final int PUERTO = 5000;
+
+        try (Socket socket = new Socket(SERVIDOR, PUERTO);
+             ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+             ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
+             Scanner scanner = new Scanner(System.in)) {
+
+            System.out.print("Introduce un número entero positivo: ");
+            int numero = scanner.nextInt();
+
+            if (numero < 0) {
+                System.out.println("Error: El número debe ser positivo.");
+                return;
+            }
+
+            Numeros obj = new Numeros(numero);
+            out.writeObject(obj);
+
+            Numeros respuesta = (Numeros) in.readObject();
+            System.out.println("Respuesta del servidor: " + respuesta);
+
+        } catch (UnknownHostException e) {
+            System.err.println("No se pudo conectar al servidor.");
+        } catch (IOException e) {
+            System.err.println("Error de conexión: " + e.getMessage());
+        } catch (ClassNotFoundException e) {
+            System.err.println("Error al recibir la respuesta del servidor.");
+        }
+    }
+}
