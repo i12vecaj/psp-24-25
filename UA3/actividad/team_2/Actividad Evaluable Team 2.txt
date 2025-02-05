@@ -1,30 +1,18 @@
-﻿Alumno
-	Pablo Alcalá-Zamora Bermúdez / Luis Miguel Barrios Torres / Francisco Barbero Vazquez
-	Asignatura
-	Programación de Servicios y Procesos
-	Curso
-	2ª Dam
-	Año
-	2024-2025
-	Título de la entrega
-	UA3 - Actividad Evaluable
+﻿Alumnos: Pablo Alcalá-Zamora Bermúdez / Luis Miguel Barrios Torres / Francisco Barbero Vazquez
+Asignatura: Programación de Servicios y Procesos
+Curso:2ª Dam
+Año:2024-2025
+Título de la entrega: UA3 - Actividad Evaluable
 	
 
-
-
+Explicación de lo que le pedimos a chat gpt
 Queremos crear un programa UDP , este proyecto estará separado en varias partes, primero un servidor que recibirá un token de uno de los tres clientes cliente(el token será una clase que se llamará MiembroToken esta actuara como un booleano que solo un cliente podrá poseer y actuar cuando este sea true) . No se debe cerrar el ciclo es decir una vez llegue al tercer cliente se debe enseñar un mensaje que exprese que era el último y el ciclo debe seguir.
 
-
-
+Aparte de esto le hemos proporcionado las diferentes funciones como los datagrams pertenecientes a UDP
 
 INFORME SOBRE SIMULACIÓN DE UNA RED TOKEN RING EN JAVA
 Introducción
 En este informe explicaremos el funcionamiento del programa desarrollado en Java para simular una red Token Ring utilizando sockets UDP. La simulación involucra tres Clientes que reciben y pasan un token para obtener permiso de ejecución. El programa está diseñado para ejecutarse en un solo terminal usando hilos.
-
-
-
-
-
 
 1. Concepto de Token Ring
 Una red Token Ring es un tipo de red en la que un "token" se pasa de un nodo a otro en un orden fijo. Solo el nodo que posee el token en ese momento puede ejecutar su tarea. Cuando termina, lo pasa al siguiente nodo en la red. Este sistema previene colisiones y garantiza que cada nodo tenga su turno.
@@ -39,11 +27,6 @@ El programa consta de dos clases principales:
 
 * MiembroToken: Define el comportamiento de cada Cliente.
 * TokenRing: Crea y ejecuta los Clientes en hilos.
-
-
-
-
-
 
 
 
