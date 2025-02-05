@@ -1,0 +1,38 @@
+import java.io.*;
+import java.net.*;
+
+class Servidor {
+    public static void main(String[] args) {
+        final int PUERTO = 5000; // Puerto del servidor
+
+        try (ServerSocket servidor = new ServerSocket(PUERTO)) {
+            System.out.println("Servidor iniciado en el puerto " + PUERTO);
+
+            while (true) {
+                try (Socket socket = servidor.accept();
+                     ObjectInputStream entrada = new ObjectInputStream(socket.getInputStream());
+                     ObjectOutputStream salida = new ObjectOutputStream(socket.getOutputStream())) {
+
+                    System.out.println("Cliente conectado.");
+
+                    // Leer el objeto recibido
+                    Numeros numeros = (Numeros) entrada.readObject();
+
+                    // Calcular cuadrado y cubo
+                    int num = numeros.getNumero();
+                    numeros.setCuadrado((long) num * num);
+                    numeros.setCubo((long) num * num * num);
+
+                    // Enviar el objeto modificado de vuelta al cliente
+                    salida.writeObject(numeros);
+                    System.out.println("Resultado enviado al cliente.");
+
+                } catch (IOException | ClassNotFoundException e) {
+                    System.out.println("Error procesando cliente: " + e.getMessage());
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Error iniciando el servidor: " + e.getMessage());
+        }
+    }
+}
