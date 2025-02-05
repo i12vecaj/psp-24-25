@@ -1,0 +1,74 @@
+Antonio Gómez Cuevas
+
+Responde de manera clara y concisa cada una de las siguientes preguntas. Justifica tus respuestas cuando sea necesario.Preguntas
+
+1. Concepto de socket:
+Explica qué es un socket en el contexto de la programación en red y qué elementos lo componen.
+
+	Un socket es un punto de comunicación entre dos dispositivos de una red
+
+2. Diferencias entre TCP y UDP:
+Compara los sockets orientados a conexión (TCP) y los sockets no orientados a conexión (UDP). Indica al menos tres diferencias clave entre ellos.
+
+	Los socket TCP son muy seguros a nivel de perdida de datos, no tienen perdida de datos, y los paquetes van ordenados, los
+	equipos que se comuniquen tienen que estar ambos conectados en el momento en el que se comparte la información, y son un tanto
+	lentos para algunas funciones, estos son muy utilizados por ejemplo en chats.
+
+	Los socket UDP son algo mas inseguros puesto que pueden tener perdida de paquetes y estos mismos no van ordenados, los equipos 
+	que se compartan la información no tienen que estar conectados simultáneamente, estos son mucho mas rápidos que los socket TCP,
+	los socket UDP son muy utilizados por ejemplo en videollamadas.
+
+3. Creación de un socket TCP en Java:
+Escribe un fragmento de código en Java que cree un socket TCP en el lado del cliente y establezca una conexión con un servidor en la IP 192.168.1.100 y el puerto 5000. Explica brevemente su funcionamiento.
+
+	Socket socket1 = new Socket(192.168.1.100, 5000);
+	Esto crea un nuevo socket, la ip es el primer parámetro y el segundo es el puerto.
+
+4. Transferencia de objetos en TCP:
+Explica cómo se pueden enviar y recibir objetos a través de sockets TCP en Java. Menciona qué clases o mecanismos son necesarios para lograrlo.
+
+	Los objetos en los modelos TCP se envían a través de métodos de salida como OUTPuts y se reciben a través de métodos de entrada
+	como INPUTs
+
+5. Transferencia de objetos en UDP:
+¿Cómo se pueden transferir objetos utilizando sockets UDP? ¿Qué limitaciones presenta este enfoque en comparación con TCP?
+
+	Las limitaciones que presenta este son la perdida de datos, por ejemplo un socket UDP no seria nada utilizable en un chat, 
+	puesto que se envía mucha información la cual no puede ser perdida 
+
+6. Multicast:
+Explica qué es el multicast en redes y cómo se implementa en Java utilizando sockets. ¿En qué situaciones es útil esta técnica?
+
+	El multicast es una técnica que se utiliza para enviar un mensaje a varios miembros de la misma red
+	En java se puede utilizar creando grupos con los miembros a los que quieras enviar el mensaje
+	El multicast es muy útil por ejemplo en un chat de grupo en una aplicación de mensajeria
+
+7. Modelo Cliente-Servidor:
+Describe el modelo Cliente-Servidor utilizando sockets. Explica cómo funciona la comunicación entre ambos y menciona un caso de uso donde este modelo sea imprescindible.
+
+	El modelo cliente-servidor es un modelo en el cual pueden existir un servidor y uno o varios clientes, el cliente manda la
+	información al servidor, este la procesa y la envía o no a quien sea necesario
+	Este modelo puede ser muy útil en aplicaciones de mensajería, en la cual un cliente manda un mensaje al servidor y este la 
+	manda a su destinatario
+
+8. Diferencias entre comunicación síncrona y asíncrona:
+Explica la diferencia entre la comunicación síncrona y asíncrona en el contexto de los sockets. Proporciona un ejemplo de cada una.
+
+	La comunicación síncrona es aquella que permite que dos miembros de la red puedan enviar y recibir información al mismo tiempo,
+	mientras que la asíncrona es aquella en la que tienen que esperar a que un miembro deje de enviar información, para empezar a
+	enviarla el.
+	Se puede comparar con una carretera, la asíncrona, seria una carretera de doble sentido pero solo tiene un carril, por lo que
+	si un coche quiere pasar pero hay otro en la carretera tiene que esperar que el coche que hay dentro de ella termine de pasar 
+	para poder pasar el, la síncrona es como si tuviésemos una carretera de con dos carriles, en la que un coche si quiere pasar,
+	no tiene que esperar a que termine de pasar el otro para entrar en la carretera.
+
+9. Seguridad en la comunicación con sockets:
+Menciona tres medidas de seguridad que se deben considerar al utilizar sockets para la comunicación en red.
+
+	
+
+10. Caso práctico - Elección de protocolo:
+Imagina que debes desarrollar una aplicación en red para un juego multijugador en tiempo real. ¿Qué protocolo (TCP o UDP) elegirías para la comunicación entre los jugadores y por qué?
+
+	Pues seguramente me decantaría por el protocolo UDP puesto que la velocidad es muchísimo mayor a la del protocolo TCP,  y en
+	este caso la velocidad es un factor fundamentar en un juego para comunicar todos los jugadores
