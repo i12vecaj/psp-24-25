@@ -16,7 +16,7 @@ public class ChatServer {
             socketUDP.receive(packet);
 
             // Mostramos el mensaje en la consola
-            System.out.println("Mensaje de Yisus dice : " + new String(packet.getData(), 0, packet.getLength()));
+            System.out.println("Mensaje de Jezus dice : " + new String(packet.getData(), 0, packet.getLength()));
 
             // Enviamos la respuesta al cliente
             String respuesta = "Respuesta del servidor: " + new String(packet.getData(), 0, packet.getLength());
