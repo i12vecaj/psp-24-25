@@ -2,12 +2,10 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 
-public class ChatServer {
+public class ChatServer1 {
     public static void main(String[] args) throws IOException {
         // Creamos un socket para escuchar en el puerto 12345
         DatagramSocket socketUDP = new DatagramSocket(12345);
-
-        // Creamos un búfer para recibir mensajes
         byte[] buffer = new byte[1024];
 
         while (true) {
