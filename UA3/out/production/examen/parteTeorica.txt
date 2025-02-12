@@ -1,0 +1,118 @@
+Responde de manera clara y concisa cada una de las siguientes preguntas. Justifica tus respuestas cuando sea necesario.
+Preguntas
+
+1. Concepto de socket:
+Explica qué es un socket en el contexto de la programación en red y qué elementos lo componen.
+
+Es un canal de información bidireccional entre dos aplicaciones, los sockets necesitan siempre una ip y un puerto, puesto que necesitamos identificar
+la aplicacion con la que queremos comunicarnos, hay dos diferentes tipos de sockets, orientados a conexión y no orientados a conexión, y cada uno
+utiliza una metodología diferente, en ambos es necesario que haya dos entidades para realizar la comunicación.
+
+
+
+2. Diferencias entre TCP y UDP:
+Compara los sockets orientados a conexión (TCP) y los sockets no orientados a conexión (UDP). Indica al menos tres diferencias clave entre ellos.
+
+En los sockets orientados a conexión el servidor debe conocer quien está realizando las peticiones, los datos se envian de manera ordenada, es más lento, pero
+es más seguro, ya que no hay pérdida de datos.
+
+Mientras que en los no orientados a conexión el servidor no tiene por qué conocer quien está enviandole información, los datos se envian de manera desordenada
+y el servidor es responsable de volver a ordenarlo, es más inseguro pero más rápido
+
+
+
+3. Creación de un socket TCP en Java:
+Escribe un fragmento de código en Java que cree un socket TCP en el lado del cliente y establezca una conexión con un servidor en la IP 192.168.1.100 y el puerto 5000. Explica brevemente su funcionamiento.
+
+Para realizar la conexión a la ip 192.168.1.100 y el puerto 5000 utilizamos la clase Socket que nos ofrece java, el host (ip) y el puerto se lo pasamos mediante
+los parámetros de la clase como vemos en el ejemplo:
+
+Socket socket = new Socket(192.168.1.100, 5000);
+
+
+
+4. Transferencia de objetos en TCP:
+Explica cómo se pueden enviar y recibir objetos a través de sockets TCP en Java. Menciona qué clases o mecanismos son necesarios para lograrlo.
+
+Para enviar o recibir datos a través de sockets en TCP utilizamos las clases DataInputStream y DataOutputStream
+
+Con estas clases utilizamos el socket abrierto previamente y podemos relaizar la comunicación
+
+
+
+5. Transferencia de objetos en UDP:
+¿Cómo se pueden transferir objetos utilizando sockets UDP? ¿Qué limitaciones presenta este enfoque en comparación con TCP?
+
+Podemos transferir objetos enteros usando las clases DatagramPacket para el envío de paquetes en bytes[], además de un par de clases para parsear
+el objeto a un byte[]
+
+Uno de los problemas que observo frente al modelo tcp es la "contaminación" al recibir paquetes, ya que al utilizar un buffer de por ejemplo
+1024 carácteres tienes que formatear la entrada para que no te muestre carácteres de relleno.
+
+Además, el udp presenta un problema grande y es la pérdida de información, en el caso de que tengamos un programa que pasa un token
+del miembro 1 al 2 y después al 3 en el caso de que el 2 y el 3 no estén conectados se perdería la información
+o en este caso el token
+
+
+
+6. Multicast:
+Explica qué es el multicast en redes y cómo se implementa en Java utilizando sockets. ¿En qué situaciones es útil esta técnica?
+
+En java al implementar Sockets encontramos esta técnica, cuando tenemos un servidor, pero vários clientes el servidor es capaz de enviar y recibir información
+a todos a la vez.
+
+Esto es útil cuando por ejemplo tenemos un juego online donde el servidor envia los recursos como sprites a todos los jugadores y los jugadores envian
+datos de como se mueven, cuando disparan, etc.
+
+
+
+7. Modelo Cliente-Servidor:
+Describe el modelo Cliente-Servidor utilizando sockets. Explica cómo funciona la comunicación entre ambos y menciona un caso de uso donde este modelo sea imprescindible.
+
+Es un modelo utilizado para la comunicación entre aplicaciones, el funcionamiento es sencillo, el cliente envia información y el servidor la recoge, la procesa
+y puede enviar una respuesta, estableciendo así una comunicación, este modelo podemos encontrarlo en la mayoria de aplicaciones actuales, pero implementadas
+de diferente forma.
+
+Podemos encontrar aplicaciones que no requieren que el servidor y el cliente estén encendidos, por ejemplo tenemos los sistemas de mensajeria actuales,
+los cuales no requieren que una de las dos personas esté mirando la aplicación continuamente
+
+Por otra parte, encontramos aplicaciones que requieren de una conexión de ambas partes, un caso claro son cuando navegas por internet, en este ejemplo nosotros somos los
+clientes y cada vez que entras en un enlace le estás mandando información al servidor (google, brave ...) para que te devuelva un html, llevarte a otro enlace, etc.
+En este caso es necesario que ambos esteís conectados para poder enviar y recibir datos, por ello estamos ante un socket orientado a conexión
+
+
+
+8. Diferencias entre comunicación síncrona y asíncrona:
+Explica la diferencia entre la comunicación síncrona y asíncrona en el contexto de los sockets. Proporciona un ejemplo de cada una.
+
+Ambos sockets siguen una forma de comunicación, en el caso del orientado a conexión sincrona y en el caso de no orientado a conexión asíncrona.
+
+Cuando utilizamos un socket orientado a conexión necesitamos que ambos servicios estén disponibles y visibles a la vez, en caso de que no estén
+conectados será imposible el envío y recibir datos, sin poder cominicarte a través del tiempo (no te puedo enviar un mensaje si no estás conectado).
+
+Por el contrario, cuando usamos los sockets no orientados a conexión normalmente no es necesario que estén ambos conectados, de manera que
+se pueden comunicar a través del tiempo (te envío un mensaje ahora y tú lo lees mañana y me respondes)
+
+
+
+9. Seguridad en la comunicación con sockets:
+Menciona tres medidas de seguridad que se deben considerar al utilizar sockets para la comunicación en red.
+
+Cuando estamos utilzando sockets hay que prestar especial cuidado, ya que estamos trabaajando con IP, puertos, Etc.
+
+Cuando nosotros generamos un socket Cliente estamos exponiendo un puerto por ejemplo el 5000, si no protegemos cuidadosamente este puerto otra persona o programa
+puede emplear este puerto para lo que quiera.
+
+Con relación a lo anterior es necesario implementar medidas de seguridad para evitar inserciones de código, lo cual es habitual en páginas webs
+
+Otro de los problemas de seguridad que encontramos está en el protocolo UDP, ya que tenemos pérdida de paquetes los cuales pueden ser recogidos
+por un agente externo, además de que el servidor no conoce quien está dando datos por lo que es un agujero de seguridad
+
+
+
+10. Caso práctico - Elección de protocolo:
+Imagina que debes desarrollar una aplicación en red para un juego multijugador en tiempo real. ¿Qué protocolo (TCP o UDP) elegirías para la comunicación entre los jugadores y por qué?
+
+Yo utilizaría un protocolo udp, ya que en los videjuegos actuales además de contar con sistema de mensajería es importante la rapidez con la que se envian paquetes,
+además no considero que la seguridad sea un motivo de peso en este caso (en aplicaicones bancarias por ejemplo se debe priorizar la seguriadad, pero en un videojuego
+no es la prioridad), ya que lo principal es la experiencia del usuario.
