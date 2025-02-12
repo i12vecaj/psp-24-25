@@ -1,1 +1,74 @@
+import java.io.*;
+import java.net.*;
+import java.util.*;
+
+public class ServidorTCP {
+    private static List<PrintWriter> clientes = new ArrayList<>();
+    private static Map<Socket, String> nombresClientes = new HashMap<>();
+//aqui hacemos una lista para poder tener tantos clientes queramos
+    public static void main(String[] args) {
+        int puertoServidor = 12345;
+//creamos e iniciamos el servidor
+        try (ServerSocket servidor = new ServerSocket(puertoServidor)) {
+            System.out.println("Servidor iniciado en el puerto " + puertoServidor);
+
+            while (true) {
+                Socket cliente = servidor.accept();
+                new Thread(() -> manejarCliente(cliente)).start();
+            }
+        } catch (IOException e) {
+            System.out.println("Error en el servidor: " + e.getMessage());
+        }
+    }
+//con esta clase manejamos a los clientes y sus mensajes
+    private static void manejarCliente(Socket cliente) {
+        try (BufferedReader entrada = new BufferedReader(new InputStreamReader(cliente.getInputStream()));
+             PrintWriter salida = new PrintWriter(cliente.getOutputStream(), true)) {
+
+
+
+            String nombreCliente = entrada.readLine();
+            if (nombreCliente == null || nombreCliente.trim().isEmpty()) {
+                nombreCliente = "Cliente " + (clientes.size() + 1);
+            }
+            nombresClientes.put(cliente, nombreCliente);
+//indicamos que cliente se ha conectado
+            System.out.println(nombreCliente + " se ha conectado.");
+            enviarATodos("-----------------------------" + nombreCliente + " se ha unido al chat.-----------------------------");
+
+            synchronized (clientes) {
+                clientes.add(salida);
+            }
+
+            String mensaje;
+            while ((mensaje = entrada.readLine()) != null) {
+                //indica el nombre del cliente y luego el mensaje
+                System.out.println(nombreCliente + ": " + mensaje);
+                enviarATodos(nombreCliente + ": " + mensaje);
+                //si el cliente escribe SALIR primero envia el mensaje de que ha salido del chat y luego lo echa
+                if (mensaje.equals("SALIR")) {
+                    enviarATodos("❌ " + nombreCliente + " ha salido del chat.");
+                    break;
+
+
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Cliente desconectado.");
+        } finally {
+
+            synchronized (clientes) {
+                clientes.removeIf(out -> out.checkError());
+            }
+        }
+    }
+//clase pa enviar el mensaje a todos los clientes
+    private static void enviarATodos(String mensaje) {
+        synchronized (clientes) {
+            for (PrintWriter cliente : clientes) {
+                cliente.println(mensaje);
+            }
+        }
+    }
+}
 
