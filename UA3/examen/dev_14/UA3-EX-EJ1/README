@@ -1,0 +1,9 @@
+Mi solucion es como cualquier otro ejercicio de conexiones TCP con multiples clientes pero con la diferencia 
+de que en enviar el mensaje al cliente que lo ha enviado , el servidor envia el mensaje a todos los clientes presentes cuando se ha enviado ese mensaje
+se ha añadido la funcion de que al enviar SALIR el servidor avisa a todos los clientes , incluido al que lo ha enviado , de que ese cliente ha salido del servidor 
+se ha añadido java swing para añadir una sencilla interfaz al chat 
+
+Porqué usar TCP y no UDP 
+
+Al ser un chat de texto, buscamos que los mensajes se envien completos, es critico que no haya errores y perdidas de datos, porque es mejor que llegue tarde el mensaje a que no llegue o llegue pronto pero incompleto 
+es por ello que usar un TCP es la mejor opcion , si fuera un chat de voz si que buscamos que haya rapides porque se están enviando datos constantemente, pero al ser de texto, los datos van y vienen poco a poco 
