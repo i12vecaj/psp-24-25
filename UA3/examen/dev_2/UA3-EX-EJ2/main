@@ -1,0 +1,59 @@
+
+
+//Para este ejercicio usaré UDP ya que la perdida de paquetes no es un problema reseñable, además de que se premia la alta velocidad que UDP proporciona
+//En este ejerccio soy capaz de enviar un "token" o señal pero a la hora de querer reenviar otro para una segunda notificacion el programa me da error y no estoy siendo capaz de solucionarlo
+
+
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.net.SocketException;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        // Se crea el socket en el puerto especificado
+        //DatagramSocket es para el protocolo UDP
+        DatagramSocket socketUDP = new DatagramSocket(8000);
+
+        // Arrays para recibir y enviar datos
+        //En el protocolo UDP se usan arrays de bytes
+        byte[] datosRecibidos = new byte[1024];
+        byte[] datosEnviados = new byte[0];
+
+        //Aquí el servidor está a la espera de que le llege un mensaje del cliente
+        System.out.println("Servidor esperando mensajes...");
+
+        while(true)
+        {
+            String token = "";
+
+            // Se crea un paquete de datagrama
+            //Este paquete sirve para almacenar el mensaje enviado por el cliente
+            DatagramPacket paqueteRecibido = new DatagramPacket(datosRecibidos, datosRecibidos.length);
+
+            // Se reciben los datos de un cliente
+            //Se utiliza serverSocket.recive para almacenar los datos
+            socketUDP.receive(paqueteRecibido);
+
+
+            // Se obtienen los datos de origen del paquete
+            //Aquí extraemos del propio paquete sus datos de origen para saber donde hay que mandarlos
+            InetAddress direccionIP = paqueteRecibido.getAddress();
+            int port = paqueteRecibido.getPort();
+
+
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Introduce * como señal:");
+            token = scanner.next();
+            scanner.close();
+
+
+            datosEnviados = token.getBytes();
+            // Se envía el mensaje modificado de vuelta al emisor
+            DatagramPacket sendPacket = new DatagramPacket(datosEnviados, datosEnviados.length, direccionIP, port);
+            socketUDP.send(sendPacket);
+        }
+    }
+}
