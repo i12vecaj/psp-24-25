@@ -1,0 +1,5 @@
+PORQUÉ USAR UDP Y NO UN TCP
+
+En este ejercicio se busca que los mensajes lleguen rapido y de forma costante y da igual si llegan desordenados, puede parecer que elegir un UDP es la mejor opcion pero en realidad debemos usar otro TCP, 
+ya que aunque el TCP es lento , es critico que lleguen los notificaciones a los trabajadores, y aunque el TCP sea mas lento en comparacion al UDP, la diferencia ed rapidez aquí es nula, no significa que usar TCP 
+vaya a tardar muchisimo , solo que tarda mas que el UDP, pero al ser notificaciones es importante de que lleguen si o si al destinatario
