@@ -1,0 +1,44 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.util.Arrays;
+
+public class Cliente2 {
+    public static void main(String[] args) throws Exception {
+        // Se crea un búffer para leer la entrada escrita del usuario
+        BufferedReader datosLeidosDelUsuario = new BufferedReader(new InputStreamReader(System.in));
+
+        // Se crea un datagram socket
+        DatagramSocket socketDelCliente = new DatagramSocket();
+
+        // Se obtiene la dirección localhost (donde está el servidor)
+        InetAddress direccionIP = InetAddress.getByName("localhost");
+
+        // Arrays para recibir y enviar datos
+        byte[] datosEnviados;
+        byte[] datosRecibidos = new byte[1024];
+
+        // Se lee información del usuario
+
+        String frase = "Cliente conectado";
+
+        datosEnviados = frase.getBytes();
+
+        System.out.println(Arrays.toString(datosEnviados));
+
+        // Se envía el paquete al servidor
+        DatagramPacket enviarPaquete = new DatagramPacket(datosEnviados, datosEnviados.length, direccionIP, 8000);
+        socketDelCliente.send(enviarPaquete);
+
+        // Se recibe el paquete de vuelta del servidor
+        DatagramPacket recbirPaquete = new DatagramPacket(datosRecibidos, datosRecibidos.length);
+        socketDelCliente.receive(recbirPaquete);
+        String fraseCambiada = new String(recbirPaquete.getData());
+
+        // Se imprime el mensaje modificado
+        System.out.println("Respuesta desde el servidor:" + fraseCambiada);
+
+    }
+}
