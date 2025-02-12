@@ -1,1 +1,5 @@
+Tarea 4 - Programación de Sockets 4
+Criterios a), f), g), h)
+Crea un programa cliente usando sockets UDP que envíe el texto escrito desde la entrada estándar al servidor. El servidor devolverá la cadena en mayúsculas. El proceso de entrada de datos finalizará cuando el cliente introduzca un astrerisco. El servidor se encargará de procesar las cadenas de caracteres hasta recibir un asterisco.
 
+Deberás establecer un tiempo de espera de varios segundos para que el método receive() del cliente se bloquee. Controlas las excepciones de IO e indica si los paquetes se han perdido. Haz varias pruebas de la aplicación sin ejecutar el servidor y ejecutando varios clientes a la vez.
