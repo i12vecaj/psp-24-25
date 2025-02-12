@@ -1,1 +1,7 @@
+Tarea 5 - Programación de Sockets 5
+Criterios a), f), g), h)
+Crea una clase Java llamada Numeros que defina 3 atributos: uno entero, otros dos de tipo long. Crea un constructor con parámetros y otro vacío. Define los getters y setters y crea un programa cliente que introduzca por teclado el atributo entero.
 
+Después, envía este objeto a un proceso servidor para que calcule el cuadrado y el cubo del número y envíe el objeto de vuelta al cliente con los cálculos realizados, almacenándolos en los atributos oportunos.
+
+Deberás controlar todos los errores posibles (que el servidor no esté iniciado, que se produzcan excepciones o cortes abruptos del cliente o servidor, que el número introducido por pantalla por el clientea sea menor que 0, etcétera).
