@@ -1,0 +1,7 @@
+Pregunta para el estudiante:
+¿Es más conveniente utilizar TCP o UDP en este caso? Explica tu respuesta.
+
+Respuesta:
+Es mejor utilizar UDP porque en este caso las notificaciones deben enviarse de manera rapida y eficiente sin necesidad de mantener una conexion constante.
+UDP permite la transmision de mensajes sin confirmacion, lo que reduce la espera y el consumo de recursos del sistema.
+Al usar multicast, el servidor puede enviar una notificacion a multiples clientes silmuntaneamente sin establecer una conexion individual con cada uno.
