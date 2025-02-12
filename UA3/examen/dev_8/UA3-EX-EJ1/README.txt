@@ -14,3 +14,5 @@ Para salir del chat en el cliente se debe introducir la palabra salir he puesto 
 
 Para el ejercicio he usado TCP ya que se adapta mas al problema que se plantea.
 
+!!!!! 
+Jose David como te he dicho en clase el package no me dejaba poner barra normal y he tenido que cambiar a barra baja y al cambiar el nombre de los packages ahora da error tanto en este como el 2 
