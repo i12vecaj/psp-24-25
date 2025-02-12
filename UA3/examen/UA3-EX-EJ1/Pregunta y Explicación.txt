@@ -5,8 +5,8 @@ UDP es más rápido, pero puede perder mensajes o enviarlos desordenados, lo que
 
 Expliación del Código:
 El código tiene una estructura básica de un servidor y un cliente.
-El servidor lo levantamos con una terminal (java ServidorChat) cuando este este acitvo abrimos otra terminal
+El servidor lo levantamos con una terminal (java ServidorChat) cuando este este activo, abrimos otra terminal a parte,
 para ingresar los usuarios (java ClienteChat) y poder comunicarse con el servidor.
-Para ver el funcinamiento completo, abre 3 terminales, una para el servidor y dos para los clientes, 
+Para ver el funcinamiento completo, recomiendo abrir 3 terminales, una para el servidor y dos para los clientes, 
 y verás como en la terminal del servidor se muestran los mensajes de los clientes.
 (SI NO LE FUNCIONA IMPORTE LAS CLASES PRIMERO javac *.java)
