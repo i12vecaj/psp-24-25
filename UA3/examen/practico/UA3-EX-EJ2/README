@@ -1,1 +1,26 @@
+¿Es más conveniente utilizar TCP o UDP en este caso? Explica tu respuesta.
 
+
+   Es mas conveniente utilizar UDP en este caso. Ya que nos han especificado que no es crítico que todas las notificaciones lleguen en orden
+   o sean confirmadas, pero sí que sean enviadas de manera eficiente.
+
+   Es decir, utilizar TCP te hace un medio de comunicacion más seguro que UDP por varios motivos, uno de ellos
+   puede ser la necesidad de tener a dos dispositivos conectado como minimo para poder empezar una comunicacion, otra es que garantiza la llegada de
+   esos paquetes enviados; en cambio con UDP puede ser que se pierdan por el camino, pero es un sistema más rapido.
+
+
+
+Explicación:
+
+
+Modo de ejecución: Se ejecutan el servidor y múltiples clientes por separado.
+
+Servidor:
+Usa UDP para enviar notificaciones sin necesidad de conexiones persistentes.
+Permite ingresar mensajes manualmente y los envía a todos los clientes.
+Usa broadcast (255.255.255.255) para alcanzar múltiples clientes simultáneamente.
+
+Cliente:
+Escucha continuamente notificaciones en el puerto especificado.
+Recibe y muestra mensajes en tiempo real sin necesidad de responder.
+No mantiene una conexión activa con el servidor, solo recibe mensajes cuando llegan.
