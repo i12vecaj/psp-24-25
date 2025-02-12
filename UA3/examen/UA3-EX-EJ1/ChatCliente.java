@@ -9,17 +9,10 @@ public class ChatCliente {
     public static void main(String[] args) throws IOException {
 
         // Creamos un socket para enviar y recibir mensajes
-        DatagramSocket socket = new DatagramSocket();
-
-        // Creamos un búfer para recibir mensajes
+        DatagramSocket socket = new DatagramSocket();   
         byte[] buffer = new byte[1024];
-
-        // Creamos un búfer para enviar mensajes
         byte[] envio = new byte[1024];
-
-        // Creamos un Scanner para leer la entrada del usuario
         Scanner scanner = new Scanner(System.in);
-
         while (true) {
             // Pedimos al usuario que introduzca un mensaje
             System.out.print("Introduce un mensaje: ");
@@ -37,7 +30,7 @@ public class ChatCliente {
                 break;
             }
         }
-        // Cerramos el socket
+        // Cerrar socket
         socket.close();
     }
 }
