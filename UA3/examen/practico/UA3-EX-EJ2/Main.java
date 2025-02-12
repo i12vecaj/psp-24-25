@@ -1,3 +1,16 @@
+/*
+   ¿Es más conveniente utilizar TCP o UDP en este caso? Explica tu respuesta.
+
+
+   Es mas conveniente utilizar UDP en este caso. Ya que nos han especificado que no es crítico que todas las notificaciones lleguen en orden
+   o sean confirmadas, pero sí que sean enviadas de manera eficiente.
+
+   Es decir, utilizar TCP te hace un medio de comunicacion más seguro que UDP por varios motivos, uno de ellos
+   puede ser la necesidad de tener a dos dispositivos conectado como minimo para poder empezar una comunicacion, otra es que garantiza la llegada de
+   esos paquetes enviados; en cambio con UDP puede ser que se pierdan por el camino, pero es un sistema más rapido.
+
+*/
+
 import java.net.*;
 import java.util.Scanner;
 
