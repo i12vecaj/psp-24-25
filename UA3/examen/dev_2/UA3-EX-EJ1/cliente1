@@ -1,0 +1,30 @@
+import java.io.*;
+import java.net.*;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class cliente1{
+    public static void main(String[] arg) throws IOException {
+        String Host = "localhost";
+        int Puerto = 5000;// Puerto
+
+        Socket Cliente = new Socket(Host, Puerto);
+        InetAddress i = Cliente.getInetAddress();
+        try {
+            Socket cliente1 = new Socket(Host,Puerto);
+            DataOutputStream flujoSalida = new DataOutputStream(cliente1.getOutputStream());
+            DataInputStream flujoEntrada = new DataInputStream(cliente1.getInputStream());
+
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Introduce un mensaje:");
+            String mensaje = scanner.next();
+            scanner.close();
+
+            flujoSalida.writeUTF(mensaje);
+            System.out.println(flujoEntrada.readUTF());
+        }
+        catch (Exception e){
+            System.out.println("No se ha podido crear el socket");
+        }
+    }
+}
