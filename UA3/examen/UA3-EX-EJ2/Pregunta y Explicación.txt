@@ -11,3 +11,6 @@ Explicación del Código:
 El código es muy similar al otro, el cambio más grande es que uso el modelo UDP en vez del TCP.
 La estructura es casi la misma de cliente servidor.
 Levanto el servidor y conecto el cliente al servidor y este lo notifica, sin más complicación.
+Se compila de la misma forma que el otro abre dos terminales y ejecutas el Servidor y despues el Cliente,
+si no le va pruebe a reiniciar el ordenador para liberar los puertos, que pueden que estén ocupados y por eso
+no compila como debería.
