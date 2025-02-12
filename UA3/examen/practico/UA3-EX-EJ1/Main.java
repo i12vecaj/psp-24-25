@@ -1,26 +1,3 @@
-/* ¿Es más conveniente utilizar TCP o UDP en este caso? Explica tu respuesta.
-
-En este caso, TCP es más conveniente porque garantiza que los mensajes lleguen completos, en orden y sin pérdidas.
-Lo cual es esencial para un chat en tiempo real.
-
-
-Explicación:
-Modo de ejecución : Al ejecutar el programa, se pide si se quiere actuar como servidor ( S) o cliente ( C).
-
-Servidor :
-Se ejecuta en un bucle infinito esperando conexiones de clientes.
-Usa ControladorClientes, hilos para manejar múltiples clientes.
-Al recibir un mensaje, lo reenvía a todos los clientes conectados.
-
-Cliente :
-Se conecta al servidor y envía mensajes.
-Puede recibir mensajes en tiempo real.
-Para salir, envía "SALIR"y cierra la conexión.
-Se pueden ejecutar varios clientes a la vez para poder hablar en el chat🚀
-
-*/
-
-
 import java.io.*;
 import java.net.*;
 import java.util.*;
