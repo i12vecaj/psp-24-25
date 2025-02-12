@@ -4,7 +4,7 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.util.Scanner;
 
-public class ChatCliente {
+public class ChatCliente1 {
 
     public static void main(String[] args) throws IOException {
 
