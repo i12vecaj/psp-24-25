@@ -1,0 +1,1 @@
+En este caso veo más conveniente utilizar TCP ya que como es para un chat que el servidor controla maneja mucha información de muchos clientes aunque la información sea más lenta de transmitir es más segura y no se pierden los paquetes ni se desordena la información.
