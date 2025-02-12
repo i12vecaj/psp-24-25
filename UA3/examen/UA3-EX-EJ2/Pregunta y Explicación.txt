@@ -1,0 +1,13 @@
+Pregunta para el estudiante:
+¿Es más conveniente utilizar TCP o UDP en este caso? Explica tu respuesta.
+En este caso, UDP es más adecuado porque:
+    No necesita conexión persistente.
+    Es más rápido y eficiente, ideal para notificaciones rápidas.
+    Permite enviar mensajes a múltiples clientes simultáneamente (broadcast).
+    La pérdida de mensajes no es crítica, por lo que la fiabilidad de TCP no es necesaria.
+    UDP cumple con los requisitos del sistema de forma más eficiente que TCP.
+    
+Explicación del Código:
+El código es muy similar al otro, el cambio más grande es que uso el modelo UDP en vez del TCP.
+La estructura es casi la misma de cliente servidor.
+Levanto el servidor y conecto el cliente al servidor y este lo notifica, sin más complicación.
