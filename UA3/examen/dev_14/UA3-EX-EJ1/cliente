@@ -1,1 +1,96 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.io.*;
+import java.net.Socket;
+
+public class ClienteTCP {
+    private JFrame frame;
+    private JTextArea textArea;
+    private JTextField textField;
+    private JButton sendButton;
+    private PrintWriter salida;
+    private BufferedReader entrada;
+    private String nombreUsuario;
+
+    public ClienteTCP() {
+        obtenerNombreUsuario();
+//diseño de la ventana
+        frame = new JFrame("Chat - " + nombreUsuario);
+        frame.setSize(400, 300);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(new BorderLayout());
+
+        textArea = new JTextArea();
+        textArea.setEditable(false);
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        frame.add(scrollPane, BorderLayout.CENTER);
+
+        JPanel panel = new JPanel(new BorderLayout());
+        textField = new JTextField();
+        sendButton = new JButton("Enviar");
+
+        panel.add(textField, BorderLayout.CENTER);
+        panel.add(sendButton, BorderLayout.EAST);
+        frame.add(panel, BorderLayout.SOUTH);
+
+        sendButton.addActionListener((ActionEvent e) -> enviarMensaje());
+
+        conectarServidor();
+        frame.setVisible(true);
+    }
+//esto es para que aparezca una ventanita para obtener el nombre del cliente
+    // es como si pusieramos un print y un scand en el terminal
+    private void obtenerNombreUsuario() {
+        nombreUsuario = JOptionPane.showInputDialog(null, "Ingrese su nombre:", "Nombre de usuario", JOptionPane.QUESTION_MESSAGE);
+        //se envia el nombre al servidor
+        if (nombreUsuario == null || nombreUsuario.trim().isEmpty()) {
+            nombreUsuario = "Anónimo";
+        }
+        //si el cliente no indica nada automaticamente será anonimo
+    }
+
+    private void conectarServidor() {
+        try {
+            //conexion al servidor
+            Socket socket = new Socket("localhost", 12345);
+            entrada = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            salida = new PrintWriter(socket.getOutputStream(), true);
+
+
+            salida.println(nombreUsuario);
+
+            Thread hiloRecepcion = new Thread(() -> {
+                try {
+                    String mensaje;
+                    //envio de mensajes
+                    while ((mensaje = entrada.readLine()) != null) {
+                        textArea.append(mensaje + "\n");
+                        if (mensaje.equals("SALIR")) {
+                            break;
+
+                        }
+                    }
+                } catch (IOException e) {
+                    textArea.append("Error al recibir mensajes.\n");
+                }
+            });
+            hiloRecepcion.start();
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(frame, "No se pudo conectar al servidor.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+//clase para enviar los mensajes
+    private void enviarMensaje() {
+        String mensaje = textField.getText();
+        if (!mensaje.isEmpty()) {
+            salida.println(mensaje);
+            textField.setText("");
+        }
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(ClienteTCP2::new);
+    }
+}
 
