@@ -1,0 +1,24 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.*;
+import java.util.Arrays;
+import java.util.Scanner;
+
+//Para este caso me parece mas optimo el uso de TCP ya que no es necesaria la necesidad de tener una alta velocidad en la transferencia de datos, además el servidor debe cnocer quien le está enviando el mensaje para no reenvierselo y poder conmunicarselo al resto de clientes.
+//En este programa se que debo dejar el servidor en escucha y a la espera de que alguno de los clientes envie un mensaje, betener de dicho mensaje la direccion de origen y enviarsela a todos menos dicha IP utilizando los métodos específicos de TCP
+//He hecho el comentario previo ya que estoy siendo incapaz de concetrarme o de visualizar el codigo, pero quería al menos que pueda ver que la lógica para desarrollar el ejercicio la tengo pero he tenido un bloqueo por los nervios
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        int Puerto = 5000;// Puerto
+        ServerSocket Servidor = new ServerSocket(Puerto);
+        System.out.println("El puerto de escucha es el: " + Servidor.getLocalPort());
+        Socket cliente1 = Servidor.accept();
+        System.out.println("Cliente 1 conectado");
+        Socket cliente2 = Servidor.accept();
+        System.out.println("Cliente 2 conectado");
+
+        Servidor.close();
+    }
+}
