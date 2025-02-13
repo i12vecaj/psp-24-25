@@ -1,3 +1,14 @@
+/*****************************************************
+ *                   REVISIÓN EXAMEN                 *
+ *---------------------------------------------------*
+ * Fecha revisión: 13/02/2025                                  *
+ *---------------------------------------------------*
+ * Observaciones:                                   *
+ * Dani, enhorabuena por tus soluciones. Lo has hecho genial, sigue así. *
+ *                                                 *
+ *                                                 *
+ *****************************************************/
+
 # Ejercicio 1
 
 This exercise simulates a real-time chat with 3 clients. Each client consists of a ChatBox, a Send button and 
