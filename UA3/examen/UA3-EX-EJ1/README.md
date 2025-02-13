@@ -1,13 +1,4 @@
-/*****************************************************
- *                   REVISIÓN EXAMEN                 *
- *---------------------------------------------------*
- * Fecha revisión: 13/02/2025                                  *
- *---------------------------------------------------*
- * Observaciones:                                   *
- * Dani, enhorabuena por tus soluciones. Lo has hecho genial, sigue así. *
- *                                                 *
- *                                                 *
- *****************************************************/
+# Revisión JD: enhorabuena por tus soluciones Dani.
 
 # Ejercicio 1
 
