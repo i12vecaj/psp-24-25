@@ -1,3 +1,14 @@
+/*****************************************************
+ *                   REVISIÓN EXAMEN                 *
+ *---------------------------------------------------*
+ * Fecha revisión: 13/02/2025                                  *
+ *---------------------------------------------------*
+ * Observaciones:                                   *
+ * Idem que el anterior. *
+ *                                                 *
+ *                                                 *
+ *****************************************************/
+
 # Ejercicio 2
 
 This exercise serves as a "Notificator", where NotificationClient has to be executed first,
