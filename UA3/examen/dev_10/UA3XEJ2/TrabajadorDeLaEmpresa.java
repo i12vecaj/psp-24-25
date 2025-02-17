@@ -1,3 +1,5 @@
+//Revisado por JD: 17/02/25
+
 import java.net.*;
 
 public class TrabajadorDeLaEmpresa {
