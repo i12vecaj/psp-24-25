@@ -1,4 +1,4 @@
-
+//Revisado por JD 17/01/2024
 
 //Para este ejercicio usaré UDP ya que la perdida de paquetes no es un problema reseñable, además de que se premia la alta velocidad que UDP proporciona
 //En este ejerccio soy capaz de enviar un "token" o señal pero a la hora de querer reenviar otro para una segunda notificacion el programa me da error y no estoy siendo capaz de solucionarlo
