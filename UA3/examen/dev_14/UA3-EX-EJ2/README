@@ -1,3 +1,5 @@
+//Revisado por JD: 18/12/2025
+
 PORQUÉ USAR UDP Y NO UN TCP
 
 En este ejercicio se busca que los mensajes lleguen rapido y de forma costante y da igual si llegan desordenados, puede parecer que elegir un UDP es la mejor opcion pero en realidad debemos usar otro TCP, 
