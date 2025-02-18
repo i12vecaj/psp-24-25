@@ -1,3 +1,5 @@
+//Revisado por JD: 18/12/2025
+
 Hemos elegido UDP para hacer nuestro sistema de notificaciones ya que lo que queremos es rapidez, ademas de eso tiene las siguientes ventajas:
 
 No se necesita conexión para enviar o recibir datos, por lo que las aplicaciones y los sistemas operativos funcionan más rápido.
