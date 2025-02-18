@@ -1,3 +1,5 @@
+//Revisado por JD: 18/12/2025
+ 
  Hemos elegido TCP para hacer nuestro chat ya que es lo mejor para mandar mensajes de texto, ademas de que tiene las siguientes ventajas:
 
 Establece y mantiene una conexión entre emisor y receptor.
