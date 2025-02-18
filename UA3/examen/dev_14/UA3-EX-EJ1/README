@@ -1,3 +1,5 @@
+//Revisado por JD: 18/12/2025
+
 Mi solucion es como cualquier otro ejercicio de conexiones TCP con multiples clientes pero con la diferencia 
 de que en enviar el mensaje al cliente que lo ha enviado , el servidor envia el mensaje a todos los clientes presentes cuando se ha enviado ese mensaje
 se ha añadido la funcion de que al enviar SALIR el servidor avisa a todos los clientes , incluido al que lo ha enviado , de que ese cliente ha salido del servidor 
