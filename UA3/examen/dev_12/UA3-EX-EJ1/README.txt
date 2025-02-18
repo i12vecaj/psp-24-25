@@ -1,3 +1,5 @@
+Revisado por JD: 18/02/2025
+
 Primeramente decir que he escogido la tecnologia UDP para que sea mas rapido y eficiente, puesto que en este caso en localhost
 no tendremos problemas en la perdida de paquetes
 
