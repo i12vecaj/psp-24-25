@@ -13,6 +13,7 @@ package Ejercicio1;
 * */
 
 /*
+REVISADO POR JD: 19/02/2025
 * En este caso veo correcto utilizar el modelo TCP/IP, ya que es esencial que el servidor y cliente estén conectados,
 * además de que es importante evitar la pérdida de información en los sistemas de mensajería.
 *
