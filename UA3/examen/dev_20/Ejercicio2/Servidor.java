@@ -1,6 +1,7 @@
 package Ejercicio2;
 
 /*
+REVISADO POR JD: 19/02/2025
 * En este caso es más conveniente usar udp, ya que es primordial la velocidad sin necesidad de conexión persistenete
 *
 * En este caso he cumplido con casi todos los requisitos excepto recibir la alerta externa que no entiendo muy bien como recibirla si el servidor no espera recibir datos
