@@ -1,1 +1,0 @@
-Para que todo funciones necesitas abrir primero el filezilla server, luego cambiar en todos los sitios que pone usuario y contraseña cambiarla por el usuario de la cuenta de tu Windows y la contraseña.
