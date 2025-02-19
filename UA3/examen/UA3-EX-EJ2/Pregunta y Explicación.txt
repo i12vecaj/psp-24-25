@@ -1,3 +1,5 @@
+//Revisado por JD: 19/02/25
+
 Pregunta para el estudiante:
 ¿Es más conveniente utilizar TCP o UDP en este caso? Explica tu respuesta.
 En este caso, UDP es más adecuado porque:
