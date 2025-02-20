@@ -1,5 +1,6 @@
 import java.net.*;
-// ALEJANDRO SANCHEZ QUESADA
+////Revisado por JD: 20/02/2025 
+//ALEJANDRO SANCHEZ QUESADA
 // EN MI CASO HE USADO UDP PORQUE: es mucho mas rapido que tcp ya que puede enviar multiples mensajes a clientes sin que tenga que confirmar ya que el tcp si tendria que confirma y seria mas lento , tambien tcp tiene un orden y llegaria mas lento.
 public class mensajesservidor {
     public static void main(String[] args) throws Exception {
