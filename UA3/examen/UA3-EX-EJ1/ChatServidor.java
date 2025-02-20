@@ -1,7 +1,8 @@
 import java.io.*;
 import java.net.*;
 import java.util.*;
-// Nombre: Alejandro Sanchez Quesada
+////Revisado por JD: 20/02/2025 
+//Nombre: Alejandro Sanchez Quesada
 // Respuesta a mi solucion de lo que yo creo  en este caso mejor usa el TCP:
 // Ya que tienen un orden de los mensajes y te garantiza que te va llegar los mensaje , porque en el caso de udp no tiene un orden de mensajes y encima lo mas importante que no llega con seguridad el mensaje.
 public class ChatServidor {
