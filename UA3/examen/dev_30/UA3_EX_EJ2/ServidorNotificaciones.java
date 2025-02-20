@@ -4,7 +4,7 @@ import java.io.*;
 import java.net.*;
 
 public class ServidorNotificaciones {
-
+////Revisado por JD: 20/02/2025
     //Considero que el mejor protocolo par usar en estos casos es el protocolo UDP, ya que lo que queremos es rapidez sin importar la perdida de datos
     // ya que se trata de enviar mensajes
     // a todos los clientes que esten esperando un mensaje del servidor, y no hay necesidad de que los clientes envien mensajes al servidor como confirmación
