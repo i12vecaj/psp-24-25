@@ -1,3 +1,5 @@
+//Revisado por JD: 20/02/2025
+
 E elegido usar un servidor porque es mas facil de entender y de implementar el cliente y el servidor que con tcp ademas de que es mas rapido y eficiente para enviar mensajes cortos como los que se usan en un chat con un cliente y un servidor como este 
 
 
