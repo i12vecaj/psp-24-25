@@ -1,3 +1,5 @@
+//Revisado por JD: 20/02/2025
+
 **¿Es más conveniente utilizar TCP o UDP en este caso? Explica tu respuesta.**
 
 Para este caso es recomendable usar UDP, ay que no nos importa si las notificaciones, llegan en orden, o bien, que se nos pueda perder alguna por el camino.
