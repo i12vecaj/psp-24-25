@@ -1,0 +1,88 @@
+Conceptos básicos sobre hilos (1 punto):
+
+a) Define qué es un hilo en Java y cómo se relaciona con la multitarea.
+
+    Un hilo en Java es como una tarea, la cual, nos ayuda al funcionamiento de la multitarea, o mejor dicho, el multihilo.
+    Esta tarea funciona en segundo plano, mientras que el main corre en primer plano, también puede no ejecutarse en segundo plano
+    si la bloqueas con un sleep.
+
+
+b) Menciona dos diferencias entre la interfaz Runnable y la clase Thread.
+
+    La clase Thread, es una clase la cual extiende de un hilo, este se marca con "extend Thread", 
+    mientras que la interfaz Runnable, es una interfaz la cual se marca con "implement Runnable.
+
+    Otra diferencia sería que la clase Thread, se le puede implementar un método run(), mientras que en la 
+    Runnable, no.
+
+Sincronización (1 punto):
+
+a) Explica qué es la sincronización de hilos y por qué es necesaria en Java.
+
+    La sincronización de hilos se puede conseguir con una función denomida, por ejemplo, "public synchronized void",
+    esta función, no permite que dos hilos accedan a la misma variable al mismo tiempo, sino que, obliga a que 
+    uno termine su ejecución para que el otro pueda proceder a la suya, dando así un resultado, pues más correcto.
+
+    Un ejemplo sería una práctica que hicimos de agregar dinero a un banco, algo por el estilo, y por ejemplo, se podía ver 
+    como, cuando no añadías el synchronized, las introducciones de dinero y salidas actuaban como querían, mientras que al ponerlo
+    estas eran como más secuenciales, es decir, aparecía primero dinero en el banco, luego el ingreso y finalmente el total.
+
+
+
+b) ¿Qué problemas pueden surgir si no se sincronizan adecuadamente los hilos?
+
+    Como he comentando anteriormente, si no se sincronizan adecuadamente los hilos, se pueden producir problemas como, 
+    por ejemplo, que el dinero de las salidas y entradas pues no salgan correctamente, sino que van como quieren sin respetar un orden
+    ya que no espera a que acabe un hilo para que empiece otro.
+
+
+
+Estados de un hilo (1 punto):
+
+a) Nombra y describe brevemente los principales estados de un hilo en su ciclo de vida.
+
+    El ciclo de vida sería:
+        1. Creacion del hilo.
+        2. Ejecucion del mismo.
+        3. Pausa del hilo (si se desea).
+        4. Muerte del hilo.
+
+
+
+b) ¿Qué método en Java se utiliza para pausar un hilo por un tiempo específico?
+
+    Para pausar un hilo se puede usar un sleep, el método sería "Thread.sleep()" y entre paréntesis pones los milisegundos 
+    que quieras que este se frene, por ejemplo si son 3 segundos, pues al cambio serían 3000 milisegundos.
+
+
+
+Bloques sincronizados y monitores (1 punto):
+
+a) ¿Qué es un monitor en Java?
+
+
+b) Explica cómo se utiliza el bloque synchronized para garantizar acceso exclusivo a un recurso.
+
+    Se pone el synchronized antes de la función que se quiere que sea exclusiva, por ejemplo, "public synchronized void ".
+
+
+Métodos avanzados en hilos (1 punto):
+
+a) ¿Qué diferencia existe entre los métodos wait(), notify(), y notifyAll() en Java?
+
+    Los métodos wait(), notify() y notifyAll() son utilizados para hacer que un hilo, espere a ser avisado por otro,
+    para que pueda seguir con su ejecución. El método wait() hace que el propio hilo espere a ser notificado, el método notify()
+    notifica a otro hilo para que este se ejecute y por último, el método notifyAll() notifica a todos los hilos que estén esperando.
+
+b) Explica un caso práctico donde utilizarías estos métodos para resolver un problema de concurrencia.
+
+    Quiero simular el tipico movil o cacharro de los bares para mandar la comanda a cocina, para ello, se necesita que el hilo
+    el cual se encarga de mandar la comanda, espere a que el hilo que se encarga del pedido termine, para que pueda seguir con
+    la comanda, pues para eso usaria el método wait(), el cual, me va a hacer que el hilo que se encarga del pedido termine, 
+    para que pueda seguir con la comanda, y el método notify(), para que el hilo que se encarga de la comanda, pueda proceder a
+    su ejecución.
+
+    Y el metodo notifyAll(), pues en este ejemplo no me serviría, pero si alomejor necesitara que en vez de que vaya a cocina 
+    vaya tambíen a la barra, pues puede ser que en vez de utilizar notify() a secas, usara notifyAll().
+
+
