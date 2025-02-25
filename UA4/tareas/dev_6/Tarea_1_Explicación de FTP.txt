@@ -1,0 +1,9 @@
+Explicación de FTP:
+
+Para que nuestro código funcione correctamente, primero debemos iniciar FileZilla Server.
+
+Después, abrimos nuestro proyecto en el editor y revisamos si hay algún problema de formato para corregirlo.
+
+Ahora, en los archivos relacionados con FTP (Crear, Subir, Descargar archivo y clienteftp2), veremos que en algunas partes del código nos pide un usuario y una contraseña. En esos lugares, debemos escribir el usuario y la contraseña de nuestra cuenta de Windows.
+
+Así, podremos conectarnos correctamente al servidor y utilizar las funciones de FTP.
