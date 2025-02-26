@@ -1,0 +1,9 @@
+Para que el codigo funcione debemos : 
+
+1. Inicializar filezilla.
+
+2.Arreglar los errores ya se por verison o formato del proyecto
+
+3.Cambiar los codigos de los archivos FTP donde pone usuario y contraseña y poner el de tu ordenador.
+
+4. Ya deberia funcionar al ejecutarlo
