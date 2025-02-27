@@ -1,0 +1,33 @@
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class EscucharSocket {
+    public static void main(String[] args) throws Exception {
+        ServerSocket serverSocket = new ServerSocket(5000);
+        System.out.println("Servidor iniciando.");
+
+        for (int i = 0; i < 2; i++) {
+            Socket cliente = serverSocket.accept();
+            System.out.println("\nCliente " + (i+1) + " conectado:");
+            System.out.println("Puerto local del servidor: " + cliente.getLocalPort());
+            System.out.println("Puerto remoto del cliente: " + cliente.getPort());
+        }
+        serverSocket.close();
+    }
+}
+
+/--------------------------------------------------------------------------------------------------------/
+
+
+import java.net.Socket;
+
+public class HablaSocket {
+    public static void main(String[] args) throws Exception {
+        Socket socket = new Socket("localhost", 5000);
+        System.out.println("Conectando");
+        System.out.println("IP : " + socket.getInetAddress().getHostAddress());
+        System.out.println("Puerto local del cliente: " + socket.getLocalPort());
+        System.out.println("Puerto remoto (servidor): " + socket.getPort());
+        socket.close();
+    }
+}
