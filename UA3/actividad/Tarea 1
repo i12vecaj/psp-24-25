@@ -1,0 +1,30 @@
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.Scanner;
+
+public class URL {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String entrada;
+
+        while (true) {
+            System.out.print("Introduce URL/IP o 'localhost' para salir: ");
+            entrada = scanner.nextLine().trim();
+
+            if (entrada.equalsIgnoreCase("localhost")) {
+                System.out.println("Saliendo...");
+                break;
+            }
+
+            try {
+                InetAddress direccion = InetAddress.getByName(entrada);
+                System.out.println("URL: " + entrada);
+                System.out.println("Dirección IP: " + direccion.getHostAddress());
+                System.out.println("Nombre del host: " + direccion.getHostName() + "\n");
+            } catch (UnknownHostException e) {
+                System.out.println("Error:\n");
+            }
+        }
+        scanner.close();
+    }
+}
