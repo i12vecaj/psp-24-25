@@ -1,0 +1,54 @@
+SERVER
+
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class ServerMAY {
+    public static void main(String[] args) throws Exception {
+        ServerSocket serverSocket = new ServerSocket(6000);
+        System.out.println("Servidor iniciado...");
+
+        Socket socket = serverSocket.accept();
+        BufferedReader entrada = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        PrintWriter salida = new PrintWriter(socket.getOutputStream(), true);
+
+        String mensaje = entrada.readLine();
+        salida.println(mensaje.toUpperCase());
+
+        socket.close();
+        serverSocket.close();
+    }
+}
+
+/--------------------------------------------------------------------------------------------------------/
+
+Cliente
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class ClientMAY {
+    public static void main(String[] args) throws Exception {
+        Socket socket = new Socket("localhost", 6000);
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Introduce un mensaje: ");
+        String mensaje = scanner.nextLine();
+
+        PrintWriter salida = new PrintWriter(socket.getOutputStream(), true);
+        salida.println(mensaje);
+
+        BufferedReader entrada = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        System.out.println("Respuesta del servidor: " + entrada.readLine());
+
+        socket.close();
+        scanner.close();
+    }
+}
