@@ -1,0 +1,13 @@
+//Revisado por JD: 19/02/25
+
+¿Es más conveniente utilizar TCP o UDP en este caso? 
+En este caso veo mucho mas conveniente usar UDP porque en una conversacion de chat necesitas 
+tener rapidez y que no se queden los mensajes colgados o tardando mucho
+
+
+
+¿Que hace mi codigo?
+El código implementa un sistema de chat basado en UDP con un servidor y un cliente. 
+El ChatServer escucha mensajes de múltiples clientes y reenvía esos mensajes a todos los demás clientes conectados, excluyendo al remitente original. 
+Por otro lado, el ChatCliente permite a los usuarios enviar mensajes al servidor y recibir mensajes de otros clientes en tiempo real. 
+Ambos componentes utilizan sockets de datagramas para la comunicación, permitiendo un intercambio eficiente de mensajes en una red local.

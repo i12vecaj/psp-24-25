@@ -1,0 +1,11 @@
+//Revisado por JD: 19/02/25
+
+¿Es más conveniente utilizar TCP o UDP en este caso? 
+Aqui es mucho mas convincente utilizar TCP porque no hay necesidadde tener una conexion continua entre el cliente y el servidor
+para poder hacer lo que se pide en la actividad
+
+
+El código implementa un sistema de notificaciones rápidas utilizando TCP en Java. 
+El servidor escucha conexiones de múltiples clientes en un puerto específico y, al recibir un mensaje de un cliente, lo reenvía a todos los demás clientes conectados. 
+Cada cliente se conecta al servidor, envía mensajes y recibe notificaciones en tiempo real. 
+El manejo de conexiones y mensajes se realiza en hilos separados para permitir la comunicación simultánea entre el servidor y múltiples clientes.
