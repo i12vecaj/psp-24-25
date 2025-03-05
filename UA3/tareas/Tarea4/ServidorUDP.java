@@ -2,11 +2,11 @@ import java.io.*;
 import java.net.*;
 
 public class ServidorUDP {
-    private static final int PORT = 10045;
+    private static final int PUERTO = 10045;
 
     public static void main(String[] args) {
-        try (DatagramSocket socket = new DatagramSocket(PORT)) {
-            System.out.println(" Servidor activo en puerto " + PORT);
+        try (DatagramSocket socket = new DatagramSocket(PUERTO)) {
+            System.out.println(" Servidor activo en puerto " + PUERTO);
             byte[] buffer = new byte[1024];
             
             while (true) {
@@ -17,7 +17,7 @@ public class ServidorUDP {
                 System.out.println(" Recibido de " + packet.getAddress() + ": " + mensaje);
                 
                 if (mensaje.equals("*")) {
-                    System.out.println("🔌Cerrando servidor...");
+                    System.out.println("Cerrando servidor...");
                     break;
                 }
                 
