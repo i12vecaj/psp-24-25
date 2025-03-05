@@ -41,3 +41,8 @@ Solicitud DELETE a http://localhost:8080/api/persons/{id} para eliminar una pers
 Haz clic en "Send" para enviar la solicitud y ver las respuestas en formato JSON.
 
 Con esto la API ya se ha probado
+
+USO DE IA
+He usado la IA (ChatGPT) para hacer ingenieria inversa a partir del enunciado y el Json que aparecia en la página.
+Luego he creado la estructura del proyecto manualmente y he seguido las indicaciones de la IA.
+Por último he descargado Postman para poder probar la API en modo local y comprobar su funcionamiento
