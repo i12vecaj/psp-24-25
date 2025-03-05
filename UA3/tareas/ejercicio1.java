@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.net.URL;
 import java.net.MalformedURLException;
 
-public class ContinuousURLInfo {
+public class ejercicio1 {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
