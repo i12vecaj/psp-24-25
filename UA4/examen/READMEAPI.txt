@@ -1,0 +1,5 @@
+Para empezar con el ejemplo de API REST deberemos de crear nuestras clases, que en este caso hemos usado unas de ejemplo que estarán en el repo, pero lo importante es que debemos de activar en XAMPP el Tomcat que es el que nos permitirá visualizar archivos .war, en mi caso desde Intellij debemos de configurar todas las dependencias para que no salgan errores.
+Tendremos que ir a build>build Project, para ejecutarlo todo ya que en mi caso no hay un Main que se encargue de eso, una vez tenemos todo tenemos que ir proyect structure>artifacts y crear uno de tipo Web Application: Exploded 
+Después, en Build > Build Artifacts, selecciona el artefacto que creaste y haz clic en Build para generar el archivo .war. Este archivo se guarda en la carpeta de salida que hayas configurado, y podrás moverlo a la carpeta webapps/ de Tomcat en XAMPP.
+
+Finalmente, abre el panel de control de XAMPP, asegúrate de que Tomcat esté activado y accede a la URL correspondiente para ver tu aplicación en funcionamiento.
