@@ -1,0 +1,1 @@
+no he conseguido hacerlo porque no se que problema me estaba dando , es verdad que mi entorno de programacion es linux y hoy no me he traido el disco duro porque pensaba que iba a ser un examne teorirco , he conseguido quitarme porblemas de dependencias peor en el web.xml no me reconocia las url para poder arrncar el servidor
