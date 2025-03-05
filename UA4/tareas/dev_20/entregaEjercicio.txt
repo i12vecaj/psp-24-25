@@ -1,0 +1,4 @@
+He clonado el repositorio, he abierto la carpeta de servidorFicheros y para que funcionaran los ejemplos de servidorFicheros realmente no hay que cambiar muchas cosas, 
+en mi caso tuve que cambiar el puerto al 44441 y utilizar 127.0.0.1 en vez de localhost.
+
+
