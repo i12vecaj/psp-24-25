@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/3299e48f-4b00-4e8c-a54e-cefb67cb2d04)# API REST de Gestión de Personas
+# API REST de Gestión de Personas
 
 Este proyecto es una API REST desarrollada en Java utilizando el framework **SparkJava**. La API permite gestionar personas (crear, leer, actualizar y eliminar) y está diseñada para ser consumida desde una interfaz web simple.
 
