@@ -1,3 +1,5 @@
+//Revisado por JD: 20/02/2025
+
 **¿Es más conveniente utilizar TCP o UDP en este caso? Explica tu respuesta.**
 
 Para este caso es recomendable usar TCP, ya que queremos hacer una conexión Cliente-Servidor
