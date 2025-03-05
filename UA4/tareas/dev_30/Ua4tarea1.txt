@@ -1,0 +1,10 @@
+Ejecución de un servidor FTP- Manuel Torres Alcázar
+
+
+1- clonamos el repositorio de la asignatura.
+
+2- Nos vamos a la ruta del archivo que tenemos que ejecutar la cual es: /psp-24-25/UA4/ejemplos/servidorficheros/
+
+3- Abrimos el directorio con IntelljIdea
+
+4- Ejecutamos el fichero Servidor.java y vemos que funciona perfectamente
