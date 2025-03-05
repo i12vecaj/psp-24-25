@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Personas</title>
+</head>
+<body>
+    <h1>Lista de Personas</h1>
+    <ul id="people-list"></ul>
+
+    <script>
+        // Obtener la lista de personas desde la API
+        fetch('http://localhost:4567/people')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error en la solicitud: ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(data => {
+                const peopleList = document.getElementById('people-list');
+                peopleList.innerHTML = ''; // Limpiar la lista antes de agregar elementos
+
+                if (Object.keys(data).length === 0) {
+                    // Si no hay personas, mostrar un mensaje
+                    const listItem = document.createElement('li');
+                    listItem.textContent = 'No hay personas en la lista.';
+                    peopleList.appendChild(listItem);
+                } else {
+                    // Si hay personas, agregarlas a la lista
+                    for (const id in data) {
+                        const person = data[id];
+                        const listItem = document.createElement('li');
+                        listItem.textContent = `ID: ${person.id}, Nombre: ${person.name}`;
+                        peopleList.appendChild(listItem);
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                const peopleList = document.getElementById('people-list');
+                peopleList.innerHTML = `<li>Error al cargar la lista de personas: ${error.message}</li>`;
+            });
+    </script>
+</body>
+</html>
