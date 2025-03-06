@@ -1,0 +1,4 @@
+1- Configuramos FileZilla Server
+2- Después de configurar FileZilla Server, el siguiente paso es agregar las librerías necesarias al proyecto.
+3- Luego, esitenemos que revisar cada una de las clases para asegurarnos de que el usuario y la contraseña estén correctamente configurados en todas ellas. 
+4- Una vez hecho esto, ejecutamos la clase "Servidor" y la clase "clienteFicheros" lo que nos permite gestionar el proyecto sin inconvenientes.
