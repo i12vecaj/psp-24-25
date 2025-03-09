@@ -1,0 +1,85 @@
+
+
+Ejemplo Cifrado AES
+
+import javax.crypto.Cipher;
+import javax.crypto.KeyGenerator;
+import javax.crypto.SecretKey;
+import java.security.NoSuchAlgorithmException;
+
+public class JCAExample {
+    public static void main(String[] args) throws Exception {
+        // Generar clave AES
+        KeyGenerator keyGen = KeyGenerator.getInstance("AES");
+        keyGen.init(256); // Tamaño de clave
+        SecretKey secretKey = keyGen.generateKey();
+
+        // Cifrar un mensaje
+        Cipher cipher = Cipher.getInstance("AES");
+        cipher.init(Cipher.ENCRYPT_MODE, secretKey);
+        byte[] encrypted = cipher.doFinal("Mensaje secreto".getBytes());
+
+        // Descifrar
+        cipher.init(Cipher.DECRYPT_MODE, secretKey);
+        byte[] decrypted = cipher.doFinal(encrypted);
+
+        System.out.println("Mensaje descifrado: " + new String(decrypted));
+    }
+}
+
+
+Ejemplo Cliente HTTPS
+
+import javax.net.ssl.HttpsURLConnection;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
+
+public class JSSEExample {
+    public static void main(String[] args) throws Exception {
+        URL url = new URL("https://example.com");
+        HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
+        conn.setRequestMethod("GET");
+
+        // Leer respuesta
+        try (BufferedReader reader = new BufferedReader(
+            new InputStreamReader(conn.getInputStream()))
+        ) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line); // Contenido de la página
+            }
+        }
+    }
+}
+
+
+
+Ejemplo JAAS
+
+
+import javax.security.auth.login.LoginContext;
+import javax.security.auth.login.LoginException;
+
+public class JAASExample {
+    public static void main(String[] args) {
+        try {
+            // Configuración JAAS (archivo .config)
+            System.setProperty("java.security.auth.login.config", "jaas.config");
+            
+            LoginContext loginContext = new LoginContext("MiLogin", new SimpleCallbackHandler());
+            loginContext.login(); // Autentica al usuario
+            System.out.println("¡Autenticación exitosa!");
+        } catch (LoginException e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+    }
+}
+
+// CallbackHandler para ingresar credenciales
+class SimpleCallbackHandler implements javax.security.auth.callback.CallbackHandler {
+    @Override
+    public void handle(javax.security.auth.callback.Callback[] callbacks) {
+        // Implementar lógica para capturar usuario/contraseña
+    }
+}
