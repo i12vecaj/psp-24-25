@@ -1,0 +1,31 @@
+import javax.net.ssl.HttpsURLConnection;
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
+import java.net.URL;
+
+public class JSSEExample {
+    public static void main(String[] args) throws Exception {
+        // URL de un servidor HTTPS
+        String urlString = "https://www.google.com";
+
+        // Crear una URL y abrir una conexión HTTPS
+        URL url = new URL(urlString);
+        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+
+        // Establecer un tiempo de espera
+        connection.setConnectTimeout(5000);
+        connection.setReadTimeout(5000);
+
+        // Leer la respuesta del servidor
+        BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+        String inputLine;
+        StringBuilder response = new StringBuilder();
+        while ((inputLine = in.readLine()) != null) {
+            response.append(inputLine);
+        }
+        in.close();
+
+        // Imprimir la respuesta
+        System.out.println(response.toString());
+    }
+}
