@@ -1,0 +1,18 @@
+import javax.security.auth.login.LoginContext;
+import javax.security.auth.login.LoginException;
+
+public class JAASEjemplo {
+    public static void main(String[] args) {
+        try {
+            // Configurar el LoginContext con el nombre del módulo definido en el archivo login.config
+            LoginContext loginContext = new LoginContext("Example");
+
+            // Intentar iniciar sesión con el nombre de usuario y contraseña proporcionados
+            loginContext.login();
+            System.out.println("Autenticación exitosa.");
+
+        } catch (LoginException e) {
+            System.out.println("Autenticación fallida: " + e.getMessage());
+        }
+    }
+}
