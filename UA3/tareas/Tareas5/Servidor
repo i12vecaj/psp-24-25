@@ -1,0 +1,33 @@
+import java.io.*;
+import java.net.*;
+
+public class Servidor {
+    public static void main(String[] args) {
+        try (ServerSocket serverSocket = new ServerSocket(12345)) {
+            System.out.println("Servidor iniciado. Esperando conexion...");
+            while (true) {
+                try (Socket socket = serverSocket.accept();
+                     ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
+                     ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream())) {
+
+                    System.out.println("Cliente conectado.");
+                    Numeros numeros = (Numeros) in.readObject();
+                    if (numeros.getNumero() < 0) {
+                        System.out.println("Numero negativo recibido. Enviando error al cliente.");
+                        out.writeObject(null); 
+                    } else {
+                        long cuadrado = (long) Math.pow(numeros.getNumero(), 2);
+                        long cubo = (long) Math.pow(numeros.getNumero(), 3);
+                        numeros.setCuadrado(cuadrado);
+                        numeros.setCubo(cubo);
+                        out.writeObject(numeros);
+                    }
+                } catch (IOException | ClassNotFoundException e) {
+                    System.out.println("Error en la comunicacion con el cliente: " + e.getMessage());
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Error al iniciar el servidor: " + e.getMessage());
+        }
+    }
+}
