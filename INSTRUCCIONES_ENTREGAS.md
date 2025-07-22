@@ -2,7 +2,7 @@
 
 # INSTRUCCIONES ENTREGA
 
-En este documento se explica el procedimiento para realizar las entregas y las correcciones de ejercicios, prácticas y exámenes para la asignatura durante el cursos 2024/2025.
+En este documento se explica el procedimiento para realizar las entregas y las correcciones de ejercicios, prácticas y exámenes para la asignatura durante el curso 2025/2026.
 
 [CFGS Desarrollo de Aplicaciones Multiplaforma.](https://www.ceslopedevega.com/grado-superior-desarrollo-de-aplicaciones-multiplataforma/)
 [CES Lope de Vega](https://www.ceslopedevega.com/) en Córdoba (Andalucía, Spain).
